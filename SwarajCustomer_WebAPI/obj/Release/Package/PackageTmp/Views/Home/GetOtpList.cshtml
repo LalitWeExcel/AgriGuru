@@ -1,0 +1,66 @@
+﻿@model COVID19_Common.Entities.OtpList
+@{
+    ViewBag.Title = "Get OTP List";
+    int records = 0;
+    Layout = "";
+}
+
+<script>
+
+    function SetPagingStyles() {
+        $(document).bind('ready ajaxComplete', function () {
+            $("tfoot a").addClass('btn2 btn2-default');
+            $("tfoot td")
+                .contents()
+                .filter(function () {
+                    if (this.nodeType === 3 && this.length > 1) {
+                        return this.nodeType
+                    }
+                })
+                .wrap('<span class="btn2 btn2-primary" />');
+        });
+    }
+
+</script>
+
+@using (Html.BeginForm("GetOtpList", "User", FormMethod.Post))
+{
+    <div class="slider-container inner-left-content">
+        <div class="row">
+            <div class="col-md-12 slider">
+                <div class="table-section">
+                    <div class="table-container">
+                        <div class="table-responsive">
+                            @if (@ViewBag.Result != null)
+                            {
+                                records = ((List<COVID19_Common.Entities.OtpList>)(ViewBag.Result)).Count();
+                                WebGrid grid = new WebGrid(
+                                    canPage: false,
+                                    canSort: false,
+                                    ajaxUpdateContainerId: "grid"
+                                    );
+                                grid.Bind(ViewBag.Result, rowCount: ViewBag.TotalRecords, autoSortAndPage: true);
+                                @grid.GetHtml(
+                                    htmlAttributes: new { id = "grid" },
+                                    fillEmptyRows: false,
+                                    mode: WebGridPagerModes.All,
+                                    previousText: "<",
+                                    nextText: ">",
+                                    numericLinksCount: 5,
+                                    tableStyle: "table table-hover",
+                                    columns: new[]
+                                    {
+                                        grid.Column("MobileNumber", "Mobile Number"),
+                                        grid.Column("OTP","OTP"),
+                                    }
+                                );
+                            }
+                            else
+                            { }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

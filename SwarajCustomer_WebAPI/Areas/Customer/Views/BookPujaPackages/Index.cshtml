@@ -1,0 +1,202 @@
+﻿@model SwarajCustomer_Common.Customer.BookPujaPackagesContent
+@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidths">
+        <input type="hidden" id="hddMainProductId" />
+        <input type="hidden" id="hddServicePackageMRP" />
+        <input type="hidden" id="hddServicePackageDiscount" />
+        <input type="hidden" id="hddServicePackaDiscountedPrice" />
+
+
+
+        <input type="hidden" id="hddPackageId" />
+        <input type="hidden" id="hddPackageMRP" />
+        <input type="hidden" id="hddPackageDiscount" />
+        <input type="hidden" id="hddPackageDiscountedPrice" />
+
+
+        <div class="fullwidth">
+            @{
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;text-align:left;padding-top:20px;padding-bottom:10px;">Choose a Package</h1>
+
+                foreach (var item in Model.Masters.ServicePackageList)
+                {
+                    <div class="reviewbox">
+                        <div class="innerwidths list-group-item">
+                            <a href="#" onclick="_selectservice(this)" data-mainproductid="@item.ID" data-ServicePackagename="@item.Name" data-servicepackagemrp="@item.MRP" data-servicepackagediscount="@item.Discount" data-servicepackadiscountedprice="@item.DiscountedPrice">
+                                <div class="col-sm-4 leftimage">
+                                    <img src="@item.ImagePath" />
+                                </div>
+                                <div class="col-sm-8 righttext">
+                                    <span class="maintittle">@item.Name</span>
+                                    <span class="yearstext">@item.MRP</span>
+                                    <span class="discount">@item.DiscountedPrice</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                } }
+
+        </div>
+        <div class="fullwidth">
+            @{
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;text-align:left;padding-top:20px;padding-bottom:10px;">Our Promise</h1>
+                <div class="fullwidths">
+                    <ul class="liststyle">
+                        <li>Vedic professional and experienced purohits</li>
+                        <li>All rituals follow vedic standards and procedures</li>
+                        <li>High Quailty samagri to ensure a pleasant puja experience </li>
+                        <li>Guaranteed Punctuallty and Authenticity</li>
+                        <li>Professional Guidance and support</li>
+                    </ul>
+                </div>
+
+
+
+                foreach (var item in Model.Masters.PackageList)
+                {
+                    <div class="col-sm-4">
+                        <div style="cursor:pointer" class="whiteinner list-group-package" onclick="_selectpackage(this)"
+                             data-packageid="@item.ID"
+                             data-packagemrp="@item.MRP"
+                             data-packagediscount="@item.Discount"
+                             data-packagediscountedprice="@item.DiscountedPrice">
+
+                            <p class="mainame">@item.Name </p>
+                            <span class="itemstexts">@item.NoOfPandit Purohit ji Daskshina </span>
+                            <p class="mainame">Puja Samagries </p>
+                            <span class="itemstexts">Purohit ji Availabilty Duration will be for 2-4 hrs. </span>
+
+                            <button class="btn btn-danger No" data-dismiss="modal" data-name="@item.Name" data-description="@item.Description" data-note="@item.Note" onclick="OpenPopup(this)">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+        <div class="buttonsenterbox margintops">
+            <button class="btn btn-success yes" id="btn_save" onclick="SelectAndProceed()">Select & proceed</button>
+        </div>
+    </div>
+
+    <div id="logoutModal1" class="modal detailspop" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><span class="" id="Name"></span></h4>
+                    <button type="button" id="closechassismodel" class="close" data-dismiss="modal"><img src="~/Content/images/croxxicon.png" /></button>
+                </div>
+                <div class="modal-body">
+                    <div class="fullwidth">
+                        <div class="col-sm-12 searchbox">
+                            <span class="middletextss" id="Description"></span>
+                            <p class="middletexthead">Procedure involved</p>
+                            <span class="middletextss">
+                                @{ foreach (var item in Model.Masters.PackageList.Take(1))
+                                    { @Html.Raw(string.Join(" * ", item.Procedureinvolve.Select(s => string.Format("<span>{0}</span>", s.Name)))) } }
+                            </span>
+
+                            <span class="notestext" id="Note"></span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/function.js"></script>
+<script src="~/Areas/Customer/Scripts/active.js"></script>
+
+<script>
+
+    function SelectAndProceed() {
+        var isValid = true;
+        var MainProductId = $("#hddMainProductId").val();
+        var PackageId = $("#hddPackageId").val();
+   
+        if (MainProductId == 0 || MainProductId == "" || MainProductId == NaN) {
+            displayMessage('Please Select Package', 'error');
+            isValid = false;
+        }
+        else if (PackageId == 0 || PackageId == "" || PackageId == NaN) {
+            displayMessage('Please Select Service', 'error');
+            isValid = false;
+        }
+        if (!isValid) {
+            $(window).scrollTop(0);
+            return false;
+        } else {
+            var PackageMRP = $("#hddServicePackageMRP").val();
+            var PackageDiscount = $("#hddServicePackageDiscount").val();
+            var PackaDiscountedPrice = $("#hddServicePackaDiscountedPrice").val();
+
+            location.href = '@Url.Action("_Index", "BookPujaPackages", new { Area = "Customer" })'
+                + "?MainProductId=" + parseInt(MainProductId)
+                + "&PackageId=" + parseInt(PackageId)
+                + "&PackageMRP=" + PackageMRP
+                + "&PackageDiscount=" + PackageDiscount
+                + "&PackageDiscountedPrice=" + PackaDiscountedPrice;
+        }
+    }
+
+
+
+    function _selectservice(_object) {
+        $("#hddMainProductId").val($(_object).data("mainproductid"));
+        $("#hddServicePackageMRP").val($(_object).data("servicepackagemrp"));
+        $("#hddServicePackageDiscount").val($(_object).data("servicepackagediscount"));
+        $("#hddServicePackaDiscountedPrice").val($(_object).data("servicepackadiscountedprice"));
+    }
+
+    function _selectpackage(_object) {
+        $("#hddPackageId").val($(_object).data("packageid"));
+        $("#hddPackageMRP").val($(_object).data("packagemrp"));
+        $("#hddPackageDiscount").val($(_object).data("packagediscount"));
+        $("#hddPackageDiscountedPrice").val($(_object).data("packagediscountedprice"));
+    }
+
+    function OpenPopup(_object) {
+        $("#Name").html($(_object).data("name"));
+        $("#Description").html($(_object).data("description"));
+        $("#Note").html($(_object).data("note"));
+        $("#logoutModal1").modal("show");
+    }
+</script>
+
+<style>
+    .yearstext {
+        width: auto;
+        margin: 0;
+        text-decoration: line-through;
+        margin-right: 10px;
+        position: relative;
+        top: 6px;
+    }
+
+    span#spnService {
+        width: 100%;
+        float: left;
+        font-size: 15px;
+        color: red;
+        font-weight: bold;
+    }
+
+    .discount {
+        color: #b50000;
+        width: auto;
+        display: inline-block;
+        font-size: 20px;
+    }
+</style>

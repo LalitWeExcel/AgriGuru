@@ -1,0 +1,234 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Manage Payments";
+    ViewBag.Menu = "Dashboard";
+    ViewBag.SubMenu = "Index";
+}
+<div class="col-sm-9 rightbox">
+    <div class="fullwidth top">
+        <div class="table-heading padding">
+            <div class="col-md-8" style="padding-left:0;">
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;padding-left: 15px;">@ViewBag.Title</h1>
+            </div>
+            <div class="col-md-4 exportnew">
+                <input type="button" value="Export To Excel" style="cursor:pointer" onclick="exportInExcel();return false;" id="save_excel" class="excels export btn" title="Export To Excel">
+            </div>
+        </div>
+
+    </div>
+    <div class="barwidths" id="adminDashboardLeads">
+        <div class="col-sm-12 searchfilter">
+            <div class="datefilter">
+                <div class="input-group date" id="datetimepicker2">
+                    <input type="text" class="form-control date-picker-textbox hasDatepicker" id="startdate_id" placeholder="startdate" readonly />
+                    <img src="~/Content/images//caleder.png" style="height:15px;width:15px">
+                </div>
+                <span class="to">To</span>
+                <div class="input-group date" id="datetimepicker1">
+                    <input type="text" class="form-control date-picker-textbox hasDatepicker" id="enddate_id" placeholder="enddate" readonly />
+                    <img src="~/Content/images//caleder.png" style="height:15px;width:15px">
+                </div>
+            </div>
+            <div class="col-sm-3 searchbox1 newlabel">
+                <label>Status</label>
+                <select class="form-control selectoption" id="ddPaymentStatus" name="PaymentStatus">
+                    <option value="" selected>All</option>
+                    <option value="S">Success</option>
+                    <option value="F">Failed</option>
+                </select>
+            </div>
+            <div class="col-sm-3 searchbox1 newlabel">
+                <label>Mode</label>
+                <select class="form-control selectoption" id="ddPaymentMode" name="PaymentMode">
+                    <option value="" selected>All</option>
+                    <option value="netbanking">Net Banking</option>
+                    <option value="upi">Upi</option>
+                    <option value="card">Card</option>
+                    <option value="wallet">Wallet</option>
+                </select>
+            </div>
+            <div class="col-sm-3 searchbox">
+                <label>State </label>
+                <select class="form-control selectoption" id="ddState" name="ddState"></select>
+            </div>
+            <div class="col-sm-3 searchbox" style="padding-left:0;">
+                <label>District </label>
+                <select class="form-control selectoption" id="ddDistrict" name="ddDistrict"></select>
+            </div>
+            <div class="col-sm-3 searchbox1 newlabel">
+                <label>Search :</label>
+                <input type="text" class="form-control formtext" id="txt_search" placeholder="" />
+            </div>
+
+
+            <div class="searchresult" style="    padding: 0 15px;">
+                <button id="anc_search" class="btn btn-success yes">Search</button>
+                <button id="reset" class="btn btn-danger No">Reset</button>
+            </div>
+
+
+            <section class="counts" style="width: 100%; display: inline-block;float: right;">
+                <div class="searchleft">
+                    <p><b>Successful Payments: </b><span style="color: forestgreen;" id="spnTotelSuccessPayment"></span></p>
+                    <p><b>Failed Payments: </b><span style="color: red;" id="spnTotelFailedPayment"></span></p>
+                    <p><b>Total Revenue: </b> <span style="color: black;" id="spnTotelRevenue"></span></p>
+                </div>
+                <div class="pull-right countsboxs" style="width: auto; float: right !important; position: relative; top: -0px; left: 7px;">
+                    <div style="display: inline-block; margin-right: 5px;">
+                        <span>Show</span>
+                        <select class='form-control selectoption' id='NoofRecords' name='NoofRecords'>
+                            <option value='10'>10</option>
+                            <option value='20'>20</option>
+                            <option value='30'>30</option>
+                            <option value='50'>50</option>
+                            <option value='100'>100</option>
+                            <option value='150'>150</option>
+                            <option value='200'>200</option>
+                            <option value='250'>250</option>
+                            <option value='300'>300</option>
+                            <option value='350'>350</option>
+                            <option value='400'>400</option>
+                            <option value='500'>500</option>
+                        </select>
+                        <span>Records</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="table-container" id="divGrid">
+        </div>
+        <div class="table-container" id="divNoData">
+        </div>
+
+    </div>
+</div>
+
+<script src="~/Scripts/function.js"></script>
+<script src="~/Areas/Scripts/managepayment.js"></script>
+<script type="text/javascript">
+    AlphaNumericOnly('.alphaNumericOnly')
+    var $_GetManagePaymentUrl = '@Url.Action("GetManagePaymentGridView", "ManagePayment", new { Area = "ManagePayment" })';
+    var $_ExcelDownLoadUrl = '@Url.Action("ExcelDownLoad", "ManagePayment", new { Area = "ManagePayment" })';
+
+    var current_page = 0;
+    $(document).ready(function () {
+        $("#divNoData").addClass("hide");
+
+        var d = new Date();
+        var currMonth = d.getMonth();
+        var currYear = d.getFullYear();
+        var currDate = d.getDate();
+
+        var startDate = new Date(currYear, currMonth, 1);
+        var endDate = new Date(currYear, currMonth, currDate);
+
+
+        $("#startdate_id").datetimepicker({
+            format: "DD-MM-YYYY",
+            pickTime: false,
+            autoclose: true,
+            defaultDate: startDate,
+            maxDate: endDate//moment(),
+
+        });
+
+        $("#enddate_id").datetimepicker({
+            format: "DD-MM-YYYY",
+            pickTime: false,
+            autoclose: true,
+            defaultDate: endDate,
+            minDate: startDate
+
+        });
+
+
+        $("#startdate_id").on("dp.change", function (e) {
+            $('#enddate_id').data("DateTimePicker").setMinDate(e.date);
+        });
+
+        $("#enddate_id").on("dp.change", function (e) {
+            $('#startdate_id').data("DateTimePicker").setMaxDate(e.date);
+        });
+        GetState(0)
+        GetManagePaymentData();
+    });
+
+    $(document).on("change", "#NoofRecords", function () {
+        GetManagePaymentData();
+    });
+    $("#anc_search").click(function () {
+        GetManagePaymentData();
+    });
+    $("#reset").click(function () {
+        window.location.reload();
+    });
+
+</script>
+
+
+<style>
+    .col-sm-3.searchbox select.form-control.selectoption {
+        width: 76%;
+    }
+    .datefilter {
+    width: 25%;
+    padding-right: 15px;
+    float: left;
+}
+    .searchleft p {
+        width: auto;
+        display: inline-block;
+        float: left;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+    #datetimepicker2, #datetimepicker1 {
+    width: 105px;
+    float: left;
+}
+        .searchleft p b {
+            float: left;
+            position: relative;
+            top: 2px;
+            color: #000;
+            font-size: 14px;
+            font-weight: normal;
+            margin-right: 7px;
+        }
+
+        .searchleft p span {
+            font-size: 14px;
+            margin: 0 0;
+            font-weight: bold;
+        }
+
+    .col-sm-3.searchbox1.newlabel select, .col-sm-3.searchbox1.newlabel input {
+        width: 76%;
+        float: right;
+    }
+
+    section.counts {
+        background: #f3f3f3;
+        margin: 0;
+        padding: 15px 15px;
+        margin-top: 14px;
+        margin-bottom: 20px;
+    }
+
+    .searchleft {
+        width: auto;
+        float: left;
+        position: relative;
+        top: 4px;
+    }
+
+    .col-sm-3.searchbox1.newlabel input {
+        width: 76%;
+    }
+
+    .col-sm-3.searchbox1.newlabel label {
+        position: relative;
+        top: 5px;
+    }
+</style>

@@ -1,0 +1,521 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+  <p style="font-size: 20px; color: white;">Please Wait...</p>
+</ngx-spinner>
+
+<div *ngIf="IsAuthorised">
+  <app-header></app-header>
+  <app-side-nav></app-side-nav>
+
+  <div class="app-container">
+    <div class="app-main">
+      <div class="rcs_main">
+        <h4 class="rcs_main--title">President DashBoard ( Audit )</h4>
+        <button type="button" (click)="OpenViewsModal()" class="modals_btn">Request</button>
+      </div>
+      <div class="rcs_card">
+        <div class="rcs_card_body">
+          <div class="rc_table_header" *ngIf="recordsCount > 0">
+            <div class="rc_table_header--displaytlist">
+              <span>Display</span>
+              <select (change)="PageSizeChange($event)" class="rc_table_header--displaytlistdropdown">
+                <option *ngFor="let size of pageSizes" [ngValue]="size">
+                  {{ size }}
+                </option>
+              </select>
+              <span>Result</span>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="rc_table">
+              <thead class="rc_table_head">
+                <tr>
+                  <th scope="col" width="6%">Sr.No</th>
+                  <th scope="col">Audit Status</th>
+                  <th scope="col">Society Name</th>
+                  <th scope="col">Financial Year</th>
+                  <th scope="col">Requested Date</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+
+              <tbody class="rc_table_body">
+                <tr *ngFor="let item of AuditPresidentRequest
+                  | paginate
+                    : {
+                        itemsPerPage: pageSize,
+                        currentPage: pagenumber,
+                        totalItems: recordsCount
+                      };">
+                  <td scope="row">{{item.rowNum}}</td>
+                  <td scope="row">
+                    <span [ngClass]="item.statusClass" class="rc_table_textbadge"> {{ item.auditStatusName }}</span>
+                  </td>
+                  <td scope="row">{{item.societyName}}</td>
+                  <td scope="row">{{item.financialYear}}</td>
+                  <td scope="row">{{item.audit_PresidentRequestedDate}}</td>
+                  <td scope="row">
+                    <div class="rc_table_body--action flex-nowrap">
+                      <span class="fa fa-eye edit_icon" title="Report View" aria-hidden="true" (click)="OpenReportRequest(item)" style="cursor: pointer;"></span>
+                      <span class="fa fa-edit edit_icon" title="Edit" aria-hidden="true" *ngIf="item.auditStatus_Id == 3" (click)="UpdateViewsModal(item)" style="cursor: pointer;"></span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+
+              <tbody class="rc_table_body" *ngIf="recordsCount == 0">
+                <tr>
+                  <td colspan="7" class="text-center p-3">
+                    <img src="../../../assets/images/datanotfound.png" class="img-fluid" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="rc_table_footer" *ngIf="recordsCount > 0">
+            <span class="rc_table_list"> 1 to 10 Entries</span>
+            <div class="rc_table_pagination">
+              <pagination-controls previousLabel="Previous" nextLabel="Next" [responsive]="true" (pageChange)="PageChanged($event)" (pageBoundsCorrection)="PageChanged($event)"> </pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- app-container -->
+    </div>
+  </div>
+</div>
+
+<div class="modal model-bg" id="OpenViewsModal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="rcs_modal_header">
+        <h4 class="rcs_modal_header--title">Audit Request to Auditor</h4>
+        <button type="button" class="btn-close" (click)="clearUploadFile()"></button>
+      </div>
+      <form [formGroup]="AuditPresidentRequestForm" (ngSubmit)="submit(AuditPresidentRequestForm)" class="form" novalidate>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-6 col-lg-4">
+              <div class="space-bottom">
+                <label class="simple_form--label">Financial Year  <span style="color: red;">*</span></label>
+                <select class="rcs_select" formControlName="audit_financial_year_Id" name="audit_financial_year_Id" [(ngModel)]="audit_financial_year_Id">
+                  <option value="0" selected>Select Financial Year</option>
+                  <option *ngFor="let option of finYears" [ngValue]="option.id">
+                    {{ option.name }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="invalid-feedback" style="display: block;">
+                <ng-container *ngIf="hasError('audit_financial_year_Id', 'required')">Financial Year is required</ng-container>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="space-bottom">
+                <label class="simple_form--label">Is Previous Profitable </label> &nbsp; &nbsp; &nbsp;
+                <div class="form-check" style="cursor: pointer;">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked (click)="showSelected(true)" />
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check" style="cursor: pointer;">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" (click)="showSelected(false)" />
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="space-bottom">
+                <label class="simple_form--label">{{this.amountLebel}} <span style="color: red;">*</span></label>
+                <input type="text" class="rcs_input" formControlName="previousTurnOver" title="previousTurnOver" [(ngModel)]="this.previousTurnOver" (keypress)="OnlyNumbers($event)" />
+                <div class="invalid-feedback" style="display: block;">
+                  <ng-container *ngIf="hasError('previousTurnOver', 'max')">upto 9 digit allowed</ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-lg-4">
+              <div class="space-bottom">
+                <div class="rcs_fileselect">
+                  <div class="jc-between">
+                    <label class="simple_form--label"> Balanse Sheet <span style="color: red;">*</span></label>
+                    <div class="rcs_fileselectname">
+                      <a *ngIf="BalanseSheetName" (click)="ArrayBufferlob(balanseSheetUploadPath)" style="cursor:pointer ">
+                        {{this.BalanseSheetName}}
+                      </a>
+
+                      <span *ngIf="BalanseSheetName" (click)="clearbalanseSheet()" class="fa fa-close rcs_fileselectname--delete">
+                      </span>
+                    </div>
+                  </div>
+                  <div class="rcs_fileselect--file">
+                    <input type="file" class="rcs_fileselect--fileinput" (change)="balanseSheetUpload($event)" #myFile1 />
+                    <span class="fa fa-download"></span>
+                    Choose File to upload
+                  </div>
+                  <div class="rcs_fileselect--suported">
+                    Files Supported: PDF, TEXT, DOC, DOCX, JPG, PNG, SVG and File Size Should be max 5 MB
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="space-bottom">
+                <div class="rcs_fileselect">
+                  <div class="jc-between">
+                    <label class="simple_form--label"> Trading Account <span style="color: red;">*</span></label>
+                    <div class="rcs_fileselectname">
+                      <a *ngIf="TreadingAccountName" (click)="ArrayBufferlob(treadingAccountUploadPath)" style="cursor:pointer ">
+                        {{this.TreadingAccountName}}
+                      </a>
+
+                      <span *ngIf="TreadingAccountName" (click)="cleartreadingAccount()" class="fa fa-close rcs_fileselectname--delete">
+                      </span>
+                    </div>
+                  </div>
+                  <div class="rcs_fileselect--file">
+                    <input type="file" class="rcs_fileselect--fileinput" (change)="treadingAccountUpload($event)" #myFile2 />
+                    <span class="fa fa-download"></span>
+                    Choose File to upload
+                  </div>
+                  <div class="rcs_fileselect--suported">
+                    Files Supported: PDF, TEXT, DOC, DOCX, JPG, PNG, SVG and File Size Should be max 5 MB
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="space-bottom">
+                <div class="rcs_fileselect">
+                  <div class="jc-between">
+                    <label class="simple_form--label"> Profit / Loss Account <span style="color: red;">*</span></label>
+                    <div class="rcs_fileselectname">
+                      <a *ngIf="ProfitLossAccountName" (click)="ArrayBufferlob(profitLossAccountUploadPath)" style="cursor:pointer ">
+                        {{this.ProfitLossAccountName}}
+
+                      </a>
+
+                      <span *ngIf="ProfitLossAccountName" (click)="clearprofitLossAccount()" class="fa fa-close rcs_fileselectname--delete">
+                      </span>
+                    </div>
+                  </div>
+                  <div class="rcs_fileselect--file">
+                    <input type="file" class="rcs_fileselect--fileinput" (change)="profitLossAccountUpload($event)" #myFile2 />
+                    <span class="fa fa-download"></span>
+                    Choose File to upload
+                  </div>
+                  <div class="rcs_fileselect--suported">
+                    Files Supported: PDF, TEXT, DOC, DOCX, JPG, PNG, SVG and File Size Should be max 5 MB
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-12">
+            <div class="space-bottom">
+              <label class="simple_form--label">President Remarks <span style="color: red;">*</span></label>
+              <textarea title="auditRemarks" name="auditRemarks" id="auditRemarks" formControlName="auditRemarks" [(ngModel)]="this.auditRemarks" class="rcs_textarea" rows="5"> </textarea>
+            </div>
+            <div class="invalid-feedback" style="display: block;">
+              <ng-container *ngIf="hasError('auditRemarks', 'required')">Financial Year is required</ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" id="btn_save" class="btn btn-primary">Forward</button>
+          <button type="button" class="btn btn-danger" (click)="clearUploadFile()">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<!--The Report Modal-->
+<div class="modal model-bg" id="statusInspectorModal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="rcs_modal_header">
+        <h4 class="rcs_modal_header--title">Current Audit Status</h4>
+        <button type="button" class="btn-close" (click)="closeReportsMode()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="jc-between rcs_modal_body">
+          <span [ngClass]="_auditArcsModel.statusClass">{{_auditArcsModel.auditStatusName}}</span>
+          <div class="fa fa-download download_btn" (click)="captureScreen()">
+            <span class="download_btn--text">Download</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="all_info">
+              <h4 class="all_info--title">Society Details</h4>
+              <ul class="default-border all_info_list">
+                <li>
+                  <span class="all_info--desb">{{_auditArcsModel.societyName}}</span>
+                </li>
+                <li>
+                  <span class="all_info--label">President Name</span>
+                  <span class="all_info--desb">{{_auditArcsModel.societyPresidentUserName}}</span>
+                </li>
+                <li>
+                  <span class="all_info--label">Auditor Officer Name</span>
+                  <span class="all_info--desb">{{_auditArcsModel.audit_Office_Circle}}</span>
+                </li>
+                <li>
+                  <span class="all_info--label">Auditor Name</span>
+                  <span class="all_info--desb">{{_auditArcsModel.auditor_Circle}}</span>
+                </li>
+                <li>
+                  <span class="all_info--label">Jr. Auditor Name</span>
+                  <span class="all_info--desb">{{_auditArcsModel.juniorAuditor_Circle}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="all_info">
+              <h4 class="all_info--title">Audit Request Details</h4>
+              <ul class="default-border all_info_list">
+
+                <li>
+                  <span class="all_info--label">Request Date</span>
+                  <span class="all_info--desb">{{_auditArcsModel.audit_PresidentRequestedDate}}</span>
+                </li>
+                <li>
+                  <span class="all_info--label">Auditor Assigned Date</span>
+                  <span class="all_info--desb">{{_auditArcsModel.audit_AuditorAssignedDate}}</span>
+                </li>
+                <li>
+                  <span class="all_info--label">Auditor Order Date</span>
+                  <span class="all_info--desb">{{_auditArcsModel.audit_AuditorOrderDate}}</span>
+                </li>
+                <li>
+                  <span class="all_info--label">Final Submit Date</span>
+                  <span class="all_info--desb">{{_auditArcsModel.audit_FinalSubmitDate}}</span>
+                </li>
+                <li>
+                  <span class="all_info--label"> {{ this.amountLebel}}</span>
+                  <span class="all_info--desb"> <i class="fa fa-inr" aria-hidden="true"></i> {{_auditArcsModel.previousTurnOver}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="rc_table">
+            <thead class="rc_table_head">
+              <tr>
+                <th scope="col" style="width: 60px; position: center;">Sr.No</th>
+                <th scope="col" style="position: center;">Created Date</th>
+                <th scope="col" style="width: 350px; position: center;">Audit Status</th>
+                <th scope="col" style="position: center;">Remarks</th>
+                <th scope="col" style="width: 200px; position: center;">Attachment</th>
+              </tr>
+            </thead>
+            <tbody class="rc_table_body">
+              <tr *ngFor="let data of auditCurrentStatusModel">
+                <td scope="row">{{data.rowNum}}</td>
+                <td scope="row">{{data.createdDate}}</td>
+                <td scope="row"><span [ngClass]="data.statusClass" class="rc_table_textbadge">{{data.auditStatusName}}</span></td>
+                <td scope="row"><div [innerHTML]="data.auditRemarks"></div></td>
+                <td scope="col">
+                  <a class="download_btn" *ngIf="data.auditFilePath!='N/A'" title="Audit Document" target="_blank" href="{{basurl+data.auditFilePath}}" (click)="GetDownloadFile(data.auditFilePath)">
+                    <i class="fa fa-download" style="font-size: 15px;"></i>
+                  </a>
+                  <a class="download_btn"
+                     *ngIf="data.president_BalanseSheetFile!='N/A'"
+                     title="Balanse Sheet"
+                     target="_blank"
+                     href="{{basurl+data.president_BalanseSheetFile}}"
+                     (click)="GetDownloadFile(data.president_BalanseSheetFile)">
+                    <i class="fa fa-download"></i>
+                  </a>
+                  <a class="download_btn"
+                     *ngIf="data.president_TreadingAccountFile!='N/A'"
+                     title="Trading Account"
+                     target="_blank"
+                     href="{{basurl+data.president_TreadingAccountFile}}"
+                     (click)="GetDownloadFile(data.president_TreadingAccountFile)">
+                    <i class="fa fa-download" style="font-size: 15px;"></i>
+                  </a>
+                  <a class="download_btn"
+                     *ngIf="data.president_ProfitLossAccountFile!='N/A'"
+                     title="Profit Loss Account"
+                     target="_blank"
+                     href="{{basurl+data.president_ProfitLossAccountFile}}"
+                     (click)="GetDownloadFile(data.president_ProfitLossAccountFile)">
+                    <i class="fa fa-download" style="font-size: 15px;"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--The Send Back Request Modal-->
+<div class="modal model-bg" id="UpdateViewsModal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="rcs_modal_header">
+        <h4 class="modal-title">Send Back Audit Request To Audit Officer</h4>
+        <button type="button" class="btn-close" (click)="clearUploadFile()"></button>
+      </div>
+      <form [formGroup]="AuditPresidentRequestForm" (ngSubmit)="Edit(AuditPresidentRequestForm)" class="form" novalidate>
+        <div class="main-body">
+          <div class="main-body">
+            <div class="row">
+              <div class="col-sm-6 col-lg-6">
+                <label class="simple_form--label">Is Previous Profitable </label> &nbsp; &nbsp; &nbsp;
+                <div class="form-check" style="cursor: pointer;">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked (click)="showSelected(true)" />
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check" style="cursor: pointer;">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" (click)="showSelected(false)" />
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    No
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-6">
+                <label class="simple_form--label">{{this.amountLebel}} <span style="color: red;">*</span></label>
+                <input type="text" class="simple_form--input mb-2" formControlName="previousTurnOver" title="previousTurnOver" [(ngModel)]="this.previousTurnOver" (keypress)="OnlyNumbers($event)" />
+                <div class="invalid-feedback" style="display: block;">
+                  <ng-container *ngIf="hasError('previousTurnOver', 'max')">upto 9 digit allowed</ng-container>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 col-lg-4">
+                <div class="space-bottom">
+                  <div class="rcs_fileselect">
+                    <div class="jc-between">
+                      <label class="simple_form--label"> Balanse Sheet <span style="color: red;">*</span></label>
+                      <div class="rcs_fileselectname">
+                        <a *ngIf="BalanseSheetName" (click)="ArrayBufferlob(balanseSheetUploadPath)" style="cursor:pointer ">
+                          {{this.BalanseSheetName}}
+                        </a>
+
+                        <span *ngIf="BalanseSheetName" (click)="clearbalanseSheet()" class="fa fa-close rcs_fileselectname--delete">
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rcs_fileselect--file">
+                      <input type="file" class="rcs_fileselect--fileinput" (change)="balanseSheetUpload($event)" #myFile1 />
+                      <span class="fa fa-download"></span>
+                      Choose File to upload
+                    </div>
+                    <div class="rcs_fileselect--suported">
+                      Files Supported: PDF, TEXT, DOC, DOCX, JPG, PNG, SVG and File Size Should be max 5 MB
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="space-bottom">
+                  <div class="rcs_fileselect">
+                    <div class="jc-between">
+                      <label class="simple_form--label"> Trading Account <span style="color: red;">*</span></label>
+                      <div class="rcs_fileselectname">
+                        <a *ngIf="TreadingAccountName" (click)="ArrayBufferlob(treadingAccountUploadPath)" style="cursor:pointer ">
+                          {{this.TreadingAccountName}}
+                        </a>
+
+                        <span *ngIf="TreadingAccountName" (click)="cleartreadingAccount()" class="fa fa-close rcs_fileselectname--delete">
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rcs_fileselect--file">
+                      <input type="file" class="rcs_fileselect--fileinput" (change)="treadingAccountUpload($event)" #myFile2 />
+                      <span class="fa fa-download"></span>
+                      Choose File to upload
+                    </div>
+                    <div class="rcs_fileselect--suported">
+                      Files Supported: PDF, TEXT, DOC, DOCX, JPG, PNG, SVG and File Size Should be max 5 MB
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-4">
+                <div class="space-bottom">
+                  <div class="rcs_fileselect">
+                    <div class="jc-between">
+                      <label class="simple_form--label"> Profit / Loss Account <span style="color: red;">*</span></label>
+                      <div class="rcs_fileselectname">
+                        <a *ngIf="ProfitLossAccountName" (click)="ArrayBufferlob(profitLossAccountUploadPath)" style="cursor:pointer ">
+                          {{this.ProfitLossAccountName}}
+                        </a>
+                        <span *ngIf="ProfitLossAccountName" (click)="clearprofitLossAccount()" class="fa fa-close rcs_fileselectname--delete">
+                        </span>
+                      </div>
+                    </div>
+                    <div class="rcs_fileselect--file">
+                      <input type="file" class="rcs_fileselect--fileinput" (change)="profitLossAccountUpload($event)" #myFile2 />
+                      <span class="fa fa-download"></span>
+                      Choose File to upload
+                    </div>
+                    <div class="rcs_fileselect--suported">
+                      Files Supported: PDF, TEXT, DOC, DOCX, JPG, PNG, SVG and File Size Should be max 5 MB
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6 col-lg-12">
+                <div class="space-bottom">
+                  <label class="simple_form--label">President Remarks <span style="color: red;">*</span></label>
+                  <textarea title="auditRemarks" name="auditRemarks" id="auditRemarks" formControlName="auditRemarks" [(ngModel)]="this.auditRemarks" class="rcs_textarea" rows="5"> </textarea>
+                </div>
+                <div class="invalid-feedback" style="display: block;">
+                  <ng-container *ngIf="hasError('auditRemarks', 'required')">Financial Year is required</ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Forward</button>
+          <button type="button" class="btn btn-danger" (click)="clearUploadFile()">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal model-bg" id="ConfirmModal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="rcs_modal_header">
+        <h4 class="modal-title">{{this.title}}</h4>
+        <button type="button" class="btn-close" (click)="CloseConfirm()"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h5 class="modal-title text" style="margin-bottom: 20px;">
+          {{this.message}}
+        </h5>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button id="btn_confirmyes" class="btn btn-success" style="margin-right: 10px;">Yes</button>
+        <button id="btn_confirmno" (click)="CloseConfirm()" class="btn btn-danger">No</button>
+      </div>
+    </div>
+  </div>
+</div>

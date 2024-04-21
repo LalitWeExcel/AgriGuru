@@ -1,0 +1,142 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)"
+             size="medium"
+             color="#fff"
+             type="ball-scale-multiple"
+             [fullScreen]="true">
+  <p style="font-size: 20px; color: white">Please Wait...</p>
+</ngx-spinner>
+
+<div *ngIf="IsAuthorised">
+
+  <app-header></app-header>
+  <app-side-nav></app-side-nav>
+
+    <div class="app-container">
+      <div class="app-main">
+        <main>
+          <div class="container-fluid px-4">
+            <h1 class="mt-4">Dashboard</h1>
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item active"></li>
+            </ol>
+            <div class="row">
+              <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                  <div class="card-body">Total New Societies</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right">   {{ _admimModel.totalNewSocieties}}  </i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                  <div class="card-body">Total BackLog Societies</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right">{{_admimModel.totalBackLogSocieties}} </i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                  <div class="card-body">Working Society</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right">{{_admimModel.workingSociety}}</i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                  <div class="card-body">Not Working Society</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right">{{_admimModel.notWorkingSociety}}</i></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-md-6">
+                <div class="card text-bg-danger text-white mb-4">
+                  <div class="card-body">Defunct Societies</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right">{{_admimModel.defunctSocieties}}</i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                  <div class="card-body">Total Approved</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right">{{_admimModel.totalApproved}}</i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                  <div class="card-body">Backlog Society</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right">  {{_admimModel.backlogSociety}}  </i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                  <div class="card-body">Rejected</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right">{{_admimModel.rejected}}</i></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                  <div class="card-body">Under ARCS</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right">{{_admimModel.underARCS}}</i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                  <div class="card-body">Under Inspector</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right">  {{_admimModel.underInspector}}  </i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="card text-bg-danger text-white mb-4">
+                  <div class="card-body">Deemed Approval</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"> {{_admimModel.deemedApproval}} </i></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                  <div class="card-body">Hearing Societies</div>
+                  <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right">{{_admimModel.hearingSocieties}}</i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+
+
+

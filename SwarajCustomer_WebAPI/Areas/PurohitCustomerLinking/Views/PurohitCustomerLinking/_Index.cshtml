@@ -1,0 +1,235 @@
+﻿
+@using SwarajCustomer_Common.ViewModel
+@model ManageUserViewModel
+@{
+    int records = 0;
+}
+
+<input type="hidden" id="hddTotalProhits" value="@Model.TotalProhits" />
+<input type="hidden" id="hddTotalAstrologers" value="@Model.TotalAstrollgers" />
+<input type="hidden" id="hddTotalCustomers" value="@Model.TotalCustomers" />
+
+
+<script>
+    function SetPagingStyles() {
+        $(document).bind('ready ajaxComplete', function () {
+            function setHeight() {
+                var tfoot = document.querySelector('tfoot');
+                if (tfoot == null) {
+                    windowHeight = $(window).innerHeight() - 380;
+                    $('tbody').css('max-height', windowHeight);
+
+                }
+                else {
+                    windowHeight = $(window).innerHeight() - 420;
+                    $('tbody').css('max-height', windowHeight);
+                }
+            };
+
+            setHeight();
+
+            $(window).resize(function () {
+                setHeight();
+            });
+
+            $('table').on('scroll', function () {
+                $("#" + this.id + " > *").width($(this).width() + $(this).scrollLeft());
+            });
+            $("tfoot a").addClass('btn2 btn2-default');
+            $("tfoot td")
+                .contents()
+                .filter(function () {
+                    if (this.nodeType === 3 && this.length > 1) {
+                        return this.nodeType
+                    }
+                })
+                .wrap('<span class="btn2 btn2-primary" />');
+        });
+    }
+    $('table').on('scroll', function () {
+        $("#" + this.id + " > *").width($(this).width() + $(this).scrollLeft());
+    });
+</script>
+
+
+
+<div class="col-sm-12 tablnew" id="divpartdetails">
+    <div class="table gridresposnive workplaces">
+        @if (Model.ManageUserList != null && Model.ManageUserList.Any())
+        {
+            records = Model.TotalRecords;
+            WebGrid grid = new WebGrid(canPage: true,
+            rowsPerPage: Model.NoOfRecords,
+            canSort: true,
+            ajaxUpdateContainerId: "WebGrid");
+            grid.Bind(Model.ManageUserList, rowCount: records, autoSortAndPage: false);
+            grid.Pager(WebGridPagerModes.Numeric);
+            @grid.GetHtml(htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+            fillEmptyRows: false,
+            mode: WebGridPagerModes.All,
+            previousText: "<",
+            nextText: ">",
+            numericLinksCount: 5,
+            tableStyle: "table table-hover",
+            columns: new[]
+            {
+               grid.Column("SrNo", "S No."),
+               grid.Column("ImageName","Logo",format : @<text> <img src="@item.ImageName" style="width: 160px; height: 100px;" data-action="zoom" /> </text> ),
+                                                   grid.Column("UserName", "Name"),
+                                                   grid.Column("Email", "Email" ),
+                                                   grid.Column("MobileNumber", "Contact" ),
+                                                   grid.Column("UserType", "User Type" ),
+                                                   grid.Column("IsActive", "Status" ),
+                                                   grid.Column("Createdby", "Created By" ),
+
+                                                   grid.Column(header: "Action",
+                                                  format: @<text> <span title="Details" class="table-icons details" onclick="Details('@item.UserId')"></span> </text> )});
+            <script type="text/javascript">
+           gbl_row_count = @records;
+           SetPagingStyles();
+            </script>
+
+        }
+
+        else
+        {
+            <table class="table table-hover" id="grid">
+                <thead>
+                    <tr>
+                        <th scope="col">S No.</th>
+                        <th scope="col">Logo</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">User Type</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Created By</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="width: 100%; display: inline-table; text-align: center; position: relative;">
+                        <td style="font-weight: 600; font-size: 21px; color: #b50000;">No Records Found</td>
+                    </tr>
+                </tbody> 
+            </table>
+            <script type="text/javascript">
+                gbl_row_count = 0;
+            </script>
+        }
+
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).bind('ready ajaxComplete', function () {
+        function setHeight() {
+
+            var tfoot = document.querySelector('tfoot');
+            if (tfoot == null) {
+                windowHeight = $(window).innerHeight() - 320;
+                $('tbody').css('max-height', windowHeight);
+
+            }
+            else {
+                windowHeight = $(window).innerHeight() - 340;
+                $('tbody').css('max-height', windowHeight);
+            }
+        };
+
+        setHeight();
+
+        $(window).resize(function () {
+            setHeight();
+        });
+    });
+
+</script>
+
+<style>
+    .table.gridresposnive th:last-child {
+        text-align: center;
+    }
+
+    .table.gridresposnive td:last-child {
+        text-align: center;
+    }
+
+    .table.gridresposnive th:nth-child(3), .table.gridresposnive td:nth-child(3) {
+        min-width: 210px;
+        max-width: 210px;
+    }
+
+    table.gridresposnive td img {
+        max-width: 100%;
+    }
+
+    .table.gridresposnive th:nth-child(2), .table.gridresposnive td:nth-child(2) {
+        min-width: 130px;
+        max-width: 130px;
+        text-align: center;
+    }
+
+    .table.gridresposnive th:nth-child(1), .table.gridresposnive td:nth-child(1) {
+        min-width: 70px;
+        max-width: 70px;
+        text-align: center;
+    }
+
+    #divpartdetails thead, #divpartdetails tbody {
+        display: block;
+    }
+
+    .table.gridresposnive th:nth-child(4), .table.gridresposnive td:nth-child(4) {
+        min-width: 250px;
+        max-width: 250px;
+    }
+
+    .table.gridresposnive th:nth-child(6), .table.gridresposnive td:nth-child(6) {
+        min-width: 120px;
+        max-width: 120px;
+    }
+
+    .table.gridresposnive th:nth-child(7), .table.gridresposnive td:nth-child(7) {
+        min-width: 140px;
+        text-align: left;
+        max-width: 140px;
+    }
+
+    .table.gridresposnive th:nth-child(8), .table.gridresposnive td:nth-child(8) {
+        min-width: 140px;
+        text-align: left;
+        max-width: 140px;
+    }
+
+    .table.gridresposnive th:nth-child(9), .table.gridresposnive td:nth-child(9) {
+        min-width: 110px;
+        max-width: 110px;
+    }
+
+    body.bg.menuToggle .table.gridresposnive th:nth-child(2), body.bg.menuToggle .table.gridresposnive td:nth-child(2) {
+        min-width: 140px;
+        max-width: 140px;
+    }
+
+    .table.gridresposnive th:nth-child(5), .table.gridresposnive td:nth-child(5) {
+        min-width: 140px;
+        max-width: 140px;
+    }
+
+    body.bg.menuToggle .table.gridresposnive th:nth-child(3), body.bg.menuToggle .table.gridresposnive td:nth-child(3) {
+        min-width: 240px;
+        max-width: 240px;
+    }
+
+    body.bg.menuToggle .table.gridresposnive th:nth-child(5), body.bg.menuToggle .table.gridresposnive td:nth-child(5) {
+        min-width: 228px;
+        max-width: 228px;
+    }
+
+    body.bg.menuToggle .table.gridresposnive th:nth-child(4), body.bg.menuToggle .table.gridresposnive td:nth-child(4) {
+        min-width: 310px;
+        max-width: 310px;
+    }
+</style>

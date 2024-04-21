@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5a91f1a686df433cad890dbd94e3396f" Name="Diagram1" ZoomLevel="58">
+        <EntityTypeShape EntityType="SwarajTestModel.mst_services" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwarajTestModel.mst_zodiacs" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SwarajTestModel.adm_user_role" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SwarajTestModel.product_color" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SwarajTestModel.product_price" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="SwarajTestModel.adm_APIExceptionLog" Width="1.5" PointX="7.375" PointY="9.75" />
+        <EntityTypeShape EntityType="SwarajTestModel.adm_application_SMS_gateway_configuration" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SwarajTestModel.adm_user_otp" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SwarajTestModel.adm_role" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SwarajTestModel.adm_user" Width="1.5" PointX="0.75" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

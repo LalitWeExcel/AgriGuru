@@ -1,0 +1,458 @@
+﻿@model SwarajCustomer_Common.Customer.BookEPujaContent
+@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidths">
+        <div class="barwidths" id="adminDashboardLeads">
+            <input type="hidden" id="hddPujaID" />
+            <input type="hidden" id="hddPujaMRP" />
+            <input type="hidden" id="hddPujaDiscount" />
+            <input type="hidden" id="hddPujaDiscountedPrice" />
+            <input type="hidden" id="hddSamagriMRP" />
+            <input type="hidden" id="hddSamagriDiscount" />
+            <input type="hidden" id="hddSamagriDiscountPrice" />
+            <div class="searchfilter">
+                <div class="barwidths borderwidthss" id="adminDashboardLeads" style="margin-top:20px;">
+                    <div class="searchfilter">
+                        <div class="col-sm-12 searchbox tab">
+                            <button class="tablinks active" id="AUpcoming" onclick="myBooking(event, 'Puja')">Puja</button>
+                            <button class="tablinks" onclick="myBooking(event, 'Path')">Path</button>
+                            <button class="tablinks " onclick="myBooking(event, 'Corp')">Corp Puja</button>
+                        </div>
+                    </div>
+                    <div class="table-container" id="divGrid">
+                        <div id="Puja" class="tabcontent" style="display: block;">
+                            @{ foreach (var item in Model.Masters.PujaList)
+                                {
+                                    <div class="reviewbox">
+                                        <div class="innerwidths list-group-item">
+                                            <a href="#" onclick="_selectPuja(this)" data-pujaid="@item.ID" data-pujamrp="@item.MRP"
+                                               data-pujadiscount="@item.Discount" data-pujadiscountedprice="@item.DiscountedPrice">
+                                                <div class="col-sm-4 leftimage">
+                                                    <img src="@item.ImagePath" />
+                                                </div>
+                                                <div class="col-sm-8 righttext">
+                                                    <span class="maintittle">@item.Name</span>
+                                                    <span class="yearstext">@item.MRP</span>
+                                                    <span class="discount">@item.DiscountedPrice</span>
+                                                </div>
+
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                } }
+
+                        </div>
+
+                        <div id="Path" class="tabcontent" style="display: none;">
+                            @{ foreach (var item in Model.Masters.PathList)
+                                {
+                                    <div class="reviewbox">
+                                        <div class="innerwidths list-group-item">
+                                            <a href="#" onclick="_selectPuja(this)" data-pujaid="@item.ID" data-pujamrp="@item.MRP" data- pujadiscount="@item.Discount" data-pujadiscountedprice="@item.DiscountedPrice" data- name="@item.Name">
+                                                <div class="col-sm-4 leftimage">
+                                                    <img src="@item.ImagePath" />
+                                                </div>
+                                                <div class="col-sm-8 righttext">
+                                                    <span class="maintittle">@item.Name</span>
+                                                    <span class="yearstext">@item.MRP</span>
+                                                    <span class="discount">@item.DiscountedPrice</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                } }
+
+                        </div>
+
+                        <div id="Corp" class="tabcontent" style="display: none;">
+
+                            @{ foreach (var item in Model.Masters.CorporatePujaList)
+                                {
+                                    <div class="reviewbox">
+                                        <div class="innerwidths list-group-item">
+                                            <a href="#" onclick="_selectPuja(this)" data-pujaid="@item.ID" data-pujamrp="@item.MRP" data- pujadiscount="@item.Discount" data-pujadiscountedprice="@item.DiscountedPrice">
+                                                <div class="col-sm-4 leftimage">
+                                                    <img src="@item.ImagePath" />
+                                                </div>
+                                                <div class="col-sm-8 righttext">
+                                                    <span class="maintittle">@item.Name</span>
+                                                    <span class="yearstext">@item.MRP</span>
+                                                    <span class="discount">@item.DiscountedPrice</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                } }
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="bottomfilter">
+                    <div class="col-sm-3 searchbox newlabel">
+                        <label class="control-label col-md-2">Choose Date </label>
+                        <input type="text" class="form-control date-picker-textbox hasDatepicker" id="startdate_id" placeholder="startdate" readonly />
+                        <img src="~/Content/images//caleder.png" style="height:15px;width:15px">
+                    </div>
+                    <div class="col-sm-3 searchbox newlabel">
+                        <label class="control-label col-md-2">Choose Time</label>
+                        @Html.DropDownList("AddTimeSlot", new SelectList(Model.Masters.TimeSlotsList, "ID", "TimeSlot"), "All", new { @id = "AddTimeSlot", @class = "form-control selectoption" })
+                        <span style="color:red" class="validation" id="spnAddTimeSlot"></span>
+                    </div>
+                    <div class="col-sm-3 searchbox newlabel">
+                        <label class="control-label col-md-2">E-mail id</label>
+                        <input type="text" class="form-control" id="txtepujaemail" />
+                        <span style="color:red" class="validation" id="spnepujaemail"></span>
+                    </div>
+                    <div class="col-sm-3 searchbox newlabel">
+                        <label class="control-label col-md-2">Contant Number</label>
+                        <input type="text" class="form-control numberOnly" id="txtEPujaPhoneNo" maxlength="10" />
+                        <span style="color:red" class="validation" id="spnEPujaPhoneNo"></span>
+                    </div>
+
+                    <div class="searchfilter" style="    margin-top: 15px;">
+                        <div class="col-sm-3 searchbox">
+                            <input type="radio" style="cursor:pointer" name="Samigri" value="1" checked>
+                            <span class="radiotext">With Samigri</span>
+                            <input type="radio" style="cursor:pointer" name="Samigri" value="0">
+                            <span class="radiotext">WithOut Simigri</span>
+                        </div>
+                        <div class="col-sm-9 searchbox">
+                            <label class="control-label col-md-2">For whom you are booking for ?</label>
+                            <input type="radio" style="cursor:pointer" name="IsForOther" value="N" checked>
+                            <span class="radiotext">Me</span>
+                            <input type="radio" style="cursor:pointer" name="IsForOther" value="Y">
+                            <span class="radiotext">SomeOne Else</span>
+                        </div>
+                    </div>
+                    <div class="searchfilter">
+                        <div class="col-sm-3 searchbox">
+                            <label class="control-label col-md-2">First Name</label>
+                            <input type="text" class="form-control alphaOnly" id="txtFirstName" />
+                            <span style="color:red" class="validation" id="spnFirstName"></span>
+                        </div>
+                        <div class="col-sm-3 searchbox">
+                            <label class="control-label col-md-2">Last Name</label>
+                            <input type="text" class="form-control alphaOnly" id="txtLastName" />
+                            <span style="color:red" class="validation" id="spnLastName"></span>
+                        </div>
+                        <div class="col-sm-3 searchbox">
+                            <label class="control-label col-md-2">Email Address</label>
+                            <input type="text" class="form-control" id="txtEmail" />
+                            <span style="color:red" class="validation" id="spnEmail"></span>
+                        </div>
+                        <div class="col-sm-3 searchbox">
+                            <label class="control-label col-md-2">Contant Number</label>
+                            <input type="text" class="form-control numberOnly" id="txtContantNumber" maxlength="10" />
+                            <span style="color:red" class="validation" id="spnContantNumber"></span>
+                        </div>
+                    </div>
+                    <div class="searchfilter">
+                        <div class="col-sm-3 searchbox">
+                            <label class="control-label col-md-2">Address</label>
+                            <input type="text" class="form-control alphaNumericOnly" id="txtAddress" />
+                            <span style="color:red" class="validation" id="spnAddress"></span>
+                        </div>
+                        <div class="col-sm-3 searchbox">
+                            <label class="control-label col-md-2">LandMark</label>
+                            <input type="text" class="form-control alphaNumericOnly" id="txtLandMark" />
+                            <span style="color:red" class="validation" id="spnLandMark"></span>
+                        </div>
+                        <div class="col-sm-3 searchbox">
+                            <label class="control-label col-md-2"> State </label>
+                            <select class="form-control selectoption" id="ddState" name="mst_state_id"></select>
+                            <span style="color:red" class="validation" id="spnddState"></span>
+                        </div>
+                        <div class="col-sm-3 searchbox">
+                            <label class="control-label col-md-2"> District </label>
+                            <select class="form-control selectoption" id="ddDistrict" name="mst_district_id"></select>
+                            <span style="color:red" class="validation" id="spnddDistrict"></span>
+                        </div>
+                    </div>
+                    <div class="searchfilter">
+                        <div class="col-sm-3 searchbox">
+                            <label class="control-label col-md-2"> PinCode </label>
+                            <input type="text" class="form-control NumericOnly" id="txtPinCode" maxlength="6" />
+                            <span style="color:red" class="validation" id="spnPinCode"></span>
+                        </div>
+                        <div class="col-sm-3 searchbox">
+                            <label class="control-label col-md-2" style="width:100% !important"> What Amount you are pay ?</label>
+                            <input type="radio" style="cursor:pointer" name="Payment" value="Y" checked>
+                            <span class="radiotext">Full Payment</span>
+                            <input type="radio" style="cursor:pointer" name="Payment" value="N">
+                            <span class="radiotext">20% payment</span>
+                        </div>
+                    </div>
+                    <div class="buttonsenterbox margintops">
+                        <button class="btn btn-success yes" id="btn_save" onclick="SaveEPujaOrder('Y')">Add To Cart</button>
+                        <button class="btn btn-success yes black" id="btn_save" onclick="SaveEPujaOrder('N')">Book Now</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/function.js"></script>
+    <script src="~/Areas/Customer/Scripts/bookEpuja.js"></script>
+    <script src="~/Areas/Customer/Scripts/active.js"></script>
+
+    <script>
+
+    var $_SavePujaOrderUrl = "";
+    if ('@Server_Url'.indexOf('AgriGuru') >= 1) {
+        $_SavePujaOrderUrl = '/AgriGuru/Booking/SavePujaOrder/';
+    }
+    else if ('@Server_Url'.indexOf('PujaGuru') >= 1) {
+        $_SavePujaOrderUrl = '/PujaGuru/Booking/SavePujaOrder/';
+    }
+    else {
+        $_SavePujaOrderUrl = '/Booking/SavePujaOrder/';
+    }
+
+
+    var $_FirstName = '@Model.Userprofile.FirstName';
+    var $_LastName = '@Model.Userprofile.LastName';
+    var $_Email = '@Model.Userprofile.Email';
+    var $_MobileNumber = '@Model.Userprofile.MobileNumber';
+    var $_Address = '@Model.Userprofile.Address';
+    var $_Landmark = '@Model.Userprofile.Landmark'.replace('&amp;', '&');
+    var $_PinCode = '@Model.Userprofile.PinCode';
+    var $_CityName = '@Model.Userprofile.City'.replace('&amp;', '&');
+    var $_StateId = '@Model.Userprofile.StateId';
+    var $_DistrictId = '@Model.Userprofile.DistrictId';
+
+
+    var $_SamagriMRP = '@Model.Masters.SamagriList[0].MRP';
+    var $_SamagriDiscount = '@Model.Masters.SamagriList[0].Discount';
+    var $_SamagriDiscountPrice = '@Model.Masters.SamagriList[0].DiscountedPrice';
+
+    AlphaOnly('.alphaOnly');
+    NumberOnly('.numberOnly');
+    DecimalOnly('.decimalOnly');
+    AlphaNumericOnly('.alphaNumericOnly');
+    AlphaPlusMinus('.alphaPlusMinus');
+    PreventKey('.preventkey');
+    SevenDigitWithTwoDeci('.SevenWithTwoDeci');
+
+
+    $(document).ready(function () {
+        var d = new Date();
+        var currMonth = d.getMonth();
+        var currYear = d.getFullYear();
+        var currDate = d.getDate();
+        var endDate = new Date(currYear, currMonth, currDate + 1);
+
+        $("#startdate_id").datetimepicker({
+            format: "DD-MM-YYYY",
+            pickTime: false,
+            autoclose: true,
+            defaultDate: endDate,
+            minDate: endDate,
+        });
+
+        $("#txtFirstName").val($_FirstName);
+        $("#txtLastName").val($_LastName);
+        $("#txtEmail").val($_Email);
+        $("#txtContantNumber").val($_MobileNumber);
+        $("#txtAddress").val($_Address);
+        $("#txtLandMark").val($_Landmark);
+        $("#txtPinCode").val($_PinCode);
+        $("#txtCityName").val($_CityName);
+
+
+        //  $_Samagri --!!
+        $("#hddSamagriMRP").val($_SamagriMRP);
+        $("#hddSamagriDiscount").val($_SamagriDiscount);
+        $("#hddSamagriDiscountPrice").val($_SamagriDiscountPrice);
+
+        GetState($_StateId);
+        setTimeout(function () {
+            GetDistrict($_StateId, $_DistrictId);
+        }, 2000);
+    });
+
+
+    </script>
+    <script>
+        function myBooking(_objects, type) {
+            var i, tabcontent, tablinks;
+
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(type).style.display = "block";
+            _objects.target.className += " active"; //currentTarget
+
+        }
+    </script>
+    <style>
+        .col-sm-8.righttext {
+            padding-right: 0;
+        }
+
+        .col-sm-3.searchbox.newlabel img {
+            position: absolute;
+            right: 0;
+            bottom: 9px;
+            right: 20px;
+        }
+
+        div#Puja, div#Path, div#Corp {
+            padding: 10px !important;
+            margin-top: 0 !important;
+            border: none;
+        }
+
+        .col-sm-3.searchbox select.form-control.selectoption {
+            width: 100%;
+        }
+
+        label.control-label.col-md-2 {
+            width: auto !important;
+            margin-right: 10px !important;
+        }
+
+        .col-sm-3.searchbox.newlabel {
+            width: 25%;
+        }
+
+        .radiotext {
+            width: auto;
+            margin: 0 2px;
+        }
+
+        .col-sm-3.searchbox label.control-label, label.control-label.col-md-2 {
+            width: 100%;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .reviewbox {
+            padding: 10px;
+        }
+
+        div#divGrid {
+            border: 1px solid #ccc;
+            width: 100%;
+            float: left;
+            margin-top: -10px;
+            border-top: none;
+        }
+
+        .discount {
+            color: #f15a29;
+            width: auto;
+            display: inline-block;
+            font-size: 20px;
+        }
+
+        .yearstext {
+            width: auto;
+            margin: 0;
+            text-decoration: line-through;
+            margin-right: 10px;
+            position: relative;
+            top: 6px;
+        }
+
+        .tab button:last-child {
+            border: none;
+        }
+
+        .maintittle {
+            min-height: 50px;
+        }
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #333;
+            background-color: #333;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .col-sm-8.righttext {
+            padding-right: 0;
+        }
+
+        .innerwidths {
+            padding: 15px;
+        }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 6px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+            color: #fff;
+            border-right: 1px solid #fff;
+        }
+
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+                background-color: #f15a29;
+            }
+
+            /* Create an active/current tablink class */
+            .tab button.active {
+                background-color: #f15a29;
+            }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+            float: left;
+            margin-top: -11px;
+            width: 100%;
+        }
+
+        .modal-dialog.reminderpop .modal-body img {
+            position: absolute;
+            right: 0;
+            top: 24px;
+            right: 24px;
+        }
+
+        .fullwidths.booking p {
+            width: auto;
+            display: inline-block;
+        }
+
+        .fullwidths.booking span {
+            font-weight: bold;
+            /* font-size: 16px; */
+        }
+
+        .fullwidths.booking {
+            font-size: 14px;
+            line-height: 34px;
+        }
+
+        .validation {
+            bottom: -20px;
+            font-size: 12px;
+        }
+    </style>

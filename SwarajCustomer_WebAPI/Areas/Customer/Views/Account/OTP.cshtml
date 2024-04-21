@@ -1,0 +1,122 @@
+﻿@model SwarajCustomer_WebAPI.Models.CustomerOTPModel
+@using SwarajCustomer_Common
+@{
+    Layout = "~/Areas/Customer/Views/Shared/_LoginLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<body style="background-color: #666666;">
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                @using (Html.BeginForm("OTP", "Account", FormMethod.Post, new { area = "Customer", enctype = "multipart/form-data", @class = "login100-form validate-form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.UserId);
+                    @Html.HiddenFor(x => x.PhoneNumber);
+
+
+                    <input type="hidden" id="hddLatitude" name="Latitude" />
+                    <input type="hidden" id="hddLongitude"  name="Longitude"/>
+                    <input type="hidden" value="@Model.PhoneNumber" id="hddPhoneNumber" />
+
+                   
+                    <span class="login100-form-title p-b-43"> OTP Verification </span>
+                    <span class="smalltext"> OTP has been sent on your number via SMS </span>
+
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid OTP is required: 0000">
+                        <input class="input100 numberOnly" id="partitioned" type="text" value="@Model.OTP" name="OTP" maxlength="4">
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">OTP</span>
+                        @Html.ValidationMessageFor(m => m.OTP, "", new { Style = "color:red;" })
+                    </div>
+
+                    <div class="requestbox tptext">
+                        <a class="requestlink" onclick="return ResendOtp();" style="cursor:pointer">Resend OTP</a>
+
+                    </div>
+
+                    <div class="container-login100-form-btn requestotp">
+                        <a class="loginbtn in100-form-btn" href="~/Customer/Account/Login">Back </a>
+                        <input type="submit" value="submit" class="login100-form-btn" id="btnSubmit" name="Login" />
+                    </div>
+                }
+
+                @{
+                    if (CommonMethods.BaseUrl.Contains("localhost"))
+                    {
+                                <div class="login100-more" style="background-image: url('/../../Content/images/bgnew.png');">
+                                    <span class="logoimage loginpage">
+                                        <img src="~/Content/images/newlogo.png" />
+                                    </span>
+                                </div>
+                    }
+                    else
+                    {
+            <div class="login100-more" style="background-image: url('/AgriGuru/Content/images/bgnew.png');">
+                <span class="logoimage loginpage">
+                    <img src="~/Content/images/newlogo.png" />
+                </span>
+            </div>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<style>
+    span.field-validation-error {
+        position: absolute;
+        left: 0;
+        bottom: -20px;
+        font-size: 13px;
+    }
+    .bg{    overflow-y: hidden;}
+</style>
+<script src="~/Scripts/function.js"></script>s
+<script type="text/javascript">
+    NumberOnly('.numberOnly');
+
+    $(document).ready(function () {
+   
+        var $_Latitude = sessionStorage.getItem("Latitude");
+        var $_Longitude = sessionStorage.getItem("Longitude");
+
+        $("#hddLatitude").val($_Latitude);
+        $("#hddLongitude").val($_Longitude);
+
+    });
+
+
+    $(document).keydown(function (event) {
+        if (event.keyCode == 123) { // Prevent F12
+            return false;
+        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I
+            return false;
+        }
+    });
+
+    function ResendOtp() {
+        $.ajax({
+            url: '@Url.Action("ResendOTP", "Account", new { Area = "Customer" })',
+            type: 'POST',
+            datatype: 'JSON',
+            data: JSON.stringify({ PhoneNumber: $("#hddPhoneNumber").val()}),
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                debugger;
+                $(".field-validation-valid").show();
+                $(".field-validation-valid").css("color", "green");
+                $(".field-validation-valid").html("OTP has been sent successfully");
+
+            }
+        });
+    } 
+</script>
+
+
+
+

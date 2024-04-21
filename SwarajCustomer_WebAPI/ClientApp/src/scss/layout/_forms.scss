@@ -1,0 +1,232 @@
+.model-bg{background-color: rgba(0, 0, 0, 0.7);}
+.rcs{
+    &_main{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $default-space;
+        &--title{
+            font-size: 26px;
+            font-weight: 700;
+        }
+    }
+    &_label{
+        margin-bottom: 0.5rem;
+        font-size: 14px;
+        font-weight: 500;
+        color: $label-color;
+    }
+    &_input{
+        background: #fff;
+        color: #6e6e6e;
+        line-height: 1.5;
+        font-size: 13px;
+        height: 42px;
+        border-radius: 0.375rem;
+        border:1px solid  #CCCCCC;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+    }
+    &_textarea{
+        height: var(--height);
+        border:1px solid  #CCCCCC;
+        width: 100%;
+        border-radius: 0.375rem;
+        padding: 0.375rem 0.75rem;
+    }
+    &_select{
+        position: relative;       
+       border:1px solid  #CCCCCC;
+       border-radius: 0.375rem;
+       height: 42px;
+       width: 100%;
+       padding: 0.375rem 0.75rem;
+       &::after{
+            //content: "<>";
+            font: 17px "Consolas", monospace;
+            color: #333;
+            transform: rotate(90deg);
+            right: 11px;
+            top: 15px;
+            padding: 0 0 2px;
+            border-bottom: 1px solid #999;
+            position: absolute;
+            pointer-events: none;   
+       }
+        
+    }  
+    &_error{
+        display: block;
+        color: $error-color;
+        font-size: 13px;
+        padding-top: 2px;
+    }
+    &_fileselect{
+        &name{
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            align-items: center;
+            h6{
+                margin-bottom: 0;
+                font-size: 13px;
+                color: #9b9898;
+                font-weight: 400;
+                white-space: nowrap;
+                overflow: hidden;
+                width: 119px;
+                text-overflow: ellipsis;
+                cursor: pointer;
+            }
+            a{
+                color: $primary-color;
+                white-space: nowrap;
+                width: 130px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            &--delete{
+                color: $cancel-color;
+                cursor: pointer;
+                font-size: 12px;
+                &:hover{
+                    color: $delete-text-color;
+                }
+            }
+         
+        }
+        &--file{
+            border: 2px dotted #ddd;
+            padding: 8px 10px;
+            border-radius: 0.375rem;
+            &input{
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+        }
+        &--suported{
+            font-size: 12px;
+            color: #a3a3a3;
+            padding-top: 5px;
+        }
+    }
+    &_calender{
+        position: relative;
+        &:before{
+            //content: "\f073";
+            position: absolute;
+            font-family: 'FontAwesome';
+            right: 15px; 
+            top: 9px;
+            color: #838383; 
+        }
+    }
+    &_radio-groupall{
+        display: flex;
+        gap: 10px;
+    }
+    &__radio-input {
+        display: none;
+    }
+    &__radio-label {
+        font-size: 16px;
+        cursor: pointer;
+        position: relative;
+        padding-left: 30px;
+    }
+    &__radio-botton {
+        height: 20px;
+        width: 20px;
+        border: 3px solid $border-color;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 2px;
+
+        &::after {
+            content: "";
+            display: block;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            background-color: $primary-color;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+    }
+
+    &__radio-input:checked ~ &__radio-label &__radio-botton::after {
+        opacity: 1;
+    }
+    &_modal{
+        &_header{
+            display: flex;
+            justify-content: space-between;
+            background-color: #EBEBEB;
+            padding: 17px 20px;           
+            &--title{
+                font-size: 22px;
+                margin-bottom: 0;
+            }
+        }
+        &_body{
+            padding: 1rem;
+        }
+        &_footer{
+            text-align: right;
+            padding: 16px 16px 16px;
+        }
+    }
+}
+.label{
+   &_text{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #1b2c3f;
+   } 
+   &_info{
+    font-size: 14px;
+    color: #818995;
+   }       
+}
+.space-bottom{margin-bottom: $default-space;}
+
+/** date picker icon **/
+// input[type="date"]::-webkit-inner-spin-button,
+// input[type="date"]::-webkit-calendar-picker-indicator {
+//     display: none;
+//     -webkit-appearance: none;
+// }
+.all{
+    &_info{
+        &_list{
+            padding: 0;
+            li{
+                @include jc-between;
+                border: 1px solid $border-color;
+                padding: 10px 15px;
+                span{
+                    text-align: right;
+                }
+            }    
+        }
+        &--title{
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        &--label{
+            font-size: 14px;
+          
+        }
+        &--desb{
+            font-size: 14px;
+            
+        }
+    }
+}

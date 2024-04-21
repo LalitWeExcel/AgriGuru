@@ -1,0 +1,248 @@
+<app-header></app-header>
+<app-side-nav></app-side-nav>
+<div class="app-container">
+    <div class="app-main">
+        <div class="d-flex justify-content-between">
+            <h3 class="dashboard-title">Member Detail</h3>
+            <div>
+                <button type="button" class="btn btn-primary btn-sm" (click)="BackRequest()" *ngIf="this.roleName=='Admin'">Back</button>
+                <a (click)="openPDF()" href="javascript:void(0)" class="download-btn mt-2" id="btn"><span
+                        class="fa-solid fa-cloud-arrow-down px-2"></span>Download</a>
+            </div>
+        </div>
+        <div *ngIf="isLoading; else content">
+            <app-loader :title="loadingTitle"></app-loader>
+        </div>
+        <ng-template  #content>
+            <div id="content">
+            <div class="dashboard-card">
+                <h5 class="dashboard-card--title">Personel Details</h5>
+                <div class="dashboard-card--body">
+                    <div class="row" >
+                        <div class="col-md-2">
+                    <div class="col-md-2">
+                        <img src="{{memberDetails.newImageSrc}}" width="150px" height="150px" style="margin-left: 10px;"/>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <ul>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Full Name" Value="{{memberDetails.memberName|titlecase}}"></app-m-shared>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Aadhaar No" Value="{{memberDetails.aadharNo}}"></app-m-shared>
+                                
+                            </div>  
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Date of Birth" Value="{{memberDetails.dob| date:'dd/MM/yyyy'}}"></app-m-shared>
+                              
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Age" Value="{{memberDetails.age}}"></app-m-shared>
+                              
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                    </div>
+                    <ul class="dashboard-card--innerboxactive">
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Father Name" Value="{{memberDetails.fatherName|titlecase}}"></app-m-shared>
+                             
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Relationship with Member" Value="{{memberDetails.previousMemberRelation|titlecase}}"></app-m-shared>
+                                
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Membership No" Value="{{memberDetails.membershipNo}}"></app-m-shared>
+                            
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Occupation of Member" Value="{{memberDetails.occupationVal|titlecase}}"></app-m-shared>
+                              
+                            </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Mobile No" Value="{{memberDetails.mobile}}"></app-m-shared>
+                          
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="EmailId" Value="{{memberDetails.emailId|lowercase}}"></app-m-shared>
+                             
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Registered Address" Value="{{memberDetails.address1|titlecase}}"></app-m-shared>
+                             
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="District" Value="{{memberDetails.distName|titlecase}}"></app-m-shared>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <ul class="dashboard-card--innerboxactive">
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Post Office" Value="{{memberDetails.postOffice|titlecase}}"></app-m-shared>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Postal Code" Value="{{memberDetails.pin}}"></app-m-shared>
+                             
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Name of Nominee" Value="{{memberDetails.nomineeName|titlecase}}"></app-m-shared>
+                             
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Nominee Age" Value="{{memberDetails.nomineeAge}}"></app-m-shared>
+                              
+                            </div>
+                        </li>
+
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="No of Share Subscribed" Value="{{memberDetails.noOfShares}}"></app-m-shared>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Date of Share transfer Approval" Value="{{memberDetails.shareDateApproval| date:'dd/MM/yyyy'}}"></app-m-shared>
+                             
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <h5 class="dashboard-card--label">View Affidavit:</h5>
+                                <h6 class="dashboard-card--view" *ngIf="memberDetails.affidavitDoc!='';else na">
+                                    <a href="{{affidavidUrl}}" target="_blank">View Affidavit </a>
+                                </h6>
+                                
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <h5 class="dashboard-card--label">View Identity:</h5>
+                                <h6 class="dashboard-card--view" *ngIf="memberDetails.identityDoc!='';else na">
+                                    <a href="{{identityUrl}}" target="_blank">View Identity Proof
+                                    </a>
+                                </h6>
+                            </div>
+                        </li>
+                    </ul>
+                    <ng-template #na class="font-weight-bold"><h6 class="dashboard-card--view">---</h6></ng-template>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <h5 class="dashboard-card--title">Flat Details</h5>
+                <div class="dashboard-card--body">
+                    <ul class="dashboard-card--innerboxactive">
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Plot/Flat Type" Value="{{memberDetails.flatType }}" Unit="BHK"></app-m-shared>
+                               
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Plot No./Flat No. Details" Value="{{memberDetails.pftValue}}"></app-m-shared>
+                              
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Flat Area" Value="{{memberDetails.flatArea}}" Unit="Sq. feet"></app-m-shared>
+                              
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Tower No.(If Any)" Value="{{memberDetails.towerNo}}"></app-m-shared>
+                            
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <h5 class="dashboard-card--title">Mortgaged Details</h5>
+                <div class="dashboard-card--body">
+                    <ul>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Property Mortgaged" Value="{{memberDetails.is_Mortgage}}"></app-m-shared>
+                              
+
+                            </div>
+                        </li>
+                        <li *ngIf="(memberDetails.is_Mortgage|uppercase) == 'YES'">
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Mortgaged Details" Value="{{memberDetails.mortgagedDetail|titlecase}}"></app-m-shared>
+                           
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <h5 class="dashboard-card--title">Litigation Details (If Any)</h5>
+                <div class="dashboard-card--body">
+                    <ul class="dashboard-card--innerboxactive">
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Member under Litigation" Value="{{memberDetails.is_Litigation}}"></app-m-shared>
+                            
+
+                            </div>
+                        </li>
+                        <li *ngIf="(memberDetails.is_Litigation|uppercase)=='YES'">
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Court Name" Value="{{memberDetails.courtName|titlecase}}"></app-m-shared>
+                                
+                            </div>
+                        </li>
+                        <li *ngIf="(memberDetails.is_Litigation|uppercase)=='YES'">
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Case in Brief" Value="{{memberDetails.caseInBrief|titlecase}}"></app-m-shared>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </ng-template>
+    </div>

@@ -1,0 +1,270 @@
+﻿@model SwarajCustomer_Common.Customer.BookPujaContent
+@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidths">
+        <div class="barwidths" id="adminDashboardLeads">
+            <input type="hidden" id="hddPujaID" value="@Model.MainProductId" />
+            <input type="hidden" id="hddPujaMRP" value="@Model.PujaMRP" />
+            <input type="hidden" id="hddPujaDiscount" value="@Model.PujaDiscount" />
+            <input type="hidden" id="hddPujaDiscountedPrice" value="@Model.PujaDiscountedPrice" />
+            <input type="hidden" id="hddDiscountInRupees" value="@Model.DiscountInRupees" />
+
+
+            <input type="hidden" id="hddSamagriMRP" />
+            <input type="hidden" id="hddSamagriDiscount" />
+            <input type="hidden" id="hddSamagriDiscountPrice" />
+
+            <label class="control-label col-md-12">@Model.Name </label>
+            <div class="searchfilter topwidth">
+                <div class="col-sm-3 searchbox newlabel">
+                    <label class="control-label col-md-2">Choose Date </label>
+                    <input type="text" class="form-control date-picker-textbox hasDatepicker" id="startdate_id" placeholder="startdate" readonly />
+                    <img src="~/Content/images//caleder.png" style="height: 15px; width: 15px;" />
+                </div>
+                <div class="col-sm-3 searchbox newlabel">
+                    <label class="control-label col-md-2">Choose Time</label>
+                    @Html.DropDownList("AddTimeSlot", new SelectList(Model.Masters.TimeSlotsList, "ID", "TimeSlot"), "All", new { @id = "AddTimeSlot", @class = "form-control selectoption" })
+                    <span style="color: red;" class="validation" id="spnAddTimeSlot"></span>
+                </div>
+                <div class="col-sm-4 searchbox newlabel">
+                    <label class="control-label col-md-2">Choose Samagri</label>
+                    <input type="radio" style="cursor: pointer;" name="Samigri" value="1" checked />
+                    <span class="radiotext">With Samagri</span>
+                    <input type="radio" style="cursor: pointer;" name="Samigri" value="0" />
+                    <span class="radiotext">WithOut Samagri</span>
+                </div>
+
+                <div class="col-sm-4 searchbox newlabel">
+                    <label class="control-label col-md-2">For whom you are booking for ?</label>
+                    <input type="radio" style="cursor: pointer;" name="IsForOther" value="N" checked />
+                    <span class="radiotext">Me</span>
+                    <input type="radio" style="cursor: pointer;" name="IsForOther" value="Y" />
+                    <span class="radiotext">SomeOne Else</span>
+                </div>
+            </div>
+            <div class="searchfilter">
+                <div class="col-sm-3 searchbox">
+                    <label class="control-label col-md-2">First Name</label>
+                    <input type="text" class="form-control alphaOnly" id="txtFirstName" />
+                    <span style="color: red;" class="validation" id="spnFirstName"></span>
+                </div>
+                <div class="col-sm-3 searchbox">
+                    <label class="control-label col-md-2">Last Name</label>
+                    <input type="text" class="form-control alphaOnly" id="txtLastName" />
+                    <span style="color: red;" class="validation" id="spnLastName"></span>
+                </div>
+                <div class="col-sm-3 searchbox">
+                    <label class="control-label col-md-2">Email Address</label>
+                    <input type="text" class="form-control" id="txtEmail" />
+                    <span style="color: red;" class="validation" id="spnEmail"></span>
+                </div>
+                <div class="col-sm-3 searchbox">
+                    <label class="control-label col-md-2">Contant Number</label>
+                    <input type="text" class="form-control numberOnly" id="txtContantNumber" maxlength="10" />
+                    <span style="color: red;" class="validation" id="spnContantNumber"></span>
+                </div>
+            </div>
+            <div class="searchfilter">
+                <div class="col-sm-3 searchbox">
+                    <label class="control-label col-md-2">Address</label>
+                    <input type="text" class="form-control alphaNumericOnly" id="txtAddress" />
+                    <span style="color: red;" class="validation" id="spnAddress"></span>
+                </div>
+                <div class="col-sm-3 searchbox">
+                    <label class="control-label col-md-2">LandMark</label>
+                    <input type="text" class="form-control alphaNumericOnly" id="txtLandMark" />
+                    <span style="color: red;" class="validation" id="spnLandMark"></span>
+                </div>
+
+                <div class="col-sm-3 searchbox">
+                    <label class="control-label col-md-2"> State </label>
+                    <select class="form-control selectoption" id="ddState" name="mst_state_id"></select>
+                    <span style="color: red;" class="validation" id="spnddState"></span>
+                </div>
+                <div class="col-sm-3 searchbox">
+                    <label class="control-label col-md-2"> District </label>
+                    <select class="form-control selectoption" id="ddDistrict" name="mst_district_id"></select>
+                    <span style="color: red;" class="validation" id="spnddDistrict"></span>
+                </div>
+            </div>
+            <div class="searchfilter">
+                <div class="col-sm-3 searchbox">
+                    <label class="control-label col-md-2"> PinCode </label>
+                    <input type="text" class="form-control NumericOnly" id="txtPinCode" maxlength="6" />
+                    <span style="color: red;" class="validation" id="spnPinCode"></span>
+                </div>
+                <div class="col-sm-3 searchbox">
+                    <label class="control-label col-md-2"> What Amount you are pay ?</label>
+                    <input type="radio" style="cursor: pointer;" name="Payment" value="Y" checked />
+                    <span class="radiotext">Full Payment</span>
+                    <input type="radio" style="cursor: pointer;" name="Payment" value="N" />
+                    <span class="radiotext">20% payment</span>
+                </div>
+            </div>
+            <div class="buttonsenterbox margintops">
+                <button class="btn btn-success yes" id="btn_save" onclick="SavePujaOrder('Y')">Add To Cart</button>
+                <button class="btn btn-success yes black" id="btn_save" onclick="SavePujaOrder('N')">Book Now</button>
+            </div>
+            <div class="table-container" id="divGrid"></div>
+            <div class="table-container" id="divNoData"></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/function.js"></script>
+<script src="~/Areas/Customer/Scripts/bookpuja.js"></script>
+
+<script>
+
+
+    var $_SavePujaOrderUrl = ""
+    if ('@Server_Url'.indexOf('AgriGuru') >= 1) {
+        $_SavePujaOrderUrl = '/AgriGuru/Booking/SavePujaOrder/';
+    }
+    else if ('@Server_Url'.indexOf('PujaGuru') >= 1) {
+        $_SavePujaOrderUrl = '/PujaGuru/Booking/SavePujaOrder/';
+    }
+    else {
+         $_SavePujaOrderUrl = '/Booking/SavePujaOrder/';
+    }
+
+
+    var $_FirstName = '@Model.Userprofile.FirstName';
+    var $_LastName = '@Model.Userprofile.LastName';
+    var $_Email = '@Model.Userprofile.Email';
+    var $_MobileNumber = '@Model.Userprofile.MobileNumber';
+    var $_Address = '@Model.Userprofile.Address';
+    var $_Landmark = '@Model.Userprofile.Landmark'.replace('&amp;', '&');
+    var $_PinCode = '@Model.Userprofile.PinCode';
+    var $_CityName = '@Model.Userprofile.City'.replace('&amp;', '&');
+    var $_StateId = '@Model.Userprofile.StateId';
+    var $_DistrictId = '@Model.Userprofile.DistrictId';
+
+
+    var $_SamagriMRP = '@Model.Masters.SamagriList[0].MRP';
+    var $_SamagriDiscount = '@Model.Masters.SamagriList[0].Discount';
+    var $_SamagriDiscountPrice = '@Model.Masters.SamagriList[0].DiscountedPrice';
+
+    AlphaOnly('.alphaOnly');
+    NumberOnly('.numberOnly');
+    DecimalOnly('.decimalOnly');
+    AlphaNumericOnly('.alphaNumericOnly');
+    AlphaPlusMinus('.alphaPlusMinus');
+    PreventKey('.preventkey');
+    SevenDigitWithTwoDeci('.SevenWithTwoDeci');
+
+
+    $(document).ready(function () {
+        var d = new Date();
+        var currMonth = d.getMonth();
+        var currYear = d.getFullYear();
+        var currDate = d.getDate();
+        var endDate = new Date(currYear, currMonth, currDate + 1);
+
+ 
+        $("#startdate_id").datetimepicker({
+            format: "DD-MM-YYYY",
+            pickTime: false,
+            autoclose: true,
+            defaultDate: endDate,
+            minDate: endDate,
+        });
+
+
+
+        $("#txtFirstName").val($_FirstName);
+        $("#txtLastName").val($_LastName);
+        $("#txtEmail").val($_Email);
+        $("#txtContantNumber").val($_MobileNumber);
+        $("#txtAddress").val($_Address);
+        $("#txtLandMark").val($_Landmark);
+        $("#txtPinCode").val($_PinCode);
+        $("#txtCityName").val($_CityName);
+
+
+        //  $_Samagri --!!
+        $("#hddSamagriMRP").val($_SamagriMRP);
+        $("#hddSamagriDiscount").val($_SamagriDiscount);
+        $("#hddSamagriDiscountPrice").val($_SamagriDiscountPrice);
+
+
+        GetState($_StateId);
+        setTimeout(function () {
+            GetDistrict($_StateId, $_DistrictId);
+        }, 2000);
+    });
+
+
+</script>
+
+
+
+<style>
+    .searchfilter.topwidth .col-sm-3.searchbox.newlabel {
+        width: 16%;
+    }
+
+    .col-sm-3.searchbox label.control-label.col-md-2 {
+        position: relative;
+        left: 0;
+        padding: 0;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .radiotext {
+        margin-right: 10px;
+    }
+
+    .searchfilter.topwidth .col-sm-4.searchbox.newlabel {
+        width: 34% !important;
+        float: left;
+        margin: auto;
+        max-width: 100%;
+    }
+
+    .col-sm-3.searchbox select {
+        width: 100% !important;
+        float: left;
+    }
+
+    .searchfilter.topwidth .col-sm-4.searchbox.newlabel label.control-label.col-md-2 {
+        padding: 0;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .col-sm-3.searchbox.newlabel label.control-label {
+        width: 100%;
+        float: left;
+        position: relative;
+        margin: 0 0 14px;
+        padding: 0;
+    }
+
+    .col-sm-3.searchbox.newlabel img {
+        position: absolute;
+        right: 30px;
+        bottom: 10px;
+    }
+
+    .searchfilter .searchbox {
+        margin-bottom: 20px;
+    }
+
+    .validation {
+        bottom: -20px;
+        font-size: 12px;
+    }
+
+    .searchfilter.topwidth select#AddTimeSlot {
+        width: 100%;
+    }
+</style>

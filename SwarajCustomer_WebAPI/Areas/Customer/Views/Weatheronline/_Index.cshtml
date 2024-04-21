@@ -1,0 +1,175 @@
+﻿@model SwarajCustomer_WebAPI.Areas.Customer.Models.Weatheronlineobject
+@using SwarajCustomer_Common;
+
+@{
+    var weather = Model.data.weather[0].hourly.Take(23);
+    var time = DateTime.Now.Hour.ToString() + "00";
+    var Server_Url = CommonMethods.BaseUrl;
+    var actives = "actives";
+
+
+}
+<div class="orangebg">
+    <div id="owl-carousel" class="owl-carousel owl-theme">
+        @{
+
+            foreach (var item in weather)
+            {
+
+                <div class="item">
+                    <div class="boxestemp @{if (item.time == time){ @actives }} ">
+                        <div class="innerwidthss">
+                            @{
+                                if (item.time == "0")
+                                {
+                                    <span class="tetexts"> 00:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "100")
+                                {
+                                    <span class="tetexts"> 01:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "200")
+                                {
+                                    <span class="tetexts"> 02:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "300")
+                                {
+                                    <span class="tetexts"> 03:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "400")
+                                {
+                                    <span class="tetexts"> 04:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "500")
+                                {
+                                    <span class="tetexts"> 05:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "600")
+                                {
+                                    <span class="tetexts"> 06:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "700")
+                                {
+                                    <span class="tetexts"> 07:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "800")
+                                {
+                                    <span class="tetexts"> 08 :00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "900")
+                                {
+                                    <span class="tetexts"> 09:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "1000")
+                                {
+                                    <span class="tetexts"> 10:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "1100")
+                                {
+                                    <span class="tetexts"> 11:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "1200")
+                                {
+                                    <span class="tetexts"> 12:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "1300")
+                                {
+                                    <span class="tetexts"> 13:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "1400")
+                                {
+                                    <span class="tetexts"> 14:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "1500")
+                                {
+                                    <span class="tetexts"> 15:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "1600")
+                                {
+                                    <span class="tetexts"> 16:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "1700")
+                                {
+                                    <span class="tetexts"> 17:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "1800")
+                                {
+                                    <span class="tetexts"> 18:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "1900")
+                                {
+                                    <span class="tetexts"> 19:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "2000")
+                                {
+                                    <span class="tetexts"> 20:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "2100")
+                                {
+                                    <span class="tetexts"> 21:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "2200")
+                                {
+                                    <span class="tetexts"> 22:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+                                else if (item.time == "2300")
+                                {
+                                    <span class="tetexts"> 23:00  </span>
+                                    <span class="tetexts">@item.tempC  &#8451 </span>
+                                }
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+</div>
+
+<script>
+
+    var $_time = new Date().getHours();
+    $(document).ready(function () {
+        $('#owl-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            dots: false,
+            nav: true,
+            items: 8,
+        });
+
+        //var listItems = $(".boxestemp").splice(0, 23);
+        //listItems[$_time].classList.add("actives");
+        //debugger;
+        //console.log(listItems);
+    });
+
+</script>
+
+

@@ -1,0 +1,315 @@
+﻿@model SwarajCustomer_Common.ViewModel.ManageOrderViewModel
+@{
+    int records = 0;
+}
+
+<script>
+    function SetPagingStyles() {
+        $(document).bind('ready ajaxComplete', function () {
+            function setHeight() {
+                var tfoot = document.querySelector('tfoot');
+                if (tfoot == null) {
+                    windowHeight = $(window).innerHeight() - 380;
+                    $('tbody').css('max-height', windowHeight);
+                }
+                else {
+                    windowHeight = $(window).innerHeight() - 420;
+                    $('tbody').css('max-height', windowHeight);
+                }
+            };
+
+            setHeight();
+
+            $(window).resize(function () {
+                setHeight();
+            });
+
+            $('table').on('scroll', function () {
+                $("#" + this.id + " > *").width($(this).width() + $(this).scrollLeft());
+            });
+            $("tfoot a").addClass('btn2 btn2-default');
+            $("tfoot td")
+                .contents()
+                .filter(function () {
+                    if (this.nodeType === 3 && this.length > 1) {
+                        return this.nodeType
+                    }
+                })
+                .wrap('<span class="btn2 btn2-primary" />');
+        });
+    }
+
+    $('table').on('scroll', function () {
+        $("#" + this.id + " > *").width($(this).width() + $(this).scrollLeft());
+    });
+</script>
+
+<div class="col-sm-12 tablnew" id="divpartdetails">
+    <div class="table gridresposnive workplaces">
+        @if (Model.ManageOrdertList != null && Model.ManageOrdertList.Any())
+        {
+            records = Model.TotalRecords;
+            WebGrid grid = new WebGrid(canPage: true,
+                rowsPerPage: Model.NoOfRecords,
+                canSort: true,
+                ajaxUpdateContainerId: "WebGrid");
+            grid.Bind(Model.ManageOrdertList, rowCount: records, autoSortAndPage: false);
+            grid.Pager(WebGridPagerModes.Numeric);
+            @grid.GetHtml(htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+    fillEmptyRows: false,
+    mode: WebGridPagerModes.All,
+    previousText: "<",
+    nextText: ">",
+    numericLinksCount: 5,
+    tableStyle: "table table-hover",
+    columns: new[]
+    {
+               grid.Column("SrNo", "Sr No"),
+               grid.Column("OrderNumber", "Order Number",format:@<text> <span title="Details" style="cursor:pointer"
+                                                                              onclick="Details('@item.BookingID','@item.OrderNumber')">@item.OrderNumber</span> </text> ),
+                                       grid.Column("BookingDate", "Booking Date"),
+                                       grid.Column("BookingType", "Booking Type"),
+                                       grid.Column("PujaName", "Service"),
+                                       grid.Column("TimeSlot", "Time"),
+                                       grid.Column("PurohitName", "Purohit/Astrologer"),
+                                       grid.Column("CustName", "Customer"),
+                                       grid.Column("CustPhone", "Contact"),
+                                       grid.Column("Paid", "Paid"),
+                                       grid.Column("PaymentMode", "Payment Mode"),
+                                       grid.Column("PaymentDetails", "Bank Name"),
+                                       grid.Column("CustState", "Cust.State"),
+                                       grid.Column("CustDistrict", "Cust.District"),
+                                       grid.Column("OrderStatus", "Order Status"),
+                                       grid.Column("RejectByProhit", "Reject By Prohit/Astrologer",format:@<text>
+                @{
+      if(@item.RejectByProhit == "Yes") {<img src="~/Content/images/ic_blink.gif" width="30" height="30" title="Reject By Prohit Yes" />}
+      else{<span>No</span> }}  </text>),
+
+                                     grid.Column(header: "Action", format: @<text>@{
+      <span title="Details" class="btn btn-info" onclick="Details('@item.BookingID','@item.OrderNumber')">Details</span>
+                                    if (@item.IsActive == "InActive" && @item.OrderStatus == "Cancelled" && item.RejectByProhit == "Yes")
+                                    {
+                                    <span title="@item.Buttion" class="btn btn-success" onclick="OpenPopup('@item.BookingID', '@item.OrderNumber', '@item.PurohitID', '@item.BookingType', '@item.NoOfPandit')">@item.Buttion</span>
+                                    }
+                                     else if (@item.IsActive == "Active" && @item.OrderStatus == "Upcoming" && item.RejectByProhit == "No") {
+                                     if (@item.NoOfPandit == 0 )
+                                       {
+                                          if(@item.IsTemp == "Y")
+                                               {
+                                            <span title="Approve" class="btn btn-warning" onclick="ConfirmProhit('@item.BookingID', '@item.OrderNumber', '@item.PurohitName', '@item.CustCity')">Approve</span>
+                                               }
+                                     <span title="@item.Buttion" class="btn btn-success" onclick="OpenPopup('@item.BookingID', '@item.OrderNumber', '@item.PurohitID', '@item.BookingType', '@item.NoOfPandit')">@item.Buttion</span>
+                                       }
+                                       else
+                                         {
+                                            <span title="@item.Buttion" class="btn btn-success" onclick="OpenPopup('@item.BookingID', '@item.OrderNumber', '@item.PurohitID', '@item.BookingType', '@item.NoOfPandit')">@item.Buttion</span>
+                                         }
+                                     }
+                                   } </text> )});
+
+            <script type="text/javascript">
+                   gbl_row_count = @records;
+                   SetPagingStyles();
+            </script>
+        }
+        else
+        {
+            <table class="table table-hover" id="grid">
+                <thead>
+                    <tr>
+                    <tr>
+                        <th scope="col">Sr No</th>
+                        <th scope="col">Order Number</th>
+                        <th scope="col">Booking Date</th>
+                        <th scope="col">Booking Type</th>
+                        <th scope="col">Puja Name</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Purohit Name</th>
+                        <th scope="col">Cust. Name</th>
+                        <th scope="col">Cust. Phone</th>
+                        <th scope="col">Paid</th>
+                        <th scope="col">Payment Mode</th>
+                        <th scope="col">Bank Namee</th>
+                        <th scope="col">Cust.State</th>
+                        <th scope="col">Cust.District</th>
+                        <th scope="col">Order Status</th>
+                        <th scope="col">Reject By Prohit/Astrologer</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="width: 100%; display: inline-table; text-align: left; position: relative;">
+                        <td style="font-weight: 600; font-size: 21px; color: #b50000; text-align: left;">
+                            No Records Found
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <script type="text/javascript">
+                gbl_row_count = 0;
+            </script>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).bind('ready ajaxComplete', function () {
+
+        function setHeight() {
+
+            var tfoot = document.querySelector('tfoot');
+            if (tfoot == null) {
+                windowHeight = $(window).innerHeight() - 320;
+                $('tbody').css('max-height', windowHeight);
+
+            }
+            else {
+                windowHeight = $(window).innerHeight() - 340;
+                $('tbody').css('max-height', windowHeight);
+            }
+        };
+
+        setHeight();
+
+        $(window).resize(function () {
+            setHeight();
+        });
+    });
+</script>
+
+<style>
+    #divpartdetails .table.gridresposnive th:last-child {
+        text-align: center;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(1), #divpartdetails .table.gridresposnive td:nth-child(1) {
+        min-width: 60px;
+        max-width: 60px;
+        text-align: center;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(2), #divpartdetails .table.gridresposnive td:nth-child(2) {
+        min-width: 200px;
+        max-width: 200px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(3), #divpartdetails .table.gridresposnive td:nth-child(3) {
+        min-width: 130px;
+        max-width: 130px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(4), #divpartdetails .table.gridresposnive td:nth-child(4) {
+        min-width: 120px;
+        max-width: 120px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(5), #divpartdetails .table.gridresposnive td:nth-child(5) {
+        min-width: 200px;
+        max-width: 200px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(6), #divpartdetails .table.gridresposnive td:nth-child(6) {
+        min-width: 85px;
+        max-width: 85px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(7), #divpartdetails .table.gridresposnive td:nth-child(7) {
+        min-width: 150px;
+        max-width: 150px;
+        text-align: left;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(8), #divpartdetails .table.gridresposnive td:nth-child(8) {
+        min-width: 150px;
+        max-width: 150px;
+        text-align: left;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(9), #divpartdetails .table.gridresposnive td:nth-child(9) {
+        min-width: 110px;
+        max-width: 110px;
+        text-align: left;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(10), #divpartdetails .table.gridresposnive td:nth-child(10) {
+        min-width: 55px;
+        text-align: left;
+        max-width: 55px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(11), #divpartdetails .table.gridresposnive td:nth-child(11) {
+        min-width: 130px;
+        text-align: left;
+        max-width: 130px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(12), #divpartdetails .table.gridresposnive td:nth-child(12) {
+        min-width: 110px;
+        text-align: left;
+        max-width: 110px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(13), #divpartdetails .table.gridresposnive td:nth-child(13) {
+        min-width: 180px;
+        text-align: left;
+        max-width: 180px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(14), #divpartdetails .table.gridresposnive td:nth-child(14) {
+        min-width: 180px;
+        text-align: left;
+        max-width: 180px;
+    }
+    .table.gridresposnive td:nth-child(16) img {
+    width: auto;
+    height: auto;
+    max-width: 120px;
+    border: 2px solid #ccc;
+}
+    #divpartdetails .table.gridresposnive th:nth-child(15), #divpartdetails .table.gridresposnive td:nth-child(15) {
+        min-width: 180px;
+        text-align: left;
+        max-width: 180px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(16), #divpartdetails .table.gridresposnive td:nth-child(16) {
+        min-width: 250px;
+        text-align: center;
+        max-width: 250px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(17), #divpartdetails .table.gridresposnive td:nth-child(17) {
+        min-width: 350px;
+        text-align: left;
+        max-width: 350px;
+    }
+    #divpartdetails thead, #divpartdetails tbody {
+        display: block;
+    }
+
+    #divpartdetails thead {
+        background: #333;
+    }
+
+    span.btn.btn-info {
+        background: #888;
+        border: 1px solid #888;
+        box-shadow: none;
+    }
+
+    span.btn.btn-warning {
+        background: #b50000;
+        border: 1px solid #b50000;
+        box-shadow: none;
+    }
+
+    span.btn.btn-success {
+        background: #000;
+        border: 1px solid #000;
+    }
+
+    table#WebGrid {
+        overflow: auto;
+    }
+
+    #divpartdetails .table {
+        overflow: auto;
+    }
+
+
+</style>

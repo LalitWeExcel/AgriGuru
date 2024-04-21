@@ -1,0 +1,232 @@
+﻿@model SwarajCustomer_Common.ViewModel.DashBoardViewModel
+    <script>
+        jQuery.fn.liScroll = function (settings) {
+            settings = jQuery.extend({
+                travelocity: 0.03
+            }, settings);
+            return this.each(function () {
+                var $strip = jQuery(this);
+                $strip.addClass("newsticker")
+                var stripHeight = 1;
+                $strip.find("li").each(function (i) {
+                    stripHeight += jQuery(this, i).outerHeight(true); // thanks to Michael Haszprunar and Fabien Volpi
+                });
+                var $mask = $strip.wrap("<div class='mask'></div>");
+                var $tickercontainer = $strip.parent().wrap("<div class='tickercontainer'></div>");
+                var containerHeight = $strip.parent().parent().height();	//a.k.a. 'mask' width
+                $strip.height(stripHeight);
+                var totalTravel = stripHeight;
+                var defTiming = totalTravel / settings.travelocity;	// thanks to Scott Waye
+                function scrollnews(spazio, tempo) {
+                    $strip.animate({ top: '-=' + spazio }, tempo, "linear", function () { $strip.css("top", containerHeight); scrollnews(totalTravel, defTiming); });
+                }
+                scrollnews(totalTravel, defTiming);
+                $strip.hover(function () {
+                    jQuery(this).stop();
+                },
+                function () {
+                    var offset = jQuery(this).offset();
+                    var residualSpace = offset.top + stripHeight;
+                    var residualTime = residualSpace / settings.travelocity;
+                    scrollnews(residualSpace, residualTime);
+                });
+            });
+        };
+
+        $(function () {
+            $("ul#ticker01").liScroll();
+        });
+    </script>
+@if (Model.DashBoardUserCount != null)
+{
+    <div class="col-sm-9">
+        <div class="barwidths" id="adminDashboardLeads">
+            <div class="col-sm-6 boxwidth">
+                <div class="boxxwidth four">
+                    <div class="boxone">
+                        <p class="iconheading">Customers - Total / Active</p>
+                        <div class="onebox fulltext">
+                            <a href="~/ManageUser/ManageUser/Index">
+                                <span class="countss">
+                                    @Model.DashBoardUserCount.UserCount /
+                                    <span style="color: orange;"> @Model.DashBoardUserCount.ActiveUserCount </span>
+                                </span>
+                                <i class="workimage"><img src="~/Content/images/icons/customer.png"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+
+            <div class="col-sm-6 boxwidth">
+                <div class="boxxwidth two">
+                    <div class="boxone">
+                        <p class="iconheading">Prohit-Astro - Total / Active</p>
+                        <div class="onebox fulltext">
+                            <a href="~/ManageUser/ManageUser/Index">
+                                <span class="countss">
+                                    @Model.DashBoardUserCount.ProhitAstroCount /
+                                    <span style="color: orange;">
+                                        @Model.DashBoardUserCount.ActiveProhitAstroCount
+                                    </span>
+                                </span>
+                                <i class="workimage">
+                                    <img src="~/Content/images/mwork.png">
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+
+        <div class="barwidths" id="adminDashboardLeads">
+            <div class="col-sm-6 boxwidth">
+                <div class="boxxwidth three">
+                    <div class="boxone">
+                        <p class="iconheading">Bookings - Total / Upcoming / Today Booking</p>
+                        <div class="onebox fulltext">
+                            <a href="~/ManageOrder/ManageOrder/Index">
+                                <span class="countss">
+                                    @Model.DashBoardUserCount.TotalBooking / @Model.DashBoardUserCount.TotalBookingUpcoming /
+                                    <span style="color: orange;">
+                                        @Model.DashBoardUserCount.TotalTodayBooking
+                                    </span>
+                                </span>
+                                <i class="workimage">
+                                    <img src="~/Content/images/icons/booking.png" />
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+            <div class="col-sm-6 boxwidth">
+                <div class="boxxwidth one">
+                    <div class="boxone">
+                        <p class="iconheading">Total Revenue /  Total Remaining Revenue</p>
+                        <div class="onebox fulltext">
+                            <a href="~/ManagePayment/ManagePayment/Index">
+                                <span class="countss">
+                                    @Model.DashBoardUserCount.TotalRevenue /
+                                    <span style="color: orange;">
+                                        @Model.DashBoardUserCount.TotalRemainingRevenue
+                                    </span>
+                                </span>
+                                <i class="workimage">
+                                    <img src="~/Content/images/icons/revenue.png" />
+                                </i>
+                            </a>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="holder">
+            <p class="headingbox cenetertext">Upcoming Birthdays</p>
+            <ul id="ticker01">
+                @{
+                    if (Model.UpcomingBirthdays.Count() > 0)
+                    {
+                        for (int i = 0; i < Model.UpcomingBirthdays.Count; i++)
+                        {
+                            <li class="col-sm-12">
+                                <div class="col-sm-3">
+                                    <img src="@Model.UpcomingBirthdays[i].ImageUrl" height="50px" />
+                                </div>
+                                <div class="col-sm-9">
+                                    <span title="Details" style="cursor:pointer"
+                                          onclick="Details('@Model.UpcomingBirthdays[i].adm_user_id')">
+                                        @Model.UpcomingBirthdays[i].DOB<br />@Model.UpcomingBirthdays[i].CustomerName
+                                    </span>
+                                    <br />
+                                    <span title="Birthday Message" style="cursor:pointer" onclick="OpenPopup('@Model.UpcomingBirthdays[i].Contact')">@Model.UpcomingBirthdays[i].Contact</span>
+                                </div>
+                            </li>
+                        }
+                    }
+                }
+
+            </ul>
+            <br/>
+            <a class="cenetertext" data-toggle="modal" data-target="#logoutModal2" style="cursor:pointer" onclick="GetComeingBirthday()">
+                show all
+            </a>
+        </div>
+    </div>
+}
+
+<div class="fullwidthspiegraph">
+    <div class="centerdiv">
+        <div class="col-sm-12 leftpiechat marginauto">
+            <p class="pieheading"></p>
+            <div id="barChart1" style="width: 100%; height: 300px;"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart); ///Create Charts
+
+     var $_GraphData = new Array();
+     @foreach (var item in Model.MonthWiseRevenueList)
+     {
+         @:var Row = new Array();
+         @:Row.push('@item.Month');
+         @:Row.push(@item.Amount);
+         @:Row.push(@item.Amount);
+         @:$_GraphData.push(Row);
+     }
+
+    $(document).on('click', '.toggle-button', (function () {
+        setTimeout(function () {
+            drawChart();
+        }, 500);
+    }));
+
+    function drawChart() {
+        $("#loaderContainer").css("display", "block");
+        if ($("#barChart1").length > 0) {
+            drawRevenueChart();
+        }
+        $("#loaderContainer").css("display", "none");
+    }
+
+    function drawRevenueChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Month');
+        data.addColumn('number', 'Revenue');
+        data.addColumn({ type: 'number', role: 'annotation' });
+        data.addRows($_GraphData);
+        var options = {
+            title: 'Total Booking Revenue',
+            legend: { position: 'none' },
+            pointSize: 10,
+            tooltip: { trigger: 'none' },
+            annotation: {
+                1: {
+                    style: 'none'
+                }
+            },
+            tooltip: {
+                trigger: 'selection'
+            },
+            vAxis: {
+                title: "CONTRIBUTION (%)",
+                minValue: 0,
+            },
+            interpolateNulls: true
+        };
+        var chart = new google.visualization.LineChart(document.getElementById('barChart1'));
+        chart.draw(data, options);
+    }
+
+</script>

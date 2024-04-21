@@ -1,0 +1,33 @@
+﻿
+@model System.Web.Mvc.HandleErrorInfo
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Error";
+}
+
+<div class="list-header clearfix" style="background-color: #A52A2A; color: White; height: 10px;">
+    <span>Error</span>
+</div>
+<div class="list-sfs-holder" style="background-color: #F5F5DC; color: White; height: 170px;">
+    <div class="alert alert-error">
+        An unexpected error has occurred. Please contact the system administrator.
+    </div>
+    @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
+    {
+        <div>
+            <p>
+                <b>Exception:</b> @Model.Exception.Message<br />
+                <b>Controller:</b> @Model.ControllerName<br />
+                <b>Action:</b> @Model.ActionName
+            </p>
+            <div style="overflow:scroll">
+                <pre>
+                    @Model.Exception.StackTrace
+                </pre>
+            </div>
+        </div>
+        <h6>@Html.ActionLink("Go Back To Login Page", "Login", "User", new { Area = "Account" })</h6>
+    }
+</div>
+<div style="background-color: #A52A2A; color: White; height: 20px;">
+</div>

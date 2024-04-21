@@ -1,0 +1,1062 @@
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll.config
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.pdb
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.exe
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.exe.config
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.rsp
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.exe
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.exe.config
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.rsp
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.AppContext.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Collections.Immutable.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Console.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Compression.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.AccessControl.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Claims.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.ValueTuple.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe.config
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.rsp
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe.config
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Web.Infrastructure.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Helpers.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Mvc.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Optimization.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Razor.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\WebGrease.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.pdb
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.pdb
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.pdb
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll.config
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Helpers.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Mvc.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Optimization.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Razor.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.pdb
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csprojAssemblyReference.cache
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CoreCompileInputs.cache
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CopyComplete
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.pdb
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll.config
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.pdb
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.exe
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.exe.config
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.rsp
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.exe
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.exe.config
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.rsp
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.AppContext.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Console.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Compression.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Claims.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.ValueTuple.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe.config
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.rsp
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Helpers.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Mvc.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Optimization.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Razor.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\WebGrease.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.pdb
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.pdb
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.pdb
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll.config
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Helpers.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Mvc.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Optimization.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Razor.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.pdb
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csprojAssemblyReference.cache
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CopyComplete
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.pdb
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll.config
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.pdb
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.exe
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.exe.config
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.rsp
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.exe
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.exe.config
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.rsp
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.AppContext.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Console.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Compression.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Claims.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.ValueTuple.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe.config
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.rsp
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Win32.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\netstandard.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.AppContext.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Collections.Concurrent.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Collections.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Collections.NonGeneric.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Collections.Specialized.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ComponentModel.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ComponentModel.EventBasedAsync.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ComponentModel.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ComponentModel.TypeConverter.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Console.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Data.Common.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.Contracts.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.Debug.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.FileVersionInfo.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.Process.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.StackTrace.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.TextWriterTraceListener.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.Tools.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.TraceSource.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.Tracing.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Drawing.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Dynamic.Runtime.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Globalization.Calendars.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Globalization.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Globalization.Extensions.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.Compression.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.Compression.ZipFile.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.DriveInfo.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.Watcher.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.IsolatedStorage.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.MemoryMappedFiles.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.Pipes.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.UnmanagedMemoryStream.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Linq.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Linq.Expressions.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Linq.Parallel.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Linq.Queryable.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Http.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.NameResolution.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.NetworkInformation.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Ping.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Requests.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Security.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Sockets.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.WebHeaderCollection.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.WebSockets.Client.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.WebSockets.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ObjectModel.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Reflection.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Reflection.Extensions.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Reflection.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Resources.Reader.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Resources.ResourceManager.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Resources.Writer.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.VisualC.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Extensions.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Handles.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.InteropServices.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Numerics.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Formatters.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Json.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Xml.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Claims.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Algorithms.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Csp.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Encoding.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.X509Certificates.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Principal.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.SecureString.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Text.Encoding.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Text.Encoding.Extensions.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Text.RegularExpressions.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.Overlapped.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.Tasks.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.Tasks.Parallel.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.Thread.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.ThreadPool.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.Timer.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ValueTuple.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.ReaderWriter.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.XDocument.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.XmlDocument.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.XmlSerializer.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.XPath.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.XPath.XDocument.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\ClosedXML.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\DocumentFormat.OpenXml.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\ExcelNumberFormat.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\ImageResizer.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\log4net.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Options.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Razorpay.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Buffers.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ComponentModel.Annotations.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.Packaging.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Memory.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Numerics.Vectors.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Helpers.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Mvc.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Optimization.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Razor.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\WebGrease.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\GoogleMaps.LocationServices.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\OpenHtmlToPdf.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.pdb
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.pdb
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.pdb
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll.config
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\ClosedXML.pdb
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\ClosedXML.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\DocumentFormat.OpenXml.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\ExcelNumberFormat.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\ImageResizer.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\log4net.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Options.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Primitives.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Buffers.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Memory.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Numerics.Vectors.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Helpers.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Mvc.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Optimization.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Razor.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.pdb
+D:\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.AssemblyReference.cache
+D:\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CoreCompileInputs.cache
+D:\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CopyComplete
+D:\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.dll
+D:\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.pdb
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll.config
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.pdb
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.exe
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.exe.config
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csc.rsp
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.exe
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.exe.config
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\csi.rsp
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.AppContext.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Console.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Compression.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Claims.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.ValueTuple.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe.config
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\vbc.rsp
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Win32.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\netstandard.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.AppContext.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Collections.Concurrent.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Collections.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Collections.NonGeneric.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Collections.Specialized.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ComponentModel.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ComponentModel.EventBasedAsync.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ComponentModel.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ComponentModel.TypeConverter.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Console.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Data.Common.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.Contracts.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.Debug.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.FileVersionInfo.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.Process.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.StackTrace.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.TextWriterTraceListener.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.Tools.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.TraceSource.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Diagnostics.Tracing.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Drawing.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Dynamic.Runtime.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Globalization.Calendars.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Globalization.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Globalization.Extensions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.Compression.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.Compression.ZipFile.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.DriveInfo.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.Watcher.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.IsolatedStorage.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.MemoryMappedFiles.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.Pipes.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.UnmanagedMemoryStream.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Linq.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Linq.Expressions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Linq.Parallel.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Linq.Queryable.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Http.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.NameResolution.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.NetworkInformation.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Ping.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Requests.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Security.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Sockets.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.WebHeaderCollection.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.WebSockets.Client.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.WebSockets.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ObjectModel.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Reflection.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Reflection.Extensions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Reflection.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Resources.Reader.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Resources.ResourceManager.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Resources.Writer.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.VisualC.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Extensions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Handles.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.InteropServices.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Numerics.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Formatters.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Json.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Xml.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Claims.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Csp.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Encoding.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.Principal.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Security.SecureString.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Text.Encoding.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Text.Encoding.Extensions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Text.RegularExpressions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.Overlapped.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.Tasks.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.Tasks.Parallel.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.Thread.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.ThreadPool.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Threading.Timer.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ValueTuple.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.ReaderWriter.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.XDocument.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.XmlDocument.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.XmlSerializer.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.XPath.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Xml.XPath.XDocument.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\ClosedXML.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\DocumentFormat.OpenXml.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\ExcelNumberFormat.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\ImageResizer.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\log4net.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Options.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Razorpay.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Buffers.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.ComponentModel.Annotations.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.IO.Packaging.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Memory.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Numerics.Vectors.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Helpers.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Mvc.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Optimization.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Razor.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\WebGrease.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\GoogleMaps.LocationServices.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\OpenHtmlToPdf.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.pdb
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.pdb
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.pdb
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll.config
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\ClosedXML.pdb
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\ClosedXML.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\DocumentFormat.OpenXml.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\ExcelNumberFormat.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\ImageResizer.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\log4net.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Options.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Buffers.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Memory.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Numerics.Vectors.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Helpers.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Mvc.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Optimization.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.Razor.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.pdb
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.AssemblyReference.cache
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CopyComplete
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.pdb
+D:\Projects0\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll.config
+D:\Projects0\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.pdb
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\csc.exe
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\csc.exe.config
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\csc.rsp
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\csi.exe
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\csi.exe.config
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\csi.rsp
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.AppContext.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Console.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Compression.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Claims.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.ValueTuple.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe.config
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\vbc.rsp
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe
+D:\Projects0\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\Projects0\SwarajCustomer_WebAPI\bin\Microsoft.Win32.Primitives.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\netstandard.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.AppContext.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Collections.Concurrent.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Collections.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Collections.NonGeneric.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Collections.Specialized.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.ComponentModel.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.ComponentModel.EventBasedAsync.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.ComponentModel.Primitives.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.ComponentModel.TypeConverter.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Console.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Data.Common.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Diagnostics.Contracts.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Diagnostics.Debug.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Diagnostics.FileVersionInfo.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Diagnostics.Process.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Diagnostics.StackTrace.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Diagnostics.TextWriterTraceListener.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Diagnostics.Tools.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Diagnostics.TraceSource.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Diagnostics.Tracing.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Drawing.Primitives.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Dynamic.Runtime.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Globalization.Calendars.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Globalization.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Globalization.Extensions.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.Compression.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.Compression.ZipFile.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.DriveInfo.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.Primitives.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.Watcher.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.IsolatedStorage.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.MemoryMappedFiles.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.Pipes.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.UnmanagedMemoryStream.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Linq.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Linq.Expressions.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Linq.Parallel.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Linq.Queryable.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.Http.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.NameResolution.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.NetworkInformation.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.Ping.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.Primitives.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.Requests.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.Security.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.Sockets.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.WebHeaderCollection.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.WebSockets.Client.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.WebSockets.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.ObjectModel.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Reflection.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Reflection.Extensions.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Reflection.Primitives.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Resources.Reader.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Resources.ResourceManager.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Resources.Writer.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.VisualC.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.Extensions.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.Handles.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.InteropServices.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.Numerics.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Formatters.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Json.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Primitives.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Xml.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Security.Claims.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Algorithms.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Csp.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Encoding.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Primitives.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.X509Certificates.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Security.Principal.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Security.SecureString.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Text.Encoding.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Text.Encoding.Extensions.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Text.RegularExpressions.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Threading.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Threading.Overlapped.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Threading.Tasks.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Threading.Tasks.Parallel.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Threading.Thread.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Threading.ThreadPool.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Threading.Timer.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.ValueTuple.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Xml.ReaderWriter.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Xml.XDocument.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Xml.XmlDocument.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Xml.XmlSerializer.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Xml.XPath.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Xml.XPath.XDocument.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\ClosedXML.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\DocumentFormat.OpenXml.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\EntityFramework.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\ExcelNumberFormat.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\ImageResizer.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\log4net.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Options.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Primitives.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\Razorpay.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Buffers.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.ComponentModel.Annotations.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.IO.Packaging.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Memory.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Numerics.Vectors.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Helpers.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Http.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Mvc.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Optimization.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Razor.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.WebPages.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\WebGrease.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\GoogleMaps.LocationServices.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\OpenHtmlToPdf.dll
+D:\Projects0\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.pdb
+D:\Projects0\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.pdb
+D:\Projects0\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.pdb
+D:\Projects0\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll.config
+D:\Projects0\SwarajCustomer_WebAPI\bin\ClosedXML.pdb
+D:\Projects0\SwarajCustomer_WebAPI\bin\ClosedXML.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\DocumentFormat.OpenXml.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\EntityFramework.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\ExcelNumberFormat.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\ImageResizer.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\log4net.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Options.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Primitives.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Buffers.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Memory.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Numerics.Vectors.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Helpers.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Http.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Mvc.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Optimization.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.Razor.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.WebPages.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.xml
+D:\Projects0\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.pdb
+D:\Projects0\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Projects0\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.AssemblyReference.cache
+D:\Projects0\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CoreCompileInputs.cache
+D:\Projects0\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CopyComplete
+D:\Projects0\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.dll
+D:\Projects0\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.pdb
+D:\New folder\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll.config
+D:\New folder\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\SwarajCustomer_WebAPI.pdb
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\csc.exe
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\csc.exe.config
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\csc.rsp
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\csi.exe
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\csi.exe.config
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\csi.rsp
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.Managed.Core.targets
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.AppContext.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Collections.Immutable.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Console.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Compression.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.IO.Pipes.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Reflection.Metadata.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Security.AccessControl.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Claims.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.ValueTuple.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\vbc.exe.config
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\vbc.rsp
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe
+D:\New folder\SwarajCustomer_WebAPI\bin\roslyn\VBCSCompiler.exe.config
+D:\New folder\SwarajCustomer_WebAPI\bin\Microsoft.Win32.Primitives.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\netstandard.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.AppContext.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Collections.Concurrent.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Collections.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Collections.NonGeneric.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Collections.Specialized.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.ComponentModel.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.ComponentModel.EventBasedAsync.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.ComponentModel.Primitives.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.ComponentModel.TypeConverter.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Console.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Data.Common.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Diagnostics.Contracts.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Diagnostics.Debug.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Diagnostics.FileVersionInfo.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Diagnostics.Process.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Diagnostics.StackTrace.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Diagnostics.TextWriterTraceListener.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Diagnostics.Tools.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Diagnostics.TraceSource.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Diagnostics.Tracing.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Drawing.Primitives.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Dynamic.Runtime.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Globalization.Calendars.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Globalization.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Globalization.Extensions.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.Compression.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.Compression.ZipFile.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.DriveInfo.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.Primitives.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.FileSystem.Watcher.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.IsolatedStorage.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.MemoryMappedFiles.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.Pipes.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.UnmanagedMemoryStream.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Linq.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Linq.Expressions.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Linq.Parallel.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Linq.Queryable.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.Http.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.NameResolution.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.NetworkInformation.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.Ping.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.Primitives.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.Requests.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.Security.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.Sockets.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.WebHeaderCollection.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.WebSockets.Client.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.WebSockets.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.ObjectModel.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Reflection.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Reflection.Extensions.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Reflection.Primitives.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Resources.Reader.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Resources.ResourceManager.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Resources.Writer.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.VisualC.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.Extensions.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.Handles.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.InteropServices.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.Numerics.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Formatters.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Json.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Primitives.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.Serialization.Xml.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Security.Claims.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Algorithms.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Csp.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Encoding.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.Primitives.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Security.Cryptography.X509Certificates.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Security.Principal.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Security.SecureString.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Text.Encoding.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Text.Encoding.Extensions.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Text.RegularExpressions.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Threading.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Threading.Overlapped.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Threading.Tasks.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Threading.Tasks.Parallel.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Threading.Thread.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Threading.ThreadPool.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Threading.Timer.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.ValueTuple.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Xml.ReaderWriter.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Xml.XDocument.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Xml.XmlDocument.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Xml.XmlSerializer.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Xml.XPath.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Xml.XPath.XDocument.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\ClosedXML.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\DocumentFormat.OpenXml.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\EntityFramework.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\ExcelNumberFormat.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\ImageResizer.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\log4net.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Options.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Primitives.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\Razorpay.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Buffers.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.ComponentModel.Annotations.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.IO.Packaging.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Memory.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Numerics.Vectors.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Helpers.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Http.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Mvc.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Optimization.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Razor.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.WebPages.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\WebGrease.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\GoogleMaps.LocationServices.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\OpenHtmlToPdf.dll
+D:\New folder\SwarajCustomer_WebAPI\bin\SwarajCustomer_BAL.pdb
+D:\New folder\SwarajCustomer_WebAPI\bin\SwarajCustomer_Common.pdb
+D:\New folder\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.pdb
+D:\New folder\SwarajCustomer_WebAPI\bin\SwarajCustomer_DAL.dll.config
+D:\New folder\SwarajCustomer_WebAPI\bin\ClosedXML.pdb
+D:\New folder\SwarajCustomer_WebAPI\bin\ClosedXML.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\DocumentFormat.OpenXml.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\EntityFramework.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\EntityFramework.SqlServer.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\ExcelNumberFormat.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\ImageResizer.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\log4net.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Options.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\Microsoft.Extensions.Primitives.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\Newtonsoft.Json.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Buffers.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Memory.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Numerics.Vectors.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Net.Http.Formatting.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Helpers.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Http.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Http.WebHost.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Mvc.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Optimization.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.Razor.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.WebPages.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Deployment.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\System.Web.WebPages.Razor.xml
+D:\New folder\SwarajCustomer_WebAPI\bin\Antlr3.Runtime.pdb
+D:\New folder\SwarajCustomer_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\New folder\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.AssemblyReference.cache
+D:\New folder\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CoreCompileInputs.cache
+D:\New folder\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.csproj.CopyComplete
+D:\New folder\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.dll
+D:\New folder\SwarajCustomer_WebAPI\obj\Debug\SwarajCustomer_WebAPI.pdb

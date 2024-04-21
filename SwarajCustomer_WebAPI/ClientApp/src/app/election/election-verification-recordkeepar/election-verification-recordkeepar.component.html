@@ -1,0 +1,363 @@
+<app-header></app-header>
+<app-side-nav></app-side-nav>
+
+<div class="app-container">
+    <div class="app-main">
+        <div class="rcs_main">
+            <h4 class="rcs_main--title">  Verify Election Report </h4>               
+         </div> 
+   
+
+        <div class="rcs_card">
+            <div class="rcs_card_body">
+                <div class="rcs_card_body">
+                    <div class="rc_table_header">  
+                        <div class="rc_table_header--displaytlist">    
+                        <span class="">Listing   
+                            <select (change)="PageSizeChange($event)" class="rc_table_header--displaytlistdropdown">
+                                <option *ngFor="let size of pageSizes" [ngValue]="size">
+                                    {{ size }}
+                                </option>
+                            </select> per Page</span>
+                      </div>             
+                    </div>
+                    <div class="table-responsive">
+                        <table class="rc_table"> <!--green-bg-->
+                            <thead class="rc_table_head">
+                                <tr>
+                                    <th scope="col">Sl.No.</th>
+                                    <th scope="col">Election held time</th>
+                                    <th scope="col">E. R. Date</th>
+                                    <th scope="col">Request Date</th>
+                                    <th scope="col">Election Proceeding Document</th>
+                                    <th scope="col">Report Update Date</th>
+                                    <th scope="col">Society</th>
+                                    <th scope="col">Persident</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Document</th>
+                                    <th scope="col">Issuesd By ARCS</th>
+                                    <th scope="col">View Report</th>
+                                    <th scope="col">Add Remarks</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="rc_table_body">
+                                <tr *ngFor="let m of electopnRequestList | paginate: { itemsPerPage: pageSize,currentPage: pagenumber,totalItems: recordsCount
+                                };  let i = index">
+                                    <th scope="row">{{(i+1)+(pagenumber-1)*pageSize}}</th>
+                                    <td><span [ngClass]="m.isWithinTimeLimit?'active_badge nowwrap':'pending_badge nowwrap'">{{m.isWithinTimeLimit?'Within time':'After Due Date'}}</span></td>
+                                    <td>{{m.createdDate | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{m.inspectorAssignDate | date:'dd/MM/yyyy'}}</td>
+                                    <td>
+                                        <a class="details_badge nowwrap" *ngIf="m.electionProceedingDoc!=''"
+                                        target="_blank" href="{{baseURl+m.electionProceedingDoc}}">View DOC</a>
+                                    </td>
+                                    <td> <b>  {{m.reportSubmitedDate | date:'dd/MM/yyyy'}}</b></td>
+                                    <td>{{m.societyName}}</td>
+                                    <td>{{m.psName}}</td>
+                                    <td>{{m.address}}</td>
+                                    <td><a class="details_badge nowwrap" *ngIf="m.isWithinTimeLimit && m.agendaHoldingGBMDoc!='No ducument Available'"
+                                            target="_blank" href="{{baseURl+m.agendaHoldingGBMDoc}}">
+                                            View DOC</a>
+                                        <p *ngIf="m.agendaHoldingGBMDoc=='No ducument Available'" class="nodocument_text">No ducument Available</p>
+                                    </td>
+                                    <td><span [innerHTML]="m.remarks"></span></td>
+                                    <td><button class="details_badge nowwrap"  (click)="viewReport(m)">
+                                             View Report </button>
+                                    </td>
+                                    <td><a class="remarks_text cursor_pointer"  (click)="addRemarks(m)">
+                                             Add Remarks </a>
+                                    </td>
+                                    <td><button class="status_badge"  (click)="viewStatus(m)">
+                                            Status </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>    
+           
+            <div class="d-flex justify-content-center">
+                
+                <pagination-controls previousLabel="Previous" nextLabel="Next" [responsive]="true"
+                    (pageChange)="PageChanged($event)" (pageBoundsCorrection)="PageChanged($event)">
+                </pagination-controls>
+            </div>
+        </div> 
+ 
+    <div class="modal modal_bg" id="updateModal" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="rcs_modal_header">
+                    <h4 class="modal-title">Executive Members</h4>
+                    <button type="button" class="btn-close" (click)="closeReportModel()"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="main-body">
+                        <form #arcsApprovalForm="ngForm" novalidate>
+                            <div class="row">
+                                  
+                                <div class="col-md-5 col-lg-6">
+                                            <div class="rcs_card_header rcs_card_header--bg" style="background-color: #cbe8e0;">
+                                                <div class="rcs_card_header--title">
+                                                    Society Details
+                                                </div>
+                                            </div>
+                                            <table class="table table-hover table_bordered table table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <th style="width: 5%;">1</th>
+                                                        <th>Name of Society:</th>
+                                                        <td>
+                                                            <label>{{SocietyDetailsModels?.societyName}}</label>
+        
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>2</th>
+                                                        <th>Society Registration No:</th>
+                                                        <td>
+                                                            <label>{{SocietyDetailsModels?.societyTransID}}</label>
+        
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>3</th>
+                                                        <th>Society Registration Date:</th>
+                                                        <td>
+                                                            <label>   {{SocietyDetailsModels?.createDate |
+                                                                date:'dd/MM/yyyy'}}</label>
+        
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>4</th>
+                                                        <th>Name of President:</th>
+                                                        <td>
+                                                            <label>{{SocietyDetailsModels?.name1}}</label>
+        
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>5</th>
+                                                        <th>Mobile No. of President:</th>
+                                                        <td>
+                                                            <label>{{SocietyDetailsModels?.mobile1}}</label>
+        
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>5</th>
+                                                        <th>Email Id of President:</th>
+                                                        <td>
+                                                            <label>{{SocietyDetailsModels?.email1}}</label>
+        
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <div class="rcs_card_header rcs_card_header--bg " style="background-color: #cbe8e0;">
+                                                <div class="rcs_card_header--title">
+                                                    Selected Executive Members
+                                                </div>
+                                            </div>
+                                    <!-- <label class="simple_form--label">Selected Executive Members</label> -->
+                                    <table class="table table-hover table_bordered table table-striped">
+                                        <thead class="table-success">
+                                            <tr>
+                                                <th scope="col" style="width:5%;">S.No.</th>
+                                                <th scope="col" style="width:50%;">Member name</th>
+                                                <th scope="col" style="width:40%;">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                         
+                                        <ng-container *ngIf="selectedExecutiveMembersList; else ndf">
+                                            <tr *ngFor="
+                                            let member of selectedExecutiveMembersList;
+                                            index as k
+                                          ">
+                                            <td>{{ k + 1 }}</td>
+                                            <td>{{ member.memberName}}</td>
+                                            <td>{{ member.status?"Approved By ARCS":"To be approved by ARCS"}}</td>
+                                        </tr>
+                                        </ng-container >
+                                        <ng-template #ndf>
+                                            <tr>
+                                               <td colspan="2" ngClass="bg-warning text-white ">No Member selected yet</td> 
+                                            </tr>
+                                        </ng-template>    
+                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-5 col-lg-6">
+                                    <div class="rcs_card_header rcs_card_header--bg" style="background-color: #cbe8e0;">
+                                        <div class="rcs_card_header--title">
+                                           Election Report
+                                        </div>
+                                    </div>
+                                    <table class="table table-hover table_bordered table table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <th style="width: 6%;">1</th>
+                                                <th>Total no, of member's in Society</th>
+                                                <td>
+                                                    <label>{{report?.totalMemberSociety}}</label>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>2</th>
+                                                <th>Total no. of attend member</th>
+                                                <td>
+                                                    <label>{{report?.totalAttendMember}}</label>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>3</th>
+                                                <th>Quorum</th>
+                                                <td>
+                                                    <label>{{report?.quorum}}</label>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>4</th>
+                                                <th>Whether meeting as per rule?</th>
+                                                <td>
+                                                    <label>{{report?.isMeetingAsPerRule?'Yes':'No'}}</label>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="rcs_card_header rcs_card_header--bg" style="background-color: #cbe8e0;margin-top: 75px;">
+                                        <div class="rcs_card_header--title">
+                                            Previous Executive Members
+                                        </div>
+                                    </div>
+                                    <table class="table table-hover table_bordered table table-striped">
+                                        <thead class="table-success">
+                                            <tr>
+                                                <th scope="col" style="width:10%;">S.No.</th>
+                                                <th scope="col" style="width:50%;">Member name</th>
+                                                <th scope="col" style="width:40%;">Designation</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="
+                        let member of societyPreviousCommetteMemberList;
+                        index as k
+                      ">
+                                                <td>{{ k + 1 }}</td>
+                                                <td>{{ member.memberName}}</td>
+                                                <td>{{ member.designation}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+
+                                <button type="button" class="btn btn-danger" (click)="closeReportModel()">
+                                    Close
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+     <!-- The Modal -->
+     <div class="modal model-bg" id="statusModal">
+        <div class="modal-dialog  modal-dialog-scrollable">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="rcs_modal_header">
+                    <h4 class="modal-title">Status for this request</h4>
+                    <button type="button" class="btn-close" (click)="closeStatusModel()"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body" style=" overflow: scroll;">
+
+
+                    <div class="card-body cd" *ngFor="let m of remarksList"  >
+
+                        <div
+                            style="display: flex; justify-content: space-between;background: #e5f9f45e; border-top-left-radius: 5px;border-top-right-radius: 5px;">
+                            <p>{{m.createdDate | date:'dd/MM/yyyy hh:mm a'}}</p>
+                            <p class="{{m.status==false?'pending-text':'aprove-text'}}">
+                                {{m.status==false?'Pending':'Approved'}}</p>
+                        </div>
+                        <div class="crd" style="padding: 10px;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <div>
+                                    <span style="font-weight:600">{{m.remarksByName}}</span>
+                                    <span class="text-role">({{m.byRole}})</span>
+                                </div>
+
+                                <div>
+                                    <i class="fa fa-angle-double-right"></i>
+                                </div>
+                                <div>
+                                    <span style="font-weight:600">{{m.remarksToName}}</span>
+                                    <span class="text-role">({{m.toRole}})</span>
+                                </div>
+
+
+                            </div>
+
+                            <div
+                                style="background-color: #0eca981c; border-radius: 5px;padding: 10px;margin-top: 5px;">
+                                <h6 class="text-success">Remarks</h6>
+                                <span style="font-size: small;" [innerHTML]="m.msg"></span>
+                            </div>
+                        </div>
+                        <div style="text-align: center; color: green;">
+                            <i class="fa fa-angle-double-down"></i>
+                        </div>
+                    </div>
+
+ 
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="closeStatusModel()">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+        <!-- The Modal -->
+        <div class="modal model-bg" id="remarks">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="rcs_modal_header">
+                        <h4 class="rcs_modal_header--title">Remarks</h4>
+                        <button type="button" class="btn-close" (click)="closeRemarksModel()"></button>
+                      </div>               
+                    <!-- Modal body -->
+                    <div class="rcs_modal_body">
+                      <h4>Add Remarks</h4>
+                      <textarea rows="5" class="rcs_textarea"  [(ngModel)]="remarks"></textarea>
+
+                      <div class="rcs_modal_footer">
+                        <button type="button" class="primary_btn" (click)="saveRemarks()">Save</button>
+                        <button type="button" class="cancel_btn" (click)="closeRemarksModel()">Close</button>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

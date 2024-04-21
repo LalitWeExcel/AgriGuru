@@ -1,0 +1,79 @@
+﻿@model SwarajCustomer_WebAPI.Models.CustomerLoginModel
+@using SwarajCustomer_Common
+@{
+    Layout = "~/Areas/Customer/Views/Shared/_LoginLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<body style="background-color: #666666;">
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { area = "Customer", enctype = "multipart/form-data", @class = "login100-form validate-form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    
+                    <span class="login100-form-title p-b-43"> Login </span>
+                    <span class="smalltext"> Please enter your registered mobile number to access the Puja Guru feature.</span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Please Enter Your PhoneNumber">
+                        <input class="input100 numberOnly" type="text" value="@Model.PhoneNumber" name="PhoneNumber" maxlength="10">
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Phone Number</span>
+                        @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { Style = "color:red;" })
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <input type="submit" value="submit" class="login100-form-btn" id="btnSubmit" name=" Request OTP " />
+                    </div>
+                }
+                @{
+                    if (CommonMethods.BaseUrl.Contains("localhost"))
+                    {
+                                <div class="login100-more" style="background-image: url('/../../Content/images/bgnew.png');">
+                                    <span class="logoimage loginpage">
+                                        <img src="~/Content/images/newlogo.png" />
+                                    </span>
+                                </div>
+                    }
+                    else
+                    {
+            <div class="login100-more" style="background-image: url('/AgriGuru/Content/images/bgnew.png');">
+                <span class="logoimage loginpage">
+                    <img src="~/Content/images/newlogo.png" />
+                </span>
+            </div>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<style>
+    span.field-validation-error {
+        position: absolute;
+        left: 0;
+        bottom: -20px;
+        font-size: 13px;
+    }
+</style>
+<script src="~/Scripts/function.js"></script>
+<script type="text/javascript">
+    NumberOnly('.numberOnly');
+
+    $(document).keydown(function (event) {
+        if (event.keyCode == 123) { // Prevent F12
+            return false;
+        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I
+            return false;
+        }
+    });
+
+
+</script>
+
+
+
+

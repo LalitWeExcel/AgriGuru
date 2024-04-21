@@ -1,0 +1,74 @@
+﻿@model SwarajCustomer_WebAPI.Areas.Customer.Models.Weatheronlineobject
+@using SwarajCustomer_Common;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+<div class="col-sm-9 rightbox">
+    <div class="fullwidths" style="margin-top: 20px;">
+        <div class="padding">
+            <span class="iframe">
+                <img src="~/Content/images/iframe.png" />
+            </span>
+            <div class="topshe">
+                <p class="Partly">@Model.data.current_condition[0].weatherDesc[0].value</p>
+                <span class="smalltextss"> @Model.DateTime ,  @Model.Location</span>
+                <span class="tempimages"><img src="@Model.data.current_condition[0].weatherIconUrl[0].value" /></span>
+            </div>
+            <div class="middletemp">
+                <span class="temp">@Model.data.current_condition[0].temp_C  &#8451; </span>
+                <span class="yellow">
+                    Max  @Model.data.weather[0].maxtempC &#8451;<br>
+                    Min  @Model.data.weather[0].mintempC &#8451;
+                </span>
+                <div class="templfull">
+                    <div class="col-sm-6 lefttext">
+                        <span class="winmdtext">Wind Speed -  @Model.data.current_condition[0].windspeedKmph  kmph</span>
+                    </div>
+                    <div class="col-sm-6 righttext">
+                        <span class="winmdtext">Sunrise - @Model.data.weather[0].astronomy[0].sunrise </span>
+                    </div>
+                </div>
+                <div class="templfull">
+                    <div class="col-sm-6 lefttext">
+                        <span class="winmdtext">Humidity -  @Model.data.current_condition[0].humidity  </span>
+                    </div>
+                    <div class="col-sm-6 righttext">
+                        <span class="winmdtext">Sunset - @Model.data.weather[0].astronomy[0].sunset </span>
+                    </div>
+                </div>
+                <div class="templfull">
+                    <div class="col-sm-6 lefttext">
+                        <span class="winmdtext">Precipitation - @Model.data.current_condition[0].precipMM </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="middleinnerboxes">
+            <div class="fullwidthss">
+                @{
+                    foreach (var item in Model.data.weather.Skip(1))
+                    {
+                        <div class="col-sm-6 left">
+                            <span class="col-sm-6 leftetxt"> @Convert.ToDateTime(item.date).ToString("ddd, dd MMM yyyy") </span>
+                            <span class="col-sm-6 righttext">
+                                Max  @item.maxtempC  &#8451
+                            </span>
+                        </div>
+                    }
+                }
+            </div>
+
+        </div>
+
+
+        @Html.Partial("_Index", Model)
+    </div>
+</div>
+
+

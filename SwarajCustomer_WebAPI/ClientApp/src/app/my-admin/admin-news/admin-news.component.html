@@ -1,0 +1,87 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)"
+             size="medium"
+             color="#fff"
+             type="ball-scale-multiple"
+             [fullScreen]="true">
+  <p style="font-size: 20px; color: white">Please Wait...</p>
+</ngx-spinner>
+
+<div *ngIf="IsAuthorised">
+  <app-header></app-header>
+  <app-side-nav></app-side-nav>
+
+  <div class="app-container">
+    <div class="app-main">
+      <div class="tab-form">
+        <div class="tab-body">
+          <ngx-loading [show]="loading"> </ngx-loading>
+          <h5 class="table_bordered--title">News Feeds</h5>
+          <div class="table-responsive">
+            <table class="table table-hover table_bordered table table-striped ">
+              <thead class="table-success">
+                <tr>
+                  <th scope="col">Sl. No</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Credited On</th>
+                  <th scope="col">Expired On</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">View</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of newsfeedslist
+          | paginate
+            : {
+                itemsPerPage: pageSize,
+                currentPage: pagenumber,
+                totalItems: recordsCount
+              };  let i = index ">
+                  <td scope="row">{{i+1}}</td>
+                  <td scope="row">{{item.title}}</td>
+                  <td scope="row">{{item.description}}</td>
+                  <td scope="row">{{item.creditedOn}}</td>
+                  <td scope="row">{{item.expiredOn}}</td>
+                  <td scope="row">{{item.isActive}}</td>
+                  <td scope="row">
+                    <button type="button" class="btn btn-primery btn-sm">
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td scope="row">
+                    <button type="button" class="btn btn-primery btn-sm">
+                      <i class="fa fa-edit" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td scope="row">
+                    <button type="button" class="btn btn-primery btn-sm">
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center">
+              <select (change)="PageSizeChange($event)">
+                <option *ngFor="let size of pageSizes" [ngValue]="size">
+                  {{ size }}
+                </option>
+              </select>&nbsp;&nbsp;&nbsp;
+              <pagination-controls previousLabel="Previous"
+                                   nextLabel="Next"
+                                   [responsive]="true"
+                                   (pageChange)="PageChanged($event)"
+                                   (pageBoundsCorrection)="PageChanged($event)">
+              </pagination-controls>
+            </div>
+          </div>
+          <!-- tab-body -->
+        </div>
+      </div>
+      <!-- app-container -->
+    </div>
+  </div>
+</div>

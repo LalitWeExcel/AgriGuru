@@ -1,0 +1,443 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Home</title>
+</head>
+<body>
+    <section class="top-nav">
+        <div class="container">
+            <div class="d-md-flex justify-content-between">
+                <div class="left-side">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)">Skip to main content</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">A-</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">A</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">A+</a>
+                        </li>
+                        <li>
+                            <select>
+                                <option>English</option>
+                                <option>Hindi</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-side">
+                    <div class="nav-search">
+                        <input type="search">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0)" routerLink="login"><i class="fa fa-user"
+                                    aria-hidden="true"></i> Login</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" routerLink="user-register"><i class="fa fa-user"
+                                    aria-hidden="true"></i> Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="container">
+        <header>
+            <img src="../../assets/images/header-logo.png" class="main-logo">
+            <div class="header-right">
+                <div class="latest-new">
+                    <label>Latest Update <img src="../../assets/images/Images_newicon.gif" class=""></label>
+                    <select>
+                        <option>RCS Notification</option>
+                        <option>Affidavit For Other Society</option>
+                        <option>Checklist</option>
+                        <option>Society Registration Process</option>
+                        <option>सोसायटी पंजीकरण प्रक्रिया दस्तावेज़</option>
+                    </select>
+                </div>
+                <div class="latest-new">
+                    <label>RTS <img src="../../assets/images/Images_newicon.gif" class=""></label>
+                    <select>
+                        <option>RTS Timeline</option>
+                        <option>RTS Notification</option>
+                        <option>CheckList</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+    </div>
+
+
+
+
+    <div class="menu-nav">
+        <ul>
+            <li>
+                <a href="javascript:void(0)" class="active">HOME</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">About Us</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">Administration</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">Act & Rules</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">Service Rules</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">RTI</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">RTS ACT</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">Citizen Charter</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">Apex Cooperatives</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">Annual Plan</a>
+            </li>
+        </ul>
+    </div>
+    <div class="banner">
+        <img src="../../assets/images/banner1.jpg" class="img-fluid" style="width: 100%;">
+    </div>
+    <div class="homenews-bg">
+        <div class="container">
+            <div class="d-flex">
+                <h4 class="homenews-title">Latest News</h4>
+                <div class="homenews-slider">
+                    <marquee direction="left">PUBLIC NOTICE AND TERMS AND CONDITIONS : FORENSIC AND FINANCIAL AUDIT
+                        SERVICES THROUGH CHARTERED ACCOUNTANTs FIRMS</marquee>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="space-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8">
+                    <div class="home-about">
+                        <h5 class="title-main mb-4">About <span>Us</span></h5>
+                        <p>The Objective and the role of Co-operation Department is to see that genuine Co-operatives
+                            are organized and managed on sound lines as per basic principles of Co-operation for the
+                            promotion of the economic interests, social betterment and welfare of the people and to
+                            render guidance and assistance for the development in the state.</p>
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">Principles</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Functions of the Department</a>
+                            </li>
+                        </ul>
+                        <a href="javascript:void(0)" class="read-more mt-5">READ MORE <i
+                                class="fa fa-angle-double-right"></i></a>
+                    </div>
+                    <div class="dashboard-slider mt-5 mb-4">
+                        <h5 class="title-main-second mb-4">Performance <span>Dashboard</span></h5>
+                        <owl-carousel-o [options]="customOptions">
+                            <ng-template carouselSlide>
+                                <div class="dashboard-slider-list valencia-bg">
+                                    <div class="first">
+                                        <img src="../../assets/images/total-societies.png" class="">
+                                    </div>
+                                    <div class="second">
+                                        <h5>23237</h5>
+                                        <h6>Total Societies</h6>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <ng-template carouselSlide>
+                                <div class="dashboard-slider-list vanilla-bg">
+                                    <div class="first">
+                                        <img src="../../assets/images/approved-icon.png" class="">
+                                    </div>
+                                    <div class="second">
+                                        <h5>58</h5>
+                                        <h6>Online Approved Societies</h6>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <ng-template carouselSlide>
+                                <div class="dashboard-slider-list mantis-bg">
+                                    <div class="first">
+                                        <img src="../../assets/images/radna-icon.png" class="">
+                                    </div>
+                                    <div class="second">
+                                        <h5>415</h5>
+                                        <h6>Radna društva</h6>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <ng-template carouselSlide>
+                                <div class="dashboard-slider-list mantis-bg">
+                                    <div class="first">
+                                        <img src="../../assets/images/radna-icon.png" class="">
+                                    </div>
+                                    <div class="second">
+                                        <h5>415</h5>
+                                        <h6>Radna društva</h6>
+                                    </div>
+                                </div>
+                            </ng-template>
+
+
+                        </owl-carousel-o>
+                    </div>
+
+                </div>
+                <div class="col-md-12 col-lg-4">
+                    <div class="category-list">
+                        <h4 class="category-list--title"><i class="fa fa-bookmark"></i> Categories</h4>
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)">Online Transfer Policy</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Service Rules</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Administrative Setup</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Statistics</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">List of Officers (H.O)</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Administrative Report 2016-17</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Circulars</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Acts & Rules</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Schemes & Policies</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Commision Report regarding saraswati Kunj House Building
+                                    Society Ltd. Gurugram 2017</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Commission Report regarding Saraswati Kunj House Building
+                                    Society Ltd. Gurugr</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Transfer / Posting Orders</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Notices</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Tender/ Advertisements </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Model Bye Laws</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">E-Governance</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Telephone Directory</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Video Gallery</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Downloads</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">Other Links</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="rs-socity">
+        <div class="container">
+            <div class="first">
+                <h4 class="rs-socity-title">RESPONSIBILITIES OF MANAGING COMMITTEE & MEMBERS RIGHTS IN A SOCIETY</h4>
+                <ul>
+                    <li>Regarding Assembly General Election 2023 following the Model Code of Conduct issued by the
+                        Election Commission of India</li>
+                    <li>Do's and Dont's for members and managing committee members of Cooperative Group Housing
+                        Societies. (English)</li>
+                </ul>
+            </div>
+
+            <div class="second">
+                <h4 class="rs-socity-title">REGISTRATION OF COOPERATIVE SOCIETY</h4>
+                <ul>
+                    <li>Registration Process</li>
+                    <li>Types of Societies</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="space-home scope-application">
+        <div class="container">
+            <h4 class="title-main text-center">Scope of the <span>Application</span></h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="scope-application-title"><span>1.</span>Add new cooperative societies</h5>
+                    <p class="scope-application-para">Any aspiring applicant of setting up new cooperative shall
+                        register themselves and apply online to respective Assistant Registrar of Cooperative Societies
+                        (ARCS).</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="scope-application-title"><span>2.</span>All processes are Work-Flow and Role Based</h5>
+                    <p class="scope-application-para">Any online application shall reach the respective ARCS. ARCS
+                        forwards them to Inspector for physical verification.Inspector after verification shall forward
+                        back to ARCS.Finalization / Rejection by the ARCS</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="scope-application-title"><span>3.</span>Handling of Legacy Records</h5>
+                    <p class="scope-application-para">Already registered Cooperative societies can update their details.
+                        Login ID and Password generated from the application was provided to the societies</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="scope-application-title"><span>4.</span>Monitoring of Quasi Judicial Cases</h5>
+                    <p class="scope-application-para">The action taken and discretion exercised by public administrative
+                        agencies or bodies that are obliged to investigate or ascertain facts and draw conclusions from
+                        them as the foundation for official actions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-link">
+        <div class="container">
+            <h4 class="title-main text-center mb-5">Related <span>Link</span></h4>
+            <ul>
+                <li>
+                    <img src="../../assets/images/clogo1.png" alt="first" class="img-fluid img-width">
+                </li>
+                <li>
+                    <img src="../../assets/images/clogo2.png" alt="first" class="img-fluid img-width">
+                </li>
+                <li>
+                    <img src="../../assets/images/clogo3.png" alt="first" class="img-fluid img-width">
+                </li>
+                <li>
+                    <img src="../../assets/images/clogo4.png" alt="first" class="img-fluid img-width">
+                </li>
+                <li>
+                    <img src="../../assets/images/clogo5.png" alt="first" class="img-fluid img-width">
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <h5 class="f-title">Our Gallery </h5>
+
+
+                    <img src="../../assets/images/third.png" alt="first" class="img-fluid img-width">
+
+
+                    <img src="../../assets/images/second.png" alt="first" class="img-fluid img-width">
+
+
+                    <img src="../../assets/images/third.png" alt="first" class="img-fluid img-width">
+
+
+                    <img src="../../assets/images/four.png" alt="first" class="img-fluid img-width">
+
+
+                </div>
+                <div class="col-md-6 col-lg-5">
+                    <h5 class="f-title">Quick Links </h5>
+                    <ul class="inline-width">
+                        <li>
+                            <a href="javascript:void(0);">Home</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Accessibility Statement</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Website Policies</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Terms & Conditions</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Disclaimer</a>
+                        </li>
+                    </ul>
+                    <ul class="inline-width">
+                        <li>
+                            <a href="javascript:void(0);">Feedback</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Help</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Sitemap</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="f-title">About us</h5>
+                    <ul class="address-bar">
+                        <li>
+                            <i class="fa fa-map-marker"></i> Uvala br. 27-30, Sector-2, Panchkula-134109
+                        </li>
+                        <li>
+                            <i class="fa fa-mobile"></i> +0172-2585023, 2583438
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope" aria-hidden="true"></i><a
+                                href="javascript:void(0)">cooperatives@hry.nic.in,</a>
+                            <br><a href="javascript:void(0)">rcsharyanaa@yahoo.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright © 2017. Co-operation Department Haryana. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+
+</html>

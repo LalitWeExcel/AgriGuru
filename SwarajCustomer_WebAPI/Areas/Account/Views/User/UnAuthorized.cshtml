@@ -1,0 +1,50 @@
+﻿@using SwarajCustomer_Common
+    @{
+        Layout = "~/Areas/Account/Views/Shared/_Layout.cshtml";
+            var Server_Url = CommonMethods.BaseUrl;
+    }
+
+    <body style="background-color: #666666;">
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+
+
+                    <form class="login100-form validate-form" action="~/Account/User/Login" method="post">
+                        <span class="login100-form-title p-b-43"> UnAuthorized </span>
+
+                        <span class="smalltext">
+                            Your are UnAuthorized, Please <a style="color:#09F; text-decoration:underline;" href="~/Account/User/Login">click here</a> to login.
+
+
+                        </span>
+                    </form>
+                    <!-- SwarajCustomer_WebAPI only for Production and QA-->
+                    @{
+                        if (CommonMethods.BaseUrl.Contains("localhost"))
+                        {
+                                        <div class="login100-more" style="background-image: url('/../../Content/images/bgnew.png');">
+                                            <span class="logoimage loginpage">
+                                                <img src="~/Content/images/newlogo.png" />
+                                            </span>
+                                        </div>
+                        }
+                        else
+                        {
+                <div class="login100-more" style="background-image: url('/AgriGuru/Content/images/bgnew.png');">
+                    <span class="logoimage loginpage">
+                        <img src="~/Content/images/newlogo.png" />
+                    </span>
+                </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+
+
+
+

@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SwarajTestModelStoreContainer" CdmEntityContainer="SwarajTestEntities">
+    <EntitySetMapping Name="mst_services">
+      <EntityTypeMapping TypeName="SwarajTestModel.mst_services">
+        <MappingFragment StoreEntitySet="mst_services">
+          <ScalarProperty Name="hindi_name" ColumnName="hindi_name" />
+          <ScalarProperty Name="mst_services_id" ColumnName="mst_services_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="form_value" ColumnName="form_value" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="c_by" ColumnName="c_by" />
+          <ScalarProperty Name="c_time" ColumnName="c_time" />
+          <ScalarProperty Name="u_by" ColumnName="u_by" />
+          <ScalarProperty Name="u_time" ColumnName="u_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_zodiacs">
+      <EntityTypeMapping TypeName="SwarajTestModel.mst_zodiacs">
+        <MappingFragment StoreEntitySet="mst_zodiacs">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+          <ScalarProperty Name="u_time" ColumnName="u_time" />
+          <ScalarProperty Name="u_by" ColumnName="u_by" />
+          <ScalarProperty Name="c_time" ColumnName="c_time" />
+          <ScalarProperty Name="c_by" ColumnName="c_by" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="image_path" ColumnName="image_path" />
+          <ScalarProperty Name="date_range" ColumnName="date_range" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="mst_zodiacs_id" ColumnName="mst_zodiacs_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="adm_user_role">
+      <EntityTypeMapping TypeName="SwarajTestModel.adm_user_role">
+        <MappingFragment StoreEntitySet="adm_user_role">
+          <ScalarProperty Name="u_time" ColumnName="u_time" />
+          <ScalarProperty Name="u_by" ColumnName="u_by" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="c_time" ColumnName="c_time" />
+          <ScalarProperty Name="c_by" ColumnName="c_by" />
+          <ScalarProperty Name="adm_role_id" ColumnName="adm_role_id" />
+          <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+          <ScalarProperty Name="adm_user_role_id" ColumnName="adm_user_role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product_color">
+      <EntityTypeMapping TypeName="SwarajTestModel.product_color">
+        <MappingFragment StoreEntitySet="product_color">
+          <ScalarProperty Name="u_time" ColumnName="u_time" />
+          <ScalarProperty Name="u_by" ColumnName="u_by" />
+          <ScalarProperty Name="c_time" ColumnName="c_time" />
+          <ScalarProperty Name="c_by" ColumnName="c_by" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="product_color_id" ColumnName="product_color_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="product_price">
+      <EntityTypeMapping TypeName="SwarajTestModel.product_price">
+        <MappingFragment StoreEntitySet="product_price">
+          <ScalarProperty Name="u_time" ColumnName="u_time" />
+          <ScalarProperty Name="u_by" ColumnName="u_by" />
+          <ScalarProperty Name="c_time" ColumnName="c_time" />
+          <ScalarProperty Name="c_by" ColumnName="c_by" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="final_amount" ColumnName="final_amount" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="mrp" ColumnName="mrp" />
+          <ScalarProperty Name="product_size_id" ColumnName="product_size_id" />
+          <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="adm_APIExceptionLog">
+      <EntityTypeMapping TypeName="SwarajTestModel.adm_APIExceptionLog">
+        <MappingFragment StoreEntitySet="adm_APIExceptionLog">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_getCustomersDetails" FunctionName="SwarajTestModel.Store.usp_getCustomersDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SwarajTestModel.usp_getCustomersDetails_Result">
+          <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="c_by" ColumnName="c_by" />
+          <ScalarProperty Name="c_time" ColumnName="c_time" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="u_by" ColumnName="u_by" />
+          <ScalarProperty Name="u_time" ColumnName="u_time" />
+          <ScalarProperty Name="mob_number" ColumnName="mob_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="associated_id" ColumnName="associated_id" />
+          <ScalarProperty Name="user_details_id" ColumnName="user_details_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="whatsapp_no" ColumnName="whatsapp_no" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="district" ColumnName="district" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="export_in_pooja" ColumnName="export_in_pooja" />
+          <ScalarProperty Name="ready_for_travel" ColumnName="ready_for_travel" />
+          <ScalarProperty Name="year_of_exp" ColumnName="year_of_exp" />
+          <ScalarProperty Name="marital_status" ColumnName="marital_status" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="aadhar_number_name" ColumnName="aadhar_number_name" />
+          <ScalarProperty Name="qualification" ColumnName="qualification" />
+          <ScalarProperty Name="health_status" ColumnName="health_status" />
+          <ScalarProperty Name="c_by1" ColumnName="c_by1" />
+          <ScalarProperty Name="c_time1" ColumnName="c_time1" />
+          <ScalarProperty Name="u_by1" ColumnName="u_by1" />
+          <ScalarProperty Name="u_time1" ColumnName="u_time1" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="adm_user_role_id" ColumnName="adm_user_role_id" />
+          <ScalarProperty Name="adm_user_id1" ColumnName="adm_user_id1" />
+          <ScalarProperty Name="adm_role_id" ColumnName="adm_role_id" />
+          <ScalarProperty Name="c_by2" ColumnName="c_by2" />
+          <ScalarProperty Name="c_time2" ColumnName="c_time2" />
+          <ScalarProperty Name="is_active1" ColumnName="is_active1" />
+          <ScalarProperty Name="u_by2" ColumnName="u_by2" />
+          <ScalarProperty Name="u_time2" ColumnName="u_time2" />
+          <ScalarProperty Name="adm_role_id1" ColumnName="adm_role_id1" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="c_by3" ColumnName="c_by3" />
+          <ScalarProperty Name="c_time3" ColumnName="c_time3" />
+          <ScalarProperty Name="is_active2" ColumnName="is_active2" />
+          <ScalarProperty Name="u_by3" ColumnName="u_by3" />
+          <ScalarProperty Name="u_time3" ColumnName="u_time3" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="adm_application_SMS_gateway_configuration">
+      <EntityTypeMapping TypeName="SwarajTestModel.adm_application_SMS_gateway_configuration">
+        <MappingFragment StoreEntitySet="adm_application_SMS_gateway_configuration">
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="SMS_Text" ColumnName="SMS_Text" />
+          <ScalarProperty Name="SMS_Contact_No" ColumnName="SMS_Contact_No" />
+          <ScalarProperty Name="SMS_Gateway_API" ColumnName="SMS_Gateway_API" />
+          <ScalarProperty Name="SMS_Gateway_Provider_Name" ColumnName="SMS_Gateway_Provider_Name" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="SMS_Gateway_ID" ColumnName="SMS_Gateway_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_adm_user_ins_otp" FunctionName="SwarajTestModel.Store.usp_adm_user_ins_otp" />
+    <FunctionImportMapping FunctionImportName="usp_get_astrologers_purohits" FunctionName="SwarajTestModel.Store.usp_get_astrologers_purohits">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SwarajTestModel.usp_get_astrologers_purohits_Result">
+          <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="mob_number" ColumnName="mob_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="whatsapp_no" ColumnName="whatsapp_no" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="district" ColumnName="district" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_get_ads" FunctionName="SwarajTestModel.Store.usp_get_ads">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SwarajTestModel.usp_get_ads_Result">
+          <ScalarProperty Name="main_product_id" ColumnName="main_product_id" />
+          <ScalarProperty Name="pooja_name" ColumnName="pooja_name" />
+          <ScalarProperty Name="pooja_code" ColumnName="pooja_code" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="mrp" ColumnName="mrp" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_adm_user_get" FunctionName="SwarajTestModel.Store.usp_adm_user_get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SwarajTestModel.usp_adm_user_get_Result">
+          <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="mob_number" ColumnName="mob_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="whatsapp_no" ColumnName="whatsapp_no" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="district" ColumnName="district" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="adm_user_otp">
+      <EntityTypeMapping TypeName="SwarajTestModel.adm_user_otp">
+        <MappingFragment StoreEntitySet="adm_user_otp">
+          <ScalarProperty Name="encrypted_otp" ColumnName="encrypted_otp" />
+          <ScalarProperty Name="expiry_time" ColumnName="expiry_time" />
+          <ScalarProperty Name="u_time" ColumnName="u_time" />
+          <ScalarProperty Name="u_by" ColumnName="u_by" />
+          <ScalarProperty Name="c_time" ColumnName="c_time" />
+          <ScalarProperty Name="c_by" ColumnName="c_by" />
+          <ScalarProperty Name="is_verified" ColumnName="is_verified" />
+          <ScalarProperty Name="otp" ColumnName="otp" />
+          <ScalarProperty Name="mob_number" ColumnName="mob_number" />
+          <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+          <ScalarProperty Name="adm_user_otp_id" ColumnName="adm_user_otp_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="adm_role">
+      <EntityTypeMapping TypeName="SwarajTestModel.adm_role">
+        <MappingFragment StoreEntitySet="adm_role">
+          <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+          <ScalarProperty Name="badge" ColumnName="badge" />
+          <ScalarProperty Name="u_time" ColumnName="u_time" />
+          <ScalarProperty Name="u_by" ColumnName="u_by" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="c_time" ColumnName="c_time" />
+          <ScalarProperty Name="c_by" ColumnName="c_by" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="adm_role_id" ColumnName="adm_role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="adm_user">
+      <EntityTypeMapping TypeName="SwarajTestModel.adm_user">
+        <MappingFragment StoreEntitySet="adm_user">
+          <ScalarProperty Name="upcomeing_birthday_email_sent" ColumnName="upcomeing_birthday_email_sent" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="referal_code" ColumnName="referal_code" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="birthday_email_sent" ColumnName="birthday_email_sent" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mob_number" ColumnName="mob_number" />
+          <ScalarProperty Name="u_time" ColumnName="u_time" />
+          <ScalarProperty Name="u_by" ColumnName="u_by" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="c_time" ColumnName="c_time" />
+          <ScalarProperty Name="c_by" ColumnName="c_by" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_api_manage_fav_vedios_list" FunctionName="SwarajTestModel.Store.usp_api_manage_fav_vedios_list">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SwarajTestModel.usp_api_manage_fav_vedios_list_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="VideoName" ColumnName="VideoName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="AdvertisingType" ColumnName="AdvertisingType" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

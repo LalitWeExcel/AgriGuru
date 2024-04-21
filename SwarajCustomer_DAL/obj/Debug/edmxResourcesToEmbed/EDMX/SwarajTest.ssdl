@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SwarajTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adm_APIExceptionLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Exception" Type="nvarchar(max)" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="Source" Type="nvarchar(max)" />
+    <Property Name="Datetime" Type="datetime" Nullable="false" />
+    <Property Name="Module" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="adm_application_SMS_gateway_configuration">
+    <Key>
+      <PropertyRef Name="SMS_Gateway_ID" />
+    </Key>
+    <Property Name="SMS_Gateway_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Module" Type="varchar" MaxLength="100" />
+    <Property Name="SMS_Gateway_Provider_Name" Type="varchar" MaxLength="100" />
+    <Property Name="SMS_Gateway_API" Type="varchar" MaxLength="500" />
+    <Property Name="SMS_Contact_No" Type="varchar" MaxLength="100" />
+    <Property Name="SMS_Text" Type="varchar" MaxLength="100" />
+    <Property Name="Is_Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="adm_role">
+    <Key>
+      <PropertyRef Name="adm_role_id" />
+    </Key>
+    <Property Name="adm_role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="50" />
+    <Property Name="name" Type="varchar" MaxLength="250" />
+    <Property Name="c_by" Type="int" />
+    <Property Name="c_time" Type="datetime" />
+    <Property Name="is_active" Type="varchar" MaxLength="1" />
+    <Property Name="u_by" Type="int" />
+    <Property Name="u_time" Type="datetime" />
+    <Property Name="badge" Type="varchar" MaxLength="20" />
+    <Property Name="sort_order" Type="int" />
+  </EntityType>
+  <EntityType Name="adm_user">
+    <Key>
+      <PropertyRef Name="adm_user_id" />
+    </Key>
+    <Property Name="adm_user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="100" />
+    <Property Name="password" Type="nvarchar" MaxLength="300" />
+    <Property Name="c_by" Type="int" />
+    <Property Name="c_time" Type="datetime" />
+    <Property Name="is_active" Type="varchar" MaxLength="1" />
+    <Property Name="u_by" Type="int" />
+    <Property Name="u_time" Type="datetime" />
+    <Property Name="mob_number" Type="varchar" MaxLength="20" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="user_type" Type="varchar" MaxLength="10" />
+    <Property Name="description" Type="varchar" MaxLength="256" />
+    <Property Name="birthday_email_sent" Type="int" />
+    <Property Name="token" Type="varchar(max)" />
+    <Property Name="referal_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="logo" Type="nvarchar" MaxLength="50" />
+    <Property Name="upcomeing_birthday_email_sent" Type="int" />
+  </EntityType>
+  <EntityType Name="adm_user_otp">
+    <Key>
+      <PropertyRef Name="adm_user_otp_id" />
+    </Key>
+    <Property Name="adm_user_otp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adm_user_id" Type="int" />
+    <Property Name="mob_number" Type="varchar" MaxLength="20" />
+    <Property Name="otp" Type="varchar" MaxLength="10" />
+    <Property Name="is_verified" Type="varchar" MaxLength="1" />
+    <Property Name="c_by" Type="int" />
+    <Property Name="c_time" Type="datetime" />
+    <Property Name="u_by" Type="int" />
+    <Property Name="u_time" Type="datetime" />
+    <Property Name="expiry_time" Type="datetime" />
+    <Property Name="encrypted_otp" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="adm_user_role">
+    <Key>
+      <PropertyRef Name="adm_user_role_id" />
+    </Key>
+    <Property Name="adm_user_role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adm_user_id" Type="int" />
+    <Property Name="adm_role_id" Type="int" />
+    <Property Name="c_by" Type="int" />
+    <Property Name="c_time" Type="datetime" />
+    <Property Name="is_active" Type="varchar" MaxLength="1" />
+    <Property Name="u_by" Type="int" />
+    <Property Name="u_time" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SwarajTest.dbo.mst_services' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="mst_services">
+    <Key>
+      <PropertyRef Name="mst_services_id" />
+    </Key>
+    <Property Name="mst_services_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="description" Type="varchar(max)" />
+    <Property Name="form_value" Type="varchar" MaxLength="50" />
+    <Property Name="is_active" Type="varchar" MaxLength="1" />
+    <Property Name="c_by" Type="int" />
+    <Property Name="c_time" Type="datetime" />
+    <Property Name="u_by" Type="int" />
+    <Property Name="u_time" Type="datetime" />
+    <Property Name="hindi_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SwarajTest.dbo.mst_zodiacs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="mst_zodiacs">
+    <Key>
+      <PropertyRef Name="mst_zodiacs_id" />
+    </Key>
+    <Property Name="mst_zodiacs_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="date_range" Type="varchar" MaxLength="50" />
+    <Property Name="image_path" Type="varchar(max)" />
+    <Property Name="is_active" Type="varchar" MaxLength="1" />
+    <Property Name="c_by" Type="int" />
+    <Property Name="c_time" Type="datetime" />
+    <Property Name="u_by" Type="int" />
+    <Property Name="u_time" Type="datetime" />
+    <Property Name="sort_order" Type="int" />
+    <Property Name="description" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SwarajTest.dbo.product_color' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="product_color">
+    <Key>
+      <PropertyRef Name="product_color_id" />
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_color_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="color" Type="varchar" MaxLength="50" />
+    <Property Name="product_id" Type="int" Nullable="false" />
+    <Property Name="is_active" Type="varchar" MaxLength="1" />
+    <Property Name="c_by" Type="int" />
+    <Property Name="c_time" Type="datetime" />
+    <Property Name="u_by" Type="int" />
+    <Property Name="u_time" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SwarajTest.dbo.product_price' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="product_price">
+    <Key>
+      <PropertyRef Name="product_price_id" />
+    </Key>
+    <Property Name="product_price_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_size_id" Type="int" />
+    <Property Name="mrp" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="final_amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="sequence" Type="int" />
+    <Property Name="is_active" Type="varchar" MaxLength="1" />
+    <Property Name="c_by" Type="int" />
+    <Property Name="c_time" Type="datetime" />
+    <Property Name="u_by" Type="int" />
+    <Property Name="u_time" Type="datetime" />
+  </EntityType>
+  <Function Name="usp_adm_user_get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="adm_user_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_adm_user_ins_otp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userId" Type="int" Mode="In" />
+    <Parameter Name="OTP" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="MobileNumber" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="retval" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="usp_api_manage_fav_vedios_list" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="languageId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_get_ads" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="latitude" Type="varchar" Mode="In" />
+    <Parameter Name="longitude" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_get_astrologers_purohits" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_getCustomersDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mobile" Type="varchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="SwarajTestModelStoreContainer">
+    <EntitySet Name="adm_APIExceptionLog" EntityType="Self.adm_APIExceptionLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="adm_application_SMS_gateway_configuration" EntityType="Self.adm_application_SMS_gateway_configuration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="adm_role" EntityType="Self.adm_role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="adm_user" EntityType="Self.adm_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="adm_user_otp" EntityType="Self.adm_user_otp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="adm_user_role" EntityType="Self.adm_user_role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_services" EntityType="Self.mst_services" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [mst_services].[mst_services_id] AS [mst_services_id], 
+    [mst_services].[name] AS [name], 
+    [mst_services].[description] AS [description], 
+    [mst_services].[form_value] AS [form_value], 
+    [mst_services].[is_active] AS [is_active], 
+    [mst_services].[c_by] AS [c_by], 
+    [mst_services].[c_time] AS [c_time], 
+    [mst_services].[u_by] AS [u_by], 
+    [mst_services].[u_time] AS [u_time], 
+    [mst_services].[hindi_name] AS [hindi_name]
+    FROM [dbo].[mst_services] AS [mst_services]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="mst_zodiacs" EntityType="Self.mst_zodiacs" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [mst_zodiacs].[mst_zodiacs_id] AS [mst_zodiacs_id], 
+    [mst_zodiacs].[name] AS [name], 
+    [mst_zodiacs].[date_range] AS [date_range], 
+    [mst_zodiacs].[image_path] AS [image_path], 
+    [mst_zodiacs].[is_active] AS [is_active], 
+    [mst_zodiacs].[c_by] AS [c_by], 
+    [mst_zodiacs].[c_time] AS [c_time], 
+    [mst_zodiacs].[u_by] AS [u_by], 
+    [mst_zodiacs].[u_time] AS [u_time], 
+    [mst_zodiacs].[sort_order] AS [sort_order], 
+    [mst_zodiacs].[description] AS [description]
+    FROM [dbo].[mst_zodiacs] AS [mst_zodiacs]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="product_color" EntityType="Self.product_color" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [product_color].[product_color_id] AS [product_color_id], 
+    [product_color].[color] AS [color], 
+    [product_color].[product_id] AS [product_id], 
+    [product_color].[is_active] AS [is_active], 
+    [product_color].[c_by] AS [c_by], 
+    [product_color].[c_time] AS [c_time], 
+    [product_color].[u_by] AS [u_by], 
+    [product_color].[u_time] AS [u_time]
+    FROM [dbo].[product_color] AS [product_color]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="product_price" EntityType="Self.product_price" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [product_price].[product_price_id] AS [product_price_id], 
+    [product_price].[product_size_id] AS [product_size_id], 
+    [product_price].[mrp] AS [mrp], 
+    [product_price].[discount] AS [discount], 
+    [product_price].[final_amount] AS [final_amount], 
+    [product_price].[sequence] AS [sequence], 
+    [product_price].[is_active] AS [is_active], 
+    [product_price].[c_by] AS [c_by], 
+    [product_price].[c_time] AS [c_time], 
+    [product_price].[u_by] AS [u_by], 
+    [product_price].[u_time] AS [u_time]
+    FROM [dbo].[product_price] AS [product_price]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

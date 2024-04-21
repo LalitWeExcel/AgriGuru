@@ -1,0 +1,269 @@
+﻿@using SwarajCustomer_Common.ViewModel
+@model ManageUserViewModel
+@{
+    int records = 0;
+}
+
+<script>
+    function SetPagingStyles() {
+        $(document).bind('ready ajaxComplete', function () {
+           
+
+            $(window).resize(function () {
+                setHeight();
+            });
+
+            $('table').on('scroll', function () {
+                $("#" + this.id + " > *").width($(this).width() + $(this).scrollLeft());
+            });
+            $("tfoot a").addClass('btn2 btn2-default');
+            $("tfoot td")
+                .contents()
+                .filter(function () {
+                    if (this.nodeType === 3 && this.length > 1) {
+                        return this.nodeType
+                    }
+                })
+                .wrap('<span class="btn2 btn2-primary" />');
+        });
+    }
+
+    $('table').on('scroll', function () {
+        $("#" + this.id + " > *").width($(this).width() + $(this).scrollLeft());
+    });
+</script>
+
+<div class="col-sm-12 tablnew" id="divpartdetails">
+    <div class="table gridresposnive workplaces">
+        @if (Model.ManageUserList != null && Model.ManageUserList.Any())
+        {
+            records = Model.TotalRecords;
+            WebGrid grid = new WebGrid(canPage: true,
+                rowsPerPage: Model.NoOfRecords,
+                canSort: true,
+                ajaxUpdateContainerId: "WebGrid");
+            grid.Bind(Model.ManageUserList, rowCount: records, autoSortAndPage: false);
+            grid.Pager(WebGridPagerModes.Numeric);
+            @grid.GetHtml(htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+           fillEmptyRows: false,
+           mode: WebGridPagerModes.All,
+           previousText: "<",
+           nextText: ">",
+           numericLinksCount: 5,
+           tableStyle: "table table-hover",
+           columns: new[]
+           {
+               grid.Column(null, null, format: @<text><input type="checkbox" class="gridchkbox" name="chkRow" data-username="@item.UserName" value="@item.UserId" style="cursor: pointer;" /></text>),
+               grid.Column("SrNo", "Sr No"),
+               grid.Column("ImageName", "Picture", format : @<text> <img src="@item.ImageName" style="width: 160px; height: 100px;"  data-action="zoom"  /></text>),
+               grid.Column("UserName", "Name"),
+               grid.Column("Email", "Email"),
+               grid.Column("MobileNumber", "Contact"),
+               grid.Column("UserType", "User Type"),
+               grid.Column("IsActive", "Status"),
+               grid.Column(header: "Action", format: @<text> <span title="Details" class="table-icons details" onclick="Details('@item.UserId')"></span><span title="Edit" class="table-icons edit" onclick="Edit('@item.UserId')"></span></text> )
+           });
+            
+            <script type="text/javascript">
+                gbl_row_count = @records;
+                SetPagingStyles();
+            </script>
+        }
+        else
+        {
+            <table class="table table-hover" id="grid">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <input type="checkbox" id="chkHeader" style="cursor: pointer" disabled="">
+                    </th>
+                    <th scope="col">Sr No</th>
+                    <th scope="col">Picture</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">User Type</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="width: 100%; display: inline-table; text-align: center; position: relative;">
+                    <td style="font-weight: 600; font-size: 21px; color: #b50000;">No Records Found</td>
+                </tr>
+            </tbody>
+        </table>
+            <script type="text/javascript">
+                gbl_row_count = 0;
+            </script>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $('#Activate').addClass('hide');
+    $('#Deactivate').addClass('hide');
+
+    $(function () {
+
+        var chkHeader = $("<input type='checkbox' id='chkHeader' style='cursor: pointer' />");
+
+        //Append it to the First cell of Header Row.
+        $("#WebGrid th:first-child").append(chkHeader);
+
+        //Assign Click event handler to the Header Row CheckBox.
+        chkHeader.click(function () {
+            if ($(this).is(":checked")) {
+                //If the Header Row CheckBox is checked, check all Row CheckBoxes.
+
+                $("#WebGrid td input[type=checkBox]").prop("checked", true);//.attr("checked", "checked");
+
+                $('#Activate').removeClass('hide');
+                $('#Deactivate').removeClass('hide');
+
+
+            } else {
+                //If the Header Row CheckBox is NOT checked, uncheck all Row CheckBoxes.
+
+                $("#WebGrid td input[type=checkBox]").prop("checked", false); //.removeAttr("checked");
+
+                $('#Activate').addClass('hide');
+                $('#Deactivate').addClass('hide');
+            }
+        });
+
+
+        //Assign Click event handler to each Row CheckBox.
+        $("#WebGrid input[name=chkRow]").click(function (e) {
+
+            // only for show hide  both buttions
+            var isChecked = false;
+            $(".gridchkbox").each(function () {
+                if ($(this).prop("checked") == true) {
+                    isChecked = true;
+                }
+            });
+            if (isChecked) {
+                $('#Activate').removeClass('hide');
+                $('#Deactivate').removeClass('hide');
+            }
+            else {
+                $('#Activate').addClass('hide');
+                $('#Deactivate').addClass('hide');
+            }
+            UpdateHeaderRowCheckBox(chkHeader);
+        });
+
+
+        //Retain selection of Header Row CheckBox.
+        UpdateHeaderRowCheckBox(chkHeader);
+
+    });
+
+    function UpdateHeaderRowCheckBox(chkHeader) {
+
+        if ($("#WebGrid td input[type=checkBox]:checked").length == $("#WebGrid td input[type=checkBox]").length) {
+            //If all the Row CheckBoxes are checked, check the Header Row CheckBox.
+
+            chkHeader.prop("checked", true); //.attr("checked", "checked");
+        } else {
+            //Even if one of the Row CheckBoxes is NOT checked, uncheck the Header Row CheckBox.
+
+            chkHeader.prop("checked", false); //.removeAttr("checked");
+
+        }
+    }
+
+    $(document).bind('ready ajaxComplete', function () {
+        function setHeight() {
+
+            var tfoot = document.querySelector('tfoot');
+            if (tfoot == null) {
+                windowHeight = $(window).innerHeight() - 300;
+                $('tbody').css('max-height', windowHeight);
+
+            }
+            else {
+                windowHeight = $(window).innerHeight() - 320;
+                $('tbody').css('max-height', windowHeight);
+            }
+        };
+
+        setHeight();
+
+        $(window).resize(function () {
+            setHeight();
+        });
+    });
+
+</script>
+
+<style>
+    .table.gridresposnive th:last-child {
+        text-align: center;
+    }
+
+    .table.gridresposnive td:last-child {
+        text-align: center;
+    }
+
+    .table.gridresposnive th:nth-child(1), .table.gridresposnive td:nth-child(1) {
+        min-width: 30px;
+        max-width: 30px;
+        text-align: center;
+    }
+    #divpartdetails tbody {
+    overflow-y: auto;
+    overflow-x: auto;
+}
+    .table.gridresposnive th:nth-child(2), .table.gridresposnive td:nth-child(2) {
+        min-width: 60px;
+        max-width: 60px;
+    }
+
+    .table.gridresposnive th:nth-child(3), .table.gridresposnive td:nth-child(3) {
+           min-width: 146px;
+    max-width: 146px;
+    text-align: center;
+    }
+
+    .table.gridresposnive th:nth-child(4), .table.gridresposnive td:nth-child(4) {
+        min-width: 200px;
+        max-width: 200px;
+    }
+
+    .table.gridresposnive th:nth-child(5), .table.gridresposnive td:nth-child(5) {
+        min-width: 230px;
+        max-width: 230px;
+    }
+
+    .table.gridresposnive th:nth-child(6), .table.gridresposnive td:nth-child(6) {
+        min-width: 160px;
+        max-width: 160px;
+    }
+
+    .table.gridresposnive th:nth-child(7), .table.gridresposnive td:nth-child(7) {
+        min-width: 150px;
+        text-align: left;
+        max-width: 150px;
+    }
+
+    .table.gridresposnive th:nth-child(8), .table.gridresposnive td:nth-child(8) {
+        min-width: 100px;
+        max-width: 100px;
+    }
+
+    .table.gridresposnive th:nth-child(9), .table.gridresposnive td:nth-child(9) {
+        min-width: 156px;
+        max-width: 156px;
+    }
+
+    table.gridresposnive td img {
+        max-width: 100%;
+    }
+
+    #divpartdetails thead, #divpartdetails tbody {
+        display: block;
+    }
+</style>

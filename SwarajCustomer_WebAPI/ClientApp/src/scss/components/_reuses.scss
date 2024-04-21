@@ -1,0 +1,94 @@
+.body{
+    background-color: #F5F5F5 !important;
+}
+textarea{
+    resize: none;
+}
+.f-1{
+    font-size: 32px;
+}
+.f-2{
+    font-size: 24px;
+}
+.f-3{
+    font-size: 18px;
+}
+.f-4{
+    font-size: 16px;
+}
+.f-5{
+    font-size: 12px;
+}
+.rcs{
+    background-color: #fff;
+    &_body{
+       background-color: $white-color; 
+       padding: $default-space;  
+    }
+    &_card{
+        margin-bottom: $default-space;
+        border: 1px solid $border-color;
+        background-color: $white-color;
+        border-radius: 0.375rem;
+        &_header{
+           @include flex-d;
+           padding: $default-space;
+           border-bottom: 1px solid $border-color;
+           &--bg{
+            background-color: #f2f4f7;
+           }
+           &--title{
+             font-size: 1.1rem;
+             line-height: 1.5;
+             font-weight: 500;
+             color: $card-title-color;
+           }
+        }
+        &_body{
+            padding: $default-space;
+        }
+        &_footer{
+            text-align: right;
+            padding: 0  $default-space $default-space;
+            
+        }
+    }
+} 
+.pos{
+    &_rel{
+        position: relative;
+    }
+}
+.jc-between{
+    @include jc-between; 
+}
+.default-border{
+    border: 1px solid $border-color;
+} 
+.default-padding{
+  padding: 10px 20px;
+}
+.nowwrap{
+   white-space: nowrap;
+}
+.nodocument_text{
+    color: #D51C3C;
+}
+.text{
+    &_primary{
+        color: $primary-color;
+    }
+}
+.cursor{
+    &_pointer{
+        cursor: pointer;
+    }
+}
+.remarks{
+    &_text{
+        color: #BF1717;
+        &:hover{
+            color: #BF1717;
+        }
+    }
+}

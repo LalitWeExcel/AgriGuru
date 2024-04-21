@@ -1,0 +1,255 @@
+<app-header></app-header>
+<app-side-nav></app-side-nav>
+
+<div class="app-container">
+    <div class="app-main">
+        <div class="d-flex justify-content-between">
+            <h3 class="dashboard-title">Select Executive Member Position</h3>
+        </div>
+         <div class="table-responsive">
+            <table class="table"> <!--green-bg-->
+                <thead class="table-green">
+                    <tr>
+                        <th scope="col">Sl.No.</th>
+                        <th scope="col">E. R. Date</th>
+                        <th scope="col">Request Date</th>
+                        <th scope="col">Report Update Date</th>
+                        <th scope="col">Society</th>
+                        <th scope="col">Persident</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Document</th>
+                        <th scope="col">Issuesd By ARCS</th>
+                        <th scope="col">View Report</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">View Member</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let m of electopnRequestList | paginate: { itemsPerPage: pageSize,currentPage: pagenumber,totalItems: recordsCount
+                    };  let i = index">
+                        <th scope="row">{{(i+1)+(pagenumber-1)*pageSize}}</th>
+                        <td>{{m.createdDate | date:'dd/MM/yyyy'}}</td>
+                        <td>{{m.inspectorAssignDate | date:'dd/MM/yyyy'}}</td>
+                        <td> <b>  {{m.reportSubmitedDate | date:'dd/MM/yyyy'}}</b></td>
+                        <td>{{m.societyName}}</td>
+                        <td>{{m.psName}}</td>
+                        <td>{{m.address}}</td>
+                        <td><a class="btn btn-primary btn-sm" *ngIf="m.agendaHoldingGBMDoc!='No ducument Available'"
+                                target="_blank" href="{{baseURl+m.agendaHoldingGBMDoc}}"><i class="fa fa-eye"></i>
+                                View DOC</a>
+                            <p *ngIf="m.agendaHoldingGBMDoc=='No ducument Available'">No ducument Available</p>
+                        </td>
+                        <td><span [innerHTML]="m.remarks"></span></td>
+                        <td><button class="btn btn-success btn-sm" style="background: #0cb286;" (click)="viewReport(m)">
+                                <i class="fa fa-plus"></i> View Report </button>
+                        </td>
+                        <td><button class="btn btn-sm" style="background-color: #0eca98; color: white;" (click)="viewStatus(m)">
+                                <i class="fa fa-eye"></i> Status </button>
+                        </td>
+                        <td><button class="btn btn-success btn-sm" style="background: #0cb286;" (click)="viewmember(m)">
+                            <i class="fa fa-plus"></i> View Member </button>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+                <select (change)="PageSizeChange($event)">
+                    <option *ngFor="let size of pageSizes" [ngValue]="size">
+                        {{ size }}
+                    </option>
+                </select>&nbsp;&nbsp;&nbsp;
+                <pagination-controls previousLabel="Previous" nextLabel="Next" [responsive]="true"
+                    (pageChange)="PageChanged($event)" (pageBoundsCorrection)="PageChanged($event)">
+                </pagination-controls>
+            </div>
+        </div>
+
+
+        <div class="modal model-bg" id="updateModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="rcs_modal_header">
+                        <h4 class="modal-title">Update Proceeding</h4>
+                        <button type="button" class="btn-close" (click)="closeReportModel()"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <h5>Election Report</h5>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <th>1. Total no, of member's in Society</th>
+                                    <td>
+                                        <label>{{report?.totalMemberSociety}}</label>
+                                        <!-- <input type="number" placeholder="Enter here..." class="form-controll"
+                                            [(ngModel)]="report.totalMemberSociety"  > -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>2. Total no. of attend member</th>
+                                    <td>
+                                        <label>{{report?.totalAttendMember}}</label>
+                                        <!-- <input type="number" placeholder="Enter here..." class="form-controll"
+                                            [(ngModel)]="report.totalAttendMember"> -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>3. Quorum</th>
+                                    <td>
+                                        <label>{{report?.quorum}}</label>
+                                        <!-- <input type="number" placeholder="Enter here..." class="form-controll"
+                                            [(ngModel)]="report.quorum"> -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>4. Whether meeting as per rule?</th>
+                                    <td>
+                                        <label>{{report?.isMeetingAsPerRule?'Yes':'No'}}</label>
+                                        <!-- <label class="switch">
+                                            <input type="checkbox" [(ngModel)]="report.isMeetingAsPerRule">
+                                            <span class="slider round"></span>
+                                        </label> -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" (click)="closeReportModel()">Close</button>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    
+    
+         <!-- The Modal -->
+         <div class="modal model-bg" id="statusModal">
+            <div class="modal-dialog  modal-dialog-scrollable">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="rcs_modal_header">
+                        <h4 class="modal-title">Status for this request</h4>
+                        <button type="button" class="btn-close" (click)="closeStatusModel()"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body" style=" overflow: scroll;">
+    
+    
+                        <div class="card-body cd" *ngFor="let m of remarksList"  >
+    
+                            <div
+                                style="display: flex; justify-content: space-between;background: #e5f9f45e; border-top-left-radius: 5px;border-top-right-radius: 5px;">
+                                <p>{{m.createdDate | date:'dd/MM/yyyy hh:mm a'}}</p>
+                                <p class="{{m.status==false?'pending-text':'aprove-text'}}">
+                                    {{m.status==false?'Pending':'Approved'}}</p>
+                            </div>
+                            <div class="crd" style="padding: 10px;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <div>
+                                        <span style="font-weight:600">{{m.remarksByName}}</span>
+                                        <span class="text-role">({{m.byRole}})</span>
+                                    </div>
+    
+                                    <div>
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </div>
+                                    <div>
+                                        <span style="font-weight:600">{{m.remarksToName}}</span>
+                                        <span class="text-role">({{m.toRole}})</span>
+                                    </div>
+    
+    
+                                </div>
+    
+                                <div
+                                    style="background-color: #0eca981c; border-radius: 5px;padding: 10px;margin-top: 5px;">
+                                    <h6 class="text-success">Remarks</h6>
+                                    <span style="font-size: small;" [innerHTML]="m.msg"></span>
+                                </div>
+                            </div>
+                            <div style="text-align: center; color: green;">
+                                <i class="fa fa-angle-double-down"></i>
+                            </div>
+                        </div>
+    
+     
+                    </div>
+    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" (click)="closeStatusModel()">Close</button>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
+        <div class="modal model-bg" id="viewmember">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="rcs_modal_header">
+                        <h4 class="modal-title">Update Proceeding</h4>
+                        <button type="button" class="btn-close" (click)="closeReportModel()"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <h5>Election Report</h5>                      
+                            <table class="table table-bordered">
+                            <tbody>                                
+                                <tr>
+                                    <th>1. Total no, of member's in Society</th>
+                                    <td>
+                                        <label>{{report?.totalMemberSociety}}</label>
+                                        <!-- <input type="number" placeholder="Enter here..." class="form-controll"
+                                            [(ngModel)]="report.totalMemberSociety"  > -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>2. Total no. of attend member</th>
+                                    <td>
+                                        <label>{{report?.totalAttendMember}}</label>
+                                        <!-- <input type="number" placeholder="Enter here..." class="form-controll"
+                                            [(ngModel)]="report.totalAttendMember"> -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>3. Quorum</th>
+                                    <td>
+                                        <label>{{report?.quorum}}</label>
+                                        <!-- <input type="number" placeholder="Enter here..." class="form-controll"
+                                            [(ngModel)]="report.quorum"> -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>4. Whether meeting as per rule?</th>
+                                    <td>
+                                        <label>{{report?.isMeetingAsPerRule?'Yes':'No'}}</label>
+                                        <!-- <label class="switch">
+                                            <input type="checkbox" [(ngModel)]="report.isMeetingAsPerRule">
+                                            <span class="slider round"></span>
+                                        </label> -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <div *ngIf="report.length  ==1">
+                            aaa  jao
+                        </div> -->
+                    </div>
+    
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" (click)="closeviewmemberModel()">Close</button>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,131 @@
+<header class="dc-header" *ngIf="accountPanle">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-lg-6">
+        <div class="sidebar-menu-visible" (click)="sidebarhide()">
+          <i class="fa fa-bars"></i>
+        </div>
+        <img src="/imgpath/white-logo.png" alt="logo">
+      </div>
+      <div class="col-md-4 col-lg-6">
+        <ul class="dc-userlist">
+          <li>
+            <span class="fa fa-user user-icon"></span>
+            <!-- <h5>{{id}}</h5> -->
+            <h5>{{username}}</h5>
+ 
+            <h6>({{role}})</h6>
+ 
+           
+ 
+          </li>
+          <li>
+            <a href="#" (click)="logOut()">
+              <span class="fa fa-user-lock user-icon"></span>
+              <h5>Logout</h5>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<header class="dc-header" *ngIf="memberPanle">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-lg-6">
+        <div class="sidebar-menu-visible" (click)="sidebarhide()">
+          <i class="fa fa-bars"></i>
+        </div>
+        <img src="/imgpath/white-logo.png" alt="logo">
+
+      </div>
+      <div class="col-md-4 col-lg-6">
+        <ul class="dc-userlist">
+          <li>
+            <a (click)="backToAccountSelection()">
+              <span class="fa fa-arrow-left user-icon"></span>
+              <h5>Back</h5>
+            </a>
+          </li>
+          <li>
+            <span class="fa fa-user user-icon"></span>
+            <!-- <h5>{{id}}</h5> -->
+            <h5>{{username}}</h5>
+            <h6>({{this.roleName}})</h6>
+
+          </li>
+          <li>
+            <a href="#" (click)="logOut()">
+              <span class="fa fa-user-lock user-icon"></span>
+              <h5>Logout</h5>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!--Admin-DashBoard Hearder Pannel-->
+<header class="dc-header" *ngIf="dashboardPanle">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-lg-6">
+        <div class="sidebar-menu-visible" (click)="sidebarhide()">
+          <i class="fa fa-bars"></i>
+        </div>
+        <img src="/imgpath/white-logo.png" alt="logo">
+
+      </div>
+      <div class="col-md-4 col-lg-6">
+        <ul class="dc-userlist">
+          <li>
+
+            <span class="fa fa-user user-icon"></span>
+            <h5>{{username}}</h5>
+            <h6>({{this.roleName}})</h6>
+          </li>
+          <li>
+            <a href="#" (click)="logOut()">
+              <span class="fa fa-user-lock user-icon"></span>
+              <h5>Logout</h5>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--ARCS-DashBoard Hearder Pannel-->
+<header class="dc-header" *ngIf="arcsboardPanle">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-lg-6">
+        <div class="sidebar-menu-visible" (click)="sidebarhide()">
+          <i class="fa fa-bars"></i>
+        </div>
+        <img src="/imgpath/white-logo.png" alt="logo">
+      </div>
+      <div class="col-md-4 col-lg-6">
+        <ul class="dc-userlist">
+          <li>
+
+            <span class="fa fa-user user-icon"></span>
+            <h5>{{username}}</h5>
+            <h6>({{this.roleName}})</h6>
+
+          </li>
+          <li>
+            <a href="#" (click)="logOut()">
+              <span class="fa fa-user-lock user-icon"></span>
+              <h5>Logout</h5>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

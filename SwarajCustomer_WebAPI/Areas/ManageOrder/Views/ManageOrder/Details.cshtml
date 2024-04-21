@@ -1,0 +1,325 @@
+﻿@model SwarajCustomer_Common.ViewModel.M_ManageOrder
+ @using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Details";
+    ViewBag.Menu = "Index";
+    ViewBag.SubMenu = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-sm-9 rightbox">
+    <div class="fullwidth top">
+        <div class="fulltextwidth">
+            <div class="col-md-8" style="padding-left:0;">
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;padding-left: 15px;">@ViewBag.Title</h1>
+              
+            </div>
+            <div class="dl-horizontal">
+                  <h1 class="col-sm-10 headingbox" style="position: relative; top: 0;padding-left: 15px;">@Html.DisplayFor(model => model.PujaName)</h1>
+                @Html.HiddenFor(model => model.BookingID)
+                @Html.HiddenFor(model => model.OrderNumber)
+                @Html.HiddenFor(model => model.PurohitID)
+                @Html.HiddenFor(model => model.UserID)
+                @Html.HiddenFor(model => model.PujaID)
+                <div class="fullwidths">
+                    <div class="col-sm-3 leftimage">
+                        <span class="images">
+                            <img src="@CommonMethods.BookingIcon">
+                        </span>
+                    </div>
+                    <div class="col-sm-9 righttext">
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Order Number</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.OrderNumber)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Booking Date</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.BookingDate)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Booking Type </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.BookingType)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Puja Name </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.PujaName)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Time </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.TimeSlot)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Is Samagri </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.IsSamagri)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Puja MRP</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.PujaMRP)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Puja Discount </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.PujaDiscount)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Puja Discounted Price</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.PujaDiscountedPrice)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>With Samagri </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.WithSamagri)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Samagri Discount </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.SamagriDiscount)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Purohit Name </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.PurohitName)
+                            </span>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Cust. Name  </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.CustName)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Cust. Phone </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.CustPhone)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Cust. Address </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.CustAddress)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Cust. State </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.CustState)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Cust. District </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.CustDistrict)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Cust. City </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.CustCity)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Cust. Pincode </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.CustPincode)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>OTP </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.OTP)
+                            </span>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>WhatsApp </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.WhatsApp)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Skype </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.Skype)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>EPuja Email </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.EPujaEmail)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>EPuja PhoneNo </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.EPujaPhoneNo)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Persion Contact Name </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.PersionofContactName)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Persion Contact Number </label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.PersionofContactNumber)
+                            </span>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Order Status</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.OrderStatus)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>IsActive</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.IsActive)
+                            </span>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Paid</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.Paid)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>PaymentMode</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.PaymentMode)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>BankName</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.PaymentDetails)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>  Reject By Prohit/Astrologer ?</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.RejectByProhit)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>OTPConfirm</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.OTPConfirm)
+                            </span>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>AddToCart</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.AddToCart)
+                            </span>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <span class="userheading">
+                                <label>Reason</label>
+                            </span>
+                            <span class="usernumber">
+                                @Html.DisplayFor(model => model.Ression)
+                            </span>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="backlink">
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

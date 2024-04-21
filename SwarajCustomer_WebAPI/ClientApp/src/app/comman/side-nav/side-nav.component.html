@@ -1,0 +1,170 @@
+<div *ngIf="isLoading; else elseForm">
+  <app-loader :title="loadingTitle"></app-loader>
+</div>
+
+<ng-template #elseForm>
+  <div class="sidebar" *ngIf="byeLawsPanle">
+    <ul>
+      <li style="cursor:pointer">
+        <a (click)="routToRequest()"><span class="fa fa-solid fa-paper-plane"></span>Bye-Laws Request</a>
+      </li>
+      <li style="cursor:pointer">
+        <a (click)="routToRequestList()"><span class="fa fa-solid fa-reply-all"></span>Bye-Laws List</a>
+
+      </li>
+    </ul>
+  </div>
+  <div class="sidebar" *ngIf="rcsPanle">
+    <ul>
+      <li style="cursor: pointer">
+        <a (click)="routToRCSHome()" class="active">
+          <fa-icon [icon]="faHome"></fa-icon>
+          Home
+        </a>
+      </li>
+      <li style="cursor: pointer">
+        <a (click)="routToRCSRequestList()"><span class="fa fa-solid fa-list"></span>Request List</a>
+      </li>
+    </ul>
+  </div>
+  <div class="sidebar" *ngIf="memberPanle">
+    <ul>
+      <li style="cursor: pointer">
+        <a (click)="memberHome()" class="active"><span class="fa fa-solid fa-house-chimney"></span>Home</a>
+      </li>
+      <li style="cursor: pointer">
+        <a (click)="memberDetails()"><span class="fa fa-solid fa-list"></span>Details</a>
+      </li>
+      <li style="cursor: pointer">
+        <a (click)="memberBackTrack()"><span class="fa fa-solid fa fa-history"></span>Back Track</a>
+      </li>
+      <li style="cursor: pointer">
+        <a (click)="grivance()"><span class="fa fa-solid fa-question-circle"></span>Grivance</a>
+      </li>
+    </ul>
+  </div>
+  <div class="sidebar" *ngIf="electionPanle">
+    <ul>
+      <li style="cursor:pointer">
+        <a  (click)="electionDashboard()"><span class="fa fa-solid fa-house-chimney"></span> Dashboard</a>
+      </li>
+      <li style="cursor:pointer">
+        <a (click)="electionRequest()"><span class="fa fa-solid fa-paper-plane"></span> Election Request</a>
+      </li>
+      <li style="cursor:pointer">
+        <a (click)="electionRequestList()"><span class="fa fa-solid fa-list"></span> Election History</a>
+
+      </li>
+    </ul>
+  </div>
+  <div class="sidebar" *ngIf="dashbaordPanle">
+    <ul>
+      <li style="cursor:pointer">
+        <a (click)="dashBoardRequest()" class="active">
+          <fa-icon [icon]="faHome"></fa-icon>
+          <span class="sibartext">DashBoard</span>
+        </a>
+      </li>
+      <li style="cursor:pointer">
+        <a (click)="usersDetailRequest()"><fa-icon [icon]="faTasks"></fa-icon>User Management</a>
+      </li>
+      <li style="cursor: pointer">
+        <a (click)="userManagementRequest()"><fa-icon [icon]="faTasks"></fa-icon>Role Management</a>
+      </li>
+
+      <li style="cursor: pointer">
+        <a (click)="usersDetailRequest()"><fa-icon [icon]="faUserFriends"></fa-icon>Users Detail</a>
+      </li>
+      <li style="cursor:pointer">
+        <a (click)="newsfeedsRequest()">
+          <fa-icon [icon]="faNewspaper"></fa-icon>
+          <span class="sibartext">News Feeds</span>
+        </a>
+      </li>
+      <li style="cursor:pointer">
+
+        <a (click)="usersSocietyType()"><fa-icon [icon]="faLandmark  "></fa-icon>Registered Society </a>
+      </li>
+      <li style="cursor:pointer">
+        <a (click)="newsfeedsRequest()"><fa-icon [icon]="faNewspaper"></fa-icon>News Feeds</a>
+      </li>
+      <li style="cursor:pointer">
+        <a (click)="SocietyTranslationRequest()"><fa-icon [icon]="faLandmark"></fa-icon>Societies</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidebar" *ngIf="arcsboardPanle">
+    <ul>
+      <li style="cursor: pointer">
+        <a (click)="ElectionRequestByARCS()"><fa-icon [icon]="faTasks"></fa-icon>Election Request</a>
+      </li>
+
+      <li style="cursor: pointer">
+        <a (click)="ElectionReportByInspector()"><fa-icon [icon]="faTasks"></fa-icon>Inspector Report</a>
+      </li>
+      <li style="cursor: pointer">
+        <a (click)="ElectionVerifiedByRecordKeeper()"><fa-icon [icon]="faTasks"></fa-icon>Record Keeper</a>
+      </li>
+      <li style="cursor: pointer">
+        <a (click)="ElectionHistory()"><fa-icon [icon]="faTasks"></fa-icon>Election History</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidebar" *ngIf="auditPanle">
+    <ul>
+      <li style="cursor:pointer" *ngIf="roleName=='President'">
+        <a (click)="AuditRequestRequest()" class="active"><span class="fa fa-solid fa-paper-plane"></span> Audit Request</a>
+      </li>
+
+      <li style="cursor:pointer" *ngIf="roleName=='Auditor'">
+        <a (click)="AuditRequestRequest()" class="active"><span class="fa fa-solid fa-paper-plane"></span> Auditor</a>
+      </li>
+
+      <li style="cursor:pointer" *ngIf="roleName=='Junior Auditor'">
+        <a (click)="AuditRequestRequest()" class="active"><span class="fa fa-solid fa-paper-plane"></span> Jr. Auditor</a>
+      </li>
+
+      <li style="cursor:pointer" *ngIf="roleName=='Chief Auditor  (CA) '">
+        <a (click)="AuditRequestRequest()" class="active"><span class="fa fa-solid fa-paper-plane"></span> Chief Auditor  (CA) </a>
+      </li>
+      <!--Audit Officer  (AO)-->
+      <li style="cursor:pointer" *ngIf="roleName=='Audit Officer  (AO) '">
+        <a (click)="AuditOfficerRequest('audit-Officer-dashBoard')" class="active"><span class="fa fa-solid fa-house-chimney"></span> DashBoard</a>
+      </li>
+      <li style="cursor:pointer" *ngIf="roleName=='Audit Officer  (AO) '">
+        <a (click)="AuditOfficerRequest('audit-Officer-audit-list')" class=""><span class="fa fa-solid fa-paper-plane"></span> Audit List </a>
+      </li>
+      <li style="cursor:pointer" *ngIf="roleName=='Audit Officer  (AO) '">
+        <a (click)="AuditOfficerRequest('audit-Officer-audit-request')" class=""><span class="fa fa-solid fa-list"></span> Audit Request</a>
+      </li>
+
+
+    </ul>
+  </div>
+
+  <div class="sidebar" *ngIf="insboardPanle">
+    <ul>
+      <li style="cursor:pointer">
+        <a (click)="ElectionRequestForIns()"><fa-icon [icon]="faTasks"></fa-icon>Election Request </a>
+      </li>
+      <li style="cursor:pointer">
+        <a (click)="ElectionReportList()"><fa-icon [icon]="faTasks"></fa-icon>Election Report List </a>
+      </li>
+      <li style="cursor:pointer">
+        <a (click)="ElectionExecutiveMemberIns()"><fa-icon [icon]="faTasks"></fa-icon>Executive Member </a>
+
+    </ul>
+  </div>
+
+
+
+  <div class="sidebar" *ngIf="recordkeeparPanle">
+    <ul>
+      <li style="cursor: pointer">
+        <a><fa-icon [icon]="faTasks"></fa-icon>Verify E. Report</a>
+      </li>
+    </ul>
+  </div>
+</ng-template>

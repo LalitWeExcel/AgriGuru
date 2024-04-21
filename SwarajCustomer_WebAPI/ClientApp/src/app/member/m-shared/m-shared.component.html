@@ -1,0 +1,3 @@
+<h5 class="dashboard-card--label">{{this.Title}}:</h5>
+<h6 class="dashboard-card--view" *ngIf="this.Value!=='';else content">{{this.Value}} {{this.Unit}}</h6>
+<ng-template #content class="font-weight-bold"><h6 class="dashboard-card--view">---</h6></ng-template>

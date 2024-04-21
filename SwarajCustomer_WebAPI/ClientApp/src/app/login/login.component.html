@@ -1,0 +1,129 @@
+<div class="login">
+  
+  <div class="login_left">
+    <img src="/imgpath/logo.png" alt="logo" class="img-fluid">
+    <!-- <img src="../assets/images/logo.png" /> -->
+    <button type="button" class="login_left--btn" routerLink="">Back to Dashboard</button>
+  </div>
+  <div class="login_right" *ngIf="showLogin && !isUserAuthenticated()">
+    <h1 class="login_right--title">Sign in to Account</h1>
+  
+    <form #form="ngForm">
+      <div class="custom_form mb-3">
+        <input type="text" class="custom_form--input" name="userName" [(ngModel)]="userName" required autofocus>
+        <i class="fa fa-solid fa-user custom_form--icon"></i>
+        <label for="floatingInput" class="custom_form--label">User Name</label>
+      </div>
+      <div class="custom_form mb-3">
+        <input [type]="Passwordfield ? 'text' : 'password'" class="custom_form--input" name="password" [(ngModel)]="password" required autofocus>
+        <!-- <i class="fa fa-solid fa-key custom_form--icon"></i> -->
+        <i class="fa fa-solid custom_form--icon" [ngClass]="{'fa-eye-slash': !Passwordfield,'fa-eye': Passwordfield} " (click)="ShowHide()"></i>
+        <label for="floatingInput" class="custom_form--label">Password</label>
+      </div>
+      <div class="custom_form mb-3">
+        <re-captcha id="recaptcha" name="recaptcha" #recaptcha="ngModel" [(ngModel)]="token" required [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"></re-captcha>
+        <!--<div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="invalid-feedback">
+          <div *ngIf="recaptcha.errors?.['required']">Please confirm that you are not a robot !.</div>
+        </div>-->
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check Me Out</label>
+          </div>
+        </div>
+
+        <div class="col"> <a [routerLink]="[]"  class="forgot-password" (click)="showForgotPassword()"><u> Forgot Password?</u></a></div>
+      </div>     
+      <button type="button" class="custom_form--btn" (click)="signIn(form)" [disabled]="this.isLoading">
+          <span *ngIf="!this.isLoading">Sign in</span>
+          <div  class="loading-loader" *ngIf="this.isLoading">
+            Loging in
+            <span></span>
+            <span></span>
+            <span></span>
+         </div>
+      </button>
+      <div class="create_acount">
+        Don’t have an Account yet? <a [routerLink]="[]" (click)="register()" class="create-acount--link">Create an Account</a>
+      </div>
+    </form>
+  </div>
+  <div class="login_right" *ngIf="showLoginOtp">
+    <h1 class="login_right--title">OTP Verification</h1>
+    <div class="create_acount mb-md-5">
+      Please enter the OTP sent to your Number.<br>
+      +91xxxxxxxx50
+    </div>
+    <form>
+      <div class="custom_form mb-3">
+        <input type="text" class="custom_form--inputotp">
+        <input type="text" class="custom_form--inputotp">
+        <input type="text" class="custom_form--inputotp">
+        <input type="text" class="custom_form--inputotp">
+        <input type="text" class="custom_form--inputotp">
+      </div>
+      <button type="button" class="custom_form--btn" (click)="OTPVerify()">Verify OTP</button>
+      <a class="text-center btn back-btn mt-2 d-block" (click)="backtologin()">Cancle</a>
+      <div class="create_acount mt-5">
+        Not received your OTP? <a class="create-acount--link">Resend OTP</a>
+      </div>
+    </form>
+  </div>
+
+  <div class="login_right" *ngIf="showForgotUi">
+    <h1 class="login_right--title">Forgot Password</h1>
+    <h5 class="login_right--subtitle">OTP Verification</h5>
+
+    <form>
+      <div class="custom_form mb-5">
+        <input type="number" class="custom_form--input">
+
+        <label for="floatingInput" class="custom_form--label">Enter Mobile Number</label>
+      </div>
+      <button type="button" class="custom_form--btn" (click)="requestOtpForFp()">Request OTP</button>
+
+    </form>
+  </div>
+
+  <div class="login_right" *ngIf="showForgotOtpUi">
+    <h1 class="login_right--title">Forgot Password</h1>
+    <div class="create_acount mb-md-5">
+      Please enter the otp sent to your number. <a (click)="changeNumber()" class="create-acount--link" [routerLink]="[]">Change</a>
+    </div>
+    <form>
+      <div class="custom_form mb-3">
+        <input type="text" class="custom_form--inputotp">
+        <input type="text" class="custom_form--inputotp">
+        <input type="text" class="custom_form--inputotp">
+        <input type="text" class="custom_form--inputotp">
+        <input type="text" class="custom_form--inputotp">
+      </div>
+      <button type="button" class="custom_form--btn" (click)="verifyOtpForForgotPass()">Verify OTP</button>
+      <div class="create_acount mt-5">
+        Not received your OTP? <a href="" class="create-acount--link">Resend OTP</a>
+      </div>
+    </form>
+  </div>
+
+  <div class="login_right" *ngIf="showVerifyForgotOtpUi">
+    <h1 class="login_right--title">Forgot Password</h1>
+    <form>
+      <div class="custom_form mb-3">
+        <input type="email" class="custom_form--input">
+        <i class="fa-solid fa-eye custom_form--icon"></i>
+        <label for="floatingInput" class="custom_form--label">Password</label>
+      </div>
+      <div class="custom_form mb-3">
+        <input type="email" class="custom_form--input">
+        <i class="fa-solid fa-eye custom_form--icon"></i>
+        <label for="floatingInput" class="custom_form--label">Confirm Password</label>
+      </div>
+
+      <button type="button" class="custom_form--btn" (click)="saveNewPassword()">Reset Password</button>
+
+    </form>
+  </div>
+
+</div>

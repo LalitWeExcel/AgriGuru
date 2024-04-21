@@ -1,0 +1,124 @@
+﻿@model SwarajCustomer_Common.Entities.MyCartResponce
+@using System.Collections;
+@using SwarajCustomer_Common;
+
+@{
+    ViewBag.Title = "MyCart";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var GrandTotal = new ArrayList(); // recommended
+    var Server_Url = CommonMethods.BaseUrl;
+
+    //https://www.tutorialsteacher.com/csharp/csharp-arraylist
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidths" style="margin-top: 20px;">
+        <div class="col-sm-12">
+            <table class="table table-hover cartpage" id="tblData">
+                <thead>
+                    <tr>
+                        <th style="    min-width: 180px;">Puja</th>
+                        <th style="    min-width: 180px;"> Booking Date</th>
+                        <th style="    min-width: 180px;">Booking Times</th>
+                        <th class="text-center" style="min-width: 140px;">Price</th>
+                        <th class="text-center" style="min-width: 140px;">Total</th>
+                        <th style="min-width: 80px;"> </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @{
+                        foreach (var item in Model.MyCart)
+                        {
+
+                            var PujaMRP = @item.OrderDetails.PujaMRP;
+                            var PujaDiscount = @item.OrderDetails.PujaDiscount;
+                            var PujaDiscountedPrice = @item.OrderDetails.PujaDiscountedPrice;
+                            var IsSamagri = @item.OrderDetails.IsSamagri;
+                            var SamagriDiscount = @item.OrderDetails.SamagriDiscount;
+                            var SamagriDiscountedPrice = @item.OrderDetails.SamagriDiscountedPrice;
+                            var CurrentTotalPrize = decimal.Add(Convert.ToDecimal(PujaDiscountedPrice), Convert.ToDecimal(SamagriDiscountedPrice));
+                            GrandTotal.Add(CurrentTotalPrize);
+
+                            <tr>
+                                <td class="col-sm-4 mycard" data-bookingid="@item.OrderDetails.BookingID" data-ordernumber="@item.OrderDetails.OrderNumber">
+                                    @item.OrderDetails.PujaName
+                                </td>
+                                <td class="col-sm-3" style="">
+                                    @Convert.ToDateTime(@item.OrderDetails.BookingDate).ToString("dd - MMM - yyyy")
+                                </td>
+                                <td class="col-sm-3">@item.OrderDetails.PujaTime</td>
+                                <td class="col-sm-3 text-center"> &#x20B9; @item.OrderDetails.PujaMRP</td>
+                                <td class="col-sm-3 text-center">&#x20B9; @CurrentTotalPrize </td>
+                                <td class="col-sm-1 col-md-1">
+                                    <button type="button" class="btn btn-danger remove" id="delete_btn">
+                                        <i class="fa fa-times" aria-hidden="true"
+                                           onclick=" return DeleteCartItem ('@item.OrderDetails.BookingID','@item.OrderDetails.OrderNumber')"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-sm-12">
+            <table class="table table-hover cartpage bottom">
+                <tbody>
+                    <tr>
+                        <td style="min-width:170px;">Subtotal</td>
+                        <td class="text-right">
+                            &#x20B9;  @GrandTotal.ToArray().Sum(x => Convert.ToInt32(x))
+                        </td>
+                    </tr>
+                    @*<tr>
+                            <td>Taxes</td>
+                            <td class="text-right">&#x20B9; 0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Discount Charges</td>
+                            <td class="text-right">&#x20B9; 0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Discount</td>
+                            <td class="text-right">&#x20B9; 0.00</td>
+                        </tr>*@
+                    <tr>
+                        <td>Grand Total</td>
+                        <td class="text-right">
+                            &#x20B9;  @GrandTotal.ToArray().Sum(x => Convert.ToInt32(x))
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="text-align: right;">
+                            <button type="button" class="btn btn-success checkout" id="btn_save" onclick="return CheckoutMyCartPayment(true)">
+                                Checkout<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Customer/Scripts/addtocard.js"></script>
+<script>
+    var $_CheckoutMyCtPaymenturl = "";
+    var $_DeleteCartItemUrl = "";
+    debugger;
+    if ('@Server_Url'.indexOf('AgriGuru') >= 1) {
+        $_CheckoutMyCtPaymenturl = '/AgriGuru/Booking/CheckoutMyCartPayment/';
+        $_DeleteCartItemUrl = '/AgriGuru/Booking/DeleteCartItem/';
+    } else if ('@Server_Url'.indexOf('PujaGuru') >= 1) {
+        $_CheckoutMyCtPaymenturl = '/PujaGuru/Booking/CheckoutMyCartPayment/';
+        $_DeleteCartItemUrl = '/PujaGuru/Booking/DeleteCartItem/';
+    } else {
+        $_CheckoutMyCtPaymenturl = '/Booking/CheckoutMyCartPayment/';
+        $_DeleteCartItemUrl = '/Booking/DeleteCartItem/';
+    }
+
+
+</script>

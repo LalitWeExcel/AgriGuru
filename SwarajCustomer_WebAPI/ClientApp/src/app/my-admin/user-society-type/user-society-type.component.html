@@ -1,0 +1,149 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+  <p style="font-size: 20px; color: white">Please Wait...</p>
+</ngx-spinner>
+
+<div *ngIf="IsAuthorised">
+  <app-header></app-header>
+  <app-side-nav></app-side-nav>
+
+
+  <div class="app-container">
+    <div class="app-main">
+      <div class="d-flex justify-content-between">
+        <h3 class="dashboard-title mb-1">Society User List</h3>
+      </div>
+      <div class="main-body">
+        <div class="row">
+
+          <div class="col-md-6 col-lg-4">
+            <label class="simple_form--label">District Name</label>
+            <div class="selectdiv">
+              <select class="select-form" [(ngModel)]="selectedDisId" name="item" (change)="onDistrictChange()">
+                <option value="0" selected>Select District</option>
+                <option *ngFor="let item of District" [value]="item.districtCode">
+                  {{ item.districtName }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <label class="simple_form--label">Society Type</label>
+            <div class="selectdiv">
+              <select class="select-form" [(ngModel)]="selectedSocietyId" name="item" (change)="onDistrictTypeChange()">
+                <option value="0" selected>Select Society Type</option>
+                <option *ngFor="let item of DistrictType" [value]="item.societyClassCode">
+                  {{ item.societySubClassName }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-lg-8">
+              <label class="simple_form--label">Search</label>
+              <div>
+                <input class="select-form" type="text" id="societyFilter" [(ngModel)]="societyFilter"
+                       list="societyOptions" (input)="OnSocietyNameEnter()" />
+                <datalist id="societyOptions">
+                  <option class="custom-dropdown" *ngFor="let society of getSocietyNames()" [value]="society">
+                    {{ society }}
+                  </option>
+                </datalist>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-lg-4">
+            <label class="simple_form--label"></label>
+            <button class="select-form" (click)="clearDropdowns()">Reset</button>
+          </div>
+        </div>
+
+      </div>
+
+
+      <table class="table dark-table" *ngIf="SocietyType.length > 0">
+        <thead>
+          <tr>
+            <th>Sr.No</th>
+            <th>Society Name</th>
+            <th>Address</th>
+            <th>DistrictName</th>
+            <th>Society Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let type of SocietyType | paginate: { itemsPerPage: pageSize, currentPage: pagenumber, totalItems: recordsCount }; let i = index">
+            <ng-container *ngIf="shouldDisplayUser(type)">
+              <th>{{ i + 1 }}</th>
+              <td>
+              
+              </td>
+              <td>{{ type.societyName }}</td>
+              <td>{{ type.address }}</td>
+              <td>{{ type.districtName }}</td>
+              <td>{{ type.societyType }}</td>
+              <!--<td>{{ type.isActive === 1 ? "Active" : "Inactive" }}</td>-->
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div class="d-flex justify-content-center">
+        <select (change)="PageSizeChange($event)">
+          <option *ngFor="let size of pageSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>&nbsp;&nbsp;&nbsp;
+        <pagination-controls previousLabel="Previous" nextLabel="Next" [responsive]="true"
+                             (pageChange)="PageChanged($event)" (pageBoundsCorrection)="PageChanged($event)">
+        </pagination-controls>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="rcs_modal_header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-inline mb-3">
+              Lock
+              <div *ngFor="let option of radioOptions" class="checkboxes__item">
+                <label class="checkbox style-c">
+                  <input type="radio" [value]="option" [(ngModel)]="selectedOption" (change)="onStatusChange()" />
+                  <div class="checkbox__checkmark" style="--bgcolor: #ddd"></div>
+                  <div class="checkbox__body" style="--color: #000">
+                    {{ option }}
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="custom_form mb-3">
+              <label for="floatingInput" class="simple_form--label">Change Password:</label>
+              <input [type]="showpassword ? 'password' : 'text'" class="simple_form--input" placeholder="Password"
+                     [(ngModel)]="password" />
+              <span (click)="passwordtype()" [ngClass]="visible ? 'fa fa-eye' : 'fa fa-eye-slash'"></span>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <button type="button" (click)="onEmailSend()" class="btn sending-button">
+                  <i class="fa-regular fa-paper-plane"></i> Send email
+                </button>
+              </div>
+              <div class="col-md-6">
+                <button type="button" class="btn sending-button">
+                  <i class="fa-solid fa-mobile-screen-button"></i> Send Phone
+                  Number
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

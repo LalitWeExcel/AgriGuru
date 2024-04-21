@@ -1,0 +1,150 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "Purohit Customer Linking";
+    ViewBag.Menu = "Dashboard";
+    ViewBag.SubMenu = "Index";
+}
+<div class="col-sm-9 rightbox">
+    <div class="fullwidth top">
+        <div class="table-heading padding">
+            <div class="col-md-8" style="padding-left:0;">
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0; padding-left: 15px;">@ViewBag.Title</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="barwidths" id="adminDashboardLeads">
+        <div class="searchfilter">
+            <div class="datefilter"></div>
+            <div class="col-sm-3 searchbox">
+                <label>Role: </label>
+                @Html.DropDownList("MasterPageType", new SelectList(ViewBag.GetAllUser, "ID", "Name"), "All", new { @id = "MasterPageType", @class = "form-control selectoption" })
+            </div>
+            <div class="col-sm-3 searchbox newlabel">
+                <label>Search:</label>
+                <input type="text" class="form-control formtext" id="txt_search" placeholder="Name / Contact" />
+            </div>
+            <div class="searchresult">
+                <button id="anc_search" class="btn btn-success yes">Search</button>
+                <button id="reset" class="btn btn-danger No">Reset</button>
+            </div>
+            <section class="counts" style="width: 100%; display: inline-block; float: right;">
+                <div class="searchleft">
+                    <p><b>Total Prohits: </b><span style="color: forestgreen;" id="spnTotalProhits"></span></p>
+                    <p><b>Total Astrologers: </b><span style="color:darkslategrey;" id="spnTotalAstrologers"></span></p>
+                    <p><b>Total Customers: </b> <span style="color:midnightblue;" id="spnTotalCustomers"></span></p>
+                </div>
+                <div class="pull-right countsboxs" style="width: auto; float: right !important; position: relative; top: -0px; left: 7px;">
+                    <div style="display: inline-block; margin-right: 5px;">
+                        <span>Show</span>
+                        <select class='form-control selectoption' id='NoofRecords' name='NoofRecords'>
+                            <option value='10'>10</option>
+                            <option value='20'>20</option>
+                            <option value='30'>30</option>
+                            <option value='50'>50</option>
+                            <option value='100'>100</option>
+                            <option value='150'>150</option>
+                            <option value='200'>200</option>
+                            <option value='250'>250</option>
+                            <option value='300'>300</option>
+                            <option value='350'>350</option>
+                            <option value='400'>400</option>
+                            <option value='500'>500</option>
+                        </select>
+                        <span>Records</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="table-container" id="divGrid">
+        </div>
+        <div class="table-container" id="divNoData">
+        </div>
+
+    </div>
+</div>
+
+<script src="~/Scripts/function.js"></script>
+<script src="~/Areas/Scripts/purohitcustomerlinking.js"></script>
+<script type="text/javascript">
+    AlphaNumericOnly('.alphaNumericOnly')
+    var $_GetUsersUrl = '@Url.Action("GetLinkingGridView", "PurohitCustomerLinking", new { Area = "PurohitCustomerLinking" })';
+    var $_Details = '@Url.Action("Details", "ManageUser", new { Area = "ManageUser" })';
+
+    var current_page = 0;
+    $(document).ready(function () {
+        $("#divNoData").addClass("hide");
+        GetPurohitCustomerLinking();
+    });
+
+    $(document).on("change", "#NoofRecords", function () {
+        GetPurohitCustomerLinking();
+    });
+    $("#anc_search").click(function () {
+        GetPurohitCustomerLinking();
+    });
+    $("#reset").click(function () {
+        window.location.reload();
+    });
+
+</script>
+
+
+<style>
+    label.fontnormal {
+        font-weight: normal;
+        top: -1px;
+        position: relative;
+    }
+
+    .centerdiv .col-sm-3.searchbox label {
+        top: 0;
+        margin: 0 6px;
+    }
+    #divpartdetails tbody {
+    overflow-y: auto;
+    overflow-x: auto;
+}
+   .table.gridresposnive td img {
+    max-width: 60px;
+    height: auto !important;
+}
+    .searchleft {
+        width: auto;
+        float: left;
+        position: relative;
+        top: 4px;
+    }
+    section.counts {
+        background: #f3f3f3;
+        margin: 0;
+        padding: 15px 15px;
+        margin-top: 14px;
+        margin-bottom: 20px;
+    }
+    .searchleft p b {
+        float: left;
+        position: relative;
+        top: 2px;
+        color: #000;
+        font-size: 14px;
+        font-weight: normal;
+        margin-right: 7px;
+    }
+    .searchleft p span {
+        font-size: 14px;
+        margin: 0 0;
+        font-weight: bold;
+    }
+    .searchleft p {
+        width: auto;
+        display: inline-block;
+        float: left;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+</style>

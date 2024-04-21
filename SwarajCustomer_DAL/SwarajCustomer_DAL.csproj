@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7538D17-8614-44A9-A0A6-12E2C85340B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SwarajCustomer_DAL</RootNamespace>
+    <AssemblyName>SwarajCustomer_DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BookingDAL.cs" />
+    <Compile Include="Common\ExceptionLogging.cs" />
+    <Compile Include="Common\LogAPIException.cs" />
+    <Compile Include="Common\SMSUtility.cs" />
+    <Compile Include="ContactDAL.cs" />
+    <Compile Include="EDMX\adm_APIExceptionLog.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\adm_application_SMS_gateway_configuration.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\adm_role.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\adm_user.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\adm_user_otp.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\adm_user_role.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\mst_services.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\mst_zodiacs.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\product_color.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\product_price.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\SwarajTest.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SwarajTest.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\SwarajTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\SwarajTest.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SwarajTest.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\usp_adm_user_get_Result.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\usp_api_manage_fav_vedios_list_Result.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\usp_getCustomersDetails_Result.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\usp_get_ads_Result.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EDMX\usp_get_astrologers_purohits_Result.cs">
+      <DependentUpon>SwarajTest.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FeedBackDAL.cs" />
+    <Compile Include="Implementations\LogsExceptio.cs" />
+    <Compile Include="Implementations\Db.cs" />
+    <Compile Include="Implementations\DbParam.cs" />
+    <Compile Include="Implementations\IUOW.cs" />
+    <Compile Include="Implementations\UOW.cs" />
+    <Compile Include="Interface\Advertising\AdvertisingDAL.cs" />
+    <Compile Include="Interface\Advertising\IAdvertisingDAL.cs" />
+    <Compile Include="Interface\DashBoard\DashBoardDAL.cs" />
+    <Compile Include="Interface\DashBoard\IDashBoardDAL.cs" />
+    <Compile Include="Interface\IBookingDAL.cs" />
+    <Compile Include="Interface\IContactDAL.cs" />
+    <Compile Include="Interface\IFeedBackDAL.cs" />
+    <Compile Include="Interface\ILoginDAL.cs" />
+    <Compile Include="Interface\INotificationsDAL.cs" />
+    <Compile Include="Interface\ISearchDAL.cs" />
+    <Compile Include="Interface\IUserDAL.cs" />
+    <Compile Include="Interface\ManageOrder\IManageOrderDAL.cs" />
+    <Compile Include="Interface\ManageOrder\ManageOrderDAL.cs" />
+    <Compile Include="Interface\ManagePayment\IManagePaymentDAL.cs" />
+    <Compile Include="Interface\ManagePayment\ManagePaymentDAL.cs" />
+    <Compile Include="Interface\ManageUser\IManageUserDAL.cs" />
+    <Compile Include="Interface\ManageUser\ManageUserDAL.cs" />
+    <Compile Include="Interface\Masters\IMastersDAL.cs" />
+    <Compile Include="Interface\Masters\MastersDAL.cs" />
+    <Compile Include="LoginDAL.cs" />
+    <Compile Include="NotificationsDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchDAL.cs" />
+    <Compile Include="UserDAL.cs" />
+    <Compile Include="UserMasterRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="EDMX\SwarajTest.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SwarajTest.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EDMX\SwarajTest.edmx.diagram">
+      <DependentUpon>SwarajTest.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SwarajCustomer_Common\SwarajCustomer_Common.csproj">
+      <Project>{cc9db483-3ec0-4fe3-accb-b9a58c88fa1f}</Project>
+      <Name>SwarajCustomer_Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EDMX\SwarajTest.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SwarajTest.edmx</DependentUpon>
+      <LastGenOutput>SwarajTest.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EDMX\SwarajTest.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SwarajTest.edmx</DependentUpon>
+      <LastGenOutput>SwarajTest.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

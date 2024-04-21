@@ -1,0 +1,75 @@
+
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)"
+             size="medium"
+             color="#fff"
+             type="ball-scale-multiple"
+             [fullScreen]="true">
+  <p style="font-size: 20px; color: white">Please Wait...</p>
+</ngx-spinner>
+
+<div *ngIf="IsAuthorised">
+  <app-header></app-header>
+  <app-side-nav></app-side-nav>
+
+  <div class="app-container">
+    <div class="app-main">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="module-box--title">
+            Roles
+          </div>
+          <div class="custom_form mb-3">
+
+            <select class="select-form" [(ngModel)]="selectedRoleId" (change)="onSelectChange(this.selectedRoleId)">
+              <option value="default" selected>Select District</option>
+              <option *ngFor="let option of Role" [ngValue]="option.id">{{option.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="module-box">
+            <div class="module-box--title">
+              Module List
+            </div>
+            <div class="module-box--inner">
+              <div *ngFor="let mod of Module" class="module-box--innerbox">
+                <div class="checkboxes__item">
+                  <label class="checkbox style-c">
+                    <input type="radio" [value]="mod" [(ngModel)]="mod.checked" />
+                    <div class="checkbox__checkmark"></div>
+                    <div class="checkbox__body" [style.color]="mod.checked ? '#fff' : '#000'">{{ mod.module }}</div>
+                  </label>
+                </div>
+                <button type="button" class="add-btn" (click)="addModule(mod.id,this.selectedRoleId)">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="module-box">
+            <div class="module-box--title">
+              Module Assign
+            </div>
+            <div class="module-box--inner">
+              <div *ngFor="let rd of RoleWiseModule" class="module-box--innerbox">
+                <div class="checkboxes__item">
+                  <label class="checkbox style-c">
+                    <input type="radio" [value]="rd" [(ngModel)]="rd.checked" />
+                    <div class="checkbox__checkmark"></div>
+                    <div class="checkbox__body" style="--color: #fff">{{ rd.module }}</div>
+                  </label>
+                </div>
+                <button type="btn" class="delete-btn" (click)="DeleteModule(rd.id,this.selectedRoleId)">Delete</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,161 @@
+﻿@model SwarajCustomer_Common.Entities.MyBookingsRes
+@using SwarajCustomer_Common;
+@{ 
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<div id="Upcoming" class="tabcontent">
+    @{
+        if (Model.UpcomingBookings.Count() > 0)
+        {
+            foreach (var item in Model.UpcomingBookings)
+            {
+                <div class="middletext">
+                    <div class="fullwidths booking">
+                        <p>@item.OrderDetails.PujaName</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <p>@item.OrderDetails.BookingDate ,( @item.OrderDetails.PujaTime) </p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>E-Puja Email : </span> <p>@item.OrderDetails.EPujaEmail</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>E-Puja PhoneNo : </span> <p>@item.OrderDetails.EPujaPhoneNo</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <p>
+                            @item.CustomerDetails.CustAddress ,
+                            @item.CustomerDetails.CustCity ,
+                            @item.CustomerDetails.CustState ,
+                            @item.CustomerDetails.CustPincode
+                            <input type="hidden" value="@item.CustomerDetails.CustAddress ,
+                                  @item.CustomerDetails.CustCity,
+                                  @item.CustomerDetails.CustState,
+                                  @item.CustomerDetails.CustPincode" id="hddPujaAddress" readonly />
+                        </p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>Total Amount : </span> <p>@item.OrderDetails.TotalAmount</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>Paid Amount : </span> <p style="color:forestgreen">@item.OrderDetails.rzp_amount</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>Remaining Amount : </span> <p style="color:red">@item.OrderDetails.RemainingAmount</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>OTP : </span> <p>@item.OrderDetails.OTP</p>
+                    </div>
+                    <div class="fullwidths booking margintop">
+                        <button class="btn btn-success yes" style="cursor:pointer" onclick="return AddReminder('@item.OrderDetails.BookingID','@item.OrderDetails.OrderNumber','@item.OrderDetails.PujaName');">Add Reminder</button>
+                        <button class="btn btn-danger No" style="cursor:pointer" onclick="return CancelBooking('@item.OrderDetails.BookingID','@item.OrderDetails.OrderNumber');">Cancel Booking</button>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p class="norecords">No Records Found</p>
+        }
+
+    }
+</div>
+
+<div id="Completed" class="tabcontent">
+    @{
+        if (Model.CompletedBookings.Count() > 0)
+        {
+            foreach (var item in Model.CompletedBookings)
+            {
+                <div class="middletext">
+                    <div class="fullwidths booking">
+                        <p>@item.OrderDetails.PujaName</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <p>@item.OrderDetails.BookingDate ,( @item.OrderDetails.PujaTime )</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <p>@item.OrderDetails.PurohitName</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <p>@item.CustomerDetails.CustPhone</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <p>
+                            @item.CustomerDetails.CustAddress ,
+                            @item.CustomerDetails.CustCity ,
+                            @item.CustomerDetails.CustState ,
+                            @item.CustomerDetails.CustPincode
+                        </p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>Total Amount : </span> <p>@item.OrderDetails.TotalAmount</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>Paid Amount : </span> <p style="color:forestgreen">@item.OrderDetails.rzp_amount</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>Remaining Amount : </span> <p style="color:red">@item.OrderDetails.RemainingAmount</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <input type="hidden" value="@item.OrderDetails.PurohitRating" id="hddReting" />
+                        <span class="my-rating jq-stars"></span>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p class="norecords">No Records Found</p>
+        }
+    }
+</div>
+
+<div id="Cancelled" class="tabcontent">
+    @{if (Model.CancelledBookings.Count() > 0)
+        {
+            foreach (var item in Model.CancelledBookings)
+            {
+                <div class="middletext">
+                    <div class="fullwidths booking">
+                        <p>@item.OrderDetails.PujaName</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <p>@item.OrderDetails.BookingDate ,( @item.OrderDetails.PujaTime )</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <p>@item.OrderDetails.PurohitName</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <p>@item.CustomerDetails.CustPhone</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <p>
+                            @item.CustomerDetails.CustAddress ,
+                            @item.CustomerDetails.CustCity ,
+                            @item.CustomerDetails.CustState ,
+                            @item.CustomerDetails.CustPincode
+                        </p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>Total Amount : </span>
+                        <p>@item.OrderDetails.TotalAmount</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>Paid Amount : </span>
+                        <p style="color:forestgreen">@item.OrderDetails.rzp_amount</p>
+                    </div>
+                    <div class="fullwidths booking">
+                        <span>Remaining Amount : </span> <p style="color:red">@item.OrderDetails.RemainingAmount</p>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p class="norecords">No Records Found</p>
+        }
+    }
+</div>
+

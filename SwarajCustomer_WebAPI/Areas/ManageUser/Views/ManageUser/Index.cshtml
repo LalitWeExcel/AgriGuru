@@ -1,0 +1,175 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "Manager Users";
+    ViewBag.Menu = "Dashboard";
+    ViewBag.SubMenu = "Index";
+}
+<div class="col-sm-9 rightbox">
+    <div class="fullwidth top">
+        <div class="table-heading padding">
+            <div class="col-md-8" style="padding-left:0;">
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0; padding-left: 15px;">@ViewBag.Title</h1>
+            </div>
+            <div class="col-md-4 exportnew">
+                <input type="button" value="Export To Excel" onclick="exportInExcel();return false;" id="save_excel" class="excels export btn" title="Export To Excel">
+            </div>
+        </div>
+    </div>
+    <div class="barwidths" id="adminDashboardLeads">
+        <div class="searchfilter">
+            <div class="datefilter"></div>
+            <div class="col-sm-3 searchbox">
+                <label>Role: </label>
+                @Html.DropDownList("MasterPageType", new SelectList(ViewBag.Roles, "ID", "Name"), "All", new { @id = "MasterPageType", @class = "form-control selectoption" })
+            </div>
+            <div class="col-sm-3 searchbox newlabel">
+                <label>Search:</label>
+                <input type="text" class="form-control formtext" id="txt_search" placeholder="Name / Contact" />
+            </div>
+            <div class="searchresult">
+                <button id="anc_search" class="btn btn-success yes">Search</button>
+                <button id="reset" class="btn btn-danger No">Reset</button>
+            </div>
+            <section class="counts" style="width: 100%; display: inline-block; float: right;">
+                <div class="searchbuton">
+                    <input type="button" class="btn btn-success" id="Activate" value="Activate " onclick="Activate('Y')" />
+                    <input type="button" class="btn btn-danger No ResetAction" id="Deactivate" value="Deactivate" onclick="Deactivate('N')" />
+                </div>
+                <div class="pull-right countsboxs" style="width: auto; float: right !important; position: relative; top: -10px; left: 7px;">
+                    <div style="display: inline-block; margin-right: 5px;">
+                        <span>Show</span>
+                        <select class='form-control selectoption' id='NoofRecords' name='NoofRecords'>
+                            <option value='10'>10</option>
+                            <option value='20'>20</option>
+                            <option value='30'>30</option>
+                            <option value='50'>50</option>
+                            <option value='100'>100</option>
+                            <option value='150'>150</option>
+                            <option value='200'>200</option>
+                            <option value='250'>250</option>
+                            <option value='300'>300</option>
+                            <option value='350'>350</option>
+                            <option value='400'>400</option>
+                            <option value='500'>500</option>
+                        </select>
+                        <span>Records</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+       
+        <div class="table-container" id="divGrid">
+        </div>
+        <div class="table-container" id="divNoData">
+        </div>
+
+    </div>
+</div>
+
+<!-- Active-inactive  Popup Design -->
+<div id="logoutModal1" class="modal" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="hddId" />
+                <input type="hidden" id="hddtype" />
+
+                <div class="centerdiv">
+                    <div class="col-sm-3 searchbox">
+                        <label> Status</label> &nbsp;&nbsp;
+
+                        <label class="fontnormal">
+                            <input type="radio" name="Status" id="active" value="Y" checked>
+                            Activate 
+                        </label>
+                        <label class="fontnormal">
+                            <input type="radio" name="Status" id="Inactive" value="N">
+                            Deactivate 
+                        </label>
+                    </div>
+                    <span class="validationerror" style="color:red" id="spnActivate"></span>
+                </div>
+
+                <div class="buttonsenterbox margintops">
+                    <button class="btn btn-success yes" onclick="return ActivateDeactivate()">Submit</button>
+                    <button class="btn btn-danger No" data-dismiss="modal" id="btnlogoutno" onclick="ClearFields()">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="logoutModal2" class="modal" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add</h4>
+                <button type="button" id="closechassismodel" class="close" data-dismiss="modal" data-name="" onclick="ClearFields()"><img src="~/Content/images/croxxicon.png"></button>
+            </div>
+            <div class="modal-body">
+                <div class="centerdiv">
+                </div>
+                <div class="buttonsenterbox margintops">
+                    <button class="btn btn-success yes" onclick="ClearFields()">Submit</button>
+                    <button class="btn btn-danger No" data-dismiss="modal" id="btnlogoutno" onclick="ClearFields()">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Logout -->
+
+
+
+
+<script src="~/Scripts/function.js"></script>
+<script src="~/Areas/Scripts/manageuser.js"></script>
+<script type="text/javascript">
+    AlphaNumericOnly('.alphaNumericOnly')
+    var $_GetUsersUrl = '@Url.Action("GetUsersGridView", "ManageUser", new { Area = "ManageUser" })';
+    var $_ActivateDeactivate = '@Url.Action("ActivateDeactivate", "ManageUser", new { Area = "ManageUser" })';
+    var $_Edit = '@Url.Action("Edit", "ManageUser", new { Area = "ManageUser" })';
+    var $_Details = '@Url.Action("Details", "ManageUser", new { Area = "ManageUser" })';
+    var $_ExcelDownLoadUrl = '@Url.Action("ExcelDownLoad", "ManageUser", new { Area = "ManageUser" })';
+
+
+    var current_page = 0;
+    $(document).ready(function () {
+        $("#divNoData").addClass("hide");
+        GetUsersData();
+    });
+
+    $(document).on("change", "#NoofRecords", function () {
+        GetUsersData();
+    });
+    $("#anc_search").click(function () {
+        GetUsersData();
+    });
+    $("#reset").click(function () {
+        window.location.reload();
+    });
+
+</script>
+
+
+<style>
+ label.fontnormal {
+    font-weight: normal;
+    top: -1px;
+    position: relative;
+}
+ .centerdiv .col-sm-3.searchbox label {
+    top: 0;
+    margin: 0 6px;
+}
+ .table.gridresposnive td img{    max-width: 56px;
+    height: auto !important;}
+</style>

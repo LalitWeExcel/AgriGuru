@@ -1,0 +1,219 @@
+﻿@model SwarajCustomer_WebAPI.Areas.Account.Models.LoginModel
+@using SwarajCustomer_Common
+@{
+    Layout = "~/Areas/Account/Views/Shared/_Layout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<body style="background-color: #666666;">
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                @using (Html.BeginForm("Login", "User", FormMethod.Post, new { enctype = "multipart/form-data", @class = "login100-form validate-form" }))
+                {
+                    @Html.AntiForgeryToken()
+                   
+                    <span class="login100-form-title p-b-43"> Login </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" value="@Model.Email" name="Email">
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Email</span>
+                        @Html.ValidationMessageFor(m => m.Email, "", new { Style = "color:red;" })
+                    </div>
+
+                    <div class="wrap-input100 validate-input password" data-validate="Password is required">
+                        <input class="input100" type="password" value="@Model.Password" name="Password" id="user_password" data-toggle="password">
+                        <div class="input-group-append eyeicon">
+                            <span class="input-group-text"><i class="fa fa-eye"></i></span>
+                        </div>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Password</span>
+
+                        @Html.ValidationMessageFor(m => m.Password, "", new { Style = "color:red;" })
+                        @Html.ValidationMessage("error", new { Style = "color:red;", @id = "failedErrorId" })
+                    </div>
+
+                    <a data-toggle="modal" class="forgot" data-target="#ForgotPassword" style="cursor:pointer" >
+                        <span class="menutext">Forgot Password</span>
+                    </a>
+
+                    <div class="container-login100-form-btn">
+                        <input type="submit" value="submit" class="login100-form-btn" id="btnSubmit" name="Login" />
+                    </div>
+                }
+                <!-- SwarajCustomer_WebAPI only for Production and QA-->
+                @{
+                    if (CommonMethods.BaseUrl.Contains("localhost"))
+                    {
+                                <div class="login100-more" style="background-image: url('/../../Content/images/bgnew.png');">
+                                    <span class="logoimage loginpage">
+                                        <img src="~/Content/images/newlogo.png" />
+                                    </span>
+                                </div>
+                    }
+                    else
+                    {
+            <div class="login100-more" style="background-image: url('/AgriGuru/Content/images/bgnew.png');">
+                <span class="logoimage loginpage">
+                    <img src="~/Content/images/newlogo.png" />
+                </span>
+            </div>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- forgot password-->
+    <div id="ForgotPassword" class="modal" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><span id="title">Forgot Password</span></h4>
+                    <button type="button" id="closechassismodel" class="close" data-dismiss="modal" data-name="" onclick="Cancel()"><img src="~/Content/images/croxxicon.png"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="centerdiv">
+                        <div class="col-sm-12 searchbox percentage ">
+                            <label>Email  </label> 
+                            <input type="email" class="form-control" id="txtEmail" placeholder="" />
+                            <span style="color:red" class="validation" id="spnEmail"></span>
+                        </div>
+                    </div>
+                    <div class="buttonsenterbox margintops">
+                        <button class="btn btn-success yes" id="btn_save" onclick="forgotpassword()">Submit</button>
+                        <button class="btn btn-danger No" data-dismiss="modal" id="btnlogoutno" onclick="Cancel()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+<style>
+    span.field-validation-error {
+        position: absolute;
+        left: 0;
+        bottom: -20px;
+        font-size: 13px;
+    }
+</style>
+<script src="~/Scripts/function.js"></script>
+<script type="text/javascript">
+    AlphaNumericOnly('.alphaNumericOnly');
+
+    
+    function Cancel() {
+        $("#spnEmail").addClass('hide');
+        $("#txtEmail").val('');
+        location.href = gbl_login_url;
+    }
+
+    $(document).keydown(function (event) {
+        if (event.keyCode == 123) { // Prevent F12
+            return false;
+        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I
+            return false;
+        }
+    });
+
+    !function ($) {
+        //eyeOpenClass: 'fa-eye',
+        //eyeCloseClass: 'fa-eye-slash',
+        'use strict';
+        $(function () {
+            $('[data-toggle="password"]').each(function () {
+                var input = $(this);
+                var eye_btn = $(this).parent().find('.input-group-text');
+                eye_btn.css('cursor', 'pointer').addClass('input-password-hide');
+                eye_btn.on('click', function () {
+                    if (eye_btn.hasClass('input-password-hide')) {
+                        eye_btn.removeClass('input-password-hide').addClass('input-password-show');
+                        eye_btn.find('.fa').removeClass('fa-eye').addClass('fa-eye-slash')
+                        input.attr('type', 'text');
+                    } else {
+                        eye_btn.removeClass('input-password-show').addClass('input-password-hide');
+                        eye_btn.find('.fa').removeClass('fa-eye-slash').addClass('fa-eye')
+                        input.attr('type', 'password');
+                    }
+                });
+            });
+        });
+
+    }(window.jQuery);
+
+    function forgotpassword() {
+        var isValid = true;
+        var email = $("#txtEmail").val();
+
+        if (email == "") {
+            $('#spnEmail').html('Please Enter Email!');
+            $('#spnEmail').removeClass('hide');
+            isValid = false;
+        } else if (IsEmail(email) == false) {
+            $('#spnEmail').html('Please Enter a vaild Email!');
+            $('#spnEmail').removeClass('hide');
+            isValid = false;
+        }
+        if (!isValid) {
+            $(window).scrollTop(0);
+            return false;
+        } else {
+
+            $.ajax({
+                url: $_forgotpassword,
+                data: { 'EmailID': email },
+                cache: false,
+                type: 'GET',
+                datatype: 'html',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $("#spnEmail").addClass('hide');
+                    $("#txtEmail").val('');
+
+                    $('#ForgotPassword').modal('hide');
+                    alert(data);
+                    if (data !== null && data.indexOf('html') < 0) {
+                        if (data.indexOf('successfully') >= 0) {
+                            debugger;
+                           
+                            displayMessage(data, 'success');
+                        } else {
+                            displayMessage(data, 'warning');
+                        }
+                        $("#btn_save").attr('disabled', false);
+                    } else {
+                        displayMessage(data, 'error');
+                        $("#btn_save").attr('disabled', false);
+                    }
+                },
+                failure: function (response) {
+                    displayMessage("failure    " + response.responseText, 'warning');
+                },
+                error: function (response) {
+                    displayMessage("error   " + response.responseText, 'error');
+                }
+            });
+        }
+        return true;
+    }
+
+    function IsEmail(email) {
+        var regex = /^([a-zA-Z0-9_\.\-\+])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!regex.test(email)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+</script>
+
+
+
+

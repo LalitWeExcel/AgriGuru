@@ -1,0 +1,116 @@
+<app-header></app-header>
+<div class="spacer-top"></div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card dchome-card">
+        <div class="card-header">  
+          <span class="fas fa-bookmark font-icon"></span>
+          Quick Shortcut
+        </div>
+        <div class="card-body dchome-body">
+          <div class="row">
+
+            <div class="col-md-6 col-lg-4" *ngIf="isByeLaws">
+              <a [routerLink]="['/bye-laws']">
+                <div class="inner-box blue-bg">
+                  <img src="/imgpath/Bye-Laws.png" alt="Amendment" width="90">
+                  <h6>Amendment Bye-Laws</h6>
+                </div>
+              </a>
+            </div>
+ 
+            <div class="col-md-6 col-lg-4" *ngIf="isAudit">
+               <a   style="cursor:pointer"  (click)="clickrouterlink(this.roleName)" >
+                <div class="inner-box yellow-bg">
+                  <img src="/imgpath/audit.png" alt="Audit" width="80">
+                  <h6>Audit</h6>
+                </div>
+              </a>
+            </div> 
+            <div class="col-md-6 col-lg-4" *ngIf="isElection">
+              <a
+                [routerLink]="roleName=='Inspector'?['/election-requestforins']:roleName==='Record Keepar'? ['/election-verification-record']:roleName==='ARCS'? ['/election-request-arcs-president']: ['/election-dashboard'] ">
+                <div class="inner-box reddark-bg">
+                  <img src="/imgpath/electtion.png" alt="Election" width="90">
+                  <h6>Election</h6>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-6 col-lg-4" *ngIf="isSocityProfile">
+              <a href="http://localhost:56667/Society/Application?&RoleId=1&UserID=198" target="_blank">
+                <div class="inner-box blue-bg">
+                  <img src="/imgpath/share.png" alt="Society Profile" width="90">
+                  <h6>Society Profile</h6>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-6 col-lg-4" *ngIf="isShareTransfer">
+              <a href="http://localhost:56667/Backlog/Dashboard?&RoleId=1&UserID=198" target="_blank">
+                <div class="inner-box yellow-bg">
+                  <img src="/imgpath/Transfer.png" alt="Transfer Share" width="80">
+                  <h6>Transfer Share</h6>
+                </div>
+              </a>
+            </div>
+            <div class="col-md-6 col-lg-4" *ngIf="isMember">
+              <a [routerLink]="['/member-home']">
+                <div class="inner-box yellow-bg">
+                  <img src="/imgpath/member.png" alt="Transfer Share" width="80">
+                  <h6>Member Details</h6>
+                </div>
+              </a>
+            </div>
+ 
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card height-100 dchome-card">
+        <div class="card-header">
+          <span class="fas fa-newspaper font-icon"></span>
+          Latest News
+        </div>
+        <div class="card-body">
+          <marquee direction="up">
+            <ul class="news-list">
+              <li>
+                <a href="#">
+                  The Haryana Co-operative Societies Act, 1984.
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  The Warehousing Corporation Act, 1962.
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  The Haryana Co-operative Societies Rules, 1989.
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Notification dated 10 , May 2013 in Haryana Co-operative Societies Act, 1984.
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Notification dated 10.11.1989 for Delegation of power of HCS Act,1984 and
+                  Rules,1989.
+                </a>
+              </li>
+
+            </ul>
+          </marquee>
+          <div class="news-list-view">
+            <a href="">View All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

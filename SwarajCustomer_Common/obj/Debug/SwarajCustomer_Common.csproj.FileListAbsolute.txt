@@ -1,0 +1,337 @@
+E:\Projects\SwarajCustomer\SwarajCustomer_Common\bin\Debug\SwarajCustomer_Common.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_Common\bin\Debug\SwarajCustomer_Common.pdb
+E:\Projects\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.csproj.CoreCompileInputs.cache
+E:\Projects\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.dll
+E:\Projects\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.pdb
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_Common\bin\Debug\SwarajCustomer_Common.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_Common\bin\Debug\SwarajCustomer_Common.pdb
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.csproj.CoreCompileInputs.cache
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.dll
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.pdb
+C:\Users\lalit.kumar\Desktop\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.csprojAssemblyReference.cache
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\SwarajCustomer_Common.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\SwarajCustomer_Common.pdb
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\Microsoft.Win32.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\netstandard.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.AppContext.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Collections.Concurrent.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Collections.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Collections.NonGeneric.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Collections.Specialized.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ComponentModel.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ComponentModel.EventBasedAsync.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ComponentModel.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ComponentModel.TypeConverter.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Console.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Data.Common.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Contracts.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Debug.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.FileVersionInfo.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Process.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.StackTrace.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.TextWriterTraceListener.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Tools.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.TraceSource.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Tracing.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Drawing.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Dynamic.Runtime.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Globalization.Calendars.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Globalization.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Globalization.Extensions.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.Compression.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.Compression.ZipFile.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.DriveInfo.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.Watcher.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.IsolatedStorage.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.MemoryMappedFiles.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.Pipes.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.UnmanagedMemoryStream.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Linq.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Linq.Expressions.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Linq.Parallel.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Linq.Queryable.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Http.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.NameResolution.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.NetworkInformation.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Ping.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Requests.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Security.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Sockets.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.WebHeaderCollection.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.WebSockets.Client.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.WebSockets.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ObjectModel.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Reflection.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Reflection.Extensions.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Reflection.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Resources.Reader.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Resources.ResourceManager.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Resources.Writer.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.CompilerServices.VisualC.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Extensions.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Handles.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.InteropServices.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Numerics.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Formatters.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Json.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Xml.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Claims.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Algorithms.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Csp.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Encoding.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Primitives.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Principal.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.SecureString.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Text.Encoding.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Text.Encoding.Extensions.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Text.RegularExpressions.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.Overlapped.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.Tasks.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.Tasks.Parallel.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.Thread.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.ThreadPool.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.Timer.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ValueTuple.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.ReaderWriter.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.XDocument.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.XmlDocument.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.XmlSerializer.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.XPath.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.XPath.XDocument.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\GoogleMaps.LocationServices.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\log4net.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\Newtonsoft.Json.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\OpenHtmlToPdf.dll
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\log4net.xml
+D:\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.csproj.CoreCompileInputs.cache
+D:\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.csproj.CopyComplete
+D:\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.dll
+D:\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.pdb
+D:\SwarajCustomer\SwarajCustomer_Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\SwarajCustomer_Common.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\SwarajCustomer_Common.pdb
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\Microsoft.Win32.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\netstandard.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.AppContext.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Collections.Concurrent.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Collections.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Collections.NonGeneric.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Collections.Specialized.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ComponentModel.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ComponentModel.EventBasedAsync.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ComponentModel.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ComponentModel.TypeConverter.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Console.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Data.Common.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Contracts.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Debug.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.FileVersionInfo.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Process.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.StackTrace.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.TextWriterTraceListener.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Tools.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.TraceSource.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Tracing.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Drawing.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Dynamic.Runtime.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Globalization.Calendars.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Globalization.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Globalization.Extensions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.Compression.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.Compression.ZipFile.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.DriveInfo.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.Watcher.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.IsolatedStorage.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.MemoryMappedFiles.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.Pipes.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.IO.UnmanagedMemoryStream.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Linq.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Linq.Expressions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Linq.Parallel.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Linq.Queryable.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Http.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.NameResolution.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.NetworkInformation.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Ping.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Requests.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Security.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.Sockets.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.WebHeaderCollection.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.WebSockets.Client.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Net.WebSockets.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ObjectModel.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Reflection.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Reflection.Extensions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Reflection.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Resources.Reader.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Resources.ResourceManager.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Resources.Writer.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.CompilerServices.VisualC.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Extensions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Handles.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.InteropServices.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Numerics.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Formatters.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Json.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Xml.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Claims.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Csp.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.Principal.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Security.SecureString.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Text.Encoding.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Text.Encoding.Extensions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Text.RegularExpressions.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.Overlapped.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.Tasks.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.Tasks.Parallel.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.Thread.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.ThreadPool.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Threading.Timer.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.ValueTuple.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.ReaderWriter.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.XDocument.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.XmlDocument.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.XmlSerializer.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.XPath.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\System.Xml.XPath.XDocument.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\GoogleMaps.LocationServices.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\log4net.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\OpenHtmlToPdf.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\log4net.xml
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.csproj.AssemblyReference.cache
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.csproj.CoreCompileInputs.cache
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.csproj.CopyComplete
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.dll
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.pdb
+C:\Users\hp\Downloads\SwarajCustomer\SwarajCustomer\SwarajCustomer_Common\bin\Debug\Newtonsoft.Json.xml
+D:\New folder\SwarajCustomer_Common\bin\Debug\SwarajCustomer_Common.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\SwarajCustomer_Common.pdb
+D:\New folder\SwarajCustomer_Common\bin\Debug\Microsoft.Win32.Primitives.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\netstandard.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.AppContext.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Collections.Concurrent.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Collections.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Collections.NonGeneric.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Collections.Specialized.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.ComponentModel.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.ComponentModel.EventBasedAsync.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.ComponentModel.Primitives.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.ComponentModel.TypeConverter.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Console.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Data.Common.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Contracts.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Debug.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Diagnostics.FileVersionInfo.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Process.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Diagnostics.StackTrace.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Diagnostics.TextWriterTraceListener.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Tools.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Diagnostics.TraceSource.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Diagnostics.Tracing.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Drawing.Primitives.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Dynamic.Runtime.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Globalization.Calendars.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Globalization.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Globalization.Extensions.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.IO.Compression.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.IO.Compression.ZipFile.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.IO.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.DriveInfo.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.Primitives.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.IO.FileSystem.Watcher.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.IO.IsolatedStorage.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.IO.MemoryMappedFiles.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.IO.Pipes.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.IO.UnmanagedMemoryStream.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Linq.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Linq.Expressions.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Linq.Parallel.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Linq.Queryable.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Net.Http.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Net.NameResolution.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Net.NetworkInformation.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Net.Ping.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Net.Primitives.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Net.Requests.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Net.Security.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Net.Sockets.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Net.WebHeaderCollection.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Net.WebSockets.Client.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Net.WebSockets.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.ObjectModel.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Reflection.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Reflection.Extensions.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Reflection.Primitives.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Resources.Reader.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Resources.ResourceManager.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Resources.Writer.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Runtime.CompilerServices.VisualC.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Runtime.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Runtime.Extensions.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Runtime.Handles.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Runtime.InteropServices.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Runtime.Numerics.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Formatters.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Json.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Primitives.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Runtime.Serialization.Xml.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Security.Claims.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Algorithms.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Csp.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Encoding.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.Primitives.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Security.Principal.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Security.SecureString.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Text.Encoding.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Text.Encoding.Extensions.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Text.RegularExpressions.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Threading.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Threading.Overlapped.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Threading.Tasks.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Threading.Tasks.Parallel.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Threading.Thread.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Threading.ThreadPool.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Threading.Timer.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.ValueTuple.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Xml.ReaderWriter.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Xml.XDocument.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Xml.XmlDocument.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Xml.XmlSerializer.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Xml.XPath.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\System.Xml.XPath.XDocument.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\GoogleMaps.LocationServices.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\log4net.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\Newtonsoft.Json.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\OpenHtmlToPdf.dll
+D:\New folder\SwarajCustomer_Common\bin\Debug\log4net.xml
+D:\New folder\SwarajCustomer_Common\bin\Debug\Newtonsoft.Json.xml
+D:\New folder\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.csproj.AssemblyReference.cache
+D:\New folder\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.csproj.CoreCompileInputs.cache
+D:\New folder\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.csproj.CopyComplete
+D:\New folder\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.dll
+D:\New folder\SwarajCustomer_Common\obj\Debug\SwarajCustomer_Common.pdb

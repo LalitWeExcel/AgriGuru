@@ -1,0 +1,28 @@
+﻿
+@model List<SwarajCustomer_Common.Entities.NotificationsEntity>
+@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Notification";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidth top">
+        <h1 class="col-sm-12 headingbox" style="position: relative; top: 0; padding-left: 0;">Notification</h1>
+        <div class="fullwidths">
+
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="notificationsboxess">
+                        <span class="notificationsboxesstext" style="font-weight: 100">@item.title</span>
+                        <span class="notificationsboxesstext small">@item.description</span>
+                        <span class="justnow">@item.date.ToString("MMM dd , yyyy")</span>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

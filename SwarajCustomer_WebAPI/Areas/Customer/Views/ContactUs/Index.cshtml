@@ -1,0 +1,206 @@
+﻿@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+
+<body>
+    <div class="col-sm-9 rightbox">
+        <div class="fullwidths" style="margin-top: 20px;">
+            <div class="col-sm-12" style="    margin-bottom: 20px;"><h3>Contact Us</h3></div>
+            <form action="/action_page.php" class="contact">
+                <div class="col-sm-6 leftbox">
+                    <label for="fname"> Name</label>
+                    <input type="text" id="txtName" name="Name" class="form-control" placeholder="Your Name..">
+                    <span style="color: red;" class="validation" id="spnFirstName"></span>
+                </div>
+                <div class="col-sm-6 leftbox">
+                    <label for="fname"> Name</label>
+                    <input type="text" id="txtName" name="Name" class="form-control" placeholder="Your Name..">
+                </div>
+                <div class="col-sm-6 leftbox">
+                    <label for="lname">Email</label>
+                    <input type="text" id="txtEmail" class="form-control" name="Email" placeholder="Your Email..">
+                    <span style="color: red;" class="validation" id="spnEmail"></span>
+                </div>
+                <div class="col-sm-6 leftbox">
+                    <label for="subject">Phone</label>
+                    <input type="text" class=" form-control" id="txtContantNumber" maxlength="10" placeholder="Your Phone.." />
+                    <span style="color: red;" class="validation" id="spnContantNumber"></span>
+                </div>
+                <div class="col-sm-12 leftbox">
+                    <label for="subject">Remarks</label>
+                    <textarea id="txtsubject" name="subject" placeholder="Write something.." class="form-control" style="height:200px"></textarea>
+                    <span style="color: red;" class="validation" id="spnsubject"></span>
+                </div>
+
+
+                <div class="col-sm-12 leftbox">
+                    <input type="button" class="btn btn btn-success checkout" value="Submit Now" name="Submit Now" id="btn_save" onclick="ContactUs()" />
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+<script src="~/Scripts/function.js"></script>
+
+<script>
+
+    AlphaOnly('.alphaOnly');
+    NumberOnly('.numberOnly');
+
+    var $_SaveContectUsUrl = "";
+    if ('@Server_Url'.indexOf('AgriGuru') >= 1) {
+        $_SaveContectUsUrl = '/AgriGuru/Contact/Contact/';
+    }
+    else if ('@Server_Url'.indexOf('PujaGuru') >= 1) {
+        $_SaveContectUsUrl = '/PujaGuru/Contact/Contact/';
+    }
+    else {
+        $_SaveContectUsUrl = '/Contact/Contact/';
+    }
+
+    function ValidateEmail(inputText) {
+
+        var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if (inputText.match(mailformat)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function ContactUs() {
+
+        var isValid = true;
+        var Name = $("#txtName").val();
+        var Email = $("#txtEmail").val();
+        var Phone = $("#txtContantNumber").val();
+        var Remarks = $("#txtsubject").val();
+
+        if (Name == "") {
+            $('#spnFirstName').html('Please Enter Name!');
+            $('#spnFirstName').removeClass('hide');
+            isValid = false;
+        } else if (Email == "") {
+            $('#spnEmail').html('Please Enter Email!');
+            $('#spnEmail').removeClass('hide');
+            $('#spnFirstName').addClass('hide');
+            isValid = false;
+        } else if (!ValidateEmail(Email)) {
+            $('#spnEmail').html('Please Enter a vaild Email!');
+            $('#spnEmail').removeClass('hide');
+            $('#spnFirstName').addClass('hide');
+            isValid = false;
+        } else if (Phone == "") {
+            $('#spnContantNumber').html('Please Enter Mobile Number!');
+            $('#spnContantNumber').removeClass('hide');
+            $('#spnEmail').addClass('hide');
+            isValid = false;
+        } else if (Phone.length < 10) {
+            $('#spnContantNumber').html('Mobile Number should be 10 digit!!');
+            $('#spnContantNumber').removeClass('hide');
+            $('#spnEmail').addClass('hide');
+            isValid = false;
+        } else if (Remarks == "") {
+            $('#spnsubject').html('Please Enter Subject!');
+            $('#spnsubject').removeClass('hide');
+            $('#spnContantNumber').addClass('hide');
+            isValid = false;
+        }
+
+
+        if (!isValid) {
+            $(window).scrollTop(0);
+            return false;
+        } else {
+
+
+            $.ajax({
+                url: $_SaveContectUsUrl,
+                data: JSON.stringify({
+                    "UserID": $_Customer_UserId,
+                    "Name": Name,
+                    "Email": Email,
+                    "Phone": Phone,
+                    "Remarks": Remarks
+                }),
+                type: "POST",
+                dataType: "JSON",
+                contentType: 'application/json; charset=utf-8',
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", "Basic " + $_authorization);
+                    request.setRequestHeader("Role", $_RoleName);
+                    request.setRequestHeader("Content-Type", "application/json");
+                },
+                success: function (response) {
+                    debugger;
+
+                    if (response.Response.indexOf('Successful') >= 0) {
+                        displayMessage(response.Message, 'success');
+                        setTimeout(function () {
+                            window.location = $_GetDashBoard;
+                        }, 2000);
+                    } else {
+                        displayMessage(response.Message, 'error');
+                        $("#btn_save").attr('disabled', false);
+                        window.location.reload();
+                    }
+                },
+                failure: function (response) {
+                    displayMessage("failure    " + response.responseText, 'warning');
+                },
+                error: function (response) {
+                    displayMessage("error   " + response.responseText, 'error');
+                }
+            });
+        }
+        return true;
+    }
+
+</script>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+
+    input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+</style>

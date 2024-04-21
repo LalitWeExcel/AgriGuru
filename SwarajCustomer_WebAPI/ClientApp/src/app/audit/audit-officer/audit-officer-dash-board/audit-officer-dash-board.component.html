@@ -1,0 +1,126 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+  <p style="font-size: 20px; color: white;">Please Wait...</p>
+</ngx-spinner>
+
+<div *ngIf="IsAuthorised">
+  <app-header></app-header>
+  <app-side-nav></app-side-nav>
+
+  <div class="app-container">
+    <div class="app-main">
+      <div class="rcs_main">
+        <h4 class="rcs_main--title"> DashBoard </h4>
+      </div>
+      <div class="rcs_card">
+
+      </div>
+    </div>
+    <!-- app-container -->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Confirm Modal-->
+<div class="modal model-bg" id="ConfirmModal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="rcs_modal_header">
+        <h4 class="modal-title">{{this.title}}</h4>
+        <button type="button" class="btn-close" (click)="CloseConfirm()"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h5 class="modal-title text" style="margin-bottom: 20px;">
+          {{this.message}}
+        </h5>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button id="btn_confirmyes" class="btn btn-success" style="margin-right: 10px;">Yes</button>
+        <button id="btn_confirmno" (click)="CloseConfirm()" class="btn btn-danger">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+

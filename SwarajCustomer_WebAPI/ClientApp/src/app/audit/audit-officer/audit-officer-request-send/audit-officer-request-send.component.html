@@ -1,0 +1,263 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)"
+             size="medium"
+             color="#fff"
+             type="ball-scale-multiple"
+             [fullScreen]="true">
+  <p style="font-size: 20px; color: white;">Please Wait...</p>
+</ngx-spinner>
+
+<div *ngIf="IsAuthorised">
+  <app-header></app-header>
+  <app-side-nav></app-side-nav>
+
+  <div class="app-container">
+    <div class="app-main">
+      <div class="rcs_main">
+        <h4 class="rcs_main--title">Audit Request</h4>
+      </div>
+      <div class="rcs_card">
+        <div class="rcs_card_body">
+          <div class="row align-items-center">
+            <div class="col-md-3 col-lg-3">
+              <div class="space-bottom">
+                <label class="simple_form--label">Auditor </label>
+                <select class="rcs_select"
+                        [(ngModel)]="this.audit_Auditor_Id"
+                        (change)="onAuditorChange()">
+                  <option value="0"  selected>Select Auditor</option>
+                  <option *ngFor="let option of _AuditorAssign"
+                          [ngValue]="option.id">
+                    {{ option.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-3">
+              <div class="space-bottom">
+                <label class="simple_form--label"> Financial Year</label>
+                <select class="rcs_select"
+                        [(ngModel)]="this.audit_financial_year_Id"
+                        (change)="onYearChange()">
+                  <option value="0" selected>Select Financial Year </option>
+                  <option *ngFor="let option of finYears" [ngValue]="option.id">
+                    {{ option.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-3">
+              <div class="space-bottom">
+                <label class="simple_form--label">Month</label>
+                <select class="rcs_select"
+                        [(ngModel)]="this.audit_Month_Id"
+                        (change)="onYearChange()">
+                  <option value="0" selected>Select Month </option>
+                  <option *ngFor="let option of _monthList"
+                          [ngValue]="option.id">
+                    {{ option.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-3">
+              <div class="space-bottom">
+                <label class="simple_form--label">Status</label>
+                <select class="rcs_select"
+                        [(ngModel)]="this.audit_Status_Id"
+                        (change)="onStatusChange()">
+                  <option value="0" selected>Select Status</option>
+                  <option *ngFor="let option of _planerStatus"
+                          [ngValue]="option.id">
+                    {{ option.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 text-end">
+              <button class="primary_btn"
+                      *ngIf="this.IsShowButtion"
+                      (click)="SendRequest()">
+                Send
+              </button>
+              <button type="submit"
+                      (click)="clearDropdowns()"
+                      class="refresh-btn">
+                <span class="fa fa-refresh"></span> Refresh
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rcs_card">
+        <div class="rcs_card_body">
+          <div class="rc_table_header">
+            <div class="rc_table_header--displaytlist" *ngIf="recordsCount > 0">
+              <span>Display</span>
+              <select (change)="PageSizeChange($event)"
+                      class="rc_table_header--displaytlistdropdown">
+                <option *ngFor="let size of pageSizes" [ngValue]="size">
+                  {{ size }}
+                </option>
+              </select>
+              <span>Result</span>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="rc_table">
+              <thead class="rc_table_head">
+                <tr>
+                  <th scope="col" width="6%" style="cursor:pointer">
+                    <input type="checkbox"
+                           [(ngModel)]="masterSelected"
+                           name="list_name"
+                           value="m1"
+                           (change)="checkUncheckAll()" />
+                    <strong></strong>
+                  </th>
+                  <th scope="col">Society Name</th>
+                  <th scope="col">Auditor Circle</th>
+                  <th scope="col">President</th>
+                  <th scope="col">Financial Year</th>
+                  <th scope="col">Reminder</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+
+              <tbody class="rc_table_body table-striped">
+                <tr *ngFor="let item of _auditOfficerlist
+        | paginate
+          : {
+              itemsPerPage: pageSize,
+              currentPage: pagenumber,
+              totalItems: recordsCount
+            };">
+                  <td scope="row">
+                    <input type="checkbox"
+                           style="cursor:pointer"
+                           [(ngModel)]="item.isSelected"
+                           value="{{item.audit_SocietyId}}"
+                           (change)="isAllSelected()" />
+                  </td>
+                  <td scope="row">{{item.societyName}}</td>
+                  <td scope="row">{{item.auditor_Circle}}</td>
+                  <td scope="row">{{item.societyPresidentUserName}}</td>
+                  <td scope="row">{{item.financialYear}}</td>
+                  <td scope="row">{{item.audit_Reminder_Counter}}</td>
+                  <td scope="row">{{item.auditStatusName}}</td>
+                </tr>
+              </tbody>
+
+              <tbody class="rc_table_body" *ngIf="recordsCount == 0">
+                <tr>
+                  <td colspan="7" class="text-center p-3">
+                    <img src="../../../assets/images/datanotfound.png"
+                         class="img-fluid" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="rc_table_footer" *ngIf="recordsCount > 0">
+            <div class="rc_table_list">
+              1 to 10 Entries
+            </div>
+            <div class="rc_table__pagination">
+              <div class="rc_table__pagination--active">
+                <pagination-controls previousLabel="Previous"
+                                     nextLabel="Next"
+                                     [responsive]="true"
+                                     (pageChange)="PageChanged($event)"
+                                     (pageBoundsCorrection)="PageChanged($event)">
+                </pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- app-container -->
+  </div>
+</div>
+
+<div class="modal model-bg"
+     id="SendRequest"
+     data-backdrop="static"
+     data-keyboard="false">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="rcs_modal_header">
+        <h4 class="rcs_modal_header--title">Send Request</h4>
+        <button type="button"
+                class="btn-close"
+                (click)="CloseConfirm()"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6 col-lg-6">
+            <div class="space-bottom">
+              <label class="simple_form--label">Status</label>
+              <select class="rcs_select" [(ngModel)]="this.audit_Status_Id">
+                <option value="0" selected>Select Status</option>
+                <option *ngFor="let option of _popopplaner"
+                        [ngValue]="option.id">
+                  {{ option.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button"
+                (click)="SendsAuditRequest()"
+                class="btn btn-primary">
+          Request
+        </button>
+        <button type="button" class="btn btn-danger" (click)="CloseConfirm()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Confirm Modal-->
+<div class="modal model-bg"
+     id="ConfirmModal"
+     data-backdrop="static"
+     data-keyboard="false">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="rcs_modal_header">
+        <h4 class="modal-title">{{this.title}}</h4>
+        <button type="button"
+                class="btn-close"
+                (click)="CloseConfirm()"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h5 class="modal-title text" style="margin-bottom: 20px;">
+          {{this.message}}
+        </h5>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button id="btn_confirmyes"
+                class="btn btn-success"
+                style="margin-right: 10px;">
+          Yes
+        </button>
+        <button id="btn_confirmno"
+                (click)="CloseConfirm()"
+                class="btn btn-danger">
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

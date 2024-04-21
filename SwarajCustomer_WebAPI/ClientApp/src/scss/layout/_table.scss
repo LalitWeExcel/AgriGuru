@@ -1,0 +1,82 @@
+   .rc_table{
+    width: 100%;
+    border: 1px solid $border-color;
+     &--border{
+    border: 1px solid $border-color; 
+    }
+    &_header{
+      @include jc-between;
+      padding: 10px 10px 0 10px;
+      margin-bottom: 15px;;
+      &--displaytlist{
+         color: $table-display-text;
+         display: flex;
+         gap: 10px;
+         align-items: center;
+         gap: 10px;
+         &dropdown{
+            border: 1px solid $border-color;
+            padding: 5px 6px;
+            border-radius: 5px;
+         }
+      }
+    }
+    &_head{
+       tr{
+         th{
+            background-color:  $table-head-color;
+            font-size: 13px;
+            padding: 0.625rem 1rem;
+            font-weight: 500;
+            color: #374557;
+            letter-spacing: 0;
+         }
+       }   
+    }
+    &_body{
+      &--action{
+         display: flex;
+         align-items: center;
+         flex-wrap: wrap;
+         gap: 5px;
+      }
+      tr{
+         td{
+            font-size: 14px;
+            font-weight: 400; 
+            padding: 0.625rem 1rem;
+            color: #888888; 
+         }
+      }
+    }
+      &_footer{
+         display: flex;
+         justify-content: space-between;
+         padding-top: 1.255em;
+      }
+      &_list{
+        
+         color: #888888;
+         font-size: 13px;
+      }
+      &_pagination{
+         &--active{
+            background-color: $primary-color;
+            color: $white-color !important;
+            border-radius: 3px;
+         }
+           li{
+            display: inline-block;
+            margin: 0 3px;
+            a{
+               color: $primary-color;
+               padding: 0 8px 2px 8px;
+            }
+           } 
+      }
+      &_textbadge{
+         display: block;
+         padding: 6px 10px;
+         border-radius: 5px;
+      }
+}

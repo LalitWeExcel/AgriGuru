@@ -1,0 +1,482 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)"
+             size="medium"
+             color="#fff"
+             type="ball-scale-multiple"
+             [fullScreen]="true">
+  <p style="font-size: 20px; color: white" >Please Wait...</p>
+</ngx-spinner>
+
+<div *ngIf="IsAuthorised">
+  <app-header></app-header>
+  <app-side-nav></app-side-nav>
+
+  <div class="app-container">
+    <div class="app-main">
+      <!-- <div class="tab-form">
+        <div class="tab-body">
+          <ngx-loading [show]="loading"> </ngx-loading>
+          <h5 class="table_bordered--title">Details of Societies11 </h5>
+
+          <div class="main-body">
+            <div class="row">
+              <div class="col-md-3 col-lg-4">
+                <label class="simple_form--label">District Name</label>
+                <div class="selectdiv">
+                  <select class="select-form" [(ngModel)]="divCode" (change)="onDistrictDropDownChange()">
+                    <option value="0" selected>Select District</option>
+                    <option *ngFor="let item of DistrictDropDown" [value]="item.districtCode">
+                      {{ item.districtName }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-lg-4">
+                <label class="simple_form--label">ARCS</label>
+                <div class="selectdiv">
+                  <select class="select-form" [(ngModel)]="arcsCode" (change)="onARCDropDownChange()">
+                    <option value="0" selected>Select ARCS</option>
+                    <option *ngFor="let option of ARCSDropDown" [ngValue]="option.arcsCode">
+                      {{ option.arcsName }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+
+
+              <div class="col-md-3 col-lg-4">
+                <label class="simple_form--label">Societies Name</label>
+                <div class="selectdiv">
+                  <select class="select-form" [(ngModel)]="societyid" (change)="onSocietyDropDownChange()">
+                    <option value="0" selected>Select Societies</option>
+                    <option *ngFor="let option of SocietiesDropDown" [ngValue]="option.societyId">
+                      {{ option.societiesName }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-3 col-lg-2">
+                <div class="">
+                  <label class="simple_form--label"></label>
+                  <button class="select-form" (click)="clearDropdowns()">Reset</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-hover table_bordered table table-striped ">
+              <thead class="table-success">
+                <tr>
+                  <th scope="col">Sl. No</th>
+                  <th scope="col">Society Name</th>
+                  <th scope="col">ARCS Name</th>
+                  <th scope="col">No Of Members</th>
+                  <th scope="col">Current Members</th>
+                  <th scope="col">Distt.</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Created Date</th>
+                  <th scope="col">Is Active</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Details</th>
+                  <th scope="col">Members</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of societyTranslist
+          | paginate
+            : {
+                itemsPerPage: pageSize,
+                currentPage: pagenumber,
+                totalItems: recordsCount
+              };">
+                  <td scope="row">{{item.rowNum}}</td>
+                  <td scope="row">{{item.societyName}}</td>
+                  <td scope="row">{{item.arcsName}}</td>
+                  <td scope="row">{{item.noOfMembers}}</td>
+                  <td scope="row">{{item.isMembers}}</td>
+                  <td scope="row">{{item.disttName}}</td>
+                  <td scope="row">{{item.address1}}</td>
+                  <td scope="row">{{item.dateOfCreation}}</td>
+                  <td scope="row">{{item.isActive}}</td>
+                  <td scope="row">{{item.status}}</td>
+
+                  <td scope="row" style="cursor:pointer">
+                    <a href="#" (click)="GetSocietyDetail(item.userId,item.societyId)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      <i class="fa fa-solid fa fa-eye" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                  <td scope="row" style="cursor:pointer">
+                    <a *ngIf="item.isMembers >= 1" (click)="GetMembersList(item.userId,item.societyId,item.societyName)">
+                      <i class="fa fa-solid fa fa-eye" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center">
+              <select (change)="PageSizeChange($event)">
+                <option *ngFor="let size of pageSizes" [ngValue]="size">
+                  {{ size }}
+                </option>
+              </select>&nbsp;&nbsp;&nbsp;
+              <pagination-controls previousLabel="Previous"
+                                   nextLabel="Next"
+                                   [responsive]="true"
+                                   (pageChange)="PageChanged($event)"
+                                   (pageBoundsCorrection)="PageChanged($event)">
+              </pagination-controls>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="rcs_modal_header">
+              <h2 class="modal-title fs-5" id="exampleModalLabel">Society-Details</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="dashboard-card">
+                <div class="dashboard-card--body">
+                  <ul>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Society Name:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.societyName}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">No Of Memberss:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.noOfMemberss}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Address1:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.address1 }}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Address2:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.address2 }}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Post Office:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.postOffice }}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Pin:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.pin}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Area Of Operation :</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.areaOfOperation}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Cate Of Society :</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.cateOfSociety}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Debts Of Members:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.debtsOfMembers}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Area Mortgaged:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.areaMortgaged}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Details Of Shares:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.detailsOfShares}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Value Of Share:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.valueOfShare}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Name And Address Promoters:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.nameAndAddressPromoters}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Date Of Creation:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.dateOfCreation}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label"> Date of Application Received:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.dateofApplicationReceived}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Date Of Approval:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.dateOfApproval}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Form B:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.formB}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Form C:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.formC}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">form D :</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.formD}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Form E:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.formE}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">ByLaws Docs:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.byLawsDocs}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Challan:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.challan}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Create Date :</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.createDate}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Final Submit Date:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.finalSubmitDate}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">IsActive :</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.isActive}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Status:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.status}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Inspector Code:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.inspectorCode}}</h6>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dashboard-card--innerbox">
+                        <h5 class="dashboard-card--label">Automatically Approved:</h5>
+                        <h6 class="dashboard-card--view">{{SocietyDetailsModels.automaticallyApproved}}</h6>
+                      </div>
+                    </li>
+                  </ul>
+
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div> -->
+
+   
+         <div class="rcs_card">
+             <div class="rcs_card_header">
+                  <div class="rcs_card_header--title">
+                    All Registered Primary Cooperative Societies
+                  </div>               
+             </div>
+             <div class="rcs_card_body">
+                  <div class="row">
+                        <div class="col-md-4">
+                            <div class="space-bottom">
+                                <label class="simple_form--label">Society Name</label>
+                                <input type="text" class="rcs_input" placeholder="Enter Society Name">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="space-bottom">
+                              <label class="simple_form--label">Registration Name</label>
+                              <input type="text" class="rcs_input" placeholder="Enter Registration Name">
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="space-bottom">
+                            <label class="simple_form--label">Sector of Operation</label>
+                            <input type="text" class="rcs_input" placeholder="Enter Society Name">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="space-bottom">
+                          <label class="simple_form--label">Primary Activity</label>
+                          <select class="rcs_select">
+                              <option>1</option>
+                              <option>2</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="space-bottom">
+                        <label class="simple_form--label">Location</label>
+                        <select class="rcs_select">
+                          <option>1</option>
+                          <option>2</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="space-bottom">
+                      <label class="simple_form--label">District</label>
+                      <select class="rcs_select">
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                <div class="space-bottom">
+                    <label class="simple_form--label">Functional Status</label>
+                    <select class="rcs_select">
+                      <option>1</option>
+                      <option>2</option>
+                  </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="space-bottom">
+                  <label class="simple_form--label">Status</label>
+                  <select class="rcs_select">
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+              </div>
+          </div>
+        
+                  </div> <!-- row end -->
+                  <div class="text-end">
+                      <button type="btn" class="primary_btn">Save</button>
+                      <button type="btn" class="reset_btn">Reset</button>
+                  </div>
+             </div>
+         </div>
+
+         <div class="rcs_card">
+            <div class="rcs_card_header">
+              <div class="rcs_card_header--title">
+                  Employee
+              </div>
+              <div class="">
+                 <button type="button" class="export_btn"><span class="fa fa-file-excel"></span> Export Report</button>
+                 <button type="button" class="export_btn"><span class="fa fa-file-excel"></span> Export Report</button>
+              </div>
+            </div>
+            <div class="rcs_card_body">
+              <div class="table-responsive">
+                <table class="rc_table">
+                    <thead class="rc_table_head">
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody class="rc_table_body">
+                       <tr>
+                          <td>Garrett Winters</td>
+                          <td>Accountant</td>
+                          <td>Tokyo</td>
+                          <td>63</td>
+                          <td>2011/07/25</td>
+                          <td><a href="javascript:void(0)" class="details_badge">Details</a></td>
+                       </tr>
+                       <tr>
+                        <td>Garrett Winters</td>
+                        <td>Accountant</td>
+                        <td>Tokyo</td>
+                        <td>63</td>
+                        <td>2011/07/25</td>
+                        <td>$170,750</td>
+                     </tr>
+                     <tr>
+                      <td>Garrett Winters</td>
+                      <td>Accountant</td>
+                      <td>Tokyo</td>
+                      <td>63</td>
+                      <td>2011/07/25</td>
+                      <td>$170,750</td>
+                   </tr>
+                    </tbody>
+                </table>
+              </div>  
+                <div class="rc_table_footer">
+                    <div class="rc_table_list">
+                      Showing 1 to 5 of 15 entries
+                    </div>
+                    <ul class="rc_table_pagination">
+                       <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                       <li><a href="" class="rc_table_pagination--active">1</a></li>
+                          <li><a href="">2</a></li>
+                          <li><a href="">3</a></li>
+                          <li><a href="">4</a></li>
+                          <li><a href=""><i class="fa fa-angle-right"></i></a> </li>
+                       
+                    </ul>
+                </div>
+            </div>
+         </div>
+      <!-- app-container -->
+    </div>
+  </div>
+</div>

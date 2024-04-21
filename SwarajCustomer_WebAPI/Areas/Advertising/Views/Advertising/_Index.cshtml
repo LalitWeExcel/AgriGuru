@@ -1,0 +1,398 @@
+﻿@model SwarajCustomer_Common.ViewModel.AdvertisementViewModel
+@using SwarajCustomer_Common;
+@{
+    int records = 0;
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<script>
+    function SetPagingStyles() {
+        $(document).bind('ready ajaxComplete', function () {
+            function setHeight() {
+                var tfoot = document.querySelector('tfoot');
+                if (tfoot == null) {
+                    windowHeight = $(window).innerHeight() - 380;
+                    $('tbody').css('max-height', windowHeight);
+
+                }
+                else {
+                    windowHeight = $(window).innerHeight() - 400;
+                    $('tbody').css('max-height', windowHeight);
+                }
+            };
+
+            setHeight();
+
+            $(window).resize(function () {
+                setHeight();
+            });
+
+            $('table').on('scroll', function () {
+                $("#" + this.id + " > *").width($(this).width() + $(this).scrollLeft());
+            });
+            $("tfoot a").addClass('btn2 btn2-default');
+            $("tfoot td")
+                .contents()
+                .filter(function () {
+                    if (this.nodeType === 3 && this.length > 1) {
+                        return this.nodeType
+                    }
+                })
+                .wrap('<span class="btn2 btn2-primary" />');
+        });
+    }
+    $('table').on('scroll', function () {
+        $("#" + this.id + " > *").width($(this).width() + $(this).scrollLeft());
+    });
+</script>
+
+
+
+<div class="col-sm-12 tablnew" id="divpartdetails">
+    <div class="table gridresposnive workplaces">
+        @if (Model.AdvertisementList != null && Model.AdvertisementList.Any())
+        {
+            records = Model.TotalRecords;
+            WebGrid grid = new WebGrid(canPage: true,
+            rowsPerPage: Model.NoOfRecords,
+            canSort: true,
+            ajaxUpdateContainerId: "WebGrid");
+            grid.Bind(Model.AdvertisementList, rowCount: records, autoSortAndPage: false);
+            grid.Pager(WebGridPagerModes.Numeric);
+            @grid.GetHtml(htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+            fillEmptyRows: false,
+            mode: WebGridPagerModes.All,
+            previousText: "<",
+            nextText: ">",
+            numericLinksCount: 5,
+            tableStyle: "table table-hover",
+            columns: new[]
+            {
+                grid.Column(null, null, format: @<text><input type="checkbox" class="gridchkbox" name="chkRow" data-username="@item.Service" value="@item.AdvertisementId" style="cursor: pointer;" /></text>),
+grid.Column("SrNo", "Sr No"),
+grid.Column("ImageName", "Picture", format : @<text> <img src="@item.ImageName" style="width: 160px; height: 100px;" data-action="zoom" /></text>),
+grid.Column("Service", "Title"),
+grid.Column("Description", "Description"),
+grid.Column("ActualAmount", "MRP"),
+grid.Column("Discount", "Discount(%)" ),
+grid.Column("DiscountInRupees", "Discount(₹)"),
+grid.Column("DiscountedAmount", "Disc. Amt."),
+grid.Column("DurationText", "Duration"),
+grid.Column("StateName", "State Name"),
+grid.Column("DistrictName", "District Name"),
+grid.Column("IsGlobal", "Global Ad"),
+grid.Column("AdvertisingType", "Advertisement Type"),
+grid.Column("BookingDate", "Go Live On"),
+grid.Column("IsActive", "Status"),
+grid.Column(header: "Action",
+format: @<text>
+    <span title="Delete" class="table-icons delete" onclick="Delete('@item.AdvertisementId')"></span>
+    <span title="Edit" class="table-icons edit" onclick="OpenPopup('@item.AdvertisementId','@item.AdvertisingType')"></span> </text> ) });
+
+            <script type="text/javascript">
+           gbl_row_count = @records;
+           SetPagingStyles();
+            </script>
+
+        }
+
+        else
+        {
+            <table class="table table-hover" id="grid">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Sr No
+                        </th>
+                        <th scope="col">
+                            Picture
+                        </th>
+                        <th scope="col">
+                            Title
+                        </th>
+                        <th scope="col">
+                            Description
+                        </th>
+                        <th scope="col">
+                            MRP
+                        </th>
+                        <th scope="col">
+                            Discount(%)
+                        </th>
+                        <th scope="col">
+                            Discount(₹)
+                        </th>
+                        <th scope="col">
+                            Disc. Amt.
+                        </th>
+                        <th scope="col">
+                            State Name
+                        </th>
+                        <th scope="col">
+                            District Name
+                        </th>
+                        <th scope="col">
+                            Global Ad
+                        </th>
+                        <th scope="col">
+                            Advertisement Type
+                        </th>
+                        <th scope="col">
+                            Go Live On
+                        </th>
+                        <th scope="col">
+                            Status
+                        </th>
+                        <th scope="col">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="width: 100%; display: inline-table; text-align: center; position: relative;">
+                        <td style="font-weight: 600; font-size: 21px; color: #b50000;">No Records Found</td>
+                    </tr>
+                </tbody>
+            </table>
+            <script type="text/javascript">
+                gbl_row_count = 0;
+            </script>
+        }
+
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $('#Activate').addClass('hide');
+    $('#Deactivate').addClass('hide');
+
+    $(function () {
+
+        var chkHeader = $("<input type='checkbox' id='chkHeader' style='cursor: pointer' />");
+
+        //Append it to the First cell of Header Row.
+        $("#WebGrid th:first-child").append(chkHeader);
+
+        //Assign Click event handler to the Header Row CheckBox.
+        chkHeader.click(function () {
+            if ($(this).is(":checked")) {
+                //If the Header Row CheckBox is checked, check all Row CheckBoxes.
+
+                $("#WebGrid td input[type=checkBox]").prop("checked", true);//.attr("checked", "checked");
+
+                $('#Activate').removeClass('hide');
+                $('#Deactivate').removeClass('hide');
+
+
+            } else {
+                //If the Header Row CheckBox is NOT checked, uncheck all Row CheckBoxes.
+
+                $("#WebGrid td input[type=checkBox]").prop("checked", false); //.removeAttr("checked");
+
+                $('#Activate').addClass('hide');
+                $('#Deactivate').addClass('hide');
+            }
+        });
+
+
+        //Assign Click event handler to each Row CheckBox.
+        $("#WebGrid input[name=chkRow]").click(function (e) {
+
+            // only for show hide  both buttions
+            var isChecked = false;
+            $(".gridchkbox").each(function () {
+                if ($(this).prop("checked") == true) {
+                    isChecked = true;
+                }
+            });
+            if (isChecked) {
+                $('#Activate').removeClass('hide');
+                $('#Deactivate').removeClass('hide');
+            }
+            else {
+                $('#Activate').addClass('hide');
+                $('#Deactivate').addClass('hide');
+            }
+            UpdateHeaderRowCheckBox(chkHeader);
+        });
+
+
+        //Retain selection of Header Row CheckBox.
+        UpdateHeaderRowCheckBox(chkHeader);
+
+    });
+
+    function UpdateHeaderRowCheckBox(chkHeader) {
+
+        if ($("#WebGrid td input[type=checkBox]:checked").length == $("#WebGrid td input[type=checkBox]").length) {
+            //If all the Row CheckBoxes are checked, check the Header Row CheckBox.
+
+            chkHeader.prop("checked", true); //.attr("checked", "checked");
+        } else {
+            //Even if one of the Row CheckBoxes is NOT checked, uncheck the Header Row CheckBox.
+
+            chkHeader.prop("checked", false); //.removeAttr("checked");
+
+        }
+    }
+
+
+    $(document).bind('ready ajaxComplete', function () {
+        function setHeight() {
+
+            var tfoot = document.querySelector('tfoot');
+            if (tfoot == null) {
+                windowHeight = $(window).innerHeight() - 320;
+                $('tbody').css('max-height', windowHeight);
+
+            }
+            else {
+                windowHeight = $(window).innerHeight() - 320;
+                $('tbody').css('max-height', windowHeight);
+            }
+        };
+
+        setHeight();
+
+        $(window).resize(function () {
+            setHeight();
+        });
+    });
+</script>
+
+<style>
+    #divpartdetails .table.gridresposnive th:last-child {
+        text-align: center;
+    }
+
+    #divpartdetails thead, #divpartdetails tbody {
+        display: block;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(1), #divpartdetails .table.gridresposnive td:nth-child(1) {
+        min-width: 60px;
+        max-width: 60px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(2), #divpartdetails .table.gridresposnive td:nth-child(2) {
+        min-width: 140px;
+        max-width: 140px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(3), #divpartdetails .table.gridresposnive td:nth-child(3) {
+        min-width: 150px;
+        max-width: 150px;
+    }
+
+    .table.gridresposnive th:nth-child(4), .table.gridresposnive td:nth-child(4) {
+        min-width: 250px;
+        max-width: 250px;
+    }
+
+    .table.gridresposnive th:nth-child(5), .table.gridresposnive td:nth-child(5) {
+        min-width: 270px;
+        max-width: 270px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(6), #divpartdetails .table.gridresposnive td:nth-child(6) {
+        min-width: 110px;
+        max-width: 110px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(7), #divpartdetails .table.gridresposnive td:nth-child(7) {
+        min-width: 110px;
+        text-align: left;
+        max-width: 110px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(8), #divpartdetails .table.gridresposnive td:nth-child(8) {
+        min-width: 160px;
+        text-align: left;
+        max-width: 160px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(9), #divpartdetails .table.gridresposnive td:nth-child(9) {
+        min-width: 140px;
+        text-align: left;
+        max-width: 140px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(10), #divpartdetails .table.gridresposnive td:nth-child(10) {
+        min-width: 140px;
+        text-align: left;
+        max-width: 140px;
+    }
+
+
+    #divpartdetails .table.gridresposnive th:nth-child(11), #divpartdetails .table.gridresposnive td:nth-child(11) {
+        min-width: 180px;
+        text-align: left;
+        max-width: 180px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(12), #divpartdetails .table.gridresposnive td:nth-child(12) {
+        min-width: 520px;
+        text-align: left;
+        max-width: 520px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(13), #divpartdetails .table.gridresposnive td:nth-child(13) {
+        min-width: 160px;
+        text-align: left;
+        max-width: 160px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(14), #divpartdetails .table.gridresposnive td:nth-child(14) {
+        min-width: 220px;
+        text-align: left;
+        max-width: 220px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(15), #divpartdetails .table.gridresposnive td:nth-child(15) {
+        min-width: 120px;
+        text-align: left;
+        max-width: 120px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(16), #divpartdetails .table.gridresposnive td:nth-child(16) {
+        min-width: 120px;
+        text-align: left;
+        max-width: 120px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(17), #divpartdetails .table.gridresposnive td:nth-child(17) {
+        min-width: 120px;
+        text-align: left;
+        max-width: 120px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(18), #divpartdetails .table.gridresposnive td:nth-child(18) {
+        min-width: 120px;
+        text-align: left;
+        max-width: 120px;
+    }
+
+    #divpartdetails thead {
+        background: #333;
+    }
+
+    span.note, span#spnImage {
+        font-size: 11px;
+        color: red;
+    }
+
+    #divpartdetails tbody {
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+
+    table#WebGrid {
+        overflow: auto;
+    }
+
+    #divpartdetails .table {
+        overflow: auto;
+    }
+</style>

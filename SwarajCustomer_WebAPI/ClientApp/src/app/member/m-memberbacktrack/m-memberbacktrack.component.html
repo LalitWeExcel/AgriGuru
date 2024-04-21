@@ -1,0 +1,214 @@
+<app-header></app-header>
+<app-side-nav></app-side-nav>
+<div class="app-container">
+    <div class="app-main">
+        <div class="d-flex justify-content-between">
+            <h3 class="dashboard-title">Previous Owners Detail</h3>
+            <div>
+                <button type="button" class="btn btn-primary btn-sm" (click)="BackRequest()" *ngIf="this.roleName=='Admin'">Back</button>
+                <a (click)="openPDF()" href="javascript:void(0)"  id="btn"><span
+                        class="fa-solid fa-cloud-arrow-down px-2"></span>Download</a>
+            </div>
+        </div>
+        <div *ngIf="isLoading; else content">
+            <app-loader :title="loadingTitle"></app-loader>
+        </div>
+        <ng-template  #content>
+            <div id="content" *ngFor="let societyMemberBackTrack of societyMemberBackTrackList;let q= index">
+            <div class="dashboard-card">
+                <h5 class="dashboard-card--title">Previous {{societyMemberBackTrack.owner}}</h5>
+                <div class="dashboard-card--body">
+                    <div class="row" >
+                    <div class="col-md-2">
+                        <img src="{{societyMemberBackTrack.previousOwner.newImageSrc}}" width="150px" height="150px" style="margin-left: 10px;"/>
+                    </div>
+                    <div class="col-md-10">
+                        <ul>
+                            <li>
+                                <div class="dashboard-card--innerbox">
+                                    <app-m-shared Title="Full Name" Value="{{societyMemberBackTrack.previousOwner.memberName|titlecase}}"></app-m-shared>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dashboard-card--innerbox">
+                                    <app-m-shared Title="Aadhaar No" Value="{{societyMemberBackTrack.previousOwner.aadharNo}}"></app-m-shared>
+                                </div>  
+                            </li>
+                            <li>
+                                <div class="dashboard-card--innerbox">
+                                    <app-m-shared Title="Date of Birth" Value="{{societyMemberBackTrack.previousOwner.dob| date:'dd/MM/yyyy'}}"></app-m-shared>
+                                     </div>
+                            </li>
+                            <li>
+                                <div class="dashboard-card--innerbox">
+                                    <app-m-shared Title="Transfer Reason" Value="{{societyMemberBackTrack.transfer_Reason|titlecase}}"></app-m-shared>
+                                    </div>
+                            </li>
+                            <li>
+                                <div class="dashboard-card--innerbox">
+                                    <app-m-shared Title="Relation with Transfree" Value="{{societyMemberBackTrack.relationshipName|titlecase}}"></app-m-shared>
+                                   </div>
+                            </li>
+                        </ul>
+                       
+                    </div>
+                </div>
+                <ul class="dashboard-card--innerboxactive">
+                    <li>
+                        <div class="dashboard-card--innerbox">
+                            <app-m-shared Title="Father Name" Value="{{societyMemberBackTrack.previousOwner.fatherName|titlecase}}"></app-m-shared>
+                            </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-card--innerbox">
+                            <app-m-shared Title="Relationship with Member" Value="{{societyMemberBackTrack.previousOwner.previousMemberRelation|titlecase}}"></app-m-shared>
+                            </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-card--innerbox">
+                            <app-m-shared Title="Membership No" Value="{{societyMemberBackTrack.previousOwner.membershipNo}}"></app-m-shared>
+                          </div>
+                    </li>
+                    <li>
+                        <div class="dashboard-card--innerbox">
+                            <app-m-shared Title="Occupation of Member" Value="{{societyMemberBackTrack.previousOwner.occupationVal|titlecase}}"></app-m-shared>
+                             </div>
+                    </li>
+                </ul>
+                    <ul>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Mobile No" Value="{{societyMemberBackTrack.previousOwner.mobile}}"></app-m-shared>
+                               </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="EmailId" Value="{{societyMemberBackTrack.previousOwner.emailId|lowercase}}"></app-m-shared>
+                               </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Registered Address" Value="{{societyMemberBackTrack.previousOwner.address1|titlecase}}"></app-m-shared>
+                                </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="District" Value="{{societyMemberBackTrack.previousOwner.distName|titlecase}}"></app-m-shared>
+                              </div>
+                        </li>
+
+                    </ul>
+                    <ul class="dashboard-card--innerboxactive">
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Post Office" Value="{{societyMemberBackTrack.previousOwner.postOffice|titlecase}}"></app-m-shared>
+                               </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Postal Code" Value="{{societyMemberBackTrack.previousOwner.pin}}"></app-m-shared>
+                                </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Name of Nominee" Value="{{societyMemberBackTrack.previousOwner.nomineeName|titlecase}}"></app-m-shared>
+                               </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Nominee Age" Value="{{societyMemberBackTrack.previousOwner.nomineeAge}}"></app-m-shared>
+                               </div>
+                        </li>
+
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="No of Share Subscribed" Value="{{societyMemberBackTrack.previousOwner.noOfShares}}"></app-m-shared>
+                                </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <app-m-shared Title="Date of Share transfer Approval" Value="{{societyMemberBackTrack.previousOwner.shareDateApproval| date:'dd/MM/yyyy'}}"></app-m-shared>
+                               </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <h5 class="dashboard-card--label">View Affidavit:</h5>
+                                <h6 class="dashboard-card--view" *ngIf="societyMemberBackTrack.previousOwner.affidavitDoc!='';else clear">
+                                    <a href="{{societyMemberBackTrack.previousOwner.affidavidUrl}}" href="javascript:void(0)"  target="_blank">View Affidavit </a>
+                                </h6>
+                              
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dashboard-card--innerbox">
+                                <h5 class="dashboard-card--label">View Identity:</h5>
+                                <h6 class="dashboard-card--view" *ngIf="societyMemberBackTrack.previousOwner.identityDoc!='';else clear">
+                                    <a href="{{societyMemberBackTrack.previousOwner.identityUrl}}" href="javascript:void(0)" target="_blank">View Identity Proof
+                                    </a>
+                                </h6>
+                              
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="dashboard-card">
+                        <h5 class="dashboard-card--title">Flat Details</h5>
+                        <div class="dashboard-card--body">
+                            <ul class="dashboard-card--innerboxactive">
+                                <li>
+                                    <div class="dashboard-card--innerbox">
+                                        <app-m-shared Title="Plot/Flat Type" Value="{{societyMemberBackTrack.previousOwner.flatType}}"></app-m-shared>
+                                          </div>
+                                </li>
+                                <li>
+                                    <div class="dashboard-card--innerbox">
+                                        <app-m-shared Title="Plot No./Flat No. Details" Value="{{societyMemberBackTrack.previousOwner.pftValue}}"></app-m-shared>
+                                           </div>
+                                </li>
+                                <li>
+                                    <div class="dashboard-card--innerbox">
+                                        <app-m-shared Title="Flat Area" Value="{{societyMemberBackTrack.previousOwner.flatArea}}"></app-m-shared>
+                                        </div>
+                                </li>
+                                <li>
+                                    <div class="dashboard-card--innerbox">
+                                        <app-m-shared Title="Tower No.(If Any)" Value="{{societyMemberBackTrack.previousOwner.towerNo}}"></app-m-shared>
+                                        </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dashboard-card">
+                        <h5 class="dashboard-card--title">Documents</h5>
+                        <div class="dashboard-card--body" >
+                            <ul class="dashboard-card--innerboxactive">
+                                <li>
+                                    <div class="dashboard-card--innerbox">
+                                        <h5 class="dashboard-card--label">Share Transfer Certificate:</h5>
+                                        <h6 class="dashboard-card--view" *ngIf="societyMemberBackTrack.shareTransferCertificate!=='';else clear">
+                                            <a (click)="downloadPdf(societyMemberBackTrack.shareTransferCertificate,'shareTransferCertificate')" href="javascript:void(0)"   target="_self">Download Certificate</a>
+                                        </h6>
+                                    </div>
+                                </li>
+                                <li *ngFor="let doc of societyMemberBackTrack.uploadedDocs;let i=index">
+                                    <div class="dashboard-card--innerbox">
+                                        <h5 class="dashboard-card--label">{{doc.file_Name}}</h5>
+                                        <h6 class="dashboard-card--view" *ngIf="doc.contentUpload!=='';else clear">
+                                            <a (click)="downloadPdf(doc.contentUpload,doc.file_Name)" href="javascript:void(0)" >Download {{doc.file_Name}}</a>
+                                        </h6>
+                                      
+
+                                    </div>
+                                </li>
+                             <ng-template #clear><h6 class="dashboard-card--view">---</h6></ng-template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        </ng-template>
+    </div>
+    

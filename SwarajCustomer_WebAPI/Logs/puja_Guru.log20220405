@@ -1,0 +1,31 @@
+2022-04-05 16:40:05,361 [6] INFO SwarajCustomer_WebAPI.Controllers.FavVideosController - step 1 : call GetFavVideos LanguageId : 0
+2022-04-05 16:40:09,514 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step 2 : call DAL GetFavVideos languageId : 0
+2022-04-05 16:40:10,481 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step 3 : call SP usp_api_manage_fav_vedios_list 
+2022-04-05 16:41:02,934 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step 4 : Get Data from server  
+2022-04-05 16:41:12,285 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step 1 : v.Id  5
+2022-04-05 16:41:12,551 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  2 : v.Name  AgriGuru
+2022-04-05 16:41:13,072 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  3 : v.Description  ManageFavVideos/ManageFavVideos/Index
+2022-04-05 16:41:13,245 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  4 : v.VideoName  http://localhost:54300//Content/videos/637753520960090852.mp4
+2022-04-05 16:41:13,463 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  5 : v.LanguageId  1
+2022-04-05 16:41:13,622 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  6 : v.LanguageName  English
+2022-04-05 16:41:13,840 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  7 : v.VideoName  http://localhost:54300//Content/videos/637753520960090852.mp4
+2022-04-05 16:41:14,086 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  8 : v.GetAdvertismentVedioUrl Key A  http://localhost:54300//Content/videos/http://localhost:54300//Content/videos/637753520960090852.mp4
+2022-04-05 16:41:14,242 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  9 : v.AdvertismentVideosIcon Key B  https://apps.bcone.com/AgriGuru/Content/videos/video-icon.mp4
+2022-04-05 16:42:51,971 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step 10 : v.Id  6
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  11 : v.Name  AgriGuru  01
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  12 : v.Description  1.Head Office >Photo uploaded from App is not showing on the grid list.  2.Create role for PF04 Head
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  13 : v.VideoName  http://localhost:54300//Content/videos/637753521023909689.mp4
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  14 : v.LanguageId  1
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  15 : v.LanguageName  English
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  16 : v.VideoName  http://localhost:54300//Content/videos/637753521023909689.mp4
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  17 : v.GetAdvertismentVedioUrl Key A  http://localhost:54300//Content/videos/http://localhost:54300//Content/videos/637753521023909689.mp4
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  18 : v.AdvertismentVideosIcon Key B  https://apps.bcone.com/AgriGuru/Content/videos/video-icon.mp4
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step 19 : v.Id  7
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  20 : v.Name  TEST EMP remor
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  21 : v.Description  Test Ad Description remor
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  22 : v.VideoName  http://localhost:54300//Content/videos/637794926001472022.mp4
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  23 : v.LanguageId  1
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  24 : v.LanguageName  English
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  25 : v.VideoName  http://localhost:54300//Content/videos/637794926001472022.mp4
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  26 : v.GetAdvertismentVedioUrl Key A  http://localhost:54300//Content/videos/http://localhost:54300//Content/videos/637794926001472022.mp4
+2022-04-05 16:42:53,848 [6] INFO SwarajCustomer_DAL.Interface.Advertising.AdvertisingDAL - step  27 : v.AdvertismentVideosIcon Key B  https://apps.bcone.com/AgriGuru/Content/videos/video-icon.mp4

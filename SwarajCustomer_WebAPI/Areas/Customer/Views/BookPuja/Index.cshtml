@@ -1,0 +1,309 @@
+﻿@model SwarajCustomer_Common.Customer.BookPujaContent
+@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidths">
+        <div class="barwidths" id="adminDashboardLeads">
+            <input type="hidden" id="hddPujaID" />
+            <input type="hidden" id="hddname" />
+
+            <input type="hidden" id="hddPujaMRP" />
+            <input type="hidden" id="hddPujaDiscount" />
+            <input type="hidden" id="hddPujaDiscountedPrice" />
+
+
+            <div class="barwidths borderwidthss" id="adminDashboardLeads">
+                <div class="searchfilter">
+                    <div class="col-sm-12 searchbox tab">
+                        <button class="tablinks active" id="AUpcoming" onclick="myBooking(event, 'Puja')">Puja</button>
+                        <button class="tablinks" onclick="myBooking(event, 'Path')">Path</button>
+                        <button class="tablinks " onclick="myBooking(event, 'Corp')">Corp Puja</button>
+                    </div>
+                </div>
+                <div class="table-container" id="divGrid">
+                    <div id="Puja" class="tabcontent" style="display: block;">
+                        @{ foreach (var item in Model.Masters.PujaList)
+                            {
+                                <div class="reviewbox">
+                                    <div class="innerwidths list-group-item">
+                                        <a href="#" onclick="_selectPuja(this)" data-pujaid="@item.ID" data-pujamrp="@item.MRP"
+                                           data-pujadiscount="@item.Discount" data-pujadiscountedprice="@item.DiscountedPrice">
+                                            <div class="col-sm-4 leftimage">
+                                                <img src="@item.ImagePath" />
+                                            </div>
+                                            <div class="col-sm-8 righttext">
+                                                <span class="maintittle">@item.Name</span>
+                                                <span class="yearstext">@item.MRP</span>
+                                                <span class="discount">@item.DiscountedPrice</span>
+                                            </div>
+
+
+                                        </a>
+                                    </div>
+                                </div>
+                            } }
+
+                    </div>
+
+                    <div id="Path" class="tabcontent" style="display: none;">
+                        @{ foreach (var item in Model.Masters.PathList)
+                            {
+                                <div class="reviewbox">
+                                    <div class="innerwidths list-group-item">
+                                        <a href="#" onclick="_selectPuja(this)" data-pujaid="@item.ID" data-pujamrp="@item.MRP" data- pujadiscount="@item.Discount" data-pujadiscountedprice="@item.DiscountedPrice" data- name="@item.Name">
+                                            <div class="col-sm-4 leftimage">
+                                                <img src="@item.ImagePath" />
+                                            </div>
+                                            <div class="col-sm-8 righttext">
+                                                <span class="maintittle">@item.Name</span>
+                                                <span class="yearstext">@item.MRP</span>
+                                                <span class="discount">@item.DiscountedPrice</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            } }
+
+                    </div>
+
+                    <div id="Corp" class="tabcontent" style="display: none;">
+
+                        @{ foreach (var item in Model.Masters.CorporatePujaList)
+                            {
+                                <div class="reviewbox">
+                                    <div class="innerwidths list-group-item">
+                                        <a href="#" onclick="_selectPuja(this)" data-pujaid="@item.ID" data-pujamrp="@item.MRP" data- pujadiscount="@item.Discount" data-pujadiscountedprice="@item.DiscountedPrice">
+                                            <div class="col-sm-4 leftimage">
+                                                <img src="@item.ImagePath" />
+                                            </div>
+                                            <div class="col-sm-8 righttext">
+                                                <span class="maintittle">@item.Name</span>
+                                                <span class="yearstext">@item.MRP</span>
+                                                <span class="discount">@item.DiscountedPrice</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            } }
+
+                    </div>
+                    <div class="buttonsenterbox margintops">
+
+                        <button class="btn btn-success yes" id="btn_save" onclick="SelectAndProceed()">Select & proceed</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/function.js"></script>
+<script src="~/Areas/Customer/Scripts/active.js"></script>
+@*https://www.geeksforgeeks.org/how-to-add-active-class-on-click-event-in-custom-list-group-in-bootstrap-4/
+    https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_active_element2
+    https://stackoverflow.com/questions/45712938/how-to-add-active-class-with-current-element-and-remove-from-all-other-elements
+    https://www.tutorialspoint.com/how-to-add-an-active-class-to-the-current-element-with-javascript
+    https://codepen.io/arjunamgain/pen/lGALt*@
+
+<script>
+
+    var $_SelectAndProceed = '@Url.Action("SelectAndProceed", "BookPuja", new { Area = "Customer" })';
+
+      //  $('.boxestemp').addClass('actives');
+    function SelectAndProceed() {
+        var isValid = true;
+        var MainProductId = $("#hddPujaID").val();
+        var name = $("#hddname").val();
+
+        var PujaMRP = $("#hddPujaMRP").val();
+        var PujaDiscount = $("#hddPujaDiscount").val();
+        var PujaDiscountedPrice = $("#hddPujaDiscountedPrice").val();
+
+        if (MainProductId == 0 || MainProductId == "" || MainProductId == NaN) {
+            displayMessage('Please Select Puja , Path , Corporate Puja', 'error');
+            isValid = false;
+        }
+
+        if (!isValid) {
+            $(window).scrollTop(0);
+            return false;
+        } else {
+
+            location.href = $_SelectAndProceed + "?MainProductId="
+                + parseInt(MainProductId)
+                + "&name=" + name
+                + "&PujaMRP=" + PujaMRP
+                + "&PujaDiscount=" + PujaDiscount
+                + "&DiscountInRupees=" + 0
+                + "&PujaDiscountedPrice=" + PujaDiscountedPrice;
+        }
+    }
+
+    function _selectPuja(_object) {
+        $("#hddPujaID").val($(_object).data('pujaid'));
+        $("#hddname").val($(_object).data('name'));
+
+        $("#hddPujaMRP").val($(_object).data('pujamrp'));
+        $("#hddPujaDiscount").val($(_object).data('pujadiscount'));
+        $("#hddPujaDiscountedPrice").val($(_object).data('pujadiscountedprice'));
+    }
+
+
+
+</script>
+<script>
+    function myBooking(_objects, type) {
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(type).style.display = "block";
+        _objects.target.className += " active"; //currentTarget
+
+    }
+</script>
+<style>
+    .col-sm-8.righttext {
+        padding-right: 0;
+    }
+
+    div#Puja, div#Path, div#Corp {
+        padding: 10px !important;
+        margin-top: 0 !important;
+        border: none;
+    }
+
+    .reviewbox {
+        padding: 10px;
+    }
+
+    div#divGrid {
+        border: 1px solid #ccc;
+        width: 100%;
+        float: left;
+        margin-top: -10px;
+        border-top: none;
+    }
+
+    .discount {
+        color: #f15a29;
+        width: auto;
+        display: inline-block;
+        font-size: 20px;
+    }
+
+    .yearstext {
+        width: auto;
+        margin: 0;
+        text-decoration: line-through;
+        margin-right: 10px;
+        position: relative;
+        top: 6px;
+    }
+
+    .tab button:last-child {
+        border: none;
+    }
+
+    .maintittle {
+        min-height: 40px;
+        font-size: 12px;
+    }
+
+    div#adminDashboardLeads {
+        margin-top: 10px;
+    }
+
+    .col-sm-8.righttext {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #333;
+        background-color: #333;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .col-sm-8.righttext {
+        padding-right: 0;
+    }
+
+    .innerwidths {
+        padding: 15px;
+    }
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 6px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        color: #fff;
+        border-right: 1px solid #fff;
+    }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #f15a29;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #f15a29;
+        }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        float: left;
+        margin-top: -11px;
+        width: 100%;
+    }
+
+    .modal-dialog.reminderpop .modal-body img {
+        position: absolute;
+        right: 0;
+        top: 24px;
+        right: 24px;
+    }
+
+    .fullwidths.booking p {
+        width: auto;
+        display: inline-block;
+    }
+
+    .fullwidths.booking span {
+        font-weight: bold;
+        /* font-size: 16px; */
+    }
+
+    .fullwidths.booking {
+        font-size: 14px;
+        line-height: 34px;
+    }
+</style>

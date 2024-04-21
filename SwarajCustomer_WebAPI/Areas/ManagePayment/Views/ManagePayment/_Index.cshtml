@@ -1,0 +1,312 @@
+﻿
+
+@model SwarajCustomer_Common.ViewModel.ManagePaymentViewModel
+@{
+    int records = 0;
+}
+<input type="hidden" id="hddTotelSuccessPayment" value="@Model.TotelSuccessPayment" />
+<input type="hidden" id="hddTotelFailedPayment" value="@Model.TotelFailedPayment" />
+<input type="hidden" id="hddTotelRevenue" value="@Model.TotelRevenue" />
+
+
+<script>
+    function SetPagingStyles() {
+        $(document).bind('ready ajaxComplete', function () {
+            function setHeight() {
+                var tfoot = document.querySelector('tfoot');
+                if (tfoot == null) {
+                    windowHeight = $(window).innerHeight() - 380;
+                    $('tbody').css('max-height', windowHeight);
+
+                }
+                else {
+                    windowHeight = $(window).innerHeight() - 420;
+                    $('tbody').css('max-height', windowHeight);
+                }
+            };
+
+            setHeight();
+
+            $(window).resize(function () {
+                setHeight();
+            });
+
+            $('table').on('scroll', function () {
+                $("#" + this.id + " > *").width($(this).width() + $(this).scrollLeft());
+            });
+            $("tfoot a").addClass('btn2 btn2-default');
+            $("tfoot td")
+                .contents()
+                .filter(function () {
+                    if (this.nodeType === 3 && this.length > 1) {
+                        return this.nodeType
+                    }
+                })
+                .wrap('<span class="btn2 btn2-primary" />');
+        });
+    }
+    $('table').on('scroll', function () {
+        $("#" + this.id + " > *").width($(this).width() + $(this).scrollLeft());
+    });
+</script>
+
+<div class="col-sm-12 tablnew" id="divpartdetails">
+    <div class="table gridresposnive workplaces">
+        @if (Model.ManagePaymentList != null && Model.ManagePaymentList.Any())
+        {
+            records = Model.TotalRecords;
+            WebGrid grid = new WebGrid(canPage: true,
+            rowsPerPage: Model.NoOfRecords,
+            canSort: true,
+            ajaxUpdateContainerId: "WebGrid");
+            grid.Bind(Model.ManagePaymentList, rowCount: records, autoSortAndPage: false);
+            grid.Pager(WebGridPagerModes.Numeric);
+            @grid.GetHtml(htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+            fillEmptyRows: false,
+            mode: WebGridPagerModes.All,
+            previousText: "<",
+            nextText: ">",
+            numericLinksCount: 5,
+            tableStyle: "table table-hover",
+            columns: new[]
+            {
+                    grid.Column("SrNo", "Sr No"),
+                    grid.Column("txn_id", "Transaction Number"),
+                    grid.Column("rzp_amount", "Booking Amount"),
+                    grid.Column("RemainingAmount", "Remaining Amount"),
+                    grid.Column("TotalAmount", "Total Amount"),
+                    grid.Column("payment_status", "Status"),
+                    grid.Column("payment_mode", "Mode"),
+                    grid.Column("payment_details", "Bank Name"),
+                    grid.Column("OrderNumber", "Order Number"),
+                    grid.Column("BookingDate", "Booking Date"),
+                    grid.Column("RazorPayDate", "RazorPay Date"),
+                    grid.Column("PurohitName", "Purohit Name"),
+                    grid.Column("CustName", "Customer Name"),
+                    grid.Column("CustPhone", "Customer Phone"),
+                    grid.Column("CustCity", "Cust.City"),
+                    grid.Column("CustState", "Cust.State"),
+                    grid.Column("CustDistrict", "Cust.District"),
+            });
+
+
+            <script type="text/javascript">
+            gbl_row_count = @records;
+            SetPagingStyles();
+            </script>
+        }
+        else
+        {
+            <table class="table table-hover" id="grid">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Sr. No.
+                        </th>
+                        <th scope="col">
+                            Transaction Number
+                        </th>
+                        <th scope="col">
+                            Booking  Amount
+                        </th>
+                        <th scope="col">
+                            Remaining Amount
+                        </th>
+                        <th scope="col">
+                            Total Amount
+                        </th>
+                        <th scope="col">
+                            Status
+                        </th>
+                        <th scope="col">
+                            Mode
+                        </th>
+                        <th scope="col">
+                            Bank Name
+                        </th>
+                        <th scope="col">
+                            Order Number
+                        </th>
+                        <th scope="col">
+                            Booking Date
+                        </th>
+                        <th scope="col">
+                            RazorPay Date
+                        </th>
+
+                        <th scope="col">
+                            Purohit Name
+                        </th>
+                        <th scope="col">
+                            Customer Name
+                        </th>
+                        <th scope="col">
+                            Customer Phone
+                        </th>
+                        <th scope="col">
+                            Cust.City
+                        </th>
+                        <th scope="col">
+                            Cust.State
+                        </th>
+                        <th scope="col">
+                            Cust.District
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="width: 100%; display: inline-table; text-align: left; position: relative;">
+                        <td style="font-weight: 600; font-size: 21px; color: #b50000; text-align: left;">
+                            No Records Found
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <script type="text/javascript">
+                gbl_row_count = 0;
+            </script>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).bind('ready ajaxComplete', function () {
+        function setHeight() {
+
+            var tfoot = document.querySelector('tfoot');
+            if (tfoot == null) {
+                windowHeight = $(window).innerHeight() - 320;
+                $('tbody').css('max-height', windowHeight);
+
+            }
+            else {
+                windowHeight = $(window).innerHeight() - 340;
+                $('tbody').css('max-height', windowHeight);
+            }
+        };
+
+        setHeight();
+
+        $(window).resize(function () {
+            setHeight();
+        });
+    });
+</script>
+
+<style>
+    #divpartdetails .table.gridresposnive th:last-child {
+        text-align: center;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(1), #divpartdetails .table.gridresposnive td:nth-child(1) {
+        min-width: 70px;
+        max-width: 70px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(2), #divpartdetails .table.gridresposnive td:nth-child(2) {
+        min-width: 180px;
+        max-width: 180px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(3), #divpartdetails .table.gridresposnive td:nth-child(3) {
+        min-width: 200px;
+        text-align: left;
+        max-width: 200px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(4), #divpartdetails .table.gridresposnive td:nth-child(4) {
+        min-width: 200px;
+        text-align: left;
+        max-width: 200px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(5), #divpartdetails .table.gridresposnive td:nth-child(5) {
+        min-width: 200px;
+        text-align: left;
+        max-width: 200px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(6), #divpartdetails .table.gridresposnive td:nth-child(6) {
+        min-width: 200px;
+        max-width: 200px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(7), #divpartdetails .table.gridresposnive td:nth-child(7) {
+        min-width: 240px;
+        text-align: left;
+        max-width: 240px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(8), #divpartdetails .table.gridresposnive td:nth-child(8) {
+        min-width: 230px;
+        text-align: left;
+        max-width: 230px;
+    }
+
+    #divpartdetails .table.gridresposnive th:nth-child(9), #divpartdetails .table.gridresposnive td:nth-child(9) {
+        min-width: 240px;
+        text-align: left;
+        max-width: 240px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(10), #divpartdetails .table.gridresposnive td:nth-child(10) {
+        min-width: 240px;
+        text-align: left;
+        max-width: 240px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(11), #divpartdetails .table.gridresposnive td:nth-child(11) {
+        min-width: 240px;
+        text-align: left;
+        max-width: 240px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(12), #divpartdetails .table.gridresposnive td:nth-child(12) {
+        min-width: 240px;
+        text-align: left;
+        max-width: 240px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(13), #divpartdetails .table.gridresposnive td:nth-child(13) {
+        min-width: 240px;
+        text-align: left;
+        max-width: 240px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(14), #divpartdetails .table.gridresposnive td:nth-child(14) {
+        min-width: 240px;
+        text-align: left;
+        max-width: 240px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(15), #divpartdetails .table.gridresposnive td:nth-child(15) {
+        min-width: 240px;
+        text-align: left;
+        max-width: 240px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(16), #divpartdetails .table.gridresposnive td:nth-child(16) {
+        min-width: 240px;
+        text-align: left;
+        max-width: 240px;
+    }
+    #divpartdetails .table.gridresposnive th:nth-child(17), #divpartdetails .table.gridresposnive td:nth-child(17) {
+        min-width: 240px;
+        text-align: left;
+        max-width: 240px;
+    }
+    #divpartdetails thead, #divpartdetails tbody {
+        display: block;
+    }
+
+    #divpartdetails thead {
+        background: #333;
+    }
+
+    #divpartdetails tbody {
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+
+    table#WebGrid {
+        overflow: auto;
+    }
+
+    #divpartdetails .table {
+        overflow: auto;
+    }
+</style>

@@ -1,0 +1,301 @@
+<app-header></app-header>
+<app-side-nav></app-side-nav>
+<div class="app-container">
+    <div class="app-main">
+        <div class="rcs_main">
+            <h2 class="rcs_main--title">Election Request </h2>
+            <button type="button" class="primary_btn" (click)="btnClick()">Request List</button>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-lg-8">
+                <form (ngSubmit)="SaveElectionRequest(requestForm)" name="requestForm" #requestForm="ngForm" novalidate
+                    role="form">
+                    <div class="rcs_card">
+                        <div class="rcs_card_header rcs_card_header--bg">
+                            <div class="rcs_card_header--title">
+                                Election Request Details
+                            </div>
+                        </div>
+                        <div class="rcs_card_body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="space-bottom">
+                                        <label class="simple_form--label">Last Election Held on</label>
+                                        <input type="date" class="rcs_input" placeholder="Enter Last Election"
+                                        [(ngModel)]="model.lastElectionHeldOn" name="lastElectionHeldOn">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="space-bottom">
+                                        <div class="rcs_fileselect">
+                                            <div class="jc-between">
+                                                <label class="simple_form--label">Election Proceeding Document</label>
+                                                <div class="rcs_fileselectname">
+                                                    <span class="fa fa-close rcs_fileselectname--delete">{{this.fileName}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="rcs_fileselect--file">
+                                                <input type="file" class="rcs_fileselect--fileinput"
+                                                accept="image/*,application/pdf" (change)="onFileSelected($event)"
+                                                #myFile_procedingDoc>
+                                                <span class="fa fa-download"></span>
+                                                Choose File to upload
+                                            </div>
+                                            <div class="rcs_fileselect--suported">
+                                                Files Supported: PDF, JPG, PNG
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="space-bottom">
+                                        <label class="simple_form--label">Election Held Time</label>
+                                        <select class="rcs_select" id="isWithinTimeLimit" name="isWithinTimeLimit" #teams (change)="onElectionLimitation(teams.value)" [(ngModel)]="model.isWithinTimeLimit">
+                                            <option value="null" disabled>Select</option>
+                                            <option value="true">Within Time Limit</option>
+                                            <option value="false">After Due Date</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <ng-container *ngIf="electionType=='true';">
+                                <div class="col-md-6">
+                                    <div class="space-bottom">
+                                        <label class="simple_form--label">Agenda Issue Date</label>
+                                        <div class="rcs_calender">
+                                            <input type="date" class="rcs_input"
+                                            [(ngModel)]="model.dateOfIssue" name="dateOfIssue">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" >
+                                    <div class="space-bottom">
+                                        <label class="simple_form--label">GB Meeting Holding Date</label>
+                                        <div class="rcs_calender">
+                                            <input type="date" class="rcs_input"
+                                            [(ngModel)]="model.dateOfHoldingGBMM" name="dateOfHoldingGBMM">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" >
+                                    <div class="space-bottom">
+                                        <div class="rcs_fileselect">
+                                            <div class="jc-between">
+                                                <label class="simple_form--label">GB Meeting Agenda
+                                                </label>
+                                                <div class="rcs_fileselectname">
+                                                    <!-- <h6>GB Meeting Agenda </h6> -->
+                                                    <span class="fa fa-close rcs_fileselectname--delete">{{this.fileNameAgenda}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="rcs_fileselect--file">
+                                                <input type="file" class="rcs_fileselect--fileinput"
+                                                accept="image/*,application/pdf" (change)="fileUpload($event)"
+                                                #myFile>
+                                                <span class="fa fa-download"></span>
+                                                Choose File to upload
+                                            </div>
+                                            <div class="rcs_fileselect--suported">
+                                                Files Supported: PDF, JPG, PNG
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" >
+                                    <div class="space-bottom">
+                                        <label class="simple_form--label">Election Date</label>
+                                        <div class="rcs_calender">
+                                            <input type="date" class="rcs_input">
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="electionType=='false';">
+                                <div class="col-md-6" >
+                                    <div class="space-bottom">
+                                        <label class="simple_form--label">Request for </label>
+                                        <select class="rcs_select" id="pO_BOA_Id" name="pO_BOA_Id" #request (change)="onRequestForChange(request.value)" [(ngModel)]="model.pO_BOA_Id">
+                                            <option value="null" disabled>Select</option>
+                                            <option value="111">Proceeding Officer (PO) </option>
+                                            <option value="222">Board of Administrator(BoA)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                               
+                              
+                            </ng-container>
+                            <ng-container *ngIf="electionType">
+                            <div class="col-md-6" >
+                                <div class="space-bottom">
+                                    <label class="simple_form--label">{{electionType=='true'?'Remarks of To Be Held Election (If Any)':'Remarks of After Due date (If Any)'}}</label>
+                                    <textarea class="rcs_textarea" style="--height: 100px"
+                                    id="remarks"
+                                    name="remarks"
+                                    [(ngModel)]="model.remarks"
+                                        placeholder="Remarks if any">
+
+                                </textarea>
+                                </div>
+                            </div>
+                        </ng-container>
+                            <div class="col-md-6">
+                                <div class="space-bottom">
+                                    <label class="simple_form--label">Remarks of Last Election </label>
+                                    <textarea class="rcs_textarea" style="--height: 100px"
+                                        placeholder="Remarks here if any"
+                                        [(ngModel)]="model.lastElectionRemarks"
+                                        name="lastElectionRemarks" id="lastElectionRemarks" >
+
+                                </textarea>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="text-end">
+                                <button type="btn" class="primary_btn"> Save</button>
+                                <!-- <button type="btn" class="cancle_btn">Cancle</button> -->
+                            </div>
+                        </div>
+                    </div>
+<!-- 
+                    <div class="tab_border height-100">
+
+                        <div class="tab_tab--body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="custom_form mb-3">
+                                        <label for="floatingInput" class="simple_form--label">Last Election Held
+                                            On:</label>
+                                        <input type="date" class="simple_form--input" placeholder="MM/DD/YYY"
+                                            [(ngModel)]="model.lastElectionHeldOn" name="lastElectionHeldOn">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="custom_form mb-3">
+                                        <label for="floatingInput" class="simple_form--label">Date of Agenda
+                                            Issue:</label>
+                                        <input type="date" class="simple_form--input" placeholder="MM/DD/YYY"
+                                            [(ngModel)]="model.dateOfIssue" name="dateOfIssue">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="custom_form mb-3">
+                                        <label for="floatingInput" class="simple_form--label">Date of Holding GB
+                                            Meeting:</label>
+                                        <input type="date" class="simple_form--input" placeholder="MM/DD/YYY"
+                                            [(ngModel)]="model.dateOfHoldingGBMM" name="dateOfHoldingGBMM">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="custom_form mb-3">
+                                        <label for="floatingInput" class="simple_form--label">Upload Agenda for holding
+                                            GBM:</label>
+                                        <div class="tb-container">
+
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label for="tb-file-upload">Upload Image</label>
+                                                    <input type="file" id="tb-file-upload"
+                                                        accept="image/*,application/pdf" (change)="fileUpload($event)"
+                                                        #myFile><br>
+                                                    <span class="text-danger small">File Size Should be max 500kb</span>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="tb-img-view" *ngIf="imageURL != null">
+                                                        <a href="{{imageURL}}" target="_blank">
+                                                            <img id="tb-image" height="40" [src]="imageURL"
+                                                                *ngIf="isImage">
+
+                                                            <img id="tb-image" height="40" src="/imgpath/pdf_img.png"
+                                                                *ngIf="!isImage">
+                                                        </a>
+                                                        <i class="fa fa-close text-danger"
+                                                            (click)="clearUploadFile()"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="description" class="simple_form--label">Remarks:</label>
+                                    <ckeditor required name="remarks" id="remarks" [(ngModel)]="model.remarks" #editor>
+                                    </ckeditor>
+
+
+                                </div>
+                            </div>
+                            <div class="text-end mt-3">
+                                <span class="float-start text-danger fw-bold" *ngIf="isErrMsg">{{errMsg}}</span>
+                                <span class="float-start text-success fw-bold"
+                                    *ngIf="isSuccessMsg">{{successMsg}}</span>
+                                <button class="btn next-btn btn-success">Save</button>
+                            </div>
+                        </div>
+
+
+                    </div> -->
+                </form>
+
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <div class="rcs_card">
+                    <div class="rcs_card_header rcs_card_header--bg">
+                        <div class="rcs_card_header--title">
+                            Society Details
+                        </div>
+                    </div>
+                    <div class="rcs_card_body">
+                        <div class="space-bottom">
+                            <label class="label_text">Name of Society:</label>
+                            <div class="label_info">
+                                {{SocietyDetailsModels?.societyName}}
+                            </div>
+                        </div>
+                        <div class="space-bottom">
+                            <label class="label_text">Society Registration No:</label>
+                            <div class="label_info">
+                                {{SocietyDetailsModels?.societyTransID}}
+                            </div>
+                        </div>
+                        <div class="space-bottom">
+                            <label class="label_text">Society Registration Date:</label>
+                            <div class="label_info">
+                                {{SocietyDetailsModels?.createDate |
+                                date:'dd/MM/yyyy'}}
+                            </div>
+                        </div>
+                        <div class="space-bottom">
+                            <label class="label_text">Name of President:</label>
+                            <div class="label_info">
+                                {{SocietyDetailsModels?.name1}}
+                            </div>
+                        </div>
+                        <div class="space-bottom">
+                            <label class="label_text">Mobile No. of President:</label>
+                            <div class="label_info">
+                                {{SocietyDetailsModels?.mobile1}}
+                            </div>
+                        </div>
+                        <div class="space-bottom">
+                            <label class="label_text">Email Id of President:</label>
+                            <div class="label_info">
+                                {{SocietyDetailsModels?.email1}}
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+     
+     
+
+    </div>
+</div>

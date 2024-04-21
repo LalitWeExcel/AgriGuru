@@ -1,0 +1,854 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SwarajTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adm_APIExceptionLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Exception" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="Source" Type="nvarchar(max)" />
+          <Property Name="Datetime" Type="datetime" Nullable="false" />
+          <Property Name="Module" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="adm_application_SMS_gateway_configuration">
+          <Key>
+            <PropertyRef Name="SMS_Gateway_ID" />
+          </Key>
+          <Property Name="SMS_Gateway_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Module" Type="varchar" MaxLength="100" />
+          <Property Name="SMS_Gateway_Provider_Name" Type="varchar" MaxLength="100" />
+          <Property Name="SMS_Gateway_API" Type="varchar" MaxLength="500" />
+          <Property Name="SMS_Contact_No" Type="varchar" MaxLength="100" />
+          <Property Name="SMS_Text" Type="varchar" MaxLength="100" />
+          <Property Name="Is_Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="adm_role">
+          <Key>
+            <PropertyRef Name="adm_role_id" />
+          </Key>
+          <Property Name="adm_role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="250" />
+          <Property Name="c_by" Type="int" />
+          <Property Name="c_time" Type="datetime" />
+          <Property Name="is_active" Type="varchar" MaxLength="1" />
+          <Property Name="u_by" Type="int" />
+          <Property Name="u_time" Type="datetime" />
+          <Property Name="badge" Type="varchar" MaxLength="20" />
+          <Property Name="sort_order" Type="int" />
+        </EntityType>
+        <EntityType Name="adm_user">
+          <Key>
+            <PropertyRef Name="adm_user_id" />
+          </Key>
+          <Property Name="adm_user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="nvarchar" MaxLength="300" />
+          <Property Name="c_by" Type="int" />
+          <Property Name="c_time" Type="datetime" />
+          <Property Name="is_active" Type="varchar" MaxLength="1" />
+          <Property Name="u_by" Type="int" />
+          <Property Name="u_time" Type="datetime" />
+          <Property Name="mob_number" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="user_type" Type="varchar" MaxLength="10" />
+          <Property Name="description" Type="varchar" MaxLength="256" />
+          <Property Name="birthday_email_sent" Type="int" />
+          <Property Name="token" Type="varchar(max)" />
+          <Property Name="referal_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="logo" Type="nvarchar" MaxLength="50" />
+          <Property Name="upcomeing_birthday_email_sent" Type="int" />
+        </EntityType>
+        <EntityType Name="adm_user_otp">
+          <Key>
+            <PropertyRef Name="adm_user_otp_id" />
+          </Key>
+          <Property Name="adm_user_otp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adm_user_id" Type="int" />
+          <Property Name="mob_number" Type="varchar" MaxLength="20" />
+          <Property Name="otp" Type="varchar" MaxLength="10" />
+          <Property Name="is_verified" Type="varchar" MaxLength="1" />
+          <Property Name="c_by" Type="int" />
+          <Property Name="c_time" Type="datetime" />
+          <Property Name="u_by" Type="int" />
+          <Property Name="u_time" Type="datetime" />
+          <Property Name="expiry_time" Type="datetime" />
+          <Property Name="encrypted_otp" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="adm_user_role">
+          <Key>
+            <PropertyRef Name="adm_user_role_id" />
+          </Key>
+          <Property Name="adm_user_role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adm_user_id" Type="int" />
+          <Property Name="adm_role_id" Type="int" />
+          <Property Name="c_by" Type="int" />
+          <Property Name="c_time" Type="datetime" />
+          <Property Name="is_active" Type="varchar" MaxLength="1" />
+          <Property Name="u_by" Type="int" />
+          <Property Name="u_time" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SwarajTest.dbo.mst_services' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mst_services">
+          <Key>
+            <PropertyRef Name="mst_services_id" />
+          </Key>
+          <Property Name="mst_services_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="description" Type="varchar(max)" />
+          <Property Name="form_value" Type="varchar" MaxLength="50" />
+          <Property Name="is_active" Type="varchar" MaxLength="1" />
+          <Property Name="c_by" Type="int" />
+          <Property Name="c_time" Type="datetime" />
+          <Property Name="u_by" Type="int" />
+          <Property Name="u_time" Type="datetime" />
+          <Property Name="hindi_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SwarajTest.dbo.mst_zodiacs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="mst_zodiacs">
+          <Key>
+            <PropertyRef Name="mst_zodiacs_id" />
+          </Key>
+          <Property Name="mst_zodiacs_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="date_range" Type="varchar" MaxLength="50" />
+          <Property Name="image_path" Type="varchar(max)" />
+          <Property Name="is_active" Type="varchar" MaxLength="1" />
+          <Property Name="c_by" Type="int" />
+          <Property Name="c_time" Type="datetime" />
+          <Property Name="u_by" Type="int" />
+          <Property Name="u_time" Type="datetime" />
+          <Property Name="sort_order" Type="int" />
+          <Property Name="description" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SwarajTest.dbo.product_color' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="product_color">
+          <Key>
+            <PropertyRef Name="product_color_id" />
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_color_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="50" />
+          <Property Name="product_id" Type="int" Nullable="false" />
+          <Property Name="is_active" Type="varchar" MaxLength="1" />
+          <Property Name="c_by" Type="int" />
+          <Property Name="c_time" Type="datetime" />
+          <Property Name="u_by" Type="int" />
+          <Property Name="u_time" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SwarajTest.dbo.product_price' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="product_price">
+          <Key>
+            <PropertyRef Name="product_price_id" />
+          </Key>
+          <Property Name="product_price_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_size_id" Type="int" />
+          <Property Name="mrp" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="final_amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="sequence" Type="int" />
+          <Property Name="is_active" Type="varchar" MaxLength="1" />
+          <Property Name="c_by" Type="int" />
+          <Property Name="c_time" Type="datetime" />
+          <Property Name="u_by" Type="int" />
+          <Property Name="u_time" Type="datetime" />
+        </EntityType>
+        <Function Name="usp_adm_user_get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="adm_user_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_adm_user_ins_otp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="int" Mode="In" />
+          <Parameter Name="OTP" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="MobileNumber" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="retval" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_api_manage_fav_vedios_list" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="languageId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_get_ads" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="latitude" Type="varchar" Mode="In" />
+          <Parameter Name="longitude" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_get_astrologers_purohits" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_getCustomersDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mobile" Type="varchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="SwarajTestModelStoreContainer">
+          <EntitySet Name="adm_APIExceptionLog" EntityType="Self.adm_APIExceptionLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="adm_application_SMS_gateway_configuration" EntityType="Self.adm_application_SMS_gateway_configuration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="adm_role" EntityType="Self.adm_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="adm_user" EntityType="Self.adm_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="adm_user_otp" EntityType="Self.adm_user_otp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="adm_user_role" EntityType="Self.adm_user_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mst_services" EntityType="Self.mst_services" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mst_services].[mst_services_id] AS [mst_services_id], 
+    [mst_services].[name] AS [name], 
+    [mst_services].[description] AS [description], 
+    [mst_services].[form_value] AS [form_value], 
+    [mst_services].[is_active] AS [is_active], 
+    [mst_services].[c_by] AS [c_by], 
+    [mst_services].[c_time] AS [c_time], 
+    [mst_services].[u_by] AS [u_by], 
+    [mst_services].[u_time] AS [u_time], 
+    [mst_services].[hindi_name] AS [hindi_name]
+    FROM [dbo].[mst_services] AS [mst_services]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="mst_zodiacs" EntityType="Self.mst_zodiacs" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [mst_zodiacs].[mst_zodiacs_id] AS [mst_zodiacs_id], 
+    [mst_zodiacs].[name] AS [name], 
+    [mst_zodiacs].[date_range] AS [date_range], 
+    [mst_zodiacs].[image_path] AS [image_path], 
+    [mst_zodiacs].[is_active] AS [is_active], 
+    [mst_zodiacs].[c_by] AS [c_by], 
+    [mst_zodiacs].[c_time] AS [c_time], 
+    [mst_zodiacs].[u_by] AS [u_by], 
+    [mst_zodiacs].[u_time] AS [u_time], 
+    [mst_zodiacs].[sort_order] AS [sort_order], 
+    [mst_zodiacs].[description] AS [description]
+    FROM [dbo].[mst_zodiacs] AS [mst_zodiacs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="product_color" EntityType="Self.product_color" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [product_color].[product_color_id] AS [product_color_id], 
+    [product_color].[color] AS [color], 
+    [product_color].[product_id] AS [product_id], 
+    [product_color].[is_active] AS [is_active], 
+    [product_color].[c_by] AS [c_by], 
+    [product_color].[c_time] AS [c_time], 
+    [product_color].[u_by] AS [u_by], 
+    [product_color].[u_time] AS [u_time]
+    FROM [dbo].[product_color] AS [product_color]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="product_price" EntityType="Self.product_price" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [product_price].[product_price_id] AS [product_price_id], 
+    [product_price].[product_size_id] AS [product_size_id], 
+    [product_price].[mrp] AS [mrp], 
+    [product_price].[discount] AS [discount], 
+    [product_price].[final_amount] AS [final_amount], 
+    [product_price].[sequence] AS [sequence], 
+    [product_price].[is_active] AS [is_active], 
+    [product_price].[c_by] AS [c_by], 
+    [product_price].[c_time] AS [c_time], 
+    [product_price].[u_by] AS [u_by], 
+    [product_price].[u_time] AS [u_time]
+    FROM [dbo].[product_price] AS [product_price]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SwarajTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="mst_services">
+          <Key>
+            <PropertyRef Name="mst_services_id" />
+          </Key>
+          <Property Name="mst_services_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="form_value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="c_by" Type="Int32" />
+          <Property Name="c_time" Type="DateTime" Precision="3" />
+          <Property Name="u_by" Type="Int32" />
+          <Property Name="u_time" Type="DateTime" Precision="3" />
+          <Property Name="hindi_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="SwarajTestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="mst_services" EntityType="Self.mst_services" />
+          <EntitySet Name="mst_zodiacs" EntityType="SwarajTestModel.mst_zodiacs" />
+          <EntitySet Name="adm_user_role" EntityType="SwarajTestModel.adm_user_role" />
+          <EntitySet Name="product_color" EntityType="SwarajTestModel.product_color" />
+          <EntitySet Name="product_price" EntityType="SwarajTestModel.product_price" />
+          <EntitySet Name="adm_APIExceptionLog" EntityType="SwarajTestModel.adm_APIExceptionLog" />
+          <FunctionImport Name="usp_getCustomersDetails" ReturnType="Collection(SwarajTestModel.usp_getCustomersDetails_Result)">
+          <Parameter Name="mobile" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="adm_application_SMS_gateway_configuration" EntityType="SwarajTestModel.adm_application_SMS_gateway_configuration" />
+          <FunctionImport Name="usp_adm_user_ins_otp">
+            <Parameter Name="userId" Mode="In" Type="Int32" />
+            <Parameter Name="OTP" Mode="In" Type="String" />
+            <Parameter Name="MobileNumber" Mode="In" Type="String" />
+            <Parameter Name="retval" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_get_astrologers_purohits" ReturnType="Collection(SwarajTestModel.usp_get_astrologers_purohits_Result)" />
+          <FunctionImport Name="usp_get_ads" ReturnType="Collection(SwarajTestModel.usp_get_ads_Result)">
+            <Parameter Name="latitude" Mode="In" Type="String" />
+            <Parameter Name="longitude" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_adm_user_get" ReturnType="Collection(SwarajTestModel.usp_adm_user_get_Result)">
+          <Parameter Name="adm_user_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="adm_user_otp" EntityType="SwarajTestModel.adm_user_otp" />
+          <EntitySet Name="adm_role" EntityType="SwarajTestModel.adm_role" />
+          <EntitySet Name="adm_user" EntityType="SwarajTestModel.adm_user" />
+          <FunctionImport Name="usp_api_manage_fav_vedios_list" ReturnType="Collection(SwarajTestModel.usp_api_manage_fav_vedios_list_Result)">
+            <Parameter Name="languageId" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="mst_zodiacs">
+          <Key>
+            <PropertyRef Name="mst_zodiacs_id" />
+          </Key>
+          <Property Name="mst_zodiacs_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date_range" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="c_by" Type="Int32" />
+          <Property Name="c_time" Type="DateTime" Precision="3" />
+          <Property Name="u_by" Type="Int32" />
+          <Property Name="u_time" Type="DateTime" Precision="3" />
+          <Property Name="sort_order" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="adm_user_role">
+          <Key>
+            <PropertyRef Name="adm_user_role_id" />
+          </Key>
+          <Property Name="adm_user_role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adm_user_id" Type="Int32" />
+          <Property Name="adm_role_id" Type="Int32" />
+          <Property Name="c_by" Type="Int32" />
+          <Property Name="c_time" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="u_by" Type="Int32" />
+          <Property Name="u_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="product_color">
+          <Key>
+            <PropertyRef Name="product_color_id" />
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_color_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="product_id" Type="Int32" Nullable="false" />
+          <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="c_by" Type="Int32" />
+          <Property Name="c_time" Type="DateTime" Precision="3" />
+          <Property Name="u_by" Type="Int32" />
+          <Property Name="u_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="product_price">
+          <Key>
+            <PropertyRef Name="product_price_id" />
+          </Key>
+          <Property Name="product_price_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_size_id" Type="Int32" />
+          <Property Name="mrp" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="final_amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="sequence" Type="Int32" />
+          <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="c_by" Type="Int32" />
+          <Property Name="c_time" Type="DateTime" Precision="3" />
+          <Property Name="u_by" Type="Int32" />
+          <Property Name="u_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="adm_APIExceptionLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Exception" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Datetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Module" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="usp_getCustomersDetails_Result">
+          <Property Type="Int32" Name="adm_user_id" Nullable="false" />
+          <Property Type="String" Name="username" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="password" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="c_by" Nullable="true" />
+          <Property Type="DateTime" Name="c_time" Nullable="true" Precision="23" />
+          <Property Type="String" Name="is_active" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="u_by" Nullable="true" />
+          <Property Type="DateTime" Name="u_time" Nullable="true" Precision="23" />
+          <Property Type="String" Name="mob_number" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="user_type" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="256" />
+          <Property Type="Int32" Name="associated_id" Nullable="true" />
+          <Property Type="Int32" Name="user_details_id" Nullable="true" />
+          <Property Type="String" Name="first_name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="last_name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="whatsapp_no" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="district" Nullable="true" />
+          <Property Type="Int32" Name="state" Nullable="true" />
+          <Property Type="String" Name="export_in_pooja" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="ready_for_travel" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="year_of_exp" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="marital_status" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="aadhar_number_name" Nullable="true" />
+          <Property Type="Int32" Name="qualification" Nullable="true" />
+          <Property Type="Int32" Name="health_status" Nullable="true" />
+          <Property Type="Int32" Name="c_by1" Nullable="true" />
+          <Property Type="DateTime" Name="c_time1" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="u_by1" Nullable="true" />
+          <Property Type="DateTime" Name="u_time1" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="user_id" Nullable="true" />
+          <Property Type="Int32" Name="adm_user_role_id" Nullable="false" />
+          <Property Type="Int32" Name="adm_user_id1" Nullable="true" />
+          <Property Type="Int32" Name="adm_role_id" Nullable="true" />
+          <Property Type="Int32" Name="c_by2" Nullable="true" />
+          <Property Type="DateTime" Name="c_time2" Nullable="true" Precision="23" />
+          <Property Type="String" Name="is_active1" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="u_by2" Nullable="true" />
+          <Property Type="DateTime" Name="u_time2" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="adm_role_id1" Nullable="false" />
+          <Property Type="String" Name="code" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="c_by3" Nullable="true" />
+          <Property Type="DateTime" Name="c_time3" Nullable="true" Precision="23" />
+          <Property Type="String" Name="is_active2" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="u_by3" Nullable="true" />
+          <Property Type="DateTime" Name="u_time3" Nullable="true" Precision="23" />
+        </ComplexType>
+        <EntityType Name="adm_application_SMS_gateway_configuration">
+          <Key>
+            <PropertyRef Name="SMS_Gateway_ID" />
+          </Key>
+          <Property Name="SMS_Gateway_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Module" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SMS_Gateway_Provider_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SMS_Gateway_API" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SMS_Contact_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SMS_Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+        </EntityType>
+        <ComplexType Name="usp_get_astrologers_purohits_Result">
+          <Property Type="Int32" Name="adm_user_id" Nullable="false" />
+          <Property Type="String" Name="username" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="mob_number" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="user_type" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="first_name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="last_name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="whatsapp_no" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="district" Nullable="true" />
+          <Property Type="Int32" Name="state" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_get_ads_Result">
+          <Property Type="Int32" Name="main_product_id" Nullable="true" />
+          <Property Type="String" Name="pooja_name" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="pooja_code" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="discount" Nullable="true" />
+          <Property Type="Decimal" Name="mrp" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="latitude" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="longitude" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_adm_user_get_Result">
+          <Property Type="Int32" Name="adm_user_id" Nullable="false" />
+          <Property Type="String" Name="username" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="mob_number" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="user_type" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="first_name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="last_name" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="whatsapp_no" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="district" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="state" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="latitude" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="longitude" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <EntityType Name="adm_user_otp">
+          <Key>
+            <PropertyRef Name="adm_user_otp_id" />
+          </Key>
+          <Property Name="adm_user_otp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adm_user_id" Type="Int32" />
+          <Property Name="mob_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="otp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="is_verified" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="c_by" Type="Int32" />
+          <Property Name="c_time" Type="DateTime" Precision="3" />
+          <Property Name="u_by" Type="Int32" />
+          <Property Name="u_time" Type="DateTime" Precision="3" />
+          <Property Name="expiry_time" Type="DateTime" Precision="3" />
+          <Property Name="encrypted_otp" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="adm_role">
+          <Key>
+            <PropertyRef Name="adm_role_id" />
+          </Key>
+          <Property Name="adm_role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="c_by" Type="Int32" />
+          <Property Name="c_time" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="u_by" Type="Int32" />
+          <Property Name="u_time" Type="DateTime" Precision="3" />
+          <Property Name="badge" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sort_order" Type="Int32" />
+        </EntityType>
+        <EntityType Name="adm_user">
+          <Key>
+            <PropertyRef Name="adm_user_id" />
+          </Key>
+          <Property Name="adm_user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="c_by" Type="Int32" />
+          <Property Name="c_time" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="u_by" Type="Int32" />
+          <Property Name="u_time" Type="DateTime" Precision="3" />
+          <Property Name="mob_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="user_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="birthday_email_sent" Type="Int32" />
+          <Property Name="token" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="referal_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="logo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="upcomeing_birthday_email_sent" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="usp_api_manage_fav_vedios_list_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="VideoName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IsActive" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="LanguageId" Nullable="false" />
+          <Property Type="String" Name="AdvertisingType" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="LanguageName" Nullable="false" MaxLength="7" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SwarajTestModelStoreContainer" CdmEntityContainer="SwarajTestEntities">
+          <EntitySetMapping Name="mst_services">
+            <EntityTypeMapping TypeName="SwarajTestModel.mst_services">
+              <MappingFragment StoreEntitySet="mst_services">
+                <ScalarProperty Name="hindi_name" ColumnName="hindi_name" />
+                <ScalarProperty Name="mst_services_id" ColumnName="mst_services_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="form_value" ColumnName="form_value" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="c_by" ColumnName="c_by" />
+                <ScalarProperty Name="c_time" ColumnName="c_time" />
+                <ScalarProperty Name="u_by" ColumnName="u_by" />
+                <ScalarProperty Name="u_time" ColumnName="u_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mst_zodiacs">
+            <EntityTypeMapping TypeName="SwarajTestModel.mst_zodiacs">
+              <MappingFragment StoreEntitySet="mst_zodiacs">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+                <ScalarProperty Name="u_time" ColumnName="u_time" />
+                <ScalarProperty Name="u_by" ColumnName="u_by" />
+                <ScalarProperty Name="c_time" ColumnName="c_time" />
+                <ScalarProperty Name="c_by" ColumnName="c_by" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="image_path" ColumnName="image_path" />
+                <ScalarProperty Name="date_range" ColumnName="date_range" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="mst_zodiacs_id" ColumnName="mst_zodiacs_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adm_user_role">
+            <EntityTypeMapping TypeName="SwarajTestModel.adm_user_role">
+              <MappingFragment StoreEntitySet="adm_user_role">
+                <ScalarProperty Name="u_time" ColumnName="u_time" />
+                <ScalarProperty Name="u_by" ColumnName="u_by" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="c_time" ColumnName="c_time" />
+                <ScalarProperty Name="c_by" ColumnName="c_by" />
+                <ScalarProperty Name="adm_role_id" ColumnName="adm_role_id" />
+                <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+                <ScalarProperty Name="adm_user_role_id" ColumnName="adm_user_role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_color">
+            <EntityTypeMapping TypeName="SwarajTestModel.product_color">
+              <MappingFragment StoreEntitySet="product_color">
+                <ScalarProperty Name="u_time" ColumnName="u_time" />
+                <ScalarProperty Name="u_by" ColumnName="u_by" />
+                <ScalarProperty Name="c_time" ColumnName="c_time" />
+                <ScalarProperty Name="c_by" ColumnName="c_by" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="product_color_id" ColumnName="product_color_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="product_price">
+            <EntityTypeMapping TypeName="SwarajTestModel.product_price">
+              <MappingFragment StoreEntitySet="product_price">
+                <ScalarProperty Name="u_time" ColumnName="u_time" />
+                <ScalarProperty Name="u_by" ColumnName="u_by" />
+                <ScalarProperty Name="c_time" ColumnName="c_time" />
+                <ScalarProperty Name="c_by" ColumnName="c_by" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="sequence" ColumnName="sequence" />
+                <ScalarProperty Name="final_amount" ColumnName="final_amount" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="mrp" ColumnName="mrp" />
+                <ScalarProperty Name="product_size_id" ColumnName="product_size_id" />
+                <ScalarProperty Name="product_price_id" ColumnName="product_price_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adm_APIExceptionLog">
+            <EntityTypeMapping TypeName="SwarajTestModel.adm_APIExceptionLog">
+              <MappingFragment StoreEntitySet="adm_APIExceptionLog">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_getCustomersDetails" FunctionName="SwarajTestModel.Store.usp_getCustomersDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SwarajTestModel.usp_getCustomersDetails_Result">
+                <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="c_by" ColumnName="c_by" />
+                <ScalarProperty Name="c_time" ColumnName="c_time" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="u_by" ColumnName="u_by" />
+                <ScalarProperty Name="u_time" ColumnName="u_time" />
+                <ScalarProperty Name="mob_number" ColumnName="mob_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="associated_id" ColumnName="associated_id" />
+                <ScalarProperty Name="user_details_id" ColumnName="user_details_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="whatsapp_no" ColumnName="whatsapp_no" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="export_in_pooja" ColumnName="export_in_pooja" />
+                <ScalarProperty Name="ready_for_travel" ColumnName="ready_for_travel" />
+                <ScalarProperty Name="year_of_exp" ColumnName="year_of_exp" />
+                <ScalarProperty Name="marital_status" ColumnName="marital_status" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="aadhar_number_name" ColumnName="aadhar_number_name" />
+                <ScalarProperty Name="qualification" ColumnName="qualification" />
+                <ScalarProperty Name="health_status" ColumnName="health_status" />
+                <ScalarProperty Name="c_by1" ColumnName="c_by1" />
+                <ScalarProperty Name="c_time1" ColumnName="c_time1" />
+                <ScalarProperty Name="u_by1" ColumnName="u_by1" />
+                <ScalarProperty Name="u_time1" ColumnName="u_time1" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="adm_user_role_id" ColumnName="adm_user_role_id" />
+                <ScalarProperty Name="adm_user_id1" ColumnName="adm_user_id1" />
+                <ScalarProperty Name="adm_role_id" ColumnName="adm_role_id" />
+                <ScalarProperty Name="c_by2" ColumnName="c_by2" />
+                <ScalarProperty Name="c_time2" ColumnName="c_time2" />
+                <ScalarProperty Name="is_active1" ColumnName="is_active1" />
+                <ScalarProperty Name="u_by2" ColumnName="u_by2" />
+                <ScalarProperty Name="u_time2" ColumnName="u_time2" />
+                <ScalarProperty Name="adm_role_id1" ColumnName="adm_role_id1" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="c_by3" ColumnName="c_by3" />
+                <ScalarProperty Name="c_time3" ColumnName="c_time3" />
+                <ScalarProperty Name="is_active2" ColumnName="is_active2" />
+                <ScalarProperty Name="u_by3" ColumnName="u_by3" />
+                <ScalarProperty Name="u_time3" ColumnName="u_time3" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="adm_application_SMS_gateway_configuration">
+            <EntityTypeMapping TypeName="SwarajTestModel.adm_application_SMS_gateway_configuration">
+              <MappingFragment StoreEntitySet="adm_application_SMS_gateway_configuration">
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="SMS_Text" ColumnName="SMS_Text" />
+                <ScalarProperty Name="SMS_Contact_No" ColumnName="SMS_Contact_No" />
+                <ScalarProperty Name="SMS_Gateway_API" ColumnName="SMS_Gateway_API" />
+                <ScalarProperty Name="SMS_Gateway_Provider_Name" ColumnName="SMS_Gateway_Provider_Name" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="SMS_Gateway_ID" ColumnName="SMS_Gateway_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_adm_user_ins_otp" FunctionName="SwarajTestModel.Store.usp_adm_user_ins_otp" />
+          <FunctionImportMapping FunctionImportName="usp_get_astrologers_purohits" FunctionName="SwarajTestModel.Store.usp_get_astrologers_purohits">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SwarajTestModel.usp_get_astrologers_purohits_Result">
+                <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="mob_number" ColumnName="mob_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="whatsapp_no" ColumnName="whatsapp_no" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_get_ads" FunctionName="SwarajTestModel.Store.usp_get_ads">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SwarajTestModel.usp_get_ads_Result">
+                <ScalarProperty Name="main_product_id" ColumnName="main_product_id" />
+                <ScalarProperty Name="pooja_name" ColumnName="pooja_name" />
+                <ScalarProperty Name="pooja_code" ColumnName="pooja_code" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="mrp" ColumnName="mrp" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_adm_user_get" FunctionName="SwarajTestModel.Store.usp_adm_user_get">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SwarajTestModel.usp_adm_user_get_Result">
+                <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="mob_number" ColumnName="mob_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="whatsapp_no" ColumnName="whatsapp_no" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="adm_user_otp">
+            <EntityTypeMapping TypeName="SwarajTestModel.adm_user_otp">
+              <MappingFragment StoreEntitySet="adm_user_otp">
+                <ScalarProperty Name="encrypted_otp" ColumnName="encrypted_otp" />
+                <ScalarProperty Name="expiry_time" ColumnName="expiry_time" />
+                <ScalarProperty Name="u_time" ColumnName="u_time" />
+                <ScalarProperty Name="u_by" ColumnName="u_by" />
+                <ScalarProperty Name="c_time" ColumnName="c_time" />
+                <ScalarProperty Name="c_by" ColumnName="c_by" />
+                <ScalarProperty Name="is_verified" ColumnName="is_verified" />
+                <ScalarProperty Name="otp" ColumnName="otp" />
+                <ScalarProperty Name="mob_number" ColumnName="mob_number" />
+                <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+                <ScalarProperty Name="adm_user_otp_id" ColumnName="adm_user_otp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adm_role">
+            <EntityTypeMapping TypeName="SwarajTestModel.adm_role">
+              <MappingFragment StoreEntitySet="adm_role">
+                <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+                <ScalarProperty Name="badge" ColumnName="badge" />
+                <ScalarProperty Name="u_time" ColumnName="u_time" />
+                <ScalarProperty Name="u_by" ColumnName="u_by" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="c_time" ColumnName="c_time" />
+                <ScalarProperty Name="c_by" ColumnName="c_by" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="adm_role_id" ColumnName="adm_role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="adm_user">
+            <EntityTypeMapping TypeName="SwarajTestModel.adm_user">
+              <MappingFragment StoreEntitySet="adm_user">
+                <ScalarProperty Name="upcomeing_birthday_email_sent" ColumnName="upcomeing_birthday_email_sent" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="referal_code" ColumnName="referal_code" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="birthday_email_sent" ColumnName="birthday_email_sent" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mob_number" ColumnName="mob_number" />
+                <ScalarProperty Name="u_time" ColumnName="u_time" />
+                <ScalarProperty Name="u_by" ColumnName="u_by" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="c_time" ColumnName="c_time" />
+                <ScalarProperty Name="c_by" ColumnName="c_by" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="adm_user_id" ColumnName="adm_user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_api_manage_fav_vedios_list" FunctionName="SwarajTestModel.Store.usp_api_manage_fav_vedios_list">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SwarajTestModel.usp_api_manage_fav_vedios_list_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="VideoName" ColumnName="VideoName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="AdvertisingType" ColumnName="AdvertisingType" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,403 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+  <p style="font-size: 20px; color: white;">Please Wait...</p>
+</ngx-spinner>
+<div *ngIf="IsAuthorised">
+  <app-header></app-header>
+  <app-side-nav></app-side-nav>
+  <div class="app-container">
+    <div class="app-main">
+      <div class="rcs_main">
+        <h4 class="rcs_main--title"> Election-Request Dashboard </h4>        
+     </div>
+     <div class="rcs_card"> 
+      <div class="rcs_card_body">
+        <div class="rc_table_header">  
+            <div class="rc_table_header--displaytlist">    
+            <span class="">Listing   
+               <select (change)="PageSizeChange($event)" class="rc_table_header--displaytlistdropdown">
+              <option *ngFor="let size of pageSizes" [ngValue]="size">
+                {{ size }}
+              </option>
+            </select> per Page</span>
+          </div>             
+        </div>
+        <div class="table-responsive">
+          <table class="rc_table">
+            <thead class="rc_table_head">
+              <tr>
+                <th style="width: 4%" scope="col">S.No.</th>
+                <th  scope="col">Society Name</th>
+                <th  scope="col">Election held time</th>
+                <th  scope="col">Requested date</th>
+                <th  scope="col">Election Proceeding Document</th>
+                <th  scope="col">Agenda</th>
+                <th  scope="col">Last Election held On</th>
+                <th  scope="col">Last Election Remarks:</th>
+                <!--<th style="width: 7%" scope="col">Issue Date</th>-->
+                <!--<th style="width: 7%" scope="col">GBM Meeting Date</th>-->
+                <th  scope="col">Submitted By</th>
+                <th  scope="col">Assigned Officer</th>
+                <th  scope="col">Current Status</th>
+                <th  scope="col">Actions</th>
+              </tr>
+            </thead>
+
+            <tbody class="rc_table_body">
+              <ng-container *ngIf="ElectionRequestList.length>0;else empty">
+                <tr scope="row" *ngFor="let data of ElectionRequestList | paginate
+            : {
+                itemsPerPage: pageSize,
+                currentPage: pagenumber,
+                totalItems: recordsCount
+              };index as i">
+                  <td scope="col">{{ i + 1 }}.</td>
+                  <td scope="col">{{ data.societyName|titlecase }}</td>
+                  <td><span [ngClass]="data.isWithinTimeLimit?'active_badge':'pending_badge'">{{data.isWithinTimeLimit?'Within time':'After Due Date'}}</span></td>
+                  <td scope="col">{{ data.createdDate|date:'dd/MM/yyyy' }}</td>
+                  <td scope="col">
+                    <a class="details_badge nowwrap"  *ngIf="data.electionProceedingDoc!=''"
+                       target="_blank" href="{{baseURl+data.electionProceedingDoc}}">                      
+                      View DOC
+                    </a>
+                  </td>
+                  <td scope="col">
+                    <a class="details_badge nowwrap" *ngIf="data.agendaHoldingGBMDoc!='No ducument Available'"
+                       target="_blank" href="{{baseURl+data.agendaHoldingGBMDoc}}">
+                      
+                      View DOC
+                    </a>
+                    <p *ngIf="data.agendaHoldingGBMDoc=='No ducument Available'" class="nodocument_text">No ducument Available</p>
+                  </td>
+                  <td scope="col">{{ data.lastElectionHeldOn|date:'dd/MM/yyyy' }}</td>
+                  <td scope="col">{{data.lastElectionRemarks}}</td>
+                  <td scope="col">{{ data.submitedBy|titlecase }}</td>
+                  <td scope="col" class="align-middle">
+                    <span  [ngClass]=" data.inspectorName == '' ? '' : 'text_primary nowwrap' ">  {{ data.inspectorName|titlecase }}</span>
+                  </td>
+                  <td scope="col"
+                      class="align-middle">
+                    <span style="font-size: small;text-wrap: pretty;" [ngClass]="data.inspectorName == ''
+                 ? 'text-danger nowwrap'
+                 : 'text_primary nowwrap'
+             "> {{data.inspectorName!=''?'Election Request Approved by ARCS':'Election request has been submited to ARCS'}}</span>
+
+                  </td>
+                  <td scope="col">
+                    <button class="active_badge nowwrap" (click)="OpenArcsRequest(i)"
+                            title="Select User and Approve"
+                            *ngIf="data.inspectorName==''">
+                      Assign Officer
+                      
+                    </button>
+                    <button class="details_badge nowwrap" *ngIf="data.inspectorName!=''" (click)="openRemarskModel(data.electionRequestId,i)">
+                      View Status
+                    </button>
+                    <!-- <a
+                      (click)="OpenArcsResponse(i)"
+                      title="Select User and Approve"
+                      *ngIf="data.inspectorName!=''"
+                    >
+                     View
+                     <i class="fa fa-solid fa fa-eye" aria-hidden="true"></i>
+                    </a> -->
+                  </td>
+                </tr>
+              </ng-container>
+              <ng-template #empty>
+                <tr>
+                  <td colspan="14" #NR class="bg-danger text-white ">
+                    <h6>No Recound Found</h6>
+                  </td>
+                </tr>
+              </ng-template>
+            </tbody>
+          </table>
+        </div>
+        <div class="rc_table_footer"> 
+           
+             
+          <span class="rc_table_list"> 1 to 10 Entries </span>           
+          <div class="rc_table_pagination">
+            <pagination-controls previousLabel="Previous" nextLabel="Next" [responsive]="true" (pageChange)="PageChanged($event)" (pageBoundsCorrection)="PageChanged($event)"> </pagination-controls>
+            </div>
+          </div>
+      </div>
+     </div>   
+    </div>
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal modal_bg"
+       id="statusModal"
+       data-backdrop="static"
+       data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="rcs_modal_header">
+          <h4 class="rcs_modal_header--title">Assign Officer</h4>
+          <button type="button" class="btn-close" (click)="closeStatusModel()"></button>
+        </div>
+       
+
+        <!-- Modal body -->
+        <div class="rcs_modal_body">         
+            <form #arcsApprovalForm="ngForm" novalidate>
+              <div class="row">
+                <div class="col-md-3 col-lg-4">
+                  <div class="space-bottom">
+                    <label class="simple_form--label">Roles</label>
+                    <select #role="ngModel"
+                            name="role"
+                            id="role"
+                            [ngModel]="selectedRole"
+                            (change)="onRoleChange(role)"
+                            required
+                            class="rcs_select">
+                      <option value="" selected>Select Role</option>
+                      <option *ngFor="let role of Roles"
+                              [ngValue]="role.roleId"
+                              class="ng-star-inserted">
+                        {{ role.roleName }}
+                      </option>
+                    </select>
+                    <span *ngIf=" role.invalid && (role?.touched && role?.dirty)" class="rcs_error">
+                      <span  *ngIf="role.errors?.['required']">
+                        Role is required
+                      </span>
+                    </span>
+                  </div>                  
+                
+                </div>
+                <div class="col-md-3 col-lg-4">
+                  <div class="space-bottom">
+                    <label class="simple_form--label">Assign Users</label>
+                    <select #user="ngModel"
+                            name="user"
+                            class="rcs_select"
+                            [ngModel]="selectedUser"
+                            (change)="AssignUser(user)"
+                            required>
+                      <option value="" selected>Select Officer</option>
+                      <option *ngFor="let user of Users"
+                              [ngValue]="user.userId"
+                              class="ng-star-inserted">
+                        {{ user.userName }}
+                      </option>
+                    </select>
+                    <span *ngIf=" user.invalid && (user?.touched && user?.dirty)">
+                      <span class="rcs_error" *ngIf="user.errors?.['required']">
+                        User is required
+                      </span>
+                    </span>
+                  </div>                
+                </div>
+                <div class="col-md-3 col-lg-4">
+                  <div class="space-bottom">
+                    <label class="simple_form--label">Nominate AS</label>
+                    <select #additionalrole="ngModel"
+                            name="additionalrole"
+                            id="additionalrole"
+                            [ngModel]="AdditionalRoleId"
+                            (change)="onAdditionalRoleChange(additionalrole)"
+                            class="rcs_select">
+                      <!-- <option value="" selected>Nominate AS</option> -->
+                      <option *ngFor="let adrole of Additional_Role"
+                              [ngValue]="adrole.roleId"
+                              class="ng-star-inserted">
+                        {{ adrole.roleName }}
+                      </option>
+                    </select>
+                  </div>                  
+                  
+                </div>
+                <div class="col-md-12">
+                  <div class="space-bottom">
+                    <label class="simple_form--label">Remarks</label>
+                    <textarea [(ngModel)]="ARCSRemarks" id="arcsRemarks" name="arcsRemarks" rows="4" class="rcs_textarea"> </textarea>
+                  </div>
+                  
+                  
+                </div>
+              </div>
+              
+                
+                  
+               
+              
+              <!-- Modal footer -->
+              <div class="rcs_modal_footer">
+                <button type="submit"
+                        class="primary_btn"
+                        (click)="ApproveElectionOrder(arcsApprovalForm)">
+                  Submit
+                </button>
+                <button type="button"
+                        class="cancel_btn"
+                        (click)="closeStatusModel()">
+                  Close
+                </button>
+                <button type="button" (click)="SendBackElectionToPresident()" class="reset_btn">Send Back</button>
+
+              </div>
+            </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Approval Details Modal -->
+  <div class="modal modal_bg"
+       id="approvalDetailsModel"
+       data-backdrop="static"
+       data-keyboard="false">
+    <div class="modal-dialog modal-xl" *ngIf="index!=undefined && ARCSRemarks_fetched">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header" style="background-color: #cbe8e0;">
+          <h4 class="modal-title">Approval Details</h4>
+          <button type="button"
+                  class="btn-close"
+                  (click)="closeApprovalDetailsModel()"></button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+        
+            <div class="row" style="margin: 10px;">
+              <div class="col-md-3 col-lg-4">
+                <label class="simple_form--label">Approval Date :</label>&nbsp;
+                <label>{{ARCSRemarks_fetched.createdDate|date:'dd/MM/yyyy'}}</label>
+              </div>
+              <div class="col-md-1 col-lg-2" style="margin-right: -100px;">
+                <label class="simple_form--label">Remarks :</label>&nbsp;
+
+              </div>
+              <div class="col-md-5 col-lg-6" style="margin-top: -20px;">
+                <label style="width: 100%;">
+                  <span class="card card-body" [innerHTML]="ARCSRemarks_fetched.msg"></span>
+                </label>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button"
+                      class="btn btn-danger"
+                      (click)="closeApprovalDetailsModel()">
+                Close
+              </button>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+   <!--MAIN REPORT MODEL-->
+  <div class="modal model-bg" id="remarksModal" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="rcs_modal_header">
+          <h4 class="rcs_modal_header--title">Election Report History</h4>
+          <button type="button" class="btn-close" (click)="closeRemarksModel()"></button>
+        </div>   
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="modal-list-title">Election Current Status</h4>
+              <ul class="modal-list">
+                <li><span>
+                      <ng-container *ngIf="lastData?.remarksFor === 1 || lastData?.remarksFor === 2 || lastData?.remarksFor === 3|| lastData?.remarksFor === 4 || lastData?.remarksFor === 5 || lastData?.remarksFor === 6">
+                        <label [ngClass]="status1==0 ? 'pending_badge' : 'active_badge' ">{{ statusText }}</label>
+                      </ng-container>
+                   </span>
+                </li>
+              </ul>
+            </div>
+       
+            <div class="col-md-6">            
+              <div class="all_info">
+                <h4 class="all_info--title">Society Details</h4>
+                <ul class="default-border all_info_list">            
+                  <li>
+                    <span class="all_info--label">SocietyName</span>
+                    <span class="all_info--desb">{{electionRequestRow?.societyName}}</span>
+                  </li>
+                  <li>
+                    <span class="all_info--label">President Name</span>
+                    <span class="all_info--desb">{{electionRequestRow?.submitedBy}}</span>
+                  </li>
+             
+                </ul>
+              </div>               
+            </div>
+            <div class="col-md-6">
+              <div class="all_info">
+                <h4 class="all_info--title">Election Request Details</h4>
+                <ul class="default-border all_info_list">            
+                  <li>
+                    <span class="all_info--label">Election Request Date</span>
+                    <span class="all_info--desb">{{ electionRequestRow?.createdDate|date:'dd/MM/yyyy hh:mm a' }}</span>
+                  </li>
+                  <li>
+                    <span class="all_info--label">Agenda Issue Date</span>
+                    <span class="all_info--desb">{{ electionRequestRow && electionRequestRow.isWithinTimeLimit ? (electionRequestRow.dateOfIssue | date:'dd/MM/yyyy') : 'NA' }}</span>
+                  </li>
+                  <li>
+                    <span class="all_info--label">GBM Meeting Date</span>
+                    <span class="all_info--desb">{{ electionRequestRow && electionRequestRow.isWithinTimeLimit ?  (electionRequestRow?.dateOfHoldingGBMM|date:'dd/MM/yyyy'): 'NA' }}</span>
+                  </li>
+                </ul>
+              </div>             
+          
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="rc_table">
+              <thead class="rc_table_head">
+                <tr>
+                  <th  scope="col">Sr.No</th>
+                  <!--<th style="width:160px;" scope="col">Audit Status</th>-->
+                  <th  scope="col">Election Initiated by</th>
+                  <th  scope="col" >Election Assigned To</th>
+                  <th  scope="col">Action Status</th>
+                  <th  scope="col" >Remarks By Designation</th>
+                  <!--<th  scope="col">Status</th>-->
+                  <!--<th style="width: 50px;" scope="col">Attachment</th>-->
+                </tr>
+              </thead>
+              <tbody class="rc_table_body">
+                <tr *ngFor="let data of remarksList ; let i = index">
+                  <td scope="row" style="width:5%"> {{ i + 1 }}</td>
+                  <!--<td scope="row" >{{data.auditStatusName}}</td>-->
+                  <td scope="row" style="width:20%">{{data.remarksByName}} ( {{data.byRole}} ) </td>
+                  <td scope="row" style="width:20%">{{data.remarksToName}} ( {{data.toRole}} )</td>
+                  <td scope="row" style="width:35%">
+                    {{ 
+                   data.remarksFor === 1 ? 'Election request has been submitted to the ARCS office' :
+                   data.remarksFor === 2 ? 'The ARCS office assigns the Election file to the Inspector' :
+                   data.remarksFor === 3 ? 'Inspector conducted the election and sent a report to the ARCS office.' :
+                   data.remarksFor === 4 ? 'ARCS assigns the Election file to the Record Keeper for verification records' :
+                   data.remarksFor === 5 ? 'Record keeper verified the records and sent to the ARCS office' :
+                   data.remarksFor === 6 ? 'The election memberslist has been approved by ARCS' :
+                   'Unknown status'
+                    }}
+                  </td>
+                  <td scope="row" style="width:35%"> <div [innerHTML]="data.msg"></div></td>
+                  <!--<td scope="row"><span [ngClass]="data.status==false ? 'pending_badge' : 'active_badge' "> {{data.status==false?'Pending':'Approved'}}</span></td>-->
+                  <!--<td scope="col">-->
+                    <!--<a *ngIf="data.fileName!='N/A'" target="_blank" href="{{basurl+data.fileName}}" (click)="GetDownloadFile(data.fileName)">
+      <i class="fa fa-download" style="font-size:15px"></i>
+    </a>-->
+                  <!--</td>-->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

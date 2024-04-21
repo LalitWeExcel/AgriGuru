@@ -1,0 +1,71 @@
+﻿@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidths">
+        <div class="barwidths" id="adminDashboardLeads">
+            <div class="searchfilter">
+
+                <div class="col-sm-3 searchbox newlabel filtertop" style="    width: 26%;">
+                    <label class="control-label">Choose Date </label>
+                    <input type="text" class="form-control date-picker-textbox hasDatepicker" id="startdate_id" placeholder="startdate" readonly />
+                    <img src="~/Content/images//caleder.png" style="height: 15px; width: 15px;" />
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container" id="divGrid">
+        </div>
+        <div class="table-container" id="divNoData">
+        </div>
+    </div>
+</div>
+
+<script src="~/Areas/Customer/Scripts/todaypanchnag.js"></script>
+<script>
+    var $_GetpanchangUrl = '@Url.Action("_Index", "TodayPanchnag", new { Area = "Customer" })';
+
+    var d = new Date();
+    var currMonth = d.getMonth();
+    var currYear = d.getFullYear();
+    var currDate = d.getDate();
+    var endDate = new Date(currYear, currMonth, currDate);
+    var time = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+
+    $(document).ready(function () {
+        $_Getpanchang($("#startdate_id").val(), time);
+    });
+
+
+    $("#startdate_id").datetimepicker({
+        format: "DD-MM-YYYY",
+        pickTime: false,
+        autoclose: true,
+        defaultDate: endDate
+    }).on("dp.change", function (event, date) {
+        $_Getpanchang($('#startdate_id').val(), time);
+    });
+</script>
+
+<style>
+    .col-sm-3.searchbox.newlabel.filtertop {
+        width: 21%;
+        margin: 0;
+        padding-top: 20px;
+    }
+
+        .col-sm-3.searchbox.newlabel.filtertop input#startdate_id {
+            width: 60%;
+            float: right;
+        }
+
+        .col-sm-3.searchbox.newlabel.filtertop img {
+            position: absolute;
+            right: 26px;
+            top: 28px;
+        }
+</style>

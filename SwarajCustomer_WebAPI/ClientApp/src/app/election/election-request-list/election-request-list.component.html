@@ -1,0 +1,288 @@
+<app-header></app-header>
+<app-side-nav></app-side-nav>
+<div class="app-container">
+  <div class="app-main">
+    <div class="rcs_main">
+      <h4 class="rcs_main--title"> Election Request List </h4>
+      <button type="btn" (click)="electionrequest()" class="primary_btn">Election Request</button>
+    </div>
+
+    <div class="rcs_card">
+      <div class="rcs_card_body">
+        <div class="rc_table_header">
+          <div class="rc_table_header--displaytlist">
+            <span class="">Listing
+              <select (change)="PageSizeChange($event)" class="rc_table_header--displaytlistdropdown">
+                <option *ngFor="let size of pageSizes" [ngValue]="size">
+                  {{ size }}
+                </option>
+              </select> per Page</span>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="rc_table"> <!--green-bg-->
+            <thead class="rc_table_head">
+              <tr>
+                <th style="width: 5%;">S.No.</th>
+                <th>Election held time</th>
+                <th>Requested date</th>
+                <th>Election Proceeding Document</th>
+                <th>Last Election Held On:</th>
+                <th>Last Election Remarks:</th>
+                <th>Date of Agenda Issue</th>
+                <th>Date of Holding GB Meeting</th>
+                <th>Doc of Agenda for holding GBM</th>
+                <th>Remarks</th>
+                <th>View Report</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody class="rc_table_body">
+              <tr *ngFor="let m of electopnRequestList | paginate: { itemsPerPage: pageSize,currentPage: pagenumber,totalItems: recordsCount
+                                  };  let i = index">
+                <td scope="row">{{(i+1)+(pagenumber-1)*pageSize}}</td>
+                <td><span [ngClass]="m.isWithinTimeLimit?'active_badge':'pending_badge'">{{m.isWithinTimeLimit?'Within
+                    time':'After Due Date'}}</span></td>
+                <td>{{m.createdDate | date:'dd/MM/yyyy'}}</td>
+                <td>
+                  <a class="details_badge nowwrap" *ngIf="m.electionProceedingDoc!='No ducument Available'"
+                    target="_blank" href="{{baseURl+m.electionProceedingDoc}}">
+                    View DOC</a>
+                  <p *ngIf="m.electionProceedingDoc=='No ducument Available'" class="nodocument_text">No ducument
+                    Available</p>
+                </td>
+                <td>{{m.lastElectionHeldOn | date:'dd/MM/yyyy'}}</td>
+                <td>{{m.lastElectionRemarks}}</td>
+                <td> <span
+                    [ngClass]="m.isWithinTimeLimit ==false ? 'text-danger' : '' ">{{m.isWithinTimeLimit?(m.dateOfIssue |
+                    date:'dd/MM/yyyy'):'NA'}}</span> </td>
+                <td> <span
+                    [ngClass]="m.isWithinTimeLimit == true ? '' : 'text-danger' ">{{m.isWithinTimeLimit?(m.dateOfHoldingGBMM|
+                    date:'dd/MM/yyyy'):'NA'}}</span></td>
+                <td>
+                  <ng-container *ngIf="m.isWithinTimeLimit;else na">
+                    <a class="details_badge nowwrap" *ngIf="m.agendaHoldingGBMDoc!='No ducument Available'"
+                      target="_blank" href="{{baseURl+m.agendaHoldingGBMDoc}}">
+                      View DOC</a>
+                    <p *ngIf="m.agendaHoldingGBMDoc=='No ducument Available'" class="nodocument_text">No ducument
+                      Available</p>
+                  </ng-container>
+                  <ng-template #na>
+                    <p class="nodocument_text">NA</p>
+                  </ng-template>
+
+                </td>
+                <td><span [innerHTML]="m.remarks"></span></td>
+                <td> <button class="details_badge nowwrap" (click)="viewReport(m)">
+                    View Report</button></td>
+                <td>
+                  <button class="active_badge nowwrap" (click)="openStatusModel(m.electionRequestId)">
+                    View Status</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="rc_table_footer">
+
+          <span class="rc_table_list"> 1 to 10 Entries</span>
+          <div class="rc_table_pagination">
+            <pagination-controls previousLabel="Previous" nextLabel="Next" [responsive]="true"
+              (pageChange)="PageChanged($event)" (pageBoundsCorrection)="PageChanged($event)">
+            </pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- The Modal -->
+    <div class="modal model-bg" id="statusModal">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Status for this request</h4>
+            <button type="button" class="btn-close" (click)="closeStatusModel()"></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body" style="min-height: 720px;">
+
+
+            <div class="card-body cd" *ngFor="let m of remarksList">
+
+              <div
+                style="display: flex; justify-content: space-between;background: #e5f9f45e; border-top-left-radius: 5px;border-top-right-radius: 5px;">
+                <p>{{m.createdDate | date:'dd/MM/yyyy hh:mm a'}}</p>
+                <p class="{{m.status==false?'pending-text':'aprove-text'}}">
+                  {{m.status==false?'Pending':'Approved'}}</p>
+              </div>
+              <div class="crd" style="padding: 10px;">
+                <div style="display: flex; justify-content: space-between;">
+                  <div>
+                    <span style="font-weight:600">{{m.remarksByName}}</span>
+                    <span class="text-role">({{m.byRole}})</span>
+                  </div>
+
+                  <div>
+                    <i class="fa fa-angle-double-right"></i>
+                  </div>
+                  <div>
+                    <span style="font-weight:600">{{m.remarksToName}}</span>
+                    <span class="text-role">({{m.toRole}})</span>
+                  </div>
+
+
+                </div>
+
+                <div style="background-color: #0eca981c; border-radius: 5px;padding: 10px;margin-top: 5px;">
+                  <h6 class="text-success">Remarks</h6>
+                  <span style="font-size: small;" [innerHTML]="m.msg"></span>
+                </div>
+              </div>
+              <div style="text-align: center; color: green;">
+                <i class="fa fa-angle-double-down"></i>
+              </div>
+            </div>
+            <!-- <div class="card-body cd">
+                            <div style="padding: 5px;" class="crd">
+                                <p style="background-color: #0cb286;color: white;">Date</p>
+                                <h5>Action Taken By</h5>
+                                <p>Role</p>
+                            </div>
+                        </div> -->
+
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="closeStatusModel()">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal modal_bg" id="updateModal" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="rcs_modal_header">
+            <h4 class="rcs_modal_header--title">Executive Members</h4>
+            <button type="button" class="btn-close" (click)="closeReportModel()"></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="rcs_card_body">
+            <form #arcsApprovalForm="ngForm" novalidate>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="all_info">
+                    <h4 class="all_info--title">Election Report</h4>
+                    <ul class="default-border all_info_list">
+                      <li>
+                        <span class="all_info--label">Total no, of member's in Society</span>
+                        <span class="all_info--desb">{{report?.totalMemberSociety}}</span>
+                      </li>
+                      <li>
+                        <span class="all_info--label">Total no. of attend member</span>
+                        <span class="all_info--desb">{{report?.totalAttendMember}}</span>
+                      </li>
+                      <li>
+                        <span class="all_info--label">Quorum</span>
+                        <span class="all_info--desb">{{report?.quorum}}</span>
+                      </li>
+                      <li>
+                        <span class="all_info--label">Whether meeting as per rule?</span>
+                        <span class="all_info--desb">{{report?.isMeetingAsPerRule?'Yes':'No'}}</span>
+                      </li>
+                    </ul>
+                  </div>
+
+
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="all_info">
+                    <h4 class="all_info--title">Selected Executive Members</h4>
+                    <div class="table-responsive">
+
+                      <table class="rc_table">
+                        <thead class="rc_table_head">
+                          <tr>
+                            <th scope="col" style="width:5%;">S.No.</th>
+                            <th scope="col" style="width:50%;">Member name</th>
+                            <th scope="col" style="width:40%;">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody class="rc_table_body">
+
+                          <ng-container *ngIf="selectedExecutiveMembersList; else ndf">
+                            <tr *ngFor="
+            let member of selectedExecutiveMembersList;
+            index as k
+            ">
+                              <td>{{ k + 1 }}</td>
+                              <td>{{ member.memberName}}</td>
+                              <td>{{ member.status?"Approved By ARCS":"To be approved by ARCS"}}</td>
+                            </tr>
+                          </ng-container>
+                          <ng-template #ndf>
+                            <tr>
+                              <td colspan="3" ngClass="bg-warning text-white ">No Member selected yet</td>
+                            </tr>
+                          </ng-template>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+
+                  <div class="all_info">
+                    <h4 class="all_info--title">Previous Executive Members</h4>
+                    <div class="table-responsive">
+                      <table class="rc_table">
+                        <thead class="rc_table_head">
+                          <tr>
+                            <th scope="col" style="width:10%;">S.No.</th>
+                            <th scope="col" style="width:50%;">Member name</th>
+                            <th scope="col" style="width:40%;">Designation</th>
+                          </tr>
+                        </thead>
+                        <tbody class="rc_table_body">
+                          <tr *ngFor="
+                let member of societyPreviousCommetteMemberList;
+                index as k">
+
+                            <td>{{ k + 1 }}</td>
+                            <td>{{ member.memberName}}</td>
+                            <td>{{ member.designation}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="rcs_modal_footer">
+
+                <button type="button" class="cancel_btn" (click)="closeReportModel()">
+                  Close
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,175 @@
+﻿@model SwarajCustomer_Common.Customer.BookAstrologerContent
+@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidths">
+        <input type="hidden" id="hddServicesId" />
+        <input type="hidden" id="hddAstrologerId" />
+
+        <div class="barwidths mainwidths" id="adminDashboardLeads">
+            @{
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;padding-top:20px;padding-bottom:10px;">Choose a Servcie</h1>
+                foreach (var item in Model.Masters.ServicesList)
+                {
+                    <div class="col-sm-2">
+                        <div class="innershadow list-group-item">
+                            <a href="#" onclick="_selectService(this)" data-servicesid="@item.ID">
+                                <span class="images">
+                                    <img src="https://apps.bcone.com/AgriGuru/Content/images/Puja/pandit-puja-ji.jpg" />
+                                </span>
+                                <p class="maintiile">@item.Name</p>
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+        <div class="fillwidths" id="adminDashboardLeads" style="margin-bottom:0;">
+            @{
+
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;text-align:center;padding-top:0;padding-bottom:10px;">Astrolger</h1>
+                int x = 1;
+                foreach (var item in Model.GetTopAstrologersPurohits.Take(5))
+                {
+                    int _counter = x++;
+                    <div class="reviewbox gradients">
+                        <div class="innerwidths list-group-BookAstrologers">
+                            <a href="#" onclick="_selectAstrologer(this)" data-astrologerid="@item.UserID">
+                                <div class="col-sm-4 leftimages">
+                                    <img src="@item.ImageName" />
+                                </div>
+                                <div class="col-sm-8 righttext">
+                                    <span class="maintittle">@item.Username&nbsp;( @item.UserType )</span>
+                                    <span class="yearstext">@item.Experience Year Experience </span>
+                                    <input type="hidden" value="@item.Rating" class="calculate" id="hddReting@_counter" />
+                                    <span class="my-rating@_counter jq-stars"></span>
+                                </div>
+                                <div class="fullname">
+                                    @Html.Raw(string.Join("  |  ", item.Specializations.Take(3).Select(s => string.Format("<span>           {0}</span>", s.name))))
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+        <div class="buttonsenterbox margintops">
+            <button class="btn btn-success yes" id="btn_save" onclick="SelectAndProceed()">Select & proceed</button>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/function.js"></script>
+<script src="~/Areas/Customer/Scripts/active.js"></script>
+
+
+<script>
+
+    var $_SelectAndProceed = '@Url.Action("SelectAndProceed", "BookAstrologer", new { Area = "Customer" })';
+    $(document).ready(function () {
+
+        $(".my-rating1").starRating({
+            initialRating: parseInt($("#hddReting1").val()),
+            strokeColor: '#894A00',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating2").starRating({
+            initialRating: parseInt($("#hddReting2").val()),
+            strokeColor: '#894A00',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating3").starRating({
+            initialRating: parseInt($("#hddReting3").val()),
+            strokeColor: '#894A00',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating4").starRating({
+            initialRating: parseInt($("#hddReting4").val()),
+            strokeColor: '#894A00',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating5").starRating({
+            initialRating: parseInt($("#hddReting5").val()),
+            strokeColor: '#894A00',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+
+    });
+    function SelectAndProceed() {
+        var isValid = true;
+        var AstrologerId = $("#hddAstrologerId").val();
+        var ServicesId = $("#hddServicesId").val();
+
+        if (ServicesId == 0 || ServicesId == "" || ServicesId == NaN) {;
+            displayMessage('Please Select Service', 'error');
+            isValid = false;
+        }
+        else if (AstrologerId == 0 || AstrologerId == "" || AstrologerId == NaN) {
+            displayMessage('Please Select Astrologer', 'error');
+            isValid = false;
+        }
+        if (!isValid) {
+            $(window).scrollTop(0);
+            return false;
+        } else {
+            location.href = $_SelectAndProceed + "?AstrologerId=" + parseInt(AstrologerId) + "&ServicesId=" + parseInt(ServicesId);
+        }
+    }
+
+    function _selectService(_object) {
+        $("#hddServicesId").val($(_object).data('servicesid'));
+    }
+
+    function _selectAstrologer(_object) {
+        $("#hddAstrologerId").val($(_object).data('astrologerid'));
+    }
+
+</script>
+<style>
+    .maintittle {
+        min-height: 50px;
+    }
+
+    span#spnService {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        font-size: 19px;
+        font-weight: bold;
+        color: red;
+        top: 20px;
+    }
+
+    .maintiile {
+        font-size: 13px;
+    }
+
+    .fullname {
+        color: #fff;
+    }
+</style>
+
+

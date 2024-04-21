@@ -1,0 +1,148 @@
+﻿
+@using SwarajCustomer_Common;
+
+@{
+    ViewBag.Title = "Success";
+    var Server_Url = CommonMethods.BaseUrl;
+ 
+}
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/css/toastr.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/SetToastr.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+</head>
+<style>
+    body {
+        text-align: center;
+        padding: 40px 0;
+        background: #ccc;
+    }
+
+    h1 {
+        color: #88B04B;
+        font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+        font-weight: 900;
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #404F5E;
+        font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+        font-size: 20px;
+        margin: 0;
+    }
+
+    i {
+        color: #9ABC66;
+        font-size: 100px;
+        line-height: 100px;
+        margin-left: -15px;
+    }
+
+    .card {
+        background: white;
+        padding: 60px;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px #C8D0D8;
+        display: inline-block;
+        margin: 0 auto;
+    }
+</style>
+<body>
+    <div class="card col-sm-12" style="border-radius:100%; height:100px; width:100px; background: #F8FAF5; margin:0 auto; font-size: 100px;">
+        <i class="fa fa-check" aria-hidden="true" style="    margin-left: 5px;"></i>
+    </div>
+    <h1>Success</h1>
+    <p>We received your purchase request;<br /> we'll be in touch shortly!</p>
+</body>
+</html>
+
+<script>
+         var $_BookingOrderStatusUrl = "";
+         if ('@Server_Url'.indexOf('AgriGuru') >= 1) {
+             $_BookingOrderStatusUrl = '/AgriGuru/Booking/BookingOrderStatus/';
+         }
+         else if ('@Server_Url'.indexOf('PujaGuru') >= 1) {
+             $_BookingOrderStatusUrl = '/PujaGuru/Booking/BookingOrderStatus/';
+        }
+         else {
+             $_BookingOrderStatusUrl = '/Booking/BookingOrderStatus/';
+        }
+
+    var $_GetDashBoard = '@Url.Action("Index", "DashBoard", new { Area = "Customer" })';
+    var $_Customer_UserId = '@Session[SwarajCustomer_Common.Utility.SystemVariables.UserId]';
+    var $_authorization = '@Session[SwarajCustomer_Common.Utility.SystemVariables.Authorization]';
+    var $_RoleName = '@Session[SwarajCustomer_Common.Utility.SystemVariables.RoleName]';
+
+    $(document).ready(function () {
+  
+        if ('@ViewBag.booking_id' == 0) {            
+                    displayMessage("Your Premium Membership Payment Successfully", 'success');
+                    setTimeout(function () {  window.location = $_GetDashBoard;}, 2500);
+        }
+        else {
+               setTimeout(function () {  BookingOrderStatus('@ViewBag.booking_id', '@ViewBag.order_number'); }, 2500);
+        }
+
+    });
+
+
+    function BookingOrderStatus(booking_id, order_number) {
+        debugger;
+        var isValid = true;
+        if (!isValid) {
+            $(window).scrollTop(0);
+            return false;
+        } else {
+
+            $.ajax({
+                url: $_BookingOrderStatusUrl,
+                type: 'POST',
+                data: JSON.stringify({
+                    'BookingID': booking_id,
+                    "OrderNumber": order_number
+                }),
+                datatype: 'json',
+                contentType: 'application/json; charset=utf-8',
+                processData: false,
+                beforeSend: function (request) {
+                    request.setRequestHeader("Authorization", "Basic " + $_authorization);
+                    request.setRequestHeader("Role", $_RoleName);
+                    request.setRequestHeader("Content-Type", "application/json");
+                },
+                success: function (response) {
+                    debugger;
+                    if (response.Data !== null && response.Data.paymentStatus.indexOf('html') < 0) {
+                        if (response.Data.paymentStatus.indexOf('Y') >= 0) {
+                       
+                            displayMessage("Your Booking Payment Successfully", 'success');
+                            window.location = $_GetDashBoard;
+                        } else {
+                            displayMessage("Your Booking Payment does not completed", 'warning');
+                            window.location = $_GetDashBoard;
+                        }
+                    } else {
+                        displayMessage(response.Message, 'error');
+                        window.location = $_GetDashBoard;
+                    }
+                },
+                failure: function (response) {
+                    displayMessage("failure    " + response.responseText, 'warning');
+                },
+                error: function (response) {
+                    displayMessage("error   " + response.responseText, 'error');
+                }
+            });
+        }
+        return true;
+    }
+
+</script>

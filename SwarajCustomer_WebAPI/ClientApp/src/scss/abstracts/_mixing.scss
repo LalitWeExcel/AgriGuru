@@ -1,0 +1,28 @@
+@mixin flex-d{
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin btn-mixing{
+    border: 0;
+    padding: 0.45rem 1.125rem;
+    border-radius: 0.25rem;
+    font-weight: 400;
+    color: $white-color;
+    margin: 0 5px;
+    font-size: 16px;
+    white-space: nowrap;
+}
+@mixin btn-download{
+    padding: 5px 12px;
+    border-radius: 0.25rem;
+    margin-right: 0.333em;
+    margin-bottom: 0;
+    border: none;
+    font-size: 13px;
+}
+@mixin jc-between{
+     display: flex;
+     justify-content: space-between; 
+     align-items: center;
+}

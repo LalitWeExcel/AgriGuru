@@ -1,0 +1,322 @@
+﻿@model SwarajCustomer_Common.ViewModel.M_ManageUserDetails
+
+@{
+    ViewBag.Title = "Edit";
+    ViewBag.Menu = "Index";
+    ViewBag.SubMenu = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var UserRole = Model.ManageUserRoles.Select(s => s.role_name).FirstOrDefault();
+}
+<div class="col-sm-9 rightbox">
+    <div class="fullwidth top">
+        <div class="fulltextwidth">
+
+
+
+            @using (Html.BeginForm("Edit", "ManageUser", FormMethod.Post, new { Area = "ManageUser", enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" value="@Model.adm_user_id" name="adm_user_id" />
+                <input type="hidden" value="@Model.user_details_id" name="user_details_id" />
+
+                <input type="hidden" value="@Model.is_active" id="hddIsActive" />
+                <input type="hidden" value="@Model.export_in_pooja" id="hddExpotInPooja" />
+                <input type="hidden" value="@Model.ready_for_travel" id="hddReadyForTravel" />
+                <input type="hidden" value="@Model.marital_status" id="hddMaritalStatus" />
+                <input type="hidden" value="@Model.health_status" id="hddHealthStatus" />
+                <input type="hidden" value="@Model.DOB" id="hddDOB" />
+                <input type="hidden" value="@Model.TOB" id="hddTOB" />
+                <input type="hidden" value="@Model.PlaceOfBirth" id="hddPlaceOfBirth" />
+                <input type="hidden" value="@Model.gender" id="hddGender" />
+
+
+                <div class="form-horizontal">
+                    <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;"> Edit User Details</h1>
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Picture</label>
+                        <div class="col-sm-3 leftimage">
+                            <span class="images">
+                                <img src="@Model.ImageName" name="ImageName" data-action="zoom">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">User Name</label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control alphaOnly" } })
+                            @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Mobile Number</label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.mob_number, new { htmlAttributes = new { @class = "form-control", @readonly = "@readonly" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Email</label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", @readonly = "@readonly" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Description</label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control alphaNumericOnly" } })
+                            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Status</label>
+                        <div class="col-md-5">
+                            <label class="fontnormal">
+                                <input type="radio" name="is_active" id="active" value="Y">
+                                Active
+                            </label>
+                            <label class="fontnormal">
+                                <input type="radio" name="is_active" id="Inactive" value="N">
+                                Inactive
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">First Name</label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.first_name, new { htmlAttributes = new { @class = "form-control alphaOnly" } })
+                            @Html.ValidationMessageFor(model => model.first_name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Last Name</label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.last_name, new { htmlAttributes = new { @class = "form-control alphaOnly" } })
+                            @Html.ValidationMessageFor(model => model.last_name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2"> Whatsapp No.</label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.whatsapp_no, new { htmlAttributes = new { @class = "form-control numberOnly" } })
+                            @Html.ValidationMessageFor(model => model.whatsapp_no, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2"> Address </label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2"> City </label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.city, new { htmlAttributes = new { @class = "form-control alphaOnly" } })
+                            @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2"> State </label>
+                        <div class="col-md-5">
+                            <select class="form-control selectoption" id="ddState" name="mst_state_id"></select>
+                            @Html.ValidationMessageFor(model => model.mst_state_id, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2"> District </label>
+                        <div class="col-md-5">
+                            <select class="form-control selectoption" id="ddDistrict" name="mst_district_id"></select>
+                            @Html.ValidationMessageFor(model => model.mst_district_id, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2"> Pin Code </label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.pincode, new { htmlAttributes = new { @class = "form-control numberOnly" } })
+                            @Html.ValidationMessageFor(model => model.pincode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Land Mark</label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.landmark, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.landmark, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2"> Gender </label>
+                        <div class="col-md-5">
+                            <label class="fontnormal">
+                                <input type="radio" name="gender" id="Yes" value="M">
+                                Male
+                            </label>
+                            <label class="fontnormal">
+                                <input type="radio" name="gender" id="No" value="F">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2"> Marital Status </label>
+                        <div class="col-md-5">
+                            <label class="fontnormal">
+                                <input type="radio" name="marital_status" id="Yes" value="Married">
+                                Married
+                            </label>
+                            <label class="fontnormal">
+                                <input type="radio" name="marital_status" id="No" value="UnMarried">
+                                Unmarried
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2"> Date of Birth</label>
+                        <div class="col-md-5">
+                            <div class="input-group date" id="datetimepicker2">
+                                <input type="text" class="form-control date-picker-textbox hasDatepicker" name="DOB" id="DateOfBirth" placeholder="Date of Birth" readonly />
+                                <img src="~/Content/images//caleder.png" style="height:15px;width:15px">
+                            </div>
+                            @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2"> Birth Time</label>
+                        <div class="col-md-5">
+                            <div class="input-group date" id="datetimepicker2">
+                                <input type="text" class="form-control date-picker-textbox hasDatepicker" id="BirthTime" name="TOB" placeholder="Birth Time" readonly />
+                                <img src="~/Content/images//caleder.png" style="height:15px;width:15px">
+                            </div>
+                            @Html.ValidationMessageFor(model => model.TOB, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2"> Place Of Birth</label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.PlaceOfBirth, new { htmlAttributes = new { @class = "form-control alphaOnly" } })
+                            @Html.ValidationMessageFor(model => model.PlaceOfBirth, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Adhar Card Number</label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.aadhar_number_name, new { htmlAttributes = new { @class = "form-control numberOnly" } })
+                            @Html.ValidationMessageFor(model => model.aadhar_number_name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Profession</label>
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.profession, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Health Status</label>
+                        <div class="col-md-5">
+                            <label class="fontnormal">
+                                <input type="radio" name="health_status" id="Yes" value="1">
+                                Good
+                            </label>
+                            <label class="fontnormal">
+                                <input type="radio" name="health_status" id="No" value="0">
+                                Not Well
+                            </label>
+                        </div>
+                    </div>
+                    @{
+                        if (UserRole != "Customer")
+                        {
+                            <div class="form-group">
+                                <label class="control-label col-md-2"> Expert In Puja </label>
+                                <div class="col-md-5">
+                                    <label class="fontnormal">
+                                        <input type="radio" name="export_in_pooja" id="Yes" value="Y">
+                                        Yes
+                                    </label>
+                                    <label class="fontnormal">
+                                        <input type="radio" name="export_in_pooja" id="No" value="N">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2"> Ready To  Traval </label>
+                                <div class="col-md-5">
+                                    <label class="fontnormal">
+                                        <input type="radio" name="ready_for_travel" id="Yes" value="Y">
+                                        Yes
+                                    </label>
+                                    <label class="fontnormal">
+                                        <input type="radio" name="ready_for_travel" id="No" value="N">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Temple Name</label>
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.temple_name, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                            </div>
+
+                        }
+                    }
+
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Role Name</label>
+                        <div class="col-md-5 roletext">
+                            @Html.Raw(string.Join("  |  ", Model.ManageUserRoles.Select(s => string.Format("<span>{0}</span>", s.role_name))))
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Update" class="btn btn-success yes" />
+                            <p class="backlink" style="    width: auto;
+    display: inline-block;
+    margin-left: 20px;">@Html.ActionLink("Back to List", "Index")</p>
+</div>
+</div>
+</div>
+}
+
+        </div>
+    </div>
+</div>
+<style>
+    .date img {
+        position: absolute;
+        right: 7px;
+        z-index: 99;
+        top: 10px;
+    }
+</style>
+<script src="~/Scripts/function.js"></script>
+<script src="~/Areas/Scripts/update_manageuser.js"></script>
+<script type="text/javascript">
+
+    AlphaOnly('.alphaOnly');
+    NumberOnly('.numberOnly');
+    AlphaNumericOnly('.alphaNumericOnly');
+
+    var $_mst_state_id =    '@Model.mst_state_id';
+    var $_mst_district_id = '@Model.mst_district_id';
+
+    var current_page = 0;
+    $(document).ready(function () {
+        GetProfile();
+   });
+
+</script>
+
+
+

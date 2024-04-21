@@ -1,0 +1,124 @@
+<div class="login">
+  <div class="login_left">
+    <img src="/imgpath/logo.png" alt="logo" class="img-fluid">
+    <button type="button" class="login_left--btn"  routerLink="">Back to  Dashboard</button>
+  </div>
+  <div class="login_right">
+    <h1 class="login_right--title mb-4">Register Now</h1>
+    <div class="progress-container mb-4">
+      <div class="progress" id="progress"></div>
+      <div class="text-wrap " [ngClass]="first? 'active':''">
+        <div class="circle"></div>
+        <p class="text">Details</p>
+      </div>
+      <div class="text-wrap" [ngClass]="second? 'active':''">
+        <div class="circle"></div>
+        <p class="text">Address</p>
+      </div>
+      <div class="text-wrap" [ngClass]="third? 'active':''">
+        <div class="circle"></div>
+        <p class="text">Completed</p>
+      </div>
+    </div>
+
+    <form #form="ngForm">
+      <div class="second" id="Div1" *ngIf="first">
+        <div class="custom_form mb-3">
+          <input type="text" class="custom_form--input" asp-for="FirstName" [(ngModel)]="FirstName" id="FirstName" name="FirstName" placeholder="" required autofocus>
+          <i class="fa fa-solid fa-user custom_form--icon"></i>
+          <label for="floatingInput" class="custom_form--label">Name</label>
+        </div>
+        <div class="custom_form mb-3">
+          <input type="text" class="custom_form--input" asp-for="EmailID" [(ngModel)]="EmailID" id="EmailID" name="EmailID" placeholder="" required autofocus pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+          <i class="fa fa-solid fa-envelope custom_form--icon"></i>
+          <label for="floatingInput" class="custom_form--label">Email</label>
+        </div>
+        <div class="custom_form mb-3">
+          <input type="number" class="custom_form--input" asp-for="Age" id="Age" [(ngModel)]="Age" name="Age" placeholder="" required autofocus>
+          <i class="fa fa-solid fa-hourglass-start custom_form--icon"></i>
+          <label for="floatingInput" class="custom_form--label">Age</label>
+        </div>
+        <div class="custom_form mb-3">
+          <input type="number" class="custom_form--input" asp-for="Mobile" id="Mobile" [(ngModel)]="Mobile" name="Mobile" placeholder="" pattern="[- +()0-9]{10,12}"  maxlength="1" required autofocus />
+          <i class="fa fa-solid fa-mobile custom_form--icon"></i>
+          <label for="floatingInput" class="custom_form--label">Mobile</label>
+
+        </div>
+        <div class="radio-buttons-container">
+          <div *ngFor="let option of options">
+            <label>
+              <input type="radio" [(ngModel)]="gender" class="radio-label" [value]="option"> {{ option }}
+            </label>
+          </div>
+          </div>
+
+
+          <div class="d-flex justify-content-between mt-4">
+            <!-- <button class="btn back-btn" id="back1" style="display:none;" (click)="">&larr; Back</button>   -->
+            <button class="btn next-btn" id="next" (click)="next()">Next &rarr;</button>
+          </div>
+        </div>
+
+        <div class="second" id="Div2" *ngIf="second">
+          <div class="custom_form mb-3">
+            <input type="text" class="custom_form--input" asp-for="Address1" id="Address1" [(ngModel)]="Address1" name="Address1" placeholder="" required autofocus>
+            <i class="fa-solid fa-user custom_form--icon"></i>
+            <label for="floatingInput" class="custom_form--label">Address</label>
+          </div>
+
+
+
+          <div class="custom_form mb-3">
+
+            <select 
+                    [(ngModel)]="DisCode" class="custom_form--input" name="item">
+              <option value="0" selected>Select District</option>
+              <option *ngFor="let item of District" [value]="item.districtCode">
+                {{ item.districtName }}
+              </option>
+            </select>
+
+
+
+          </div>
+
+          <div class="custom_form mb-3">
+            <input type="text" class="custom_form--input" asp-for="PostOffice" id="PostOffice" [(ngModel)]="PostOffice" name="PostOffice" placeholder="" required autofocus>
+            <i class="fa-solid fa-code custom_form--icon"></i>
+            <label for="floatingInput" class="custom_form--label">Post Office</label>
+          </div>
+          <div class="custom_form mb-3">
+            <input type="text" class="custom_form--input" asp-for="PostalCode" id="PostalCode" [(ngModel)]="PostalCode" name="PostalCode" placeholder="" required autofocus>
+            <i class="fa-solid fa-code custom_form--icon"></i>
+            <label for="floatingInput" class="custom_form--label">Postal Code</label>
+          </div>
+          <div class="d-flex justify-content-between mt-4">
+            <button class="btn back-btn" id="back1" (click)="back()">&larr; Back</button>
+            <button class="btn next-btn" id="next1" (click)="next()">Next &rarr;</button>
+          </div>
+        </div>
+        <div class="second" id="Div3" *ngIf="third">
+          <div class="custom_form mb-3">
+            <input type="text" class="custom_form--input" asp-for="Username" id="Username" [(ngModel)]="Username" name="Username" placeholder="" required autofocus>
+            <i class="fa-solid fa-user custom_form--icon"></i>
+            <label for="floatingInput" class="custom_form--label">UserName</label>
+            <input type="hidden" id="hddUsername" />
+          </div>
+          <div class="custom_form mb-3">
+            <input type="text" class="custom_form--input" asp-for="Password" id="Password" [(ngModel)]="Password" name="Password" placeholder="" required autofocus>
+            <i class="fa-solid fa-envelope custom_form--icon"></i>
+            <label for="floatingInput" class="custom_form--label">Password </label>
+          </div>
+          <div class="custom_form mb-3">
+        <input type="text" class="custom_form--input" asp-for="confirmPassword" id="confirmPassword"  [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="" required autofocus>
+        <i class="fa-solid fa-hourglass-start custom_form--icon"></i>
+        <label for="floatingInput" class="custom_form--label">Confirm Password </label>
+    </div>
+          <div class="d-flex justify-content-between mt-4">
+            <button class="btn back-btn" id="back2" (click)="back()">&larr; Back</button>
+            <button type="button" class="custom_form--btn" (click)="Register(form)">Sign in</button>
+          </div>
+        </div>
+</form>
+  </div>
+</div>

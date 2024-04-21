@@ -1,0 +1,124 @@
+﻿@model SwarajCustomer_WebAPI.Areas.Customer.Models.TodayPanchnag
+@using SwarajCustomer_Common;
+@{
+    int records = 0;
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+
+<div class="col-sm-12 tablnew" id="divpartdetails">
+    <div class="table gridresposnive workplaces">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Tithi</th>
+                    <th>Paksha</th>
+                    <th>Nakshatra</th>
+                    <th>Yog</th>
+                    <th>Karan</th>
+                    <th>Rashi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.reqdate</td>
+                    <td>@Model.reqtime</td>
+                    <td>@Model.tithi [ @Model.tithiTill ]</td>
+                    <td>@Model.paksha</td>
+                    <td>@Model.nakshatra [ @Model.nakshatraTill ]</td>
+                    <td>@Model.yoga</td>
+                    <td>@Model.karana [ @Model.karanTill ]</td>
+                    <td>@Model.rashi</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+
+
+<style>
+    .workplaces table {
+        border: 1px solid #000000;
+        border-collapse: collapse;
+        margin: 0 auto;
+        padding: 0px;
+        table-layout: fixed;
+        min-width: 100%;
+    }
+
+        .workplaces table th {
+            text-align: center;
+            padding: 8px;
+            border: 1px solid #000000;
+            background: #1b90bb;
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+
+        .workplaces table td {
+            padding: 8px;
+            border: 1px solid #000000;
+        }
+
+        .workplaces table tr {
+            background-color: #fff;
+            color: #000000;
+            text-align: center;
+        }
+
+    .table.gridresposnive th:nth-child(1), .table.gridresposnive td:nth-child(1) {
+        min-width: 230px;
+        max-width: 230px;
+        text-align: left;
+    }
+
+    .table.gridresposnive th:nth-child(2), .table.gridresposnive td:nth-child(2) {
+        min-width: 80px;
+        max-width: 80px;
+        text-align: left;
+    }
+
+    .table.gridresposnive th:nth-child(3), .table.gridresposnive td:nth-child(3) {
+        min-width: 240px;
+        max-width: 240px;
+        text-align: left;
+    }
+
+    .table.gridresposnive th:nth-child(5), .table.gridresposnive td:nth-child(5) {
+        min-width: 270px;
+        max-width: 270px;
+        text-align: left;
+    }
+
+    .table.gridresposnive th:nth-child(4), .table.gridresposnive td:nth-child(4) {
+        min-width: 160px;
+        max-width: 160px;
+        text-align: left;
+    }
+    .table.gridresposnive th, .table.gridresposnive td {
+    padding: 10px 10px;
+}
+    .table.gridresposnive th:nth-child(7), .table.gridresposnive td:nth-child(7) {
+        min-width: 220px;
+        text-align: left;
+        max-width: 220px;
+    }
+
+    .table.gridresposnive th:nth-child(6), .table.gridresposnive td:nth-child(6) {
+        min-width: 160px;
+        max-width: 160px;
+        text-align: left;
+    }
+
+    .table.gridresposnive th:nth-child(8), .table.gridresposnive td:nth-child(8) {
+        min-width: 160px;
+        text-align: left;
+        max-width: 160px;
+    }
+</style>
+

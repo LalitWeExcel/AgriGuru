@@ -1,0 +1,204 @@
+﻿@model SwarajCustomer_Common.Customer.CustomerDashBoardContent
+@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidths">
+        <div class="barwidths mainwidths">
+            <ul id="slider">
+                @{
+                    foreach (var item in Model.GetDashBoardAdvertisements)
+                    {
+                        <li>
+                            <a href="#" onclick="_RedirectToIndex(this)"
+                               data-advertisementid="@item.AdvertisementId"
+                               data-productid="@item.ProductID"
+                               data-catagoryid="@item.CatagoryID"
+                               data-categoryname="@item.CategoryName"
+                               data-service="@item.Service"
+                               data-advertisingtype="@item.AdvertisingType"
+                               data-actualamount="@item.ActualAmount"
+                               data-discount="@item.Discount"
+                               data-discountinrupees="@item.DiscountInRupees"
+                               data-discountedamount="@item.DiscountedAmount">
+
+                                <img src="@item.ImageName">
+                                <br />
+                                <span class="text-success" style="font-weight: bold;">@item.Details</span>
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+
+        </div>
+        <div class="barwidths mainwidths" id="adminDashboardLeads">
+            @Html.Partial("_Index");
+        </div>
+        <!--Review Section -->
+        <div class="fillwidths">
+            <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;text-align:center;padding-top:0;padding-bottom:10px;">Rating</h1>
+            @{
+                int x = 1;
+                foreach (var item in Model.GetTopAstrologersPurohits.Take(5))
+                {
+                    int _counter = x++;
+                    <div class="reviewbox gradients" onclick="return AstrologersPurohits('@item.UserID')" style="cursor:pointer">
+                        <div class="innerwidths list-group-item">
+                            <div class="col-sm-4 leftimages">
+                                <img src="@item.ImageName" />
+                            </div>
+                            <div class="col-sm-8 righttext">
+                                <span class="maintittle">@item.Username&nbsp;( @item.UserType )</span>
+                                <span class="yearstext">@item.Experience Year Experience </span>
+                                <input type="hidden" value="@item.Rating" id="hddReting@_counter" />
+                                <span class="my-rating@_counter jq-stars"></span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<!--https://codepen.io/doodlemarks/pen/xDvAw -->
+<script src="~/Areas/Customer/Scripts/active.js"></script>
+<script>
+
+    var $_IndependentsAdsUrl = '@Url.Action("Index", "IndependentsAds", new { Area = "Customer" })';
+    var $_SelectAndProceed = '@Url.Action("SelectAndProceed", "BookPuja", new { Area = "Customer" })';
+    var $_AstrologersPurohitsUrl = '@Url.Action("SelectAndProceed", "BookPurohit", new { Area = "Customer" })';
+
+    $(document).ready(function () {
+        $(".my-rating1").starRating({
+            initialRating: parseInt($("#hddReting1").val()),
+            strokeColor: '#ffffff',
+
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating2").starRating({
+            initialRating: parseInt($("#hddReting2").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating3").starRating({
+            initialRating: parseInt($("#hddReting3").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating4").starRating({
+            initialRating: parseInt($("#hddReting4").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating5").starRating({
+            initialRating: parseInt($("#hddReting5").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+    });
+    const dynamicSlider = document.getElementById("slider");
+    var curSlide = 0;
+
+    setTimeout(function () {
+        curSlide++;
+        if (curSlide === dynamicSlider.childElementCount) {
+            curSlide = 0;
+        }
+        dynamicSlider.firstElementChild.style.setProperty("margin-left", "-" + curSlide + "00%");
+    }, 5000);
+
+
+    function _RedirectToIndex(_object) {
+
+        debugger;
+        var advertisementid = $(_object).data('advertisementid');
+        var productid = $(_object).data('productid');
+        var catagoryid = $(_object).data('catagoryid');
+        var categoryname = $(_object).data('categoryname');
+        var name = $(_object).data('service');
+        var advertisingtype = $(_object).data('advertisingtype');
+        var actualamount = $(_object).data('actualamount');
+        var discount = $(_object).data('discount');
+        var discountinrupees = $(_object).data('discountinrupees');
+        var discountedamount = $(_object).data('discountedamount');
+
+        if (advertisingtype == "I") {
+
+            location.href = $_IndependentsAdsUrl  + "?TrnAdsId=" + parseInt(advertisementid)
+                + "&name=" + name
+                + "&PujaMRP=" + actualamount
+                + "&PujaDiscount=" + discount
+                + "&DiscountInRupees=" + parseInt(discountinrupees)
+                + "&PujaDiscountedPrice=" + discountedamount;
+
+        } else {
+
+           location.href = $_SelectAndProceed + "?MainProductId="  + parseInt(advertisementid)
+                + "&name=" + name
+                + "&PujaMRP=" + actualamount
+                + "&PujaDiscount=" + discount
+                + "&DiscountInRupees=" + parseInt(discountinrupees)
+                + "&PujaDiscountedPrice=" + discountedamount;
+
+        }
+    }
+
+    function AstrologersPurohits(PurohitID) {
+        location.href = $_AstrologersPurohitsUrl + "?PurohitID=" + parseInt(PurohitID);
+    }
+
+
+</script>
+
+<style>
+    #slider {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        border: 10px solid transparent;
+        padding: 0px;
+        z-index: 100;
+        overflow: hidden;
+        white-space: nowrap;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+        #slider > li {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            font-size: 15px;
+            font-size: initial;
+            line-height: normal;
+            transition: all 0.5s cubic-bezier(0.4, 1.3, 0.65, 1); /* Slide css animation */
+            background-size: cover;
+            vertical-align: top;
+            box-sizing: border-box;
+            white-space: normal;
+            cursor: pointer;
+        }
+</style>

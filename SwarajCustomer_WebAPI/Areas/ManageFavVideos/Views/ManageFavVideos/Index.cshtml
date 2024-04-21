@@ -1,0 +1,451 @@
+﻿@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+<div class="col-sm-9 rightbox">
+    <div class="fullwidth top">
+        <div class="topheader">
+            <div class="col-sm-8 headingbox">Manage Fav Videos</div>
+            <div class="col-sm-4 rightitems">
+                <a class="excels export btn" data-toggle="modal" data-target="#logoutModal1" style="cursor:pointer" onclick="ClearFields()">
+                    <span>Add Manage Fav Videos</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="barwidths" id="adminDashboardLeads">
+            <div class="searchfilter">
+                <div class="datefilter"></div>
+                <div class="col-sm-3 searchbox newlabel">
+                    <span>Search :</span>
+                    <input type="text" class="form-control formtext" id="txt_search" placeholder="Search By Name" />
+                </div>
+                <div class="col-sm-3 searchbox newlabel">
+                    <span>Language :</span>
+                    <select class="form-control dropdown-text" id="ddLanguageId" name="ddLanguageId"></select>
+                </div>
+              
+                <div class="searchresult">
+                    <button id="anc_search" class="btn btn-success yes">Search</button>
+                    <button id="reset" class="btn btn-danger No">Reset</button>
+                </div>
+                <section class="counts" style="width: 100%; display: inline-block;float: right;">
+                    <div class="searchbuton">
+                        <input type="button" class="btn btn-success" id="Activate" value="Activate " onclick="Activate('Y')" />
+                        <input type="button" class="btn btn-danger No ResetAction" id="Deactivate" value="Deactivate" onclick="Deactivate('N')" />
+                    </div>
+                    <div class="pull-right countsboxs" style="width: auto; float: right !important;position: relative; top: 0;left: 7px;">
+                        <div style="display:inline-block;margin-right:5px;">
+                            <span>Show</span>
+                            <select class='form-control selectoption' id='NoofRecords' name='NoofRecords'>
+                                <option value='10'>10</option>
+                                <option value='20'>20</option>
+                                <option value='30'>30</option>
+                                <option value='50'>50</option>
+                                <option value='100'>100</option>
+                                <option value='150'>150</option>
+                                <option value='200'>200</option>
+                                <option value='250'>250</option>
+                                <option value='300'>300</option>
+                                <option value='350'>350</option>
+                                <option value='400'>400</option>
+                                <option value='500'>500</option>
+                            </select>
+                            <span>Records</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="table-container" id="divGrid">
+            </div>
+            <div class="table-container" id="divNoData">
+            </div>
+        </div>
+    </div>
+
+    <div id="logoutModal1" class="modal" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><span id="ModelTitle"></span></h4>
+                    <button type="button" id="closechassismodel" class="close" data-dismiss="modal" data-name="" onclick="ClearFields()"><img src="~/Content/images/croxxicon.png"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="hddId" />
+                    <input type="hidden" id="hddMRP" />
+                    <div class="centerdiv">
+
+                        <div class="col-sm-4 searchbox">
+                            <label>Name</label>
+                            <input type="text" class="form-control alphaNumericOnly" id="txtName" />
+                            <span style="color:red" class="validation" id="spnName"></span>
+                        </div>
+                        <div class="col-sm-4 searchbox">
+                            <label>Description  </label>
+                            <input type="text" class="form-control" id="txtDescription" />
+                            <span style="color:red" class="validation" id="spnDescription"></span>
+                        </div>
+                        <div class="col-sm-4 searchbox">
+                            <label>Language  </label>
+                            <select class="dropdown-text" id="LanguageId" name="LanguageId"></select>
+                            <span style="color:red" class="validation" id="spnLanguage"></span>
+                        </div>
+           
+                    </div>
+                    <div class="centerdiv">
+                        <div class="fulwdidthss">                         
+                            <div class="col-sm-12 searchbox">
+                                <label>Upload File</label>
+                                <div class="col-sm-12 upload-image-container pull-right rightbuttons innercolor" style=" padding: 0; cursor:pointer">
+                                    <div class="file-upload" style=" padding: 0; cursor:pointer">
+                                        <input type="file" name="file-6[]" id="upload-image2" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple="">
+                                        <label for="upload-image2">
+                                            <span class="user-image">
+                                                <video alt="select file" title="select file" id="ImageThumbnail2" controls />
+                                            </span>
+                                            <br>
+                                            <span class="note"><b>Note</b> : vedio size should be 30kB to 5MB.</span>
+                                            <span id="spnImage">Add vedio </span>
+                                        </label>
+                                        <span id="spnImageName2" class="validation" style="color:red"></span>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonsenterbox margintops">
+                        <button class="btn btn-success yes" id="btn_save" onclick=" return SaveManageFavVideos();">Submit</button>
+                        <button class="btn btn-danger No" data-dismiss="modal" id="btnlogoutno" onclick=" return ClearFields();">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+<script src="~/Scripts/function.js"></script>
+<script src="~/Areas/Scripts/managefavvideos.js"></script>
+@*https://docs.telerik.com/kendo-ui/controls/editors/multiselect/how-to/selection/select-deselect-all-items
+    https://elements.envato.com/*@
+
+<script type="text/javascript">
+
+    AlphaNumericOnly('.alphaNumericOnly');
+    NumberOnly('.numberOnly');
+    DecimalOnly('.decimalOnly');
+
+    var $_GetManageFavVideosUrl = '@Url.Action("GetManageFavVideostGridView", "ManageFavVideos", new { Area = "ManageFavVideos" })';
+    var $_ActivateDeactivate = '@Url.Action("ActivateDeactivate", "ManageFavVideos", new { Area = "ManageFavVideos" })';
+    var $_Delete = '@Url.Action("Delete", "ManageFavVideos", new { Area = "ManageFavVideos" })';
+    var $_SaveManageFavVideossUrl = '@Url.Action("SaveManageFavVideos", "ManageFavVideos", new { Area = "ManageFavVideos" })';
+    var $_GetLanguagesUrl = '@Url.Action("GetLanguages", "ManageFavVideos", new { Area = "ManageFavVideos" })';
+    
+    var current_page = 0;
+    $(document).ready(function () {
+
+        $("#select").addClass("hide");
+        $("#deselect").addClass("hide");
+        $("#select").click(function () {
+   
+            var dataSource = required.dataSource.options.data;
+            var values = $.map(dataSource, function (dataItem) {
+                return dataItem.Id;
+            });
+            required.value(values);
+        });
+
+        $("#deselect").click(function () {
+            required.value([]);
+        });
+
+        $('input[type=radio][name=Type][id=chkL]').prop("checked", true);
+
+        GetLanguages(0);
+        GetManageFavVideos();
+    });
+
+
+
+    $(document).on("change", "#NoofRecords", function () {
+        GetManageFavVideos();
+    });
+    $("#anc_search").click(function () {
+        GetManageFavVideos();
+    });
+    $("#reset").click(function () {
+        window.location.reload();
+    });
+
+</script>
+<style>
+    div#logoutModal2 .modal-dialog {
+        width: 52%;
+        top: 50%;
+    }
+
+    a.excels.export.btn {
+        background: #000;
+        color: #fff;
+    }
+
+    .col-sm-4.searchbox {
+        max-width: 100%;
+        float: left;
+        padding-right: 0;
+    }   .col-sm-3.searchbox.newlabel span {
+    float: left;
+    position: relative;
+    top: 7px;
+}
+
+    span.user-image {
+        margin-top: 10px;
+        float: left;
+        width: 100%;
+        text-align: center;
+    }
+       .col-sm-3.searchbox.newlabel select#ddLanguageId {
+    width: 73%;
+    float: right;
+}
+        span.user-image img, span.user-image video {
+            max-height: 180px;
+            overflow: hidden;
+        }
+
+    #logoutModal1 .file-upload label {
+        margin: 0 !important;
+    }
+
+    #logoutModal2 label.fontnormal {
+        width: auto;
+        font-size: 14px;
+        font-weight: normal;
+        margin-right: 10px;
+    }
+
+        #logoutModal2 label.fontnormal input {
+            margin-right: 7px;
+        }
+
+    div#logoutModal2 .centerdiv.divStateCity .col-sm-6.searchbox label {
+        width: 100% !important;
+        float: left !important;
+        margin: 0 0 5px 0 !important;
+    }
+
+    .headingbox {
+        top: 5px;
+    }
+
+    div#adminDashboardLeads {
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+
+    #logoutModal2 label {
+        text-align: left;
+        float: left;
+        width: 100%;
+    }
+
+    #spnMRP, #spnduration {
+        float: left;
+        color: #ccc;
+    }
+
+    #spnMRP, #spnduration {
+        float: left;
+        color: #ccc;
+    }
+
+    .centerdiv.divStateCity .col-sm-4.searchbox:nth-child(1), .centerdiv.divEPuja .col-sm-4.searchbox:nth-child(1) {
+        padding-left: 0;
+    }
+
+    div#logoutModal2 .col-sm-6.searchbox label.fontnormal {
+        font-weight: normal;
+        top: -1px;
+        position: relative;
+    }
+
+    div#logoutModal2 div#datetimepicker2 img {
+        position: absolute;
+        right: 5px;
+        z-index: 999;
+        top: 9px;
+    }
+
+    div#logoutModal2 .col-sm-6.searchbox label {
+        width: auto !important;
+        margin: 0 9px 0;
+    }
+
+    body.menuToggle #logoutModal2 .col-sm-4.searchbox {
+        max-width: 100%;
+    }
+
+    div#logoutModal2 .col-sm-6.searchbox {
+        margin-top: 0px;
+        float: left;
+        padding: 0 8px;
+        margin-bottom: 20px;
+    }
+
+        div#logoutModal2 .col-sm-6.searchbox input {
+            margin-right: 5px;
+            position: relative;
+            top: 1px;
+        }
+
+    body.menuToggle #logoutModal2 .col-sm-4.searchbox div#datetimepicker2 {
+        width: 100%;
+    }
+
+        body.menuToggle #logoutModal2 .col-sm-4.searchbox div#datetimepicker2 input#startdate_id {
+            border-radius: 5px;
+        }
+
+    .col-sm-3.searchbox.districtbox, .searchresult {
+        margin-top: 0;
+    }
+
+    .searchresult {
+    }
+
+    .col-sm-3.searchbox.districtbox select#ddDistrict {
+        width: 77%;
+    }
+</style>
+
+<style>
+    div#logoutModal1 .modal-dialog {
+        width: 52%;
+        top: 50%;
+    }
+
+    .col-sm-4.searchbox {
+        max-width: 100%;
+        float: left;
+        padding-right: 0;
+    }
+
+    #logoutModal1 label.fontnormal {
+        width: auto;
+        font-size: 14px;
+        font-weight: normal;
+        margin-right: 10px;
+    }
+
+        #logoutModal1 label.fontnormal input {
+            margin-right: 7px;
+        }
+
+    div#logoutModal1 .centerdiv.divStateCity .col-sm-6.searchbox label {
+        width: 100% !important;
+        float: left !important;
+        margin: 0 0 5px 0 !important;
+    }
+
+
+
+    #logoutModal1 label {
+        text-align: left;
+        float: left;
+        width: 100%;
+    }
+
+
+
+    .centerdiv.divStateCity .col-sm-4.searchbox:nth-child(1), .centerdiv.divEPuja .col-sm-4.searchbox:nth-child(1) {
+        padding-left: 0;
+    }
+
+    div#logoutModal1 .col-sm-6.searchbox label.fontnormal {
+        font-weight: normal;
+        top: -1px;
+        position: relative;
+    }
+
+    div#logoutModal1 div#datetimepicker2 img {
+        position: absolute;
+        right: 5px;
+        z-index: 999;
+        top: 9px;
+    }
+
+    div#logoutModal1 .col-sm-6.searchbox label {
+        width: auto !important;
+        margin: 0 9px 0;
+    }
+
+    body.menuToggle #logoutModal1 .col-sm-4.searchbox {
+        max-width: 100%;
+    }
+
+    label.relative {
+        position: absolute;
+        left: 0;
+        bottom: -34px;
+        line-height: 14px;
+    }
+
+    #logoutModal1 .col-sm-4.searchbox {
+        margin-bottom: 20px;
+    }
+
+    #logoutModal1 .file-upload {
+        padding: 6px 10px;
+    }
+
+    div#logoutModal1 .col-sm-6.searchbox {
+        margin-top: 0px;
+        float: left;
+        padding: 0 8px;
+        margin-bottom: 20px;
+    }
+
+        div#logoutModal1 .col-sm-6.searchbox input {
+            margin-right: 5px;
+            position: relative;
+            top: 1px;
+        }
+
+    .validation {
+        font-size: 12px;
+        position: absolute;
+        left: 18px;
+        font-weight: bold;
+    }
+
+    body.menuToggle #logoutModal1 .col-sm-4.searchbox div#datetimepicker2 {
+        width: 100%;
+    }
+
+    .fulwdidthss {
+        width: 100%;
+        float: left;
+        margin: auto;
+    }
+
+    #logoutModal1 .validation {
+        font-size: 12px;
+        position: absolute;
+        left: 13px;
+        font-weight: bold;
+        bottom: -20px;
+    }
+
+    body.menuToggle #logoutModal1 .col-sm-4.searchbox div#datetimepicker2 input#startdate_id {
+        border-radius: 5px;
+    }
+</style>
+
+
+

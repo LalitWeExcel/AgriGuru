@@ -1,0 +1,183 @@
+﻿@model SwarajCustomer_Common.Customer.BookPurohitContent
+@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidths">
+        <div class="barwidths mainwidths" id="adminDashboardLeads">
+            @{
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;text-align:center;padding-top:0;padding-bottom:10px;">Prohit,s Profile</h1>
+
+                <br />
+                int x = 1;
+                foreach (var item in Model.GetTopAstrologersPurohits)
+                {
+                    int _counter = x++;
+                    <a href="#" title="Select And Proceed"  name="SelectAndProceed" onclick="SelectAndProceed('@item.UserID')">
+                        <div class="reviewbox">
+                            <div class="innerwidths list-group-item">
+
+                                <div class="col-sm-4 leftimages">
+                                    <img src="@item.ImageName" />
+                                </div>
+                                <div class="col-sm-8 righttext">
+                                    <span class="maintittle">@item.Username&nbsp;( @item.UserType )</span>
+                                    <span class="yearstext">@item.Experience Year Experience </span>
+                                    <input type="hidden" value="@item.Rating" id="hddReting@_counter" />
+                                    <span class="my-rating@_counter jq-stars"></span>
+                                </div>
+                                <span class="userheading" style="margin-top: 10px;">
+                                    <label>Specializations : </label>
+                                </span>
+                                <span class="fullname" style="margin: 0;">
+                                    @Html.Raw(string.Join("  |  ", item.Specializations.Take(3).Select(s => string.Format("<span>{0}</span>", s.name))))
+                                </span>
+
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+
+    </div>
+    <script src="~/Scripts/function.js"></script>
+    <script src="~/Areas/Customer/Scripts/active.js"></script>
+    <script src="~/Areas/Customer/Scripts/bookpurohit.js"></script>
+
+    <script>
+        var $_SelectAndProceed = '@Url.Action("SelectAndProceed", "BookPurohit", new { Area = "Customer" })';
+        function SelectAndProceed(purohitid) {
+            location.href = $_SelectAndProceed + "?PurohitID=" + parseInt(purohitid);
+        }
+    $(document).ready(function () {
+        $(".my-rating").starRating({
+            initialRating: parseInt($("#hddReting").val()),
+            strokeColor: '#894A00',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+
+        $(".my-rating1").starRating({
+            initialRating: parseInt($("#hddReting1").val()),
+            strokeColor: '#ffffff',
+
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating2").starRating({
+            initialRating: parseInt($("#hddReting2").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating3").starRating({
+            initialRating: parseInt($("#hddReting3").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating4").starRating({
+            initialRating: parseInt($("#hddReting4").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating5").starRating({
+            initialRating: parseInt($("#hddReting5").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+
+        $(".my-rating6").starRating({
+            initialRating: parseInt($("#hddReting6").val()),
+            strokeColor: '#ffffff',
+
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating7").starRating({
+            initialRating: parseInt($("#hddReting7").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating8").starRating({
+            initialRating: parseInt($("#hddReting8").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating9").starRating({
+            initialRating: parseInt($("#hddReting9").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+        $(".my-rating10").starRating({
+            initialRating: parseInt($("#hddReting10").val()),
+            strokeColor: '#ffffff',
+            strokeWidth: 10,
+            starSize: 25,
+            readOnly: true,
+            useFullStars: true
+        });
+
+    });
+
+
+    </script>
+
+
+
+
+    @*<div class="barwidths mainwidths" id="adminDashboardLeads">
+            @{
+
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;text-align:center;padding-top:0;padding-bottom:10px;">Other top Rated Prohit,s</h1>
+
+                int x = 1;
+                foreach (var item in Model.GetTopAstrologersPurohits.Take(10))
+                {
+                    int _counter = x++;
+                    <div class="reviewbox">
+                        <div class="innerwidths">
+                            <div class="col-sm-4 leftimages">
+                                <img src="@item.ImageName" />
+                            </div>
+                            <div class="col-sm-8 righttext">
+                                <span class="maintittle">@item.Username&nbsp;( @item.UserType )</span>
+                                <span class="yearstext">@item.Experience Year Experience </span>
+                                <input type="hidden" value="@item.Rating" id="hddReting@_counter" />
+                                <span class="my-rating@_counter jq-stars"></span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>*@

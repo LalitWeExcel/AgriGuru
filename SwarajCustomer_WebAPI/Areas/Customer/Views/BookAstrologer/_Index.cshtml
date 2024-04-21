@@ -1,0 +1,543 @@
+﻿@model  SwarajCustomer_Common.Customer.BookAstrologerContent
+@using SwarajCustomer_Common;
+@{
+    ViewBag.Title = "BookAstrologer";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    var Server_Url = CommonMethods.BaseUrl;
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidth top">
+        <div class="table-heading padding">
+            <div class="col-md-8" style="padding-left:0;">
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0; padding-left: 0;">@ViewBag.Title</h1>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" id="hddAstrologerId" value="@Model.AstrologerId" />
+    <input type="hidden" id="hddServicesId" value="@Model.ServicesId" />
+
+    <input type="hidden" id="hddBookingDurationId" />
+    <input type="hidden" id="hddAstroMRP" />
+    <input type="hidden" id="hddAstroDiscount" />
+    <input type="hidden" id="hddAstroDiscountedPrice" />
+    <input type="hidden" id="hddConsultionmedium" />
+
+    <div class="barwidths borderwidthss" id="adminDashboardLeads">
+        <div class="searchfilter topwidth">
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">Choose Date </label>
+                <input type="text" class="form-control date-picker-textbox hasDatepicker" id="startdate_id" placeholder="startdate" readonly />
+                <img src="~/Content/images//caleder.png" style="height:15px;width:15px">
+            </div>
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">Choose Time</label>
+                @Html.DropDownList("AddTimeSlot", new SelectList(Model.Masters.TimeSlotsList, "ID", "TimeSlot"), "All", new { @id = "AddTimeSlot", @class = "form-control selectoption" })
+                <span style="color:red" class="validation" id="spnAddTimeSlot"></span>
+            </div>
+            <div class="col-sm-6 searchbox newlabel">
+                <label class="control-label col-md-2">Pick and Slot</label>
+                @{
+                    foreach (var item in Model.Masters.DurationSlotsList)
+                    { <div class="textrightst list-group-item">
+                            <a href="#" onclick="_selectDurationSlots(this)" data-bookingdurationid="@item.ID"
+                               data-astromrp="@item.MRP" data-astrodiscount="@item.Discount" data-astrodiscountedprice="@item.DiscountedPrice">
+                                <span class="Tittlefull">@item.Name</span>
+                                <span class="mrpprice">@item.MRP</span>
+                                <span class="disprice">@item.DiscountedPrice</span>
+                            </a>
+                        </div>
+                    }
+                }
+
+                <span style="color:red" class="validation" id="spnbookingduration"></span>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="barwidths borderwidthss" id="adminDashboardLeads">
+        <div class="searchfilter">
+            <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;text-align:left;padding-top:10px;padding-bottom:20px;">Our Choose Consultion medium</h1>
+            <label></label>
+            <div class="col-sm-12 searchbox tab">
+                <button class="tablinks" id="AUpcoming" onclick="myBooking(event, 'Upcoming')">Home Visit</button>
+                <button class="tablinks" onclick="myBooking(event, 'Completed')">Phone  Call </button>
+                <button class="tablinks" onclick="myBooking(event, 'Cancelled')">Vedio Call</button>
+            </div>
+        </div>
+
+        <div id="Upcoming" class="tabcontent">
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">Home Address</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control alphaNumericOnly" name="HomeAddress" id="txtAddress" maxlength="50" />
+                    <span class="text-danger" id="spnAddress"></span>
+                </div>
+            </div>
+
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">Land Mark</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control alphaNumericOnly" name="LandMark" id="txtLandMark" maxlength="50" />
+                    <span class="text-danger" id="spnLandMark"></span>
+                </div>
+            </div>
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">State</label>
+                <div class="col-md-2">
+                    <select class="form-control selectoption" id="ddState" name="mst_state_id"></select>
+                    <span style="color:red" class="validation" id="spnddState"></span>
+                </div>
+            </div>
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">District</label>
+                <div class="col-md-2">
+                    <select class="form-control selectoption" id="ddDistrict" name="mst_district_id"></select>
+                    <span style="color:red" class="validation" id="spnddDistrict"></span>
+                </div>
+            </div>
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">Pin Code</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control numberOnly" name="PinCodes" id="txtPinCode" maxlength="8" />
+                    <span class="text-danger" id="spnPinCode"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="Completed" class="tabcontent">
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">Phone Number</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control numberOnly" name="PhoneNumber" id="txtPhoneNumber" maxlength="10" />
+                    <span class="text-danger" id="spnPhoneNumber"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="Cancelled" class="tabcontent">
+            <div class="col-sm-3 searchbox newlabel">
+
+                <div class="col-md-5">
+                    <label class="fontnormal">
+                        <input type="radio" style="cursor:pointer" name="gender" id="Yes" value="1" checked>
+                        WHATSAPP
+                    </label>
+                    <label class="fontnormal">
+                        <input type="radio" style="cursor:pointer" name="gender" id="No" value="2">
+                        SKYPE
+                    </label>
+                    <span class="text-danger" id="spngender"></span>
+                </div>
+            </div>
+            <div class="col-sm-3 searchbox newlabel Whatsapp">
+                <label class="control-label col-md-2">Whatsapp Number</label>
+                <div class="col-md-2">
+                    <input type="text" placeholder="Please Enter Whats app Number" class="form-control numberOnly" name="WhatsappNumber" id="txtWhatsappNumber" maxlength="10" />
+                    <span class="text-danger" id="spnWhatsappNumber"></span>
+                </div>
+            </div>
+            <div class="col-sm-3 searchbox newlabel Skype">
+                <label class="control-label col-md-2">Skype Id</label>
+                <div class="col-md-2">
+                    <input type="text" placeholder="Please Enter Skype Id" class="form-control alphaNumericOnly" name="SkypeId" id="txtSkypeId" maxlength="25" />
+                    <span class="text-danger" id="spnSkype"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="Fullwidths">
+        <div class="searchfilter">
+            <div class="col-sm-3 searchbox raido">
+                <label class="control-label col-md-2">For whom you are booking for ?</label>
+                <input type="radio" style="cursor:pointer" name="IsForOther" value="N" checked>
+                <span class="radiotext">Me</span>
+                <input type="radio" style="cursor:pointer" name="IsForOther" value="Y">
+                <span class="radiotext">SomeOne Else</span>
+            </div>
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">First Name</label>
+                <input type="text" class="form-control alphaOnly" id="txtFirstName" />
+                <span style="color:red" class="validation" id="spnFirstName"></span>
+            </div>
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">Last Name</label>
+                <input type="text" class="form-control alphaOnly" id="txtLastName" />
+                <span style="color:red" class="validation" id="spnLastName"></span>
+            </div>
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">Gender</label>
+                <div class="col-md-5">
+                    <label class="fontnormal">
+                        <input type="radio" style="cursor:pointer" name="MaleFemale" id="Yes" value="Male" checked>
+                        Male
+                    </label>
+                    <label class="fontnormal">
+                        <input type="radio" style="cursor:pointer" name="MaleFemale" id="No" value="Female">
+                        Female
+                    </label>
+                    <span class="text-danger" id="spngender"></span>
+                </div>
+            </div>
+        </div>
+        <div class="searchfilter">
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">Date Of Birth</label>
+                <input type="text" class="form-control date-picker-textbox hasDatepicker" id="DateOfBirth" placeholder="DateOfBirth" readonly />
+                <img src="~/Content/images//caleder.png" style="height:15px;width:15px">
+                <span style="color:red" class="validation" id="spnDateOfBirth"></span>
+            </div>
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2">Date of Time</label>
+                <input type="text" class="form-control date-picker-textbox hasDatepicker" id="DateOfTime" placeholder="DateOfTime" readonly />
+                <img src="~/Content/images//caleder.png" style="height:15px;width:15px">
+                <span style="color:red" class="validation" id="spnDateOfTime"></span>
+            </div>
+
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2"> Place of Birth </label>
+                <input type="text" class="form-control alphaOnly" id="txtPlaceofBirth" />
+                <span style="color:red" class="validation" id="spnPlaceofBirth"></span>
+            </div>
+
+        </div>
+        <div class="searchfilter">
+            <div class="col-sm-3 searchbox newlabel">
+                <label class="control-label col-md-2"> What Amount you are pay ?</label>
+                <input type="radio" style="cursor: pointer;" name="Payment" value="Y" checked />
+                <span class="radiotext">Full Payment</span>
+                <input type="radio" style="cursor: pointer;" name="Payment" value="N" />
+                <span class="radiotext">20% payment</span>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="buttonsenterbox margintops">
+        <button class="btn btn-success yes" id="btn_save" onclick="SaveAstroOrder('Y')">Add To Cart</button>
+        <button class="btn btn-success No" id="btn_save" onclick="SaveAstroOrder('N')">Book Now</button>
+        <button class="btn btn-success yes black" id="btn_save" onclick="RedirectToIndex('@Model.AstrologerId')">Cancel</button>
+    </div>
+</div>
+
+
+<script src="~/Scripts/function.js"></script>
+<script src="~/Areas/Customer/Scripts/bookastrologer.js"></script>
+<script src="~/Areas/Customer/Scripts/active.js"></script>
+<script>
+    var $_RedirectToIndex = '/BookAstrologer/Index';
+    var $_SaveAstroOrderUrl = "";
+    if ('@Server_Url'.indexOf('AgriGuru') >= 1) {
+        $_SaveAstroOrderUrl = '/AgriGuru/Booking/SaveAstroOrder/';
+    }
+    else if ('@Server_Url'.indexOf('PujaGuru') >= 1) {
+        $_SaveAstroOrderUrl = '/PujaGuru/Booking/SaveAstroOrder/';
+    }
+    else {
+         $_SaveAstroOrderUrl = '/Booking/SaveAstroOrder/';
+    }
+
+
+    var $_FirstName = '@Model.Userprofile.FirstName';
+    var $_LastName = '@Model.Userprofile.LastName';
+    var $_Email = '@Model.Userprofile.Email';
+    var $_MobileNumber = '@Model.Userprofile.MobileNumber';
+    var $_Address = '@Model.Userprofile.Address';
+    var $_Landmark = '@Model.Userprofile.Landmark'.replace('&amp;', '&');
+    var $_PinCode = '@Model.Userprofile.PinCode';
+    var $_CityName = '@Model.Userprofile.City'.replace('&amp;', '&');
+    var $_StateId = '@Model.Userprofile.StateId';
+    var $_DistrictId = '@Model.Userprofile.DistrictId';
+
+    var $_DOB = '@Model.Userprofile.DOB';
+    var $_TOB = '@Model.Userprofile.TOB'; if ($_TOB == "") { $_TOB = "12:00:AM" }
+
+    var _d = $_DOB.split("-");
+    var defaultDate = toTimestamp(_d[2], _d[1], _d[0]);
+
+    var $_SamagriMRP = '@Model.Masters.SamagriList[0].MRP';
+    var $_SamagriDiscount = '@Model.Masters.SamagriList[0].Discount';
+    var $_SamagriDiscountPrice = '@Model.Masters.SamagriList[0].DiscountedPrice';
+
+    AlphaOnly('.alphaOnly');
+    NumberOnly('.numberOnly');
+    DecimalOnly('.decimalOnly');
+    AlphaNumericOnly('.alphaNumericOnly');
+    AlphaPlusMinus('.alphaPlusMinus');
+    PreventKey('.preventkey');
+    SevenDigitWithTwoDeci('.SevenWithTwoDeci');
+
+    $(".Skype").addClass('hide');
+
+    $(document).ready(function () {
+
+        $("#AUpcoming").trigger("click");
+
+        var d = new Date();
+        var currMonth = d.getMonth();
+        var currYear = d.getFullYear();
+        var currDate = d.getDate();
+        var endDate = new Date(currYear, currMonth, currDate + 1);
+
+        $("#startdate_id").datetimepicker({
+            format: "DD-MM-YYYY",
+            pickTime: false,
+            autoclose: true,
+            defaultDate: endDate,
+            minDate: endDate,
+        });
+
+        $("#DateOfBirth").datetimepicker({
+            format: "DD-MM-YYYY",
+            pickTime: false,
+            autoclose: true,
+            defaultDate: defaultDate,
+            maxDate: moment()
+        });
+
+        $("#DateOfTime").datetimepicker({
+            format: "hh:mm A",
+            pickTime: true,
+            autoclose: true,
+            ampm: true, // FOR AM/PM FORMAT
+            pickDate: false,
+            minuteStep: 15,
+            pickerPosition: 'bottom-right',
+            showMeridian: true,
+            startView: 1,
+            maxView: 1,
+            defaultDate: $_TOB
+        });
+
+        $("#txtFirstName").val($_FirstName);
+        $("#txtLastName").val($_LastName);
+        $("#txtEmail").val($_Email);
+        $("#txtContantNumber").val($_MobileNumber);
+        $("#txtAddress").val($_Address);
+        $("#txtLandMark").val($_Landmark);
+        $("#txtPinCode").val($_PinCode);
+        $("#txtCityName").val($_CityName);
+
+        GetState($_StateId);
+        setTimeout(function () {
+            GetDistrict($_StateId, $_DistrictId);
+        }, 2000);
+    });
+
+
+
+</script>
+
+<style>
+
+    .tab button:last-child {
+        border: none;
+    }
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #333;
+        background-color: #333;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .col-sm-3.searchbox.newlabel {
+        width: 25%;
+    }
+
+        .col-sm-3.searchbox.newlabel label.control-label {
+            width: 100%;
+            float: left;
+            position: relative;
+            margin: 0 0 14px;
+        }
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        color: #fff;
+        border-right: 1px solid #fff;
+    }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #f15a29;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #f15a29;
+        }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        float: left;
+        margin-top: -11px;
+        width: 100%;
+    }
+
+    .modal-dialog.reminderpop .modal-body img {
+        position: absolute;
+        right: 0;
+        top: 24px;
+        right: 24px;
+    }
+
+    .fullwidths.booking p {
+        width: auto;
+        display: inline-block;
+    }
+
+    .fullwidths.booking span {
+        font-weight: bold;
+        /* font-size: 16px; */
+    }
+
+    .fullwidths.booking {
+        font-size: 14px;
+        line-height: 34px;
+    }
+
+    .searchfilter.topwidth {
+    }
+
+        .searchfilter.topwidth label.control-label {
+            width: 100%;
+            float: left;
+            left: 0;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .searchfilter.topwidth img {
+            position: absolute;
+            right: 30px;
+            bottom: 10px;
+        }
+
+        .searchfilter.topwidth select#AddTimeSlot {
+            width: 100%;
+        }
+
+        .searchfilter.topwidth .col-sm-3.searchbox.newlabel {
+            width: 16%;
+        }
+
+        .searchfilter.topwidth .col-sm-6.searchbox.newlabel {
+            width: 68%;
+        }
+
+    .textrightst {
+        width: auto;
+        margin: 0 20px 0 0;
+        float: left;
+        padding-right: 20px;
+        padding: 0px 15px;
+    }
+
+        .textrightst a {
+            font-size: 15px;
+            /* font-weight: 600; */
+            color: #000;
+            padding: 4px 0;
+            display: inline-block;
+        }
+
+    .mrpprice {
+        text-decoration: line-through;
+    }
+
+    .disprice {
+        color: #b50000;
+        font-weight: 600;
+    }
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 6px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        color: #fff;
+        border-right: 1px solid #fff;
+    }
+
+    div#divGrid {
+        border: 1px solid #ccc;
+        width: 100%;
+        float: left;
+        margin-top: -10px;
+        border-top: none;
+    }
+
+    div#Upcoming, div#Completed, div#Cancelled {
+        padding: 10px !important;
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+
+    .col-sm-3.searchbox.newlabel label.control-label {
+        width: 100%;
+        float: left;
+        position: relative;
+        margin: 0 0 14px;
+        padding: 0;
+    }
+
+    .col-sm-3.searchbox.newlabel .col-md-2 {
+        width: 100%;
+        margin: auto;
+        padding: 0;
+    }
+
+    .col-sm-3.searchbox.newlabel .col-md-5 {
+        width: 100%;
+        padding: 0;
+    }
+
+        .col-sm-3.searchbox.newlabel .col-md-5 label.fontnormal {
+            margin-right: 10px;
+            font-weight: normal;
+        }
+
+    #adminDashboardLeads.borderwidthss .tabcontent .col-sm-3.searchbox.newlabel {
+        margin-bottom: 10px;
+    }
+
+    .col-sm-3.searchbox.newlabel .col-md-2 select {
+        width: 100%;
+    }
+
+    .col-sm-3.searchbox.newlabel img {
+        position: absolute;
+        right: 30px;
+        bottom: 10px;
+    }
+
+    .col-sm-3.searchbox.raido label.control-label.col-md-2 {
+        width: 100% !important;
+        margin-right: 0;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+</style>

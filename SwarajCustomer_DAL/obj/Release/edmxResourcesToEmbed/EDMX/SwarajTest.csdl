@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SwarajTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="mst_services">
+    <Key>
+      <PropertyRef Name="mst_services_id" />
+    </Key>
+    <Property Name="mst_services_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="form_value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="c_by" Type="Int32" />
+    <Property Name="c_time" Type="DateTime" Precision="3" />
+    <Property Name="u_by" Type="Int32" />
+    <Property Name="u_time" Type="DateTime" Precision="3" />
+    <Property Name="hindi_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="SwarajTestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="mst_services" EntityType="Self.mst_services" />
+    <EntitySet Name="mst_zodiacs" EntityType="SwarajTestModel.mst_zodiacs" />
+    <EntitySet Name="adm_user_role" EntityType="SwarajTestModel.adm_user_role" />
+    <EntitySet Name="product_color" EntityType="SwarajTestModel.product_color" />
+    <EntitySet Name="product_price" EntityType="SwarajTestModel.product_price" />
+    <EntitySet Name="adm_APIExceptionLog" EntityType="SwarajTestModel.adm_APIExceptionLog" />
+    <FunctionImport Name="usp_getCustomersDetails" ReturnType="Collection(SwarajTestModel.usp_getCustomersDetails_Result)">
+      <Parameter Name="mobile" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="adm_application_SMS_gateway_configuration" EntityType="SwarajTestModel.adm_application_SMS_gateway_configuration" />
+    <FunctionImport Name="usp_adm_user_ins_otp">
+      <Parameter Name="userId" Mode="In" Type="Int32" />
+      <Parameter Name="OTP" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="String" />
+      <Parameter Name="retval" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_get_astrologers_purohits" ReturnType="Collection(SwarajTestModel.usp_get_astrologers_purohits_Result)" />
+    <FunctionImport Name="usp_get_ads" ReturnType="Collection(SwarajTestModel.usp_get_ads_Result)">
+      <Parameter Name="latitude" Mode="In" Type="String" />
+      <Parameter Name="longitude" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_adm_user_get" ReturnType="Collection(SwarajTestModel.usp_adm_user_get_Result)">
+      <Parameter Name="adm_user_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="adm_user_otp" EntityType="SwarajTestModel.adm_user_otp" />
+    <EntitySet Name="adm_role" EntityType="SwarajTestModel.adm_role" />
+    <EntitySet Name="adm_user" EntityType="SwarajTestModel.adm_user" />
+    <FunctionImport Name="usp_api_manage_fav_vedios_list" ReturnType="Collection(SwarajTestModel.usp_api_manage_fav_vedios_list_Result)">
+      <Parameter Name="languageId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="mst_zodiacs">
+    <Key>
+      <PropertyRef Name="mst_zodiacs_id" />
+    </Key>
+    <Property Name="mst_zodiacs_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="date_range" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="image_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="c_by" Type="Int32" />
+    <Property Name="c_time" Type="DateTime" Precision="3" />
+    <Property Name="u_by" Type="Int32" />
+    <Property Name="u_time" Type="DateTime" Precision="3" />
+    <Property Name="sort_order" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="adm_user_role">
+    <Key>
+      <PropertyRef Name="adm_user_role_id" />
+    </Key>
+    <Property Name="adm_user_role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adm_user_id" Type="Int32" />
+    <Property Name="adm_role_id" Type="Int32" />
+    <Property Name="c_by" Type="Int32" />
+    <Property Name="c_time" Type="DateTime" Precision="3" />
+    <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="u_by" Type="Int32" />
+    <Property Name="u_time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="product_color">
+    <Key>
+      <PropertyRef Name="product_color_id" />
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_color_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="c_by" Type="Int32" />
+    <Property Name="c_time" Type="DateTime" Precision="3" />
+    <Property Name="u_by" Type="Int32" />
+    <Property Name="u_time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="product_price">
+    <Key>
+      <PropertyRef Name="product_price_id" />
+    </Key>
+    <Property Name="product_price_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_size_id" Type="Int32" />
+    <Property Name="mrp" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="final_amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="sequence" Type="Int32" />
+    <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="c_by" Type="Int32" />
+    <Property Name="c_time" Type="DateTime" Precision="3" />
+    <Property Name="u_by" Type="Int32" />
+    <Property Name="u_time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="adm_APIExceptionLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Exception" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Datetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Module" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="usp_getCustomersDetails_Result">
+    <Property Type="Int32" Name="adm_user_id" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="300" />
+    <Property Type="Int32" Name="c_by" Nullable="true" />
+    <Property Type="DateTime" Name="c_time" Nullable="true" Precision="23" />
+    <Property Type="String" Name="is_active" Nullable="true" MaxLength="1" />
+    <Property Type="Int32" Name="u_by" Nullable="true" />
+    <Property Type="DateTime" Name="u_time" Nullable="true" Precision="23" />
+    <Property Type="String" Name="mob_number" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="user_type" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="256" />
+    <Property Type="Int32" Name="associated_id" Nullable="true" />
+    <Property Type="Int32" Name="user_details_id" Nullable="true" />
+    <Property Type="String" Name="first_name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="last_name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="whatsapp_no" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="district" Nullable="true" />
+    <Property Type="Int32" Name="state" Nullable="true" />
+    <Property Type="String" Name="export_in_pooja" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="ready_for_travel" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="year_of_exp" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="marital_status" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="DOB" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="aadhar_number_name" Nullable="true" />
+    <Property Type="Int32" Name="qualification" Nullable="true" />
+    <Property Type="Int32" Name="health_status" Nullable="true" />
+    <Property Type="Int32" Name="c_by1" Nullable="true" />
+    <Property Type="DateTime" Name="c_time1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="u_by1" Nullable="true" />
+    <Property Type="DateTime" Name="u_time1" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="user_id" Nullable="true" />
+    <Property Type="Int32" Name="adm_user_role_id" Nullable="false" />
+    <Property Type="Int32" Name="adm_user_id1" Nullable="true" />
+    <Property Type="Int32" Name="adm_role_id" Nullable="true" />
+    <Property Type="Int32" Name="c_by2" Nullable="true" />
+    <Property Type="DateTime" Name="c_time2" Nullable="true" Precision="23" />
+    <Property Type="String" Name="is_active1" Nullable="true" MaxLength="1" />
+    <Property Type="Int32" Name="u_by2" Nullable="true" />
+    <Property Type="DateTime" Name="u_time2" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="adm_role_id1" Nullable="false" />
+    <Property Type="String" Name="code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="c_by3" Nullable="true" />
+    <Property Type="DateTime" Name="c_time3" Nullable="true" Precision="23" />
+    <Property Type="String" Name="is_active2" Nullable="true" MaxLength="1" />
+    <Property Type="Int32" Name="u_by3" Nullable="true" />
+    <Property Type="DateTime" Name="u_time3" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="adm_application_SMS_gateway_configuration">
+    <Key>
+      <PropertyRef Name="SMS_Gateway_ID" />
+    </Key>
+    <Property Name="SMS_Gateway_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Module" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SMS_Gateway_Provider_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SMS_Gateway_API" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SMS_Contact_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SMS_Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Is_Active" Type="Boolean" />
+  </EntityType>
+  <ComplexType Name="usp_get_astrologers_purohits_Result">
+    <Property Type="Int32" Name="adm_user_id" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="mob_number" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="user_type" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="first_name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="last_name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="whatsapp_no" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="district" Nullable="true" />
+    <Property Type="Int32" Name="state" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="usp_get_ads_Result">
+    <Property Type="Int32" Name="main_product_id" Nullable="true" />
+    <Property Type="String" Name="pooja_name" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="pooja_code" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="discount" Nullable="true" />
+    <Property Type="Decimal" Name="mrp" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="latitude" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="longitude" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="usp_adm_user_get_Result">
+    <Property Type="Int32" Name="adm_user_id" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="mob_number" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="user_type" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="first_name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="last_name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="whatsapp_no" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="district" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="state" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="latitude" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="longitude" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <EntityType Name="adm_user_otp">
+    <Key>
+      <PropertyRef Name="adm_user_otp_id" />
+    </Key>
+    <Property Name="adm_user_otp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adm_user_id" Type="Int32" />
+    <Property Name="mob_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="otp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="is_verified" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="c_by" Type="Int32" />
+    <Property Name="c_time" Type="DateTime" Precision="3" />
+    <Property Name="u_by" Type="Int32" />
+    <Property Name="u_time" Type="DateTime" Precision="3" />
+    <Property Name="expiry_time" Type="DateTime" Precision="3" />
+    <Property Name="encrypted_otp" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="adm_role">
+    <Key>
+      <PropertyRef Name="adm_role_id" />
+    </Key>
+    <Property Name="adm_role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="c_by" Type="Int32" />
+    <Property Name="c_time" Type="DateTime" Precision="3" />
+    <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="u_by" Type="Int32" />
+    <Property Name="u_time" Type="DateTime" Precision="3" />
+    <Property Name="badge" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="sort_order" Type="Int32" />
+  </EntityType>
+  <EntityType Name="adm_user">
+    <Key>
+      <PropertyRef Name="adm_user_id" />
+    </Key>
+    <Property Name="adm_user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="c_by" Type="Int32" />
+    <Property Name="c_time" Type="DateTime" Precision="3" />
+    <Property Name="is_active" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="u_by" Type="Int32" />
+    <Property Name="u_time" Type="DateTime" Precision="3" />
+    <Property Name="mob_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="user_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="birthday_email_sent" Type="Int32" />
+    <Property Name="token" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="referal_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="logo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="upcomeing_birthday_email_sent" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="usp_api_manage_fav_vedios_list_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="VideoName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IsActive" Nullable="true" MaxLength="1" />
+    <Property Type="Int32" Name="LanguageId" Nullable="false" />
+    <Property Type="String" Name="AdvertisingType" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="LanguageName" Nullable="false" MaxLength="7" />
+  </ComplexType>
+</Schema>

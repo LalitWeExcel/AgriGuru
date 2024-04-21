@@ -1,0 +1,90 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+  <p style="font-size: 20px; color: white;">Please Wait...</p>
+</ngx-spinner>
+
+<div *ngIf="IsAuthorised">
+  <app-header></app-header>
+  <app-side-nav></app-side-nav>
+
+  <div class="app-container">
+    <div class="app-main">
+      <div class="tab-form">
+        <div class="tab-body">
+          <div class="col-md-6 col-lg-6">
+            <h4 class="table_bordered--title">{{ this.societyName }}</h4>
+            <label class="simple_form--label"></label>
+            <button class="select-form" (click)="BackRequest()">Back</button>
+          </div>
+          <br />
+          <ngx-loading [show]="loading"> </ngx-loading>
+          <div class="table-responsive">
+            <table class="table table-hover table_bordered table table-striped" style="width: auto;">
+              <thead class="table-success">
+                <tr>
+                  <th scope="col">Sl. No</th>
+                  <th scope="col">Details</th>
+                  <th scope="col">Back Track</th>
+                  <th scope="col">Inspect Name</th>
+                  <th scope="col">Member SNo</th>
+                  <th scope="col">Member Name</th>
+                  <th scope="col">Father Name</th>
+                  <th scope="col">Society TransID</th>
+                  <th scope="col">Committe MemberID</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Full Address</th>
+                  <th scope="col">No Of Shares</th>
+                  <th scope="col">Nominee Name</th>
+                  <th scope="col">Mobile No</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of SocietiesMembersList
+          | paginate
+            : {
+                itemsPerPage: pageSize,
+                currentPage: pagenumber,
+                totalItems: recordsCount
+              }">
+                  <td scope="row">{{item.rowNum}}</td>
+                  <td scope="row">
+                    <a (click)="GetMembersDetails(item.memberSNo)">
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                  <td scope="row">
+                    <a (click)="GetMembersBackTrackDetails(item.memberSNo)" *ngIf="item.isSTCase==1">
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                  <td scope="row">{{item.inspectName}}</td>
+                  <td scope="row">{{item.memberSNo}}</td>
+                  <td scope="row">{{item.memberName}}</td>
+                  <td scope="row">{{item.fatherName}}</td>
+                  <td scope="row">{{item.societyTransID}}</td>
+                  <td scope="row">{{item.committeMemberID}}</td>
+                  <td scope="row">{{item.gender}}</td>
+                  <td scope="row">{{item.age}}</td>
+                  <td scope="row">{{item.fullAddress}}</td>
+                  <td scope="row">{{item.noOfShares}}</td>
+                  <td scope="row">{{item.nomineeName}}</td>
+                  <td scope="row">{{item.mobile}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center">
+              <select (change)="PageSizeChange($event)">
+                <option *ngFor="let size of pageSizes" [ngValue]="size">
+                  {{ size }}
+                </option>
+              </select>
+              &nbsp;&nbsp;&nbsp;
+              <pagination-controls previousLabel="Previous" nextLabel="Next" [responsive]="true" (pageChange)="PageChanged($event)" (pageBoundsCorrection)="PageChanged($event)"> </pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,264 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Manager Order";
+    ViewBag.Menu = "Dashboard";
+    ViewBag.SubMenu = "Index";
+}
+<div class="col-sm-9 rightbox">
+    <div class="fullwidth top">
+        <div class="table-heading padding">
+            <div class="col-md-8" style="padding-left:0;">
+                <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;padding-left: 15px;">@ViewBag.Title</h1>
+            </div>
+            <div class="col-md-4 exportnew">
+                <input type="button" value="Export To Excel" style="cursor:pointer" onclick="exportInExcel();return false;" id="save_excel" class="excels export btn" title="Export To Excel">
+            </div>
+        </div>
+
+    </div>
+    <div class="barwidths" id="adminDashboardLeads">
+        <div class="col-sm-12 searchfilter">
+            <div class="datefilter">
+                <div class="input-group date" id="datetimepicker2">
+                    <input type="text" class="form-control date-picker-textbox hasDatepicker" id="startdate_id" placeholder="startdate" readonly />
+                    <img src="~/Content/images//caleder.png" style="height:15px;width:15px">
+                </div>
+                <span class="to">To</span>
+                <div class="input-group date" id="datetimepicker1">
+                    <input type="text" class="form-control date-picker-textbox hasDatepicker" id="enddate_id" placeholder="enddate" readonly />
+                    <img src="~/Content/images//caleder.png" style="height:15px;width:15px">
+                </div>
+            </div>
+            <div class="col-sm-3 searchbox">
+                <label>Status : </label>
+                <select class="form-control selectoption" id="MasterPageType">
+                    <option value="">All</option>
+                    <option value="Upcoming">Upcoming </option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+
+            <div class="col-sm-3 searchbox">
+                <label>State </label>
+                <select class="form-control selectoption" id="ddState" name="ddState"></select>
+            </div>
+            <div class="col-sm-3 searchbox">
+                <label>District </label>
+                <select class="form-control selectoption" id="ddDistrict" name="ddDistrict"></select>
+            </div>
+
+            <div class="col-sm-3 searchbox newlabel" style="padding-left:0;    width: 39%;">
+                <label>Search :</label>
+                <input type="text" class="form-control formtext" id="txt_search" placeholder="PujaName / OrderNumber / PurohitName " />
+            </div>
+            <div class="searchresult">
+                <button id="anc_search" class="btn btn-success yes">Search</button>
+                <button id="reset" class="btn btn-danger No">Reset</button>
+            </div>
+
+            <section class="counts" style="width: 100%; display: inline-block;float: right;margin: 0;">
+                <div class="pull-right countsboxs" style="        width: auto;   float: right !important;   position: relative;   top: -0px;  left: 7px;">
+                    <div style="display:inline-block;margin-right:5px;">
+                        <span>Show</span>
+                        <select class='form-control selectoption' id='NoofRecords' name='NoofRecords'>
+                            <option value='10'>10</option>
+                            <option value='20'>20</option>
+                            <option value='30'>30</option>
+                            <option value='50'>50</option>
+                            <option value='100'>100</option>
+                            <option value='150'>150</option>
+                            <option value='200'>200</option>
+                            <option value='250'>250</option>
+                            <option value='300'>300</option>
+                            <option value='350'>350</option>
+                            <option value='400'>400</option>
+                            <option value='500'>500</option>
+                        </select>
+                        <span>Records</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="table-container" id="divGrid">
+        </div>
+        <div class="table-container" id="divNoData">
+        </div>
+
+    </div>
+</div>
+
+
+<div id="logoutModal1" class="modal" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <input type="hidden" id="hddId" />
+        <input type="hidden" id="hddOrderNumber" />
+        <input type="hidden" id="hddBookingType" />
+        <input type="hidden" id="hhdOldProhitID" />
+        <input type="hidden" id="hddNoOfPandit" />
+        
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Assign Purohits</h4>
+                <button type="button" id="closechassismodel" class="close" data-dismiss="modal" data-name="" onclick="ClearFields()"><img src="~/Content/images/croxxicon.png"></button>
+            </div>
+            <div class="modal-body">
+                <div class="fullwidth">
+                    <div class="col-sm-12 searchbox">
+                        <label>Available Prohits</label>
+                        <select class="form-control selectoption" id="MultipleProhit" name="Prohit" multiple="multiple"></select>
+                        <span style="color:red" class="validation" id="spnProhit"></span>
+                    </div>
+                </div>
+                <div class="buttonsenterbox margintops">
+                    <button class="btn btn-success yes" id="btn_save" onclick="UpdatePackage()">Submit</button>
+                    <button class="btn btn-danger No" data-dismiss="modal" id="btnlogoutno" onclick="ClearFields()">Cencel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="logoutModal2" class="modal" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <input type="hidden" id="hddId" />
+        <input type="hidden" id="hddOrderNumber" />
+        <input type="hidden" id="hddBookingType" />
+        <input type="hidden" id="hhdOldProhitID" />
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span id="Modal2title"></span></h4>
+                <button type="button" id="closechassismodel" class="close" data-dismiss="modal" data-name="" onclick="ClearFields()"><img src="~/Content/images/croxxicon.png"></button>
+            </div>
+            <div class="modal-body">
+                <div class="centerdiv">
+                    <div class="centerdiv">
+                        <div class="col-sm-6 searchbox">
+                            <label>Reason</label>
+                            <input type="text" class="form-control alphaNumericOnly" id="txtRession" />
+                            <span style="color:red" class="validation" id="spnRession"></span>
+                        </div>
+                        <div class="col-sm-6 searchbox">
+                            <label><span id="title"></span></label>
+                            <select class="form-control selectoption" id="ddProhit" name="Prohit"></select>
+                            <span style="color:red" class="validation" id="spnprohit"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="buttonsenterbox margintops">
+                    <button class="btn btn-success yes" id="btn_save" onclick="Update()">Submit</button>
+                    <button class="btn btn-danger No" data-dismiss="modal" id="btnlogoutno" onclick="ClearFields()">Cencel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Logout -->
+
+
+
+
+<script src="~/Scripts/function.js"></script>
+<script src="~/Areas/Scripts/manageorder.js"></script>
+<script type="text/javascript">
+
+    AlphaNumericOnly('.alphaNumericOnly')
+    var $_GetManageOrderUrl = '@Url.Action("GetManageOrderGridView", "ManageOrder", new { Area = "ManageOrder" })';
+    var $_Details = '@Url.Action("Details", "ManageOrder", new { Area = "ManageOrder" })';
+    var $_ExcelDownLoadUrl = '@Url.Action("ExcelDownLoad", "ManageOrder", new { Area = "ManageOrder" })';
+    var $_ConfirmProhitUrl = '@Url.Action("ConfirmProhit", "ManageOrder", new { Area = "ManageOrder" })';
+    var $_GetProhitUrl = '@Url.Action("GetProhit", "ManageOrder", new { Area = "ManageOrder" })';
+    var $_UpdateUrl = '@Url.Action("Update", "ManageOrder", new { Area = "ManageOrder" })';
+    var $_UpdatePackageUrl = '@Url.Action("UpdatePackage", "ManageOrder", new { Area = "ManageOrder" })';
+
+    var current_page = 0; 
+    $(document).ready(function () {
+        $("#divNoData").addClass("hide");
+        $("#MultipleProhit").kendoMultiSelect({
+            placeholder: "Select Prohits",
+            dataTextField: "text",
+            dataValueField: "value",
+            autoClose: true,
+       }).data("kendoMultiSelect");
+
+
+        var d = new Date();
+        var currMonth = d.getMonth();
+        var currYear = d.getFullYear();
+        var currDate = d.getDate();
+        var startDate = new Date(currYear, currMonth , currDate);
+        var endDate = new Date(currYear, currMonth + 1, currDate);
+
+
+        $("#startdate_id").datetimepicker({
+            format: "DD-MM-YYYY",
+            pickTime: false,
+            autoclose: true,
+            defaultDate: startDate,
+            maxDate: endDate//moment(),
+
+        });
+
+        $("#enddate_id").datetimepicker({
+            format: "DD-MM-YYYY",
+            pickTime: false,
+            autoclose: true,
+            defaultDate: endDate,
+            minDate: startDate
+
+        });
+
+
+        GetState();
+        GetManageOrderData();
+    });
+
+    $(document).on("change", "#NoofRecords", function () {
+        GetManageOrderData();
+    });
+    $("#anc_search").click(function () {
+        GetManageOrderData();
+    });
+    $("#reset").click(function () {
+        window.location.reload();
+    });
+
+    $("#startdate_id").on("dp.change", function (e) {
+        $('#enddate_id').data("DateTimePicker").setMinDate(e.date);
+    });
+
+    $("#enddate_id").on("dp.change", function (e) {
+        $('#startdate_id').data("DateTimePicker").setMaxDate(e.date);
+    });
+</script>
+
+
+<style>
+.col-sm-3.searchbox select.form-control.selectoption {
+    width: 76%;
+
+}
+.datefilter {
+    width: 25%;
+    float: left;
+}
+#datetimepicker2, #datetimepicker1 {
+    width: 110px;    float: left;
+}
+div#logoutModal2 .modal-dialog {
+    width: 40%;
+    text-align: left !important;
+}
+div#logoutModal2 .modal-dialog .col-sm-6.searchbox label {
+    text-align: left;
+    width: 100%;
+}
+</style>

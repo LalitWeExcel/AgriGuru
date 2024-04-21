@@ -1,0 +1,152 @@
+<app-header></app-header>
+<app-side-nav></app-side-nav>
+<div class="app-container">
+    <div class="app-main">
+        <div class="">
+              <h3 class="dashboard-title mb-1">Complaint Form</h3>
+              <div id="subHeader_18" class="form-subHeader">We will get in touch with you shortly</div>  
+        </div>
+        <div class="main-body">
+            <form  [formGroup]="complaintform" (ngSubmit)="postcomplaint()">
+                <input type="hidden" id="hddId" >
+                 <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3 form-group">
+                            <label for="inputTitle" class="simple_form--label">Complaint Title</label>
+                            <input   class="simple_form--input"
+                            required 
+                             name="complaintTitle" 
+                             formControlName="complaintTitle"
+                             >
+                             <div class="invalid-feedback" style="display: block">
+                                <ng-container *ngIf="hasError('complaintTitle', 'required')">Complaint Title is required</ng-container>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="simple_form--label">Complaint Types</label>
+                            <div class="selectdiv form-group">
+                                <select class="select-form" 
+                                id="complaintType"
+                                required
+                               formControlName="complaintType"
+                                name="complaintType">
+                                    <option value="" selected>-- Select --</option>
+                                    <option value="Staff Related Complaint">Staff Related Complaint</option>
+                                    <option value="Missbehaviour by Staff">Missbehaviour by Staff</option>
+                                    <option value="Finance Related Issue">Finance Related Issue</option>
+                                </select>
+                                <div class="invalid-feedback" style="display: block">
+                                    <ng-container *ngIf="hasError('complaintType', 'required')">Complaint Type is required</ng-container>
+                                  </div>
+                            </div>      
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="input-group custom-file-button mb-3 mt-4">                    
+                            <input 
+                            type="file"
+                            class="form-control"
+                            id="file"
+                            name="file"
+                            formControlName="file"
+                            required
+                            (change)="onselectedfile($event)">
+                        </div>
+                        <div class="invalid-feedback" style="display: block">
+                            <ng-container *ngIf="hasError('file', 'required')">file is required</ng-container>
+                            <ng-container *ngIf="hasError('file', 'requiredFileType')">Only Pdf file allowed</ng-container>
+                            <ng-container *ngIf="hasError('file', 'fileSizeValidator')"> Only 2 mb file size allowed</ng-container>
+                          </div>
+                    </div>
+                 </div>
+             
+                
+                <div class="mb-3">
+                    <label for="Description" class="simple_form--label">Complaint Description</label>
+                    <ckeditor 
+                    required
+                    name="description"
+                    id="description"
+                    formControlName="description"
+                    #editor
+                    ></ckeditor>
+                    <div class="invalid-feedback" style="display: block">
+                        <ng-container *ngIf="hasError('description', 'required')">description is required</ng-container>
+                      </div>
+                </div>
+                
+            
+               
+                <button type="submit" id="btn_save" class="btn btn-primary">Complained Register</button>
+           
+            </form>
+        </div>
+        <div class="table-responsive">
+        <table id="WebGrid" class="dark-table">
+            <thead>
+                <tr>
+                    <th>Complained Number</th>
+                    <th>Complained Type</th>
+                    <th>Description</th>
+                    <th>Complained Date &amp; Time</th>
+                    <th>Attachment</th>
+                    <th>Status</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+                            <tr *ngFor = "let getuser of getusercomplaint?.memberComplaintList; index as i">
+                                <td>{{getuser.docs}}</td>
+                                <td>{{getuser.complaintType}}</td>
+                                <td>
+                                 <div [innerHTML]="getuser.description" style="margin-bottom: -1em;"></div>   
+                                </td>
+                                <td>{{getuser.uploadedDate|date:"dd/MM/y, h:mm a"}}</td>
+                                <td>                                
+                                    <a [href]="filePath + getuser.enquiryFilePath" target='_blank'>View</a>
+                                    <!-- <a href="#" (click)="getFile(filePath + getuser.enquiryFilePath)" target='_blank'>View</a> -->
+                                </td>
+                                <td>{{getuser.status}}</td>
+                                <td>
+                                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#content">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </td>        
+                            </tr>
+                        
+            </tbody>
+        </table>
+    </div>  
+        <!-- Bootstrap Modal -->
+        <div class="modal fade" id="content" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header dataTable-header">
+                        <a  href="javascript:void(0)" class="download-btn mt-2" id="btn"><span
+                            class="fa-solid fa-cloud-arrow-down px-2"></span>Download</a>
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" onclick="return ClearFields()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="contentPDF">
+                        <span id="spnloader"></span>
+                        <div class="mb-3">
+                            <label>Complaint Type</label>
+                            <span class="form-control" id="cmpType" *ngFor="let getuser of getusercomplaint?.memberComplaintList;">{{getuser.complaintType}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Description</label>
+                            <span class="form-control" type="text" *ngFor="let getuser of getusercomplaint?.memberComplaintList;">{{getuser.description}}</span></div>
+        
+                       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="return ClearFields()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ </div>
+</div>

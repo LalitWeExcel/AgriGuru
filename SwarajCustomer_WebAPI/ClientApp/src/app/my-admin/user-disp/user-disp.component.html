@@ -1,0 +1,217 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+  <p style="font-size: 20px; color: white">Please Wait...</p>
+</ngx-spinner>
+
+<div *ngIf="IsAuthorised">
+  <app-header></app-header>
+  <app-side-nav></app-side-nav>
+
+
+  <div class="app-container">
+    <div class="app-main">
+      <div class="d-flex justify-content-between">
+        <h3 class="dashboard-title mb-1">Society User List</h3>
+        
+
+      </div>
+      <div class="main-body">
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <label class="simple_form--label">Role Name</label>
+            <div class="selectdiv">
+              <select class="select-form" [(ngModel)]="selectedRoleId" (change)="onRoleChange()">
+                <option value="0" selected>Select Role</option>
+                <option *ngFor="let option of Role" [ngValue]="option.id">
+                  {{ option.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <label class="simple_form--label">District Name</label>
+            <div class="selectdiv">
+              <select class="select-form" [(ngModel)]="selectedDisId" name="item" (change)="onDistrictChange()">
+                <option value="0" selected>Select District</option>
+                <option *ngFor="let item of District" [value]="item.districtCode">
+                  {{ item.districtName }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <label class="simple_form--label">Society Name</label>
+            <div>
+              <input class="select-form" type="text" id="societyFilter" [(ngModel)]="societyFilter"
+                list="societyOptions" (input)="OnSocietyNameEnter()" />
+              <datalist id="societyOptions">
+                <option class="custom-dropdown" *ngFor="let society of getSocietyNames()" [value]="society">
+                  {{ society }}
+                </option>
+              </datalist>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <label class="simple_form--label">Mobile No</label>
+            <div>
+              <input class="select-form" type="text" id="mobile" list="mobilenoOptions" [(ngModel)]="mobile"
+                (input)="OnMobileEnter()" pattern="[0-9]*" title="Please enter a valid number" />
+              <datalist id="mobilenoOptions">
+                <option class="custom-dropdown" *ngFor="let mobilenos of getMobilenos()" [value]="mobilenos">
+                  {{ mobilenos }}
+                </option>
+              </datalist>
+              <div *ngIf="mobile && !isMobileValid">
+                <p style="color: red">Please enter a valid number.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <label class="simple_form--label">Email Id</label>
+            <div>
+              <input class="select-form" type="text" id="email" [(ngModel)]="email" (input)="onEmailInputChange()" />
+            </div>
+          </div>
+          <div class="col-md-2 col-lg-4">
+            <label class="simple_form--label"></label>
+            <button class="select-form" (click)="clearDropdowns()">Reset</button>
+          </div>
+        </div>
+      </div>
+
+     
+
+      <div *ngIf="users.length > 0">
+
+      <div class="row">
+         <div class="col-md-6">
+             Show <select (change)="PageSizeChange($event)" class="row_create_length">
+            <option *ngFor="let size of pageSizes" [ngValue]="size">
+              {{ size }}
+            </option>
+          </select>Entries
+         </div>
+         <div class="col-md-6">
+          <p class="total-row-text text-md-end">
+            Active Users: {{ getRowsValue(true) }} Inactive Users: {{ getRowsValue(false) }}
+          </p>
+         </div>
+      </div>
+      <table class="table dark-table">
+        <thead>
+          <tr>
+            <!--<th>Login ID</th>-->
+            <!--<th style="width: 60px;" scope="col">Sr.No</th>-->
+            <th style="width: 80px;" scope="col">Status</th>
+            <th style="width: 170px;" scope="col">Society</th>
+            <th>Role </th>
+            <th >District</th>
+            <th style="width: 140px;" scope="col">Name</th>
+            <th style="width: 120px;" scope="col">Mobile</th>
+            <th>Email</th>
+            <th style="width: 160px;" scope="col">User Name</th>
+            <th style="width: 55px;" scope="col">Gen</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users
+| paginate
+  : {
+      itemsPerPage: pageSize,
+      currentPage: pagenumber,
+      totalItems: recordsCount
+    };  let i = index ">
+            <ng-container *ngIf="shouldDisplayUser(user)">
+              <!--<th>{{ i + 1 }}</th>-->
+              <td>
+                <a href="" (click)="openUserDetailsModal(user.loginID,user.emailid,user.isActive,user.password)
+                  " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <fa-icon [icon]="faEye"></fa-icon>
+                </a>
+              </td>
+              <td>{{ user.societyName }}</td>
+              <td>{{ user.roleName }}</td>
+              <td>{{user.districtName}}</td>
+              <td>{{ user.firstname }}</td>
+              <td>{{ user.mobile }}</td>
+              <td>{{ user.emailid }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.gender === "Male" ? "M" : "F" }}</td>
+              <td>{{ user.address }}</td>
+              <!--<td>{{ user.isActive === 1 ? "Active" : "Inactive" }}</td>-->
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row">
+         <div class="col-md-6">
+          <p class="total-row-text">
+            Total rows: {{ getRowsValue(null) }}
+          </p>
+         </div>
+         <div class="col-md-6">
+         
+          <div class="text-end">
+            <pagination-controls previousLabel="Previous" nextLabel="Next" [responsive]="true"
+            (pageChange)="PageChanged($event)" (pageBoundsCorrection)="PageChanged($event)">
+          </pagination-controls>
+          </div>
+          
+         </div>
+      </div>
+      
+    
+    </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="rcs_modal_header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">User Account Status & Credentials</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-inline mb-3">
+              Lock
+              <div *ngFor="let option of radioOptions" class="checkboxes__item">
+                <label class="checkbox style-c">
+                  <input type="radio" [value]="option" [(ngModel)]="selectedOption" (change)="onStatusChange()" />
+                  <div class="checkbox__checkmark" style="--bgcolor: #ddd"></div>
+                  <div class="checkbox__body" style="--color: #000">
+                    {{ option }}
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="custom_form mb-3">
+              <label for="floatingInput" class="simple_form--label">Change Password:</label>
+              <div class="custom_form">
+              <input [type]="showpassword ? 'password' : 'text'" class="simple_form--input" placeholder="Password"
+                [(ngModel)]="password" />
+              <span (click)="passwordtype()" class="custom_form--icon" [ngClass]="visible ? 'fa fa-eye' : 'fa fa-eye-slash'"></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <button type="button" (click)="onEmailSend()" class="btn sending-button">
+                  <i class="fa fa-paper-plane"></i> Send email
+                </button>
+              </div>
+              <div class="col-md-6">
+                <button type="button" class="btn sending-button">
+                  <i class="fa-solid fa-mobile-screen-button"></i> Send Phone Number
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

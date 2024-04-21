@@ -1,0 +1,321 @@
+﻿@model SwarajCustomer_Common.ViewModel.M_ManageUserDetails
+@{
+    ViewBag.Title = "Details";
+    ViewBag.Menu = "Index";
+    ViewBag.SubMenu = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+   var UserRole =   Model.ManageUserRoles.Select(s => s.role_name).FirstOrDefault();
+
+}
+<div class="col-sm-9 rightbox">
+    <div class="fullwidth top">
+        <div class="fulltextwidth">
+            <h1 class="col-sm-12 headingbox" style="position: relative; top: 0;">Manage User Details</h1>
+            <div class="dl-horizontal">
+                @Html.HiddenFor(model => model.adm_user_id)
+                @Html.HiddenFor(model => model.user_details_id)
+                @Html.HiddenFor(model => model.mst_state_id)
+                @Html.HiddenFor(model => model.mst_district_id)
+                @Html.HiddenFor(model => model.birthday_email_sent)
+                <div class="col-sm-3 leftimage">
+                    <span class="images">
+                        <img src="@Model.ImageName" data-action="zoom" >
+                    </span>
+                </div>
+                <div class="col-sm-9 righttext">
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>User Name</label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.username)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Mobile Number</label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.mob_number)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Email </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.email)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>User Type </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.user_type)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Description </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.description)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Referal Code </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.referal_code)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Status </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.is_active)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>First Name </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.first_name)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Last Name </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.last_name)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>WhatsApp No </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.whatsapp_no)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Address </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.address)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>City </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.city)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>District </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.district)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>State </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.state)
+                        </span>
+                    </div>
+
+
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Date of Birth </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.DOB)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Time of Birth </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.TOB)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Place of Birth </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.PlaceOfBirth)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Landmark </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.landmark)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Marital Status </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.marital_status)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Adhar Card Number </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.aadhar_number_name)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Qualification </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.qualification)
+                        </span>
+                    </div>
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Health  Status </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.DisplayFor(model => model.health_status)
+                        </span>
+                    </div>
+
+                    @{
+                        if (UserRole != "Customer")
+                        {
+                            <div class="col-sm-4">
+                                <span class="userheading">
+                                    <label>Is Pooja Expert </label>
+                                </span>
+                                <span class="usernumber">
+                                    @Html.DisplayFor(model => model.export_in_pooja)
+                                </span>
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="userheading">
+                                    <label>Is Ready For Traval  </label>
+                                </span>
+                                <span class="usernumber">
+                                    @Html.DisplayFor(model => model.ready_for_travel)
+                                </span>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <span class="userheading">
+                                    <label>Rating </label>
+                                </span>
+                                <span class="usernumber">
+                                    @Html.DisplayFor(model => model.rating)
+                                </span>
+                            </div>
+
+                            if (UserRole == "Purohit" || UserRole == "Premium Purohit")
+                            {
+                                <div class="col-sm-4">
+                                    <span class="userheading">
+                                        <label>Prohit Exp. </label>
+                                    </span>
+                                    <span class="usernumber">
+                                        @Html.DisplayFor(model => model.year_of_exp)
+                                    </span>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <span class="userheading">
+                                        <label>Temple Name </label>
+                                    </span>
+                                    <span class="usernumber">
+                                        @Html.DisplayFor(model => model.temple_name)
+                                    </span>
+                                </div>
+                            }
+                            if (UserRole == "Astrologer" || UserRole == "Premium Astrologer")
+                            {
+                                <div class="col-sm-4">
+                                    <span class="userheading">
+                                        <label>Astro.Exp. </label>
+                                    </span>
+                                    <span class="usernumber">
+                                        @Html.DisplayFor(model => model.astrologer_experience)
+                                    </span>
+                                </div>
+                            }
+                        }
+                    }
+                    <div class="col-sm-4">
+                        <span class="userheading">
+                            <label>Role Name </label>
+                        </span>
+                        <span class="usernumber">
+                            @Html.Raw(string.Join("  |  ", Model.ManageUserRoles.Select(s => string.Format("<span>{0}</span>", s.role_name))))
+                        </span>
+                    </div>
+                    @{
+                        if (Model.Specializations.Count() > 0)
+                        {
+                            <div class="col-sm-4">
+                                <span class="userheading">
+                                    <label>Specializations </label>
+                                </span>
+                                <span class="usernumber">
+                                    @Html.Raw(string.Join("  |  ", Model.Specializations.Select(s => string.Format("<span>{0}</span>", s.name))))
+                                </span>
+                            </div>
+                        }
+                        if (Model.Services.Count() > 0)
+                        {
+                            <div class="col-sm-4">
+                                <span class="userheading">
+                                    <label>Services </label>
+                                </span>
+                                <span class="usernumber">
+                                    @Html.Raw(string.Join("  |  ", Model.Services.Select(s => string.Format("<span>{0}</span>", s.Name))))
+                                </span>
+                            </div>
+                        }
+                        if (Model.Createdby.Count() > 0)
+                        {
+                            <div class="col-sm-4">
+                                <span class="userheading">
+                                    <label>Created By Me </label>
+                                </span>
+                                <span class="usernumber">
+                                    @foreach (var item in Model.Createdby)
+                                    {
+                                        <a href="~/ManageUser/ManageUser/Details?user_id=@item.Ids">@item.Name</a>
+                                    }
+                                </span>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <p class="backlink">
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>

@@ -1,0 +1,164 @@
+<app-header></app-header>
+<app-side-nav></app-side-nav>
+
+<div class="app-container">
+  <div class="app-main">
+    <div class="d-flex justify-content-between">
+      <h3 class="dashboard-title">Election Request List By ARCS</h3>
+    </div>
+    <div class="row">
+      <table class="table"> <!--green-bg-->
+        <thead class="table-green">
+          <tr>
+            <th scope="col">Sl.No.</th>
+            <th scope="col">E. R. Date</th>
+            <th scope="col">Request Date</th>
+            <th scope="col">Society</th>
+            <th scope="col">Persident</th>
+            <th scope="col">Address</th>
+            <th scope="col">Document</th>
+            <th scope="col">Issuesd By ARCS</th>
+            <th scope="col">Update Proceeding</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let m of electopnRequestList | paginate: { itemsPerPage: pageSize,currentPage: pagenumber,totalItems: recordsCount
+                    };  let i = index">
+            <th scope="row">{{(i+1)+(pagenumber-1)*pageSize}}</th>
+            <td>{{m.createdDate | date:'dd/MM/yyyy'}}</td>
+            <td>{{m.inspectorAssignDate | date:'dd/MM/yyyy'}}</td>
+            <td>{{m.societyName}}</td>
+            <td>{{m.psName}}</td>
+            <td>{{m.address}}</td>
+            <td><a class="btn btn-primary btn-sm" *ngIf="m.agendaHoldingGBMDoc!='No ducument Available'" target="_blank"
+                href="{{baseURl+m.agendaHoldingGBMDoc}}"><i class="fa fa-pdf"></i>
+                View DOC</a>
+              <p *ngIf="m.agendaHoldingGBMDoc=='No ducument Available'">No ducument Available</p>
+            </td>
+            <td><span [innerHTML]="m.remarks"></span></td>
+            <td><button class="btn btn-success btn-sm" (click)="updateReport(m)">
+                <i class="fa fa-plus"></i> Update Report </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center">
+        <select (change)="PageSizeChange($event)">
+          <option *ngFor="let size of pageSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>&nbsp;&nbsp;&nbsp;
+        <pagination-controls previousLabel="Previous" nextLabel="Next" [responsive]="true"
+          (pageChange)="PageChanged($event)" (pageBoundsCorrection)="PageChanged($event)">
+        </pagination-controls>
+      </div>
+    </div>
+ 
+    <div class="modal modal_bg" id="statusModal" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="rcs_modal_header">
+            <h4 class="modal-title">Select Executive Members</h4>
+            <button type="button" class="btn-close" (click)="closeStatusModel()"></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="main-body">
+              <form #arcsApprovalForm="ngForm" novalidate>
+                <div class="row">
+                  <div class="col-md-4 col-lg-5">
+                    <label class="simple_form--label">Previous Executive Members</label>
+                    <table class="table table-hover table_bordered table table-striped">
+                      <thead class="table-success">
+                        <tr>
+                          <th scope="col" style="width:10%;">S.No.</th>
+                          <th scope="col" style="width:50%;">Member name</th>
+                          <th scope="col" style="width:40%;">Designation</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="
+                        let member of societyPreviousCommetteMemberList;
+                        index as k
+                      ">
+                          <td>{{ k + 1 }}</td>
+                          <td>{{ member.memberName}}</td>
+                          <td>{{ member.designation}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="col-md-5 col-lg-6">
+                    <h5>Election Report</h5>
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <th>1. Total no, of member's in Society</th>
+                          <td>
+                            <input type="number" placeholder="Enter here..." class="form-control" name="noofmem" [(ngModel)]="noofmem">
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>2. Total no. of attend member</th>
+                          <td>
+                            <input type="number" placeholder="Enter here..." class="form-control" name="attendmem"
+                              [(ngModel)]="attendmem">
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>3. Quorum</th>
+                          <td>
+                            <input type="number" placeholder="Enter here..." class="form-control" [(ngModel)]="curom" name="curom">
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>4. Whether meeting as per rule?</th>
+                          <td>
+                            <label class="switch">
+                              <input type="checkbox" [(ngModel)]="asPerRule" name="asPerRule">
+                              <span class="slider round"></span>
+                            </label>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+
+                    <label class="simple_form--label">Select Executive Members</label>
+                    <div class="">
+                      <ng-multiselect-dropdown [placeholder]="'Select Executive Members'" [settings]="dropdownSettings"
+                        [data]="memberList.length==0?societyPreviousCommetteMemberList:memberList"
+                        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
+                        (onDeSelect)="onItemDeSelect($event)" (onDeSelectAll)="onUnSelectAll()"
+                        [ngModel]="selectedExecutiveMember" #drpExecutiveMembers="ngModel"
+                        class="select-form ng-pristine ng-valid ng-touched" name="drpExecutiveMembers"
+                        id="drpExecutiveMembers" required>
+                      </ng-multiselect-dropdown>
+                      <span
+                        *ngIf=" drpExecutiveMembers.invalid && (drpExecutiveMembers?.touched && drpExecutiveMembers?.dirty)">
+                        <span class="text-danger" *ngIf="drpExecutiveMembers.errors?.['required']">
+                          Executive Members are required
+                        </span>
+
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" (click)="saveReport()">Submit</button>
+
+                  <button type="button" class="btn btn-danger" (click)="closeStatusModel()">
+                    Close
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

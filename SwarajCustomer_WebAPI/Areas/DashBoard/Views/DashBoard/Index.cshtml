@@ -1,0 +1,187 @@
+﻿@model SwarajCustomer_Common.ViewModel.DashBoardViewModel
+@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="col-sm-9 rightbox">
+    <div class="fullwidth top">
+        <div class="col-sm-9 topheader">
+            <div class="col-sm-6 headingbox">DASHBOARD</div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 datebox positionrelative dateranges">
+        <div class="row bgs">
+            <div class="datefilter">
+                <div class="input-group date" id="datetimepicker2">
+                    <input id="startdate_id" type="text" class="form-control" readonly="readonly" />
+                    <span style="display: none" id="error_start" class="error-message">To Date cannot be less than From Date</span>
+                </div>
+                <span class="to">To</span>
+                <div class="input-group date" id="datetimepicker1">
+                    <input id="enddate_id" type="text" class="form-control" readonly="readonly" />
+                </div>
+                <input type="button" id="btnsearch" class="btn btn-success yes" value="Search" onclick="GetDashboardData();" />
+                <input type="button" id="btnreset" class="btn btn-danger No" value="Reset" onclick="DateTimePickerInitializers();" />
+            </div>
+        </div>
+    </div>
+    <div id="dvDashboardDetails"></div>
+
+</div>
+
+<div id="logoutModal1" class="modal aaa" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Birthday Message</h4>
+                <button type="button" id="closechassismodel" class="close" data-dismiss="modal" data-name="" onclick="ClearFields()"><img src="~/Content/images/croxxicon.png"></button>
+            </div>
+            <div class="modal-body">
+                <span  class="validation" id="spnmobile_numeber"></span>
+                <div class="centerdiv">
+                    <div class="col-sm-12 searchbox">
+                        <label>Message  </label>
+                        <textarea id="txtmessage" name="message" rows="4" cols="50" class="form-control selectoption"    style="resize: none">
+                        </textarea>
+                        <span style="color:red" class="validation" id="spnMessage"></span>
+                    </div>
+                </div>
+                <div class="buttonsenterbox margintops">
+                    <button class="btn btn-success yes" id="btn_save" onclick="SendSmsMessage()">Submit</button>
+                    <button class="btn btn-danger No" data-dismiss="modal" id="btnlogoutno" onclick="ClearFields()">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="logoutModal2" class="modal birthdayss" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">UPCOMING BIRTHDAYS</h4>
+                <button type="button" id="closechassismodel" class="close" data-dismiss="modal" data-name="" onclick="ClearFields()"><img src="~/Content/images/croxxicon.png"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center col-md-12 fileSelection" id="divExcelError">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    #logoutModal1.aaa span#spnmobile_numeber {
+    text-align: center;
+    width: 100%;
+    float: left;
+    font-weight: bold;
+    font-size: 19px;
+}
+    div#logoutModal1.aaa .modal-dialog {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 50%;
+}
+    .holder {
+        background-color: orange;
+        height: 350px;
+        overflow: hidden;
+        padding: 10px;
+        font-family: Helvetica;
+        color: #fff;
+    }
+
+        .holder .mask {
+            position: relative;
+            left: 0px;
+            top: 10px;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .holder ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+            .holder ul li {
+                padding: 10px 0px;
+                border-bottom: 1px solid #ccc;
+            }
+
+                .holder ul li a {
+                    color: darkred;
+                    text-decoration: none;
+                }
+                p.headingbox.cenetertext {
+      text-transform: uppercase;
+    font-size: 15px;
+}
+ 
+</style>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="~/Areas/Scripts/dashBoard.js"></script>
+<script>
+    var $_GetComeingBirthdayUrl = '@Url.Action("GetComeingBirthday", "DashBoard", new { Area = "DashBoard" })';
+    var $_urlmethod = '@Url.Action("GetDashboardData", "DashBoard", new { Area = "DashBoard" })';
+    var $_SendSmsMessageUrl = '@Url.Action("SendSmsMessage", "DashBoard", new { Area = "DashBoard" })';
+    var $_Details = '@Url.Action("Details", "ManageUser", new { Area = "ManageUser" })';
+
+    $(document).ready(function () {
+        var d = new Date();
+        var currMonth = d.getMonth();
+        var currYear = d.getFullYear();
+        var currDate = d.getDate();
+        var startDate = new Date(currYear, currMonth, 1);
+        var endDate = new Date(currYear, currMonth + 1, 0);
+        // var endDate = new Date(currYear, currMonth , currDate);
+        // var endDate = new Date(currYear, currMonth + 1, currDate);
+
+        $("#startdate_id").datetimepicker({
+            format: "DD-MM-YYYY",
+            pickTime: false,
+            autoclose: true,
+            defaultDate: startDate,
+            maxDate: endDate//moment(),
+
+        });
+
+        $("#enddate_id").datetimepicker({
+            format: "DD-MM-YYYY",
+            pickTime: false,
+            autoclose: true,
+            defaultDate: endDate,
+            minDate: startDate
+
+        });
+
+        GetDashboardData();
+    });
+
+    $("#startdate_id").on("dp.change", function (e) {
+        $('#enddate_id').data("DateTimePicker").setMinDate(e.date);
+    });
+
+    $("#enddate_id").on("dp.change", function (e) {
+        $('#startdate_id').data("DateTimePicker").setMaxDate(e.date);
+    });
+
+</script>
+
+

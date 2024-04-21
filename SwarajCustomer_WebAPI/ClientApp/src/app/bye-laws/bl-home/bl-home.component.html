@@ -1,0 +1,280 @@
+<app-header></app-header>
+<app-side-nav></app-side-nav>
+<div class="app-container">
+    <div class="app-main">
+        <div class="d-flex justify-content-between">
+            <h3 class="dashboard-title">Request for Amendment Bye-Laws</h3>
+        </div>  
+
+        <div *ngIf="isLoading;else elseForm">
+            <app-loader :title="loadingTitle"></app-loader>
+        </div>
+        <ng-template #elseForm> 
+            <div class="tab-form">
+                <div class="tab-header">
+                    <ul>
+                        <li [ngClass]="info ? 'active' : ''">
+                            <a>Basic Introductory Information</a>
+                        </li>
+                        <li [ngClass]="details ? 'active' : ''">
+                            <a>Details Regarding the Amendment of Bye-Laws</a>
+                        </li>
+                        <li [ngClass]="upload ? 'active' : ''">
+                            <a>Review and Upload Documents</a>
+                        </li>
+                    </ul>
+                </div> <!-- tab header -->
+                <div class="tab-body">
+    
+                    <form *ngIf="info" (ngSubmit)="AddInformation()">
+    
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">Name of CEO</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter" name="ceo"
+                                        [(ngModel)]="model.NameOfCeo">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">Date of Notice for GBM</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter" name="dateOfNotice"
+                                        [(ngModel)]="model.DateOfNoticeForGBM">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">Date of GBM Amendments(sec 11)</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter" name="dateOfGBM"
+                                        [(ngModel)]="model.DateOfGBMAmendmentsSec">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">No. of Day of Notice for GBM</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter" name="noOfDayNotice"
+                                        [(ngModel)]="model.NoOfDaysOfNoticeForGBM">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">Total No. Member of MSCS</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter" name="noOfMembersMSCS"
+                                        [(ngModel)]="model.TotalNoOfMembersMSCS">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">Is quorum specified in the bye-law?</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter"
+                                        name="isQuorumSpecified" [(ngModel)]="model.IsQuorumSpecified">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">Quorum Required for Meeting</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter"
+                                        name="quorumRequiredForMeet" [(ngModel)]="model.QuorumRequiredForMeeting">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">No of Members Present in the Meeting</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter"
+                                        name="noOfMemPresentInMeet" [(ngModel)]="model.NoOfMemberPresentInMeeting">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">No of Members Voted in the Meeting</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter"
+                                        name="noOfmemVotedMeet" [(ngModel)]="model.NoOfMembersVotedInMeeting">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">Was the GBM Meeting adjourned?</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter"
+                                        name="gbmMeetAdjourned" [(ngModel)]="model.WasTheGBMMeetingAdjourned">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-8">
+                                <div class="label-box">
+                                    <label class="label-text">No. of Members Voted in the favor of Proposed
+                                        Amendment</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter"
+                                        name="noOfMemVotedinFavAmemend"
+                                        [(ngModel)]="model.NoOfMemVotedInTheFavorOfProposedAmendment">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="label-box">
+                                    <label class="label-text">Additional Information</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter" name="additionalInfo"
+                                        [(ngModel)]="model.AdditionalInfo">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-12">
+                                <div class="float-end">
+                                    <button type="submit" class="next-btn">Next</button> <!-- (click)="nextBtn()"-->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+    
+                    <form *ngIf="details" (ngSubmit)="DetailsSave()">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">Amendment in Bye-Law Related To</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter"
+                                        name="amendmentByeLawsRelatd" [(ngModel)]="model.AmemndmentInByLawRelatedTo">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">Existing By Law</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter" name="existingBywLaws"
+                                        [(ngModel)]="model.ExistingByeLaw">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">Proposed By Law</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter" name="proposedByeLaws"
+                                        [(ngModel)]="model.ProposedByeLaw">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="label-box">
+                                    <label class="label-text">Reason for Amendment</label>
+                                    <input type="text" class="label-input" placeholder="Please Enter"
+                                        name="reasonForAmendment" [(ngModel)]="model.ReasonForAmendment">
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-12">
+                                <div class="float-end">
+                                    <button type="btn" class="back-btn me-2" (click)="backBtn()">Prevoius</button>
+                                    <button type="btn" class="next-btn">Next</button>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div *ngIf="upload">
+                        <h5 class="table_bordered--title">GBM Details</h5>
+                        <div class="table-responsive">
+                            <table class="table table_bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Date of Notice for GBM</th>
+                                        <th>Date of GBM for Amendment</th>
+                                        <th>No. of Days of Notice for GBM</th>
+                                        <th>Total No. Members of MSCS</th>
+                                        <th>Quorum Required for Meeting</th>
+                                        <th>No. of Members Present in the Meeting</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> {{model.DateOfNoticeForGBM}} </td>
+                                        <td> {{model.DateOfGBMAmendmentsSec}} </td>
+                                        <td>{{model.NoOfDaysOfNoticeForGBM}}</td>
+                                        <td>{{model.TotalNoOfMembersMSCS}}</td>
+                                        <td>{{model.QuorumRequiredForMeeting}}</td>
+                                        <td>{{model.NoOfMemberPresentInMeeting}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h5 class="table_bordered--title">Amendments</h5>
+                        <div class="table-responsive">
+                            <table class="table table_bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Sr No.</th>
+                                        <th>Existing Bye Law</th>
+                                        <th>Proposed Bye Law</th>
+                                        <th>Reason for Amendment</th>
+                                        <th>No. of Members Present in the Meeting</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> 1. </td>
+                                        <td> {{model.ExistingByeLaw}} </td>
+                                        <td> {{model.ProposedByeLaw}} </td>
+                                        <td> {{model.ReasonForAmendment}} </td>
+                                        <td> {{model.NoOfMemberPresentInMeeting}} </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h5 class="table_bordered--title">Upload</h5>
+                            <div class="tb-container">
+                                <h5 class="tb-img-title">1.
+                                    A copy of the resolution passed at the general meeting.</h5>
+                                <div class="tb-img-view">
+                                    <img id="tb-image" width="200px" />
+                                </div>
+                                <label for="tb-file-upload">Upload Image</label>
+                                <input type="file" id="tb-file-upload" accept="image/*" (change)="ResolutionOfGMDoc($event)" />
+                            </div>
+                            <div class="tb-container">
+                                <h5 class="tb-img-title">2. Particulars indicating the date of the general meeting, the
+                                    number of days notice given, the total number of members, the number of members required
+                                    for the meeting, the number of members present, and the number of members who voted in
+                                    favor of the amendment.</h5>
+                                <div class="tb-img-view">
+                                    <img id="tb-image" width="200px" />
+                                </div>
+                                <label for="tb-file-upload1">Upload Image</label>
+                                <input type="file" id="tb-file-upload1" accept="image/*" (change)="ResolutionOfAmendmentDoc($event);" />
+                            </div>
+                            <div class="tb-container">
+                                <h5 class="tb-img-title"> 3. A copy of the relevant bylaws in force, along with the proposed
+                                    amendment and reasons justifying the change.</h5>
+                                <div class="tb-img-view">
+                                    <img id="tb-image" width="200px" />
+                                </div>
+                                <label for="tb-file-upload2">Upload Image</label>
+                                <input type="file" id="tb-file-upload2" accept="image/*" (change)="ReasonForAmendmentDoc($event);"/>
+                            </div>
+                            <div class="tb-container">
+                                <h5 class="tb-img-title">4. Copies of the amended text of the bylaws, incorporating the
+                                    changes authorized by the general body.</h5>
+                                <div class="tb-img-view">
+                                    <img id="tb-image" width="200px" />
+                                </div>
+                                <label for="tb-file-upload3">Upload Image</label>
+                                <input type="file" id="tb-file-upload3" accept="image/*" (change)="AmendedTextOfTheBylawsDoc($event);" />
+                            </div>
+                            <div class="tb-container">
+                                <h5 class="tb-img-title"> 5. A certificate signed by the meeting certifying that the
+                                    provisions of subsections (2) and (3) have been complied with, and the bylaws have
+                                    been duly amended. </h5>
+                                <div class="tb-img-view">
+                                    <img id="tb-image" width="200px" />
+                                </div>
+                                <label for="tb-file-upload4">Upload Image</label>
+                                <input type="file" id="tb-file-upload4" accept="image/*" (change)="CertificationOfAmendmentBylaws($event);" />
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12">
+                            <div class="float-end">
+                                <button type="btn" class="back-btn me-2" (click)="backBtn()">Prevoius</button>
+                                <button type="btn" class="next-btn" (click)="submit()">Submit</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div> <!-- tab-body -->
+                    </div>
+                </div> <!-- tab-body -->
+            </div> <!-- app-container -->
+        </ng-template>
+
+       
+
+
+
+    </div>
+</div>
