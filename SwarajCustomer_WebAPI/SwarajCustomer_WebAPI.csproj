@@ -13732,10 +13732,8 @@
     <Content Include="ClientApp\src\assets\css\style.css" />
     <Content Include="ClientApp\src\assets\images\approved-icon.png" />
     <Content Include="ClientApp\src\assets\images\audit.png" />
-    <Content Include="ClientApp\src\assets\images\banner 3.png" />
     <Content Include="ClientApp\src\assets\images\banner.png" />
     <Content Include="ClientApp\src\assets\images\banner1.jpg" />
-    <Content Include="ClientApp\src\assets\images\Bye-Laws.png" />
     <Content Include="ClientApp\src\assets\images\clogo1.png" />
     <Content Include="ClientApp\src\assets\images\clogo2.png" />
     <Content Include="ClientApp\src\assets\images\clogo3.png" />
